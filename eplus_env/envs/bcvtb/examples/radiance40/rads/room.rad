@@ -1,0 +1,1084 @@
+# all of the EC room contents, 
+# minus the glz elements.
+
+# Room wall surfaces.
+50wall_refl_mat polygon ec_room2_58.0.0
+0
+0
+12	120	0	132
+	120	180	132
+	0	180	132
+	0	0	132
+
+
+50wall_refl_mat polygon ec_room2_5B.0.0
+0
+0
+12	0	180	132
+	0	180	0
+	0	0	0
+	0	0	132
+
+50wall_refl_mat polygon ec_room2_5D.0.0
+0
+0
+12	120	0	132
+	120	0	0
+	120	180	0
+	120	180	132
+
+50wall_refl_mat polygon ec_room2_9BC.0.1
+0
+0
+12	0	180	108
+	0	180	96
+	42	180	96
+	42	180	108
+
+50wall_refl_mat polygon ec_room2_9BE.0.1
+0
+0
+12	120	180	132
+	0	180	132
+	0	180	108
+	120	180	108
+
+50wall_refl_mat polygon ec_room2_9BF.0.1
+0
+0
+12	120	180	0
+	120	180	108
+	42	180	108
+	42	180	0
+
+
+
+# Ceiling.  70% refl
+
+70ceiling_refl_mat polygon ec_room2_8E.0.0
+0
+0
+12	120	0	108
+	120	180	108
+	0	180	108
+	0	0	108
+
+
+
+# Floor.   20% refl_mat (actually 19.71%)
+
+20floor_refl_mat polygon ec_room2_59.0.0
+0
+0
+12	120	180	0
+	120	0	0
+	0	0	0
+	0	180	0
+
+# Wainscotting.  Some arbitrary dark reflectance.
+
+#wainscott_mat polygon ec_room2_960.0.0
+#0
+#0
+#12	120	179	3
+#	120	179	0
+#	120	180	0
+#	120	180	3
+
+#wainscott_mat polygon ec_room2_960.0.1
+#0
+#0
+#12	120	180	3
+#	120	180	0
+#	42	180	0
+#	42	180	3
+
+wainscott_mat polygon ec_room2_960.0.2
+0
+0
+12	42	180	3
+	42	180	0
+	42	179	0
+	42	179	3
+
+wainscott_mat polygon ec_room2_960.0.3
+0
+0
+12	42	179	3
+	42	179	0
+	120	179	0
+	120	179	3
+
+wainscott_mat polygon ec_room2_960.0.4
+0
+0
+12	120	180	0
+	120	179	0
+	42	179	0
+	42	180	0
+
+wainscott_mat polygon ec_room2_960.0.5
+0
+0
+12	120	179	3
+	120	180	3
+	42	180	3
+	42	179	3
+
+#wainscott_mat polygon ec_room2_963.0.0
+#0
+#0
+#12	120	0	3
+#	120	0	0
+#	120	180	0
+#	120	180	3
+
+wainscott_mat polygon ec_room2_963.0.1
+0
+0
+12	120	180	3
+	120	180	0
+	119.75	180	0
+	119.75	180	3
+
+wainscott_mat polygon ec_room2_963.0.2
+0
+0
+12	119.75	180	3
+	119.75	180	0
+	119.75	0	0
+	119.75	0	3
+
+wainscott_mat polygon ec_room2_963.0.3
+0
+0
+12	119.75	0	3
+	119.75	0	0
+	120	0	0
+	120	0	3
+
+wainscott_mat polygon ec_room2_963.0.4
+0
+0
+12	120	180	0
+	120	0	0
+	119.75	0	0
+	119.75	180	0
+
+wainscott_mat polygon ec_room2_963.0.5
+0
+0
+12	120	0	3
+	120	180	3
+	119.75	180	3
+	119.75	0	3
+
+#wainscott_mat polygon ec_room2_964.0.0
+#0
+#0
+#12	0	180	0
+#	0	180	3
+#	0	0	3
+#	0	0	0
+
+wainscott_mat polygon ec_room2_964.0.1
+0
+0
+12	0.25	180	0
+	0.25	180	3
+	0	180	3
+	0	180	0
+
+wainscott_mat polygon ec_room2_964.0.2
+0
+0
+12	0.25	0	0
+	0.25	0	3
+	0.25	180	3
+	0.25	180	0
+
+wainscott_mat polygon ec_room2_964.0.3
+0
+0
+12	0	0	0
+	0	0	3
+	0.25	0	3
+	0.25	0	0
+
+wainscott_mat polygon ec_room2_964.0.4
+0
+0
+12	0.25	0	0
+	0.25	180	0
+	0	180	0
+	0	0	0
+
+wainscott_mat polygon ec_room2_964.0.5
+0
+0
+12	0.25	180	3
+	0.25	0	3
+	0	0	3
+	0	180	3
+
+wainscott_mat polygon ec_room2_95D.0.4
+0
+0
+12	36	180	36
+	36	179.75	36
+	33	179.75	36
+	33	180	36
+
+wainscott_mat polygon ec_room2_95D.0.5
+0
+0
+12	36	179.75	37
+	36	180	37
+	33	180	37
+	33	179.75	37
+
+
+# Doorframe geometry.  
+
+wainscott_mat polygon ec_room2_95D.0.0
+0
+0
+12	36	178.75	37
+	36	178.75	36
+	36	179	36
+	36	179	37
+
+wainscott_mat polygon ec_room2_95D.0.1
+0
+0
+12	36	179	37
+	36	179	36
+	33	179	36
+	33	179	37
+
+wainscott_mat polygon ec_room2_95D.0.2
+0
+0
+12	33	179	37
+	33	179	36
+	33	178.75	36
+	33	178.75	37
+
+wainscott_mat polygon ec_room2_95D.0.3
+0
+0
+12	33	178.75	37
+	33	178.75	36
+	36	178.75	36
+	36	178.75	37
+
+wainscott_mat polygon ec_room2_95D.0.4
+0
+0
+12	36	179	36
+	36	178.75	36
+	33	178.75	36
+	33	179	36
+
+wainscott_mat polygon ec_room2_95D.0.5
+0
+0
+12	36	178.75	37
+	36	179	37
+	33	179	37
+	33	178.75	37
+
+
+doorframe_mat polygon ec_room2_A4.0.0
+0
+0
+12	36	179	36.429998
+	36	179	36
+	36	180	36
+	36	180	36.429998
+
+doorframe_mat polygon ec_room2_A4.0.1
+0
+0
+12	36	180	36.429998
+	36	180	36
+	33	180	36
+	33	180	36.429998
+
+doorframe_mat polygon ec_room2_A4.0.2
+0
+0
+12	33	180	36.429998
+	33	180	36
+	33	179	36
+	33	179	36.429998
+
+doorframe_mat polygon ec_room2_A4.0.3
+0
+0
+12	33	179	36.429998
+	33	179	36
+	36	179	36
+	36	179	36.429998
+
+doorframe_mat polygon ec_room2_A4.0.4
+0
+0
+12	36	180	36
+	36	179	36
+	33	179	36
+	33	180	36
+
+doorframe_mat polygon ec_room2_A4.0.5
+0
+0
+12	36	179	36.429998
+	36	180	36.429998
+	33	180	36.429998
+	33	179	36.429998
+
+doorframe_mat polygon ec_room2_956.0.0
+0
+0
+12	42	179	96
+	42	179	0
+	42	180	0
+	42	180	96
+
+doorframe_mat polygon ec_room2_956.0.1
+0
+0
+12	42	180	96
+	42	180	0
+	39	180	0
+	39	180	96
+
+doorframe_mat polygon ec_room2_956.0.2
+0
+0
+12	39	180	96
+	39	180	0
+	39	179	0
+	39	179	96
+
+doorframe_mat polygon ec_room2_956.0.3
+0
+0
+12	39	179	96
+	39	179	0
+	42	179	0
+	42	179	96
+
+doorframe_mat polygon ec_room2_956.0.4
+0
+0
+12	42	180	0
+	42	179	0
+	39	179	0
+	39	180	0
+
+doorframe_mat polygon ec_room2_956.0.5
+0
+0
+12	42	179	96
+	42	180	96
+	39	180	96
+	39	179	96
+
+doorframe_mat polygon ec_room2_958.0.0
+0
+0
+12	0	180	0
+	0	180	96
+	0	179	96
+	0	179	0
+
+doorframe_mat polygon ec_room2_958.0.1
+0
+0
+12	3	180	0
+	3	180	96
+	0	180	96
+	0	180	0
+
+doorframe_mat polygon ec_room2_958.0.2
+0
+0
+12	3	179	0
+	3	179	96
+	3	180	96
+	3	180	0
+
+doorframe_mat polygon ec_room2_958.0.3
+0
+0
+12	0	179	0
+	0	179	96
+	3	179	96
+	3	179	0
+
+doorframe_mat polygon ec_room2_958.0.4
+0
+0
+12	3	179	0
+	3	180	0
+	0	180	0
+	0	179	0
+
+doorframe_mat polygon ec_room2_958.0.5
+0
+0
+12	3	180	96
+	3	179	96
+	0	179	96
+	0	180	96
+
+doorframe_mat polygon ec_room2_9D.0.0
+0
+0
+12	39	179	96
+	39	179	93
+	39	180	93
+	39	180	96
+
+doorframe_mat polygon ec_room2_9D.0.1
+0
+0
+12	39	180	96
+	39	180	93
+	3	180	93
+	3	180	96
+
+doorframe_mat polygon ec_room2_9D.0.2
+0
+0
+12	3	180	96
+	3	180	93
+	3	179	93
+	3	179	96
+
+doorframe_mat polygon ec_room2_9D.0.3
+0
+0
+12	3	179	96
+	3	179	93
+	39	179	93
+	39	179	96
+
+doorframe_mat polygon ec_room2_9D.0.4
+0
+0
+12	39	180	93
+	39	179	93
+	3	179	93
+	3	180	93
+
+doorframe_mat polygon ec_room2_9D.0.5
+0
+0
+12	39	179	96
+	39	180	96
+	3	180	96
+	3	179	96
+
+
+# Window frame.  
+
+windowframe_mat polygon ec_room2_986.0.0
+0
+0
+12	120	-4.25	132
+	120	-4.25	0
+	120	0	0
+	120	0	132
+
+windowframe_mat polygon ec_room2_986.0.1
+0
+0
+12	120	0	132
+	120	0	0
+	117	0	0
+	117	0	132
+
+windowframe_mat polygon ec_room2_986.0.2
+0
+0
+12	117	0	132
+	117	0	0
+	117	-4.25	0
+	117	-4.25	132
+
+windowframe_mat polygon ec_room2_986.0.3
+0
+0
+12	117	-4.25	132
+	117	-4.25	0
+	120	-4.25	0
+	120	-4.25	132
+
+windowframe_mat polygon ec_room2_986.0.4
+0
+0
+12	120	0	0
+	120	-4.25	0
+	117	-4.25	0
+	117	0	0
+
+windowframe_mat polygon ec_room2_986.0.5
+0
+0
+12	120	-4.25	132
+	120	0	132
+	117	0	132
+	117	-4.25	132
+
+windowframe_mat polygon ec_room2_987.0.0
+0
+0
+12	0	0	0
+	0	0	132
+	0	-4.25	132
+	0	-4.25	0
+
+windowframe_mat polygon ec_room2_987.0.1
+0
+0
+12	3	0	0
+	3	0	132
+	0	0	132
+	0	0	0
+
+windowframe_mat polygon ec_room2_987.0.2
+0
+0
+12	3	-4.25	0
+	3	-4.25	132
+	3	0	132
+	3	0	0
+
+windowframe_mat polygon ec_room2_987.0.3
+0
+0
+12	0	-4.25	0
+	0	-4.25	132
+	3	-4.25	132
+	3	-4.25	0
+
+windowframe_mat polygon ec_room2_987.0.4
+0
+0
+12	3	-4.25	0
+	3	0	0
+	0	0	0
+	0	-4.25	0
+
+windowframe_mat polygon ec_room2_987.0.5
+0
+0
+12	3	0	132
+	3	-4.25	132
+	0	-4.25	132
+	0	0	132
+
+windowframe_mat polygon ec_room2_98A.0.0
+0
+0
+12	117	-4.25	132
+	117	-4.25	108
+	117	0	108
+	117	0	132
+
+windowframe_mat polygon ec_room2_98A.0.1
+0
+0
+12	117	0	132
+	117	0	108
+	3	0	108
+	3	0	132
+
+windowframe_mat polygon ec_room2_98A.0.2
+0
+0
+12	3	0	132
+	3	0	108
+	3	-4.25	108
+	3	-4.25	132
+
+windowframe_mat polygon ec_room2_98A.0.3
+0
+0
+12	3	-4.25	132
+	3	-4.25	108
+	117	-4.25	108
+	117	-4.25	132
+
+windowframe_mat polygon ec_room2_98A.0.4
+0
+0
+12	117	0	108
+	117	-4.25	108
+	3	-4.25	108
+	3	0	108
+
+windowframe_mat polygon ec_room2_98A.0.5
+0
+0
+12	117	-4.25	132
+	117	0	132
+	3	0	132
+	3	-4.25	132
+
+windowframe_mat polygon ec_room2_990.0.0
+0
+0
+12	117	-4.25	22
+	117	-4.25	0
+	117	0	0
+	117	0	22
+
+windowframe_mat polygon ec_room2_990.0.1
+0
+0
+12	117	0	22
+	117	0	0
+	3	0	0
+	3	0	22
+
+windowframe_mat polygon ec_room2_990.0.2
+0
+0
+12	3	0	22
+	3	0	0
+	3	-4.25	0
+	3	-4.25	22
+
+windowframe_mat polygon ec_room2_990.0.3
+0
+0
+12	3	-4.25	22
+	3	-4.25	0
+	117	-4.25	0
+	117	-4.25	22
+
+windowframe_mat polygon ec_room2_990.0.4
+0
+0
+12	117	0	0
+	117	-4.25	0
+	3	-4.25	0
+	3	0	0
+
+windowframe_mat polygon ec_room2_990.0.5
+0
+0
+12	117	-4.25	22
+	117	0	22
+	3	0	22
+	3	-4.25	22
+
+windowframe_mat polygon overhang.1540
+0
+0
+12
+             117.25              -4.25                 84
+             117.25              -4.25                 85
+               2.75              -4.25                 85
+               2.75              -4.25                 84
+
+windowframe_mat polygon overhang.2310
+0
+0
+12
+               2.75                  0                 84
+             117.25                  0                 84
+             117.25              -4.25                 84
+               2.75              -4.25                 84
+
+windowframe_mat polygon overhang.3267
+0
+0
+12
+             117.25                  0                 84
+               2.75                  0                 84
+               2.75                  0                 85
+             117.25                  0                 85
+
+windowframe_mat polygon overhang.6457
+0
+0
+12
+               2.75                  0                 85
+               2.75              -4.25                 85
+             117.25              -4.25                 85
+             117.25                  0                 85
+
+
+# door
+55door_refl_mat polygon ec_room2_9C5.0.0
+0
+0
+12	39	179	93
+	39	179	0
+	39	180	0
+	39	180	93
+
+55door_refl_mat polygon ec_room2_9C5.0.1
+0
+0
+12	39	180	93
+	39	180	0
+	3	180	0
+	3	180	93
+
+55door_refl_mat polygon ec_room2_9C5.0.2
+0
+0
+12	3	180	93
+	3	180	0
+	3	179	0
+	3	179	93
+
+55door_refl_mat polygon ec_room2_9C5.0.3
+0
+0
+12	3	179	93
+	3	179	0
+	39	179	0
+	39	179	93
+
+55door_refl_mat polygon ec_room2_9C5.0.4
+0
+0
+12	39	180	0
+	39	179	0
+	3	179	0
+	3	180	0
+
+55door_refl_mat polygon ec_room2_9C5.0.5
+0
+0
+12	39	179	93
+	39	180	93
+	3	180	93
+	3	179	93
+
+####################
+# basic blah furniture. 
+void plastic workstation_mat
+0
+0
+5  0.408 0.365 0.25 0 0
+
+workstation_mat polygon ec_room2_56.0.0
+0
+0
+12
+                 26                 95                 30
+                 26                 95                  0
+                 26                96                 0
+                 26                96                30
+
+workstation_mat polygon ec_room2_56.0.1
+0
+0
+12
+                 26                96                30
+                 26                96                 0
+                  1                96                 0
+                  1                96                30
+
+workstation_mat polygon ec_room2_56.0.2
+0
+0
+12
+                  1                96                30
+                  1                96                 0
+                  1                 95                  0
+                  1                 95                 30
+
+workstation_mat polygon ec_room2_56.0.3
+0
+0
+12
+                  1                 95                 30
+                  1                 95                  0
+                 26                 95                  0
+                 26                 95                 30
+
+workstation_mat polygon ec_room2_56.0.4
+0
+0
+12
+                 26                96                 0
+                 26                 95                  0
+                  1                 95                  0
+                  1                96                 0
+
+white_laminate1 polygon ec_room2_56.0.5
+0
+0
+12
+                 26                 95                 30
+                 26                96                30
+                  1                96                30
+                  1                 95                 30
+
+workstation_mat polygon ec_room2_57.0.0
+0
+0
+12
+                 96                 31                 30
+                 96                 31                  0
+                 95                 31                  0
+                 95                 31                 30
+
+workstation_mat polygon ec_room2_57.0.1
+0
+0
+12
+                 95                 31                 30
+                 95                 31                  0
+                 95                  6                  0
+                 95                  6                 30
+
+workstation_mat polygon ec_room2_57.0.2
+0
+0
+12
+                 95                  6                 30
+                 95                  6                  0
+                 96                  6                  0
+                 96                  6                 30
+
+workstation_mat polygon ec_room2_57.0.3
+0
+0
+12
+                 96                  6                 30
+                 96                  6                  0
+                 96                 31                  0
+                 96                 31                 30
+
+workstation_mat polygon ec_room2_57.0.5
+0
+0
+12
+                 96                 31                 30
+                 95                 31                 30
+                 95                  6                 30
+                 96                  6                 30
+
+white_laminate1 polygon ec_room2_50.0.0
+0
+0
+12
+                 96                  6                 30
+                 96                  6                 29
+                 96                 31                 29
+                 96                 31                 30
+
+white_laminate1 polygon ec_room2_50.0.1
+0
+0
+12
+                 96                 31                 30
+                 96                 31                 29
+                 26                 31                 29
+                 26                 31                 30
+
+white_laminate1 polygon ec_room2_50.0.2
+0
+0
+12
+                 26                 31                 30
+                 26                 31                 29
+                 26                  6                 29
+                 26                  6                 30
+
+white_laminate1 polygon ec_room2_50.0.3
+0
+0
+12
+                 26                  6                 30
+                 26                  6                 29
+                 96                  6                 29
+                 96                  6                 30
+
+workstation_mat polygon ec_room2_50.0.4
+0
+0
+12
+                 96                 31                 29
+                 96                  6                 29
+                 26                  6                 29
+                 26                 31                 29
+
+white_laminate1 polygon ec_room2_50.0.5
+0
+0
+12
+                 96                  6                 30
+                 96                 31                 30
+                 26                 31                 30
+                 26                  6                 30
+
+white_laminate1 polygon ec_room2_51.0.0
+0
+0
+12
+                 26                  6                 30
+                 26                  6                 29
+                 26                96                29
+                 26                96                30
+
+white_laminate1 polygon ec_room2_51.0.1
+0
+0
+12
+                 26                96                30
+                 26                96                29
+                  1                96                29
+                  1                96                30
+
+white_laminate1 polygon ec_room2_51.0.2
+0
+0
+12
+                  1                96                30
+                  1                96                29
+                  1                  6                 29
+                  1                  6                 30
+
+white_laminate1 polygon ec_room2_51.0.3
+0
+0
+12
+                  1                  6                 30
+                  1                  6                 29
+                 26                  6                 29
+                 26                  6                 30
+
+workstation_mat polygon ec_room2_51.0.4
+0
+0
+12
+                 26                96                29
+                 26                  6                 29
+                  1                  6                 29
+                  1                96                29
+
+white_laminate1 polygon ec_room2_51.0.5
+0
+0
+12
+                 26                  6                 30
+                 26                96                30
+                  1                96                30
+                  1                  6                 30
+
+workstation_mat polygon ec_room2_5E.0.0
+0
+0
+12
+                 27                 31                 29
+                 27                 31                  0
+                 26                 31                  0
+                 26                 31                 29
+
+workstation_mat polygon ec_room2_5E.0.1
+0
+0
+12
+                 26                 31                 29
+                 26                 31                  0
+                 26                  6                  0
+                 26                  6                 29
+
+workstation_mat polygon ec_room2_5E.0.2
+0
+0
+12
+                 26                  6                 29
+                 26                  6                  0
+                 27                  6                  0
+                 27                  6                 29
+
+workstation_mat polygon ec_room2_5E.0.3
+0
+0
+12
+                 27                  6                 29
+                 27                  6                  0
+                 27                 31                  0
+                 27                 31                 29
+
+white_laminate1 polygon ec_room2_5E.0.5
+0
+0
+12
+                 27                 31                 30
+                 26                 31                 30
+                 26                  6                 30
+                 27                  6                 30
+
+workstation_mat polygon back_side
+0
+0
+12               96                  6                 30
+                 96                  6                  0
+                  1                  6                  0
+                  1                  6                 30
+
+workstation_mat polygon side_side
+0
+0
+12                1                96                30
+                  1                  6                 30
+                  1                  6                  0
+                  1                96                 0
+
+# 2 pieces of paper
+# xform -rz -60 -t 10 46 0
+
+paper_mat polygon left_paper
+0
+0
+12
+                 10                 46             30.001
+              14.25      38.6387840678             30.001
+      23.7762794416      44.1387840678             30.001
+      19.5262794416               51.5             30.001
+
+paper_mat polygon right_paper
+0
+0
+12
+                 20                 68             30.001
+              24.25      75.3612159322             30.001
+      14.7237205584      80.8612159322             30.001
+      10.4737205584               73.5             30.001
+   
+
+####################
+# Placement of chair
+void instance chair
+7 octs/chair1.oct -rz 180 -t 40 60 0
+0
+0
+
+####################
+# Placement of vase
+#void instance red_vase
+#1 octs/redvase.oct 
+#0
+#0
+
+####################
+# Placement of keyboard 
+
+!xform -n keyb -rz -90 -t 17 60 30 rads/keyboard.rad
+
+
+####################
+#green ground plane
+#!xform -n ground rads/ground.rad

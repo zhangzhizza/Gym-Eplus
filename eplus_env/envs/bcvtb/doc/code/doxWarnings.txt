@@ -1,0 +1,156 @@
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/matlab/sendClientError.m:17: warning: Found ';' while parsing initializer list! (doxygen could be confused by a macro call without semicolon)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:80: warning: the name `utilSocket.c' supplied as the second argument in the \file statement matches the following input files:
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilSocket.c
+Please use a more specific name by including a (larger) part of the path!
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:80: warning: the name `utilSocket.h' supplied as the second argument in the \file statement matches the following input files:
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilSocket.h
+Please use a more specific name by including a (larger) part of the path!
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.c:80: warning: the name `utilXml.h' supplied as the second argument in the \file statement matches the following input files:
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.h
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilXml.h
+Please use a more specific name by including a (larger) part of the path!
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.h:80: warning: the name `utilXml.h' supplied as the second argument in the \file statement matches the following input files:
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.h
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilXml.h
+Please use a more specific name by including a (larger) part of the path!
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilSocket.c:80: warning: the name `utilSocket.c' supplied as the second argument in the \file statement matches the following input files:
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilSocket.c
+Please use a more specific name by including a (larger) part of the path!
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilSocket.h:80: warning: the name `utilSocket.h' supplied as the second argument in the \file statement matches the following input files:
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilSocket.h
+Please use a more specific name by including a (larger) part of the path!
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilXml.c:80: warning: the name `utilXml.h' supplied as the second argument in the \file statement matches the following input files:
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.h
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilXml.h
+Please use a more specific name by including a (larger) part of the path!
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilXml.h:80: warning: the name `utilXml.h' supplied as the second argument in the \file statement matches the following input files:
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.h
+   /mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilXml.h
+Please use a more specific name by including a (larger) part of the path!
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.h:130: warning: the name `simple' supplied as the argument of the \class, \struct, \union, or \include command is not an input file
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/matlab/exchangeDoublesWithSocket.m:83: warning: documented symbol `throw(ME)' was not declared or defined.
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:28: warning: Found unknown command `\val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:35: warning: Found unknown command `\val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:25: warning: Found unknown command `\val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'intValWri' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'nIntWri' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'boolValWri' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'nBooWri' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'intValRea' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'nIntRea' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'booValRea' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'nBooRea' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'intValWri' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'nIntWri' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'boolValWri' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'nBooWri' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'intValRea' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'nIntRea' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'booValRea' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/modelica/bcvtb.h:47: warning: argument 'nBooRea' of command @param is not found in the argument list of exchangeModelicaClient(int sockfd, int flaWri, int *flaRea, double simTimWri, double *dblValWri, size_t nDblWri, double *simTimRea, double *dblValRea, size_t nDblRea)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:25: warning: Found unknown command `\val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:28: warning: Found unknown command `\val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:35: warning: Found unknown command `\val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:25: warning: Found unknown command `\val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:25: warning: explicit link request to 'ifndef' could not be resolved
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:26: warning: explicit link request to 'define' could not be resolved
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:27: warning: explicit link request to 'endif' could not be resolved
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:27: warning: Found unknown command `\val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:35: warning: Found unknown command `\val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/defines.h:28: warning: Found unknown command `\val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:148: warning: The following parameters of assembleBuffer(int flag, int nDbl, int nInt, int nBoo, double curSimTim, double dblVal[], int intVal[], int booVal[], char **buffer, int *bufLen) are not documented:
+  parameter 'curSimTim'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:333: warning: argument 'flag' of command @param is not found in the argument list of disassembleBuffer(const char *buffer, int *fla, int *nDbl, int *nInt, int *nBoo, double *curSimTim, double dblVal[], int intVal[], int booVal[])
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:333: warning: The following parameters of disassembleBuffer(const char *buffer, int *fla, int *nDbl, int *nInt, int *nBoo, double *curSimTim, double dblVal[], int intVal[], int booVal[]) are not documented:
+  parameter 'fla'
+  parameter 'curSimTim'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:286: warning: argument 'flag' of command @param is not found in the argument list of disassembleHeaderBuffer(const char *buffer, char **endptr, const int base, int *fla, int *nDbl, int *nInt, int *nBoo)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:286: warning: The following parameters of disassembleHeaderBuffer(const char *buffer, char **endptr, const int base, int *fla, int *nDbl, int *nInt, int *nBoo) are not documented:
+  parameter 'endptr'
+  parameter 'base'
+  parameter 'fla'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:1144: warning: argument 'flaexport' of command @param is not found in the argument list of exchangedoubleswithsocketFMU(const int *sockfd, const int *flaWri, int *flaRea, const int *nDblWri, int *nDblRea, double *simTimWri, double dblValWri[], double *simTimRea, double dblValRea[], const int *flaExport)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:1144: warning: The following parameters of exchangedoubleswithsocketFMU(const int *sockfd, const int *flaWri, int *flaRea, const int *nDblWri, int *nDblRea, double *simTimWri, double dblValWri[], double *simTimRea, double dblValRea[], const int *flaExport) are not documented:
+  parameter 'flaExport'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:1028: warning: argument 'boolValWri' of command @param is not found in the argument list of exchangewithsocket(const int *sockfd, const int *flaWri, int *flaRea, const int *nDblWri, const int *nIntWri, const int *nBooWri, int *nDblRea, int *nIntRea, int *nBooRea, double *simTimWri, double dblValWri[], int intValWri[], int booValWri[], double *simTimRea, double dblValRea[], int intValRea[], int booValRea[])
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:1028: warning: argument 'boolValRea' of command @param is not found in the argument list of exchangewithsocket(const int *sockfd, const int *flaWri, int *flaRea, const int *nDblWri, const int *nIntWri, const int *nBooWri, int *nDblRea, int *nIntRea, int *nBooRea, double *simTimWri, double dblValWri[], int intValWri[], int booValWri[], double *simTimRea, double dblValRea[], int intValRea[], int booValRea[])
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:1028: warning: The following parameters of exchangewithsocket(const int *sockfd, const int *flaWri, int *flaRea, const int *nDblWri, const int *nIntWri, const int *nBooWri, int *nDblRea, int *nIntRea, int *nBooRea, double *simTimWri, double dblValWri[], int intValWri[], int booValWri[], double *simTimRea, double dblValRea[], int intValRea[], int booValRea[]) are not documented:
+  parameter 'booValWri'
+  parameter 'booValRea'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:258: warning: argument 'The' of command @param is not found in the argument list of getDoubleCheckError(const char *nptr, char **endptr, double *val)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:258: warning: The following parameters of getDoubleCheckError(const char *nptr, char **endptr, double *val) are not documented:
+  parameter 'val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:220: warning: argument 'The' of command @param is not found in the argument list of getIntCheckError(const char *nptr, char **endptr, const int base, int *val)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:220: warning: The following parameters of getIntCheckError(const char *nptr, char **endptr, const int base, int *val) are not documented:
+  parameter 'val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:886: warning: argument 'boolValRea' of command @param is not found in the argument list of readfromsocket(const int *sockfd, int *flaRea, int *nDblRea, int *nIntRea, int *nBooRea, double *curSimTim, double dblValRea[], int intValRea[], int booValRea[])
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:886: warning: The following parameters of readfromsocket(const int *sockfd, int *flaRea, int *nDblRea, int *nIntRea, int *nBooRea, double *curSimTim, double dblValRea[], int intValRea[], int booValRea[]) are not documented:
+  parameter 'booValRea'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:657: warning: argument 'boolValWri' of command @param is not found in the argument list of writetosocket(const int *sockfd, const int *flaWri, const int *nDblWri, const int *nIntWri, const int *nBooWri, double *curSimTim, double dblValWri[], int intValWri[], int booValWri[])
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.c:657: warning: The following parameters of writetosocket(const int *sockfd, const int *flaWri, const int *nDblWri, const int *nIntWri, const int *nBooWri, double *curSimTim, double dblValWri[], int intValWri[], int booValWri[]) are not documented:
+  parameter 'booValWri'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:162: warning: The following parameters of assembleBuffer(int flag, int nDbl, int nInt, int nBoo, double curSimTim, double dblVal[], int intVal[], int booVal[], char **buffer, int *bufLen) are not documented:
+  parameter 'curSimTim'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:222: warning: argument 'flag' of command @param is not found in the argument list of disassembleBuffer(const char *buffer, int *fla, int *nDbl, int *nInt, int *nBoo, double *curSimTim, double dblVal[], int intVal[], int booVal[])
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:222: warning: The following parameters of disassembleBuffer(const char *buffer, int *fla, int *nDbl, int *nInt, int *nBoo, double *curSimTim, double dblVal[], int intVal[], int booVal[]) are not documented:
+  parameter 'fla'
+  parameter 'curSimTim'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:205: warning: argument 'flag' of command @param is not found in the argument list of disassembleHeaderBuffer(const char *buffer, char **endptr, const int base, int *fla, int *nDbl, int *nInt, int *nBoo)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:205: warning: The following parameters of disassembleHeaderBuffer(const char *buffer, char **endptr, const int base, int *fla, int *nDbl, int *nInt, int *nBoo) are not documented:
+  parameter 'endptr'
+  parameter 'base'
+  parameter 'fla'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:433: warning: argument 'flaexport' of command @param is not found in the argument list of exchangedoubleswithsocketFMU(const int *sockfd, const int *flaWri, int *flaRea, const int *nDblWri, int *nDblRea, double *simTimWri, double dblValWri[], double *simTimRea, double dblValRea[], const int *flaExport)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:433: warning: The following parameters of exchangedoubleswithsocketFMU(const int *sockfd, const int *flaWri, int *flaRea, const int *nDblWri, int *nDblRea, double *simTimWri, double dblValWri[], double *simTimRea, double dblValRea[], const int *flaExport) are not documented:
+  parameter 'flaExport'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:377: warning: argument 'boolValWri' of command @param is not found in the argument list of exchangewithsocket(const int *sockfd, const int *flaWri, int *flaRea, const int *nDblWri, const int *nIntWri, const int *nBooWri, int *nDblRea, int *nIntRea, int *nBooRea, double *simTimWri, double dblValWri[], int intValWri[], int booValWri[], double *simTimRea, double dblValRea[], int intValRea[], int booValRea[])
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:377: warning: argument 'boolValRea' of command @param is not found in the argument list of exchangewithsocket(const int *sockfd, const int *flaWri, int *flaRea, const int *nDblWri, const int *nIntWri, const int *nBooWri, int *nDblRea, int *nIntRea, int *nBooRea, double *simTimWri, double dblValWri[], int intValWri[], int booValWri[], double *simTimRea, double dblValRea[], int intValRea[], int booValRea[])
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:377: warning: The following parameters of exchangewithsocket(const int *sockfd, const int *flaWri, int *flaRea, const int *nDblWri, const int *nIntWri, const int *nBooWri, int *nDblRea, int *nIntRea, int *nBooRea, double *simTimWri, double dblValWri[], int intValWri[], int booValWri[], double *simTimRea, double dblValRea[], int intValRea[], int booValRea[]) are not documented:
+  parameter 'booValWri'
+  parameter 'booValRea'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:193: warning: argument 'The' of command @param is not found in the argument list of getDoubleCheckError(const char *nptr, char **endptr, double *val)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:193: warning: The following parameters of getDoubleCheckError(const char *nptr, char **endptr, double *val) are not documented:
+  parameter 'val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:181: warning: argument 'The' of command @param is not found in the argument list of getIntCheckError(const char *nptr, char **endptr, const int base, int *val)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:181: warning: The following parameters of getIntCheckError(const char *nptr, char **endptr, const int base, int *val) are not documented:
+  parameter 'val'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:346: warning: argument 'boolValRea' of command @param is not found in the argument list of readfromsocket(const int *sockfd, int *flaRea, int *nDblRea, int *nIntRea, int *nBooRea, double *curSimTim, double dblValRea[], int intValRea[], int booValRea[])
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:346: warning: The following parameters of readfromsocket(const int *sockfd, int *flaRea, int *nDblRea, int *nIntRea, int *nBooRea, double *curSimTim, double dblValRea[], int intValRea[], int booValRea[]) are not documented:
+  parameter 'booValRea'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:276: warning: argument 'boolValWri' of command @param is not found in the argument list of writetosocket(const int *sockfd, const int *flaWri, const int *nDblWri, const int *nIntWri, const int *nBooWri, double *curSimTim, double dblValWri[], int intValWri[], int booValWri[])
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilSocket.h:276: warning: The following parameters of writetosocket(const int *sockfd, const int *flaWri, const int *nDblWri, const int *nIntWri, const int *nBooWri, double *curSimTim, double dblValWri[], int intValWri[], int booValWri[]) are not documented:
+  parameter 'booValWri'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.c:224: warning: argument 'myOutputvarsType' of command @param is not found in the argument list of getepvariables(char *const fileName, char *const myOutputVarsName, char *const myOutputVarsType, int *const myNumOutputVars, char *const myInputKeys, int *const myNumInputKeys, char *const myInputVars, int *const myNumInputVars, int *const myInputVarsType, int *const myStrLen)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.c:224: warning: The following parameters of getepvariables(char *const fileName, char *const myOutputVarsName, char *const myOutputVarsType, int *const myNumOutputVars, char *const myInputKeys, int *const myNumInputKeys, char *const myInputVars, int *const myNumInputVars, int *const myInputVarsType, int *const myStrLen) are not documented:
+  parameter 'myOutputVarsType'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.c:357: warning: argument 'myOutputvarsType' of command @param is not found in the argument list of getepvariablesFMU(char *const fileName, char *const myOutputVarsName, char *const myOutputVarsType, int *const myNumOutputVars, char *const myInputKeys, int *const myNumInputKeys, char *const myInputVars, int *const myNumInputVars, int *const myInputVarsType, int *const myStrLen)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.c:357: warning: The following parameters of getepvariablesFMU(char *const fileName, char *const myOutputVarsName, char *const myOutputVarsType, int *const myNumOutputVars, char *const myInputKeys, int *const myNumInputKeys, char *const myInputVars, int *const myNumInputVars, int *const myInputVarsType, int *const myStrLen) are not documented:
+  parameter 'myOutputVarsType'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilXml.c:106: warning: argument 'myOutputvarsType' of command @param is not found in the argument list of getepvariables(char *const fileName, char *const myOutputVarsName, char *const myOutputVarsType, int *const myNumOutputVars, char *const myInputKeys, int *const myNumInputKeys, char *const myInputVars, int *const myNumInputVars, int *const myInputVarsType, int *const myStrLen)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilXml.c:106: warning: The following parameters of getepvariables(char *const fileName, char *const myOutputVarsName, char *const myOutputVarsType, int *const myNumOutputVars, char *const myInputKeys, int *const myNumInputKeys, char *const myInputVars, int *const myNumInputVars, int *const myInputVarsType, int *const myStrLen) are not documented:
+  parameter 'myOutputVarsType'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.h:192: warning: argument 'myOutputvarsType' of command @param is not found in the argument list of getepvariables(char *const fileName, char *const myOutputVarsName, char *const myOutputVarsType, int *const myNumOutputVars, char *const myInputKeys, int *const myNumInputKeys, char *const myInputVars, int *const myNumInputVars, int *const myInputVarsType, int *const myStrLen)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.h:192: warning: The following parameters of getepvariables(char *const fileName, char *const myOutputVarsName, char *const myOutputVarsType, int *const myNumOutputVars, char *const myInputKeys, int *const myNumInputKeys, char *const myInputVars, int *const myNumInputVars, int *const myInputVarsType, int *const myStrLen) are not documented:
+  parameter 'myOutputVarsType'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.h:220: warning: argument 'myOutputvarsType' of command @param is not found in the argument list of getepvariablesFMU(char *const fileName, char *const myOutputVarsName, char *const myOutputVarsType, int *const myNumOutputVars, char *const myInputKeys, int *const myNumInputKeys, char *const myInputVars, int *const myNumInputVars, int *const myInputVarsType, int *const myStrLen)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/util/utilXml.h:220: warning: The following parameters of getepvariablesFMU(char *const fileName, char *const myOutputVarsName, char *const myOutputVarsType, int *const myNumOutputVars, char *const myInputKeys, int *const myNumInputKeys, char *const myInputVars, int *const myNumInputVars, int *const myInputVarsType, int *const myStrLen) are not documented:
+  parameter 'myOutputVarsType'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilXml.h:104: warning: argument 'myOutputvarsType' of command @param is not found in the argument list of getepvariables(char *const fileName, char *const myOutputVarsName, char *const myOutputVarsType, int *const myNumOutputVars, char *const myInputKeys, int *const myNumInputKeys, char *const myInputVars, int *const myNumInputVars, int *const myInputVarsType, int *const myStrLen)
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/dummy/utilXml.h:104: warning: The following parameters of getepvariables(char *const fileName, char *const myOutputVarsName, char *const myOutputVarsType, int *const myNumOutputVars, char *const myInputKeys, int *const myNumInputKeys, char *const myInputVars, int *const myNumInputVars, int *const myInputVarsType, int *const myStrLen) are not documented:
+  parameter 'myOutputVarsType'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/config/getPath/src/GetPath.java:11: warning: Found unknown command `\Program'
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/ptII/adInterfaceMCC/src/adInterfaceMCC/util/ADInterfaceMCCDeviceManager.java:141: warning: unable to resolve link to `adInterfaceMCC.util.ADInterfaceMCCDeviceManager' for \link command
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/ptII/adInterfaceMCC/src/adInterfaceMCC/util/ADInterfaceMCCDeviceManager.java:157: warning: unable to resolve link to `adInterfaceMCC.util.ADInterfaceMCCDeviceManager' for \link command
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/ptII/adInterfaceMCC/src/adInterfaceMCC/util/ADInterfaceMCCObjectType.java:210: warning: End of list marker found without any preceding list items
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/ptII/bacnet/src/bacnet/util/BACnetDeviceManager.java:437: warning: unable to resolve link to `bacnet.util.BACnetDeviceManager' for \link command
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/ptII/bacnet/src/bacnet/util/BACnetDeviceManager.java:398: warning: unable to resolve link to `bacnet.util.BACnetDeviceManager' for \link command
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/ptII/bacnet/src/bacnet/util/BACnetDeviceManager.java:418: warning: unable to resolve link to `bacnet.util.BACnetDeviceManager' for \link command
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/ptII/bacnet/src/bacnet/util/BACnetDeviceManager.java:747: warning: unable to resolve link to `bacnet.util.BACnetDeviceManager' for \link command
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/ptII/bacnet/src/bacnet/util/BACnetDeviceManager.java:612: warning: unable to resolve link to `bacnet.util.BACnetDeviceManager' for \link command
+/mnt/hgfs/proj/bcvtb/git/migrateSVN/lib/ptII/bacnet/src/bacnet/util/BACnetObjectType.java:408: warning: The following parameters of bacnet.util.BACnetObjectType.readBacnetNonDeviceObjectType(final String dev_inst, final String obj_inst, final String obj_name, final String s) are not documented:
+  parameter 'obj_name'
+  parameter 's'

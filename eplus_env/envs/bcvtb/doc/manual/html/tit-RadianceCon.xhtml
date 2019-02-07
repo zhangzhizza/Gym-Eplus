@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>5.11. Radiance</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="configuration.xhtml" title="Chapter 5. Configuring programs for use with the BCVTB"/><link rel="prev" href="tit-CustomExeCon.xhtml" title="5.10. Custom program using a system command"/><link rel="next" href="ch05s12.xhtml" title="5.12. BACnet"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.11. Radiance</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tit-CustomExeCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 5. Configuring programs for use with the BCVTB</th><td width="20%" align="right"> <a accesskey="n" href="ch05s12.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="configuration.xhtml">Configuring programs for use with the BCVTB</a></span> &gt; <span class="breadcrumb-node">Radiance</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="tit-RadianceCon"/>5.11. Radiance</h2></div></div></div>
+  
+  <p>
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"/></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+      <p>
+	Using Radiance in BCVTB requires Radiance simulation experience.  A BCVTB user that is new to Radiance should first learn to use Radiance before attempting to use Radiance in BCVTB.
+      </p>
+    </td></tr></table></div><p>
+  </p>
+  <p>
+    </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"/></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+      <p>
+	The example has only been tested on Mac OS X and Linux, but not on Windows.
+      </p>
+  </td></tr></table></div><p>
+  </p>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1511"/>5.11.1. Introduction</h3></div></div></div>
+    
+    <p>
+      Radiance is a collection of command line programs that are executed in various orders to perform simulations. Radiance commands with arguments are often stored in a script file for repetitive execution. The system command actor provides a means to perform Radiance simulations by executing this script and collecting the output. The BCVTB distribution includes two BCVTB Radiance examples.
+    </p>
+    </div>
+    <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1514"/>5.11.2. Configuring Radiance</h3></div></div></div>
+      
+      <p>
+	Radiance should be downloaded and installed on the computer as normal (the installation process varies based on the operating system).  Do not forget to set the environment variables <code class="code">PATH</code> and <code class="code">RAYPATH</code> as described in the <code class="code">README</code> file that is provided by the Radiance installation program. See also <a class="xref" href="settingEnvironmentVariables.xhtml" title="3.3. Setting system environment variables">Section 3.3, “Setting system environment variables”</a> for how to set environment variables for the BCVTB.
+</p>
+<p>
+The following example uses Radiance to calculate average illuminance at a point in a model.  This example generates a sky file based on weather file input, compiles an octree model and calculates illuminance at the point.
+</p>
+    </div>
+    <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1522"/>5.11.3. Create a Radiance script</h3></div></div></div>
+      
+      <p>
+	We first create a Radiance script that computes the illuminance. The script takes as input arguments the month, day, and hour, the direct normal and diffuse horizontal irradiation, as well as the latitude, longitude and meridien.
+The output of the csh script is the illuminance, which will be written to the console. The script is as follows:
+</p><pre class="programlisting">#!/bin/csh
+############################################################
+# Script to run radiance.
+############################################################
+set month = $argv[1]
+set day = $argv[2]
+set hour = `ev $argv[3]-.5`
+set dirnorm = $argv[4]
+set difhoriz = $argv[5]
+set lat = $argv[6]
+set long = $argv[7]
+set mer = $argv[8]
+
+set alt = `gensky $month $day $hour -a $lat -o $long -m $mer | awk '{if(NR==3)if($6&gt;0) print 1; else print 0}'`
+
+if ($alt == 1) then
+### Generate perez sky
+gendaylit $month $day $hour -a $lat -o $long -m $mer -W $dirnorm $difhoriz -g .1 &gt; rads/sky.rad
+
+cat &gt;&gt; rads/sky.rad &lt;&lt;EOF
+
+skyfunc glow skyglow
+0
+0
+4 1 1 1 0
+
+skyglow source sky
+0
+0
+4 0 0 1 180
+
+skyglow source ground
+0
+0
+4 0 0 -1 180
+       
+EOF
+
+### Compile octree model
+oconv rads/sky.rad rads/approx.mat rads/room_basic.rad rads/top_panels.rad rads/desks.rad \
+	rads/PC.rad rads/window_pane.rad rads/glass.rad &gt; octs/model_sky.oct
+
+### Create file of test points
+echo 22 60 32 0 0 1 &gt; data/test.pts
+
+### Perform rtrace simulation
+rtrace -h- -w- -n 2 -I -ab 2 -ad 2000 -as 1000 &lt; data/test.pts octs/model_sky.oct | \
+	rcalc -e '$1=179*($1*0.265+$2*0.670+$3*0.065)' 
+
+else
+	echo 0.0
+endif
+</pre><p>
+	</p>
+      </div>
+    <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1526"/>5.11.4. Create a Ptolemy II model</h3></div></div></div>
+      
+      <p>
+	Next, we create a Ptolemy II model that prepares the input data for the Radiance script, parses the output of the Radiance script, and displays the illuminance in a plotter.
+	</p>
+      <p>
+	<a class="xref" href="tit-RadianceCon.xhtml#configurationPtolemyRadianceSystem" title="Figure 5.37.  Ptolemy II system model that uses the SystemCommand actor to run Radiance.">Figure 5.37</a> shows the Ptolemy II system model that performs the following five steps for each time step iteration:
+	</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+	    <p>Read a line from the a weather data file that is in the EnergyPlus <code class="code">epw</code> format.
+	    </p>
+	    </li><li class="listitem">
+	    <p>Parse the weather record for the necessary data (month, day, hour, direct normal irradiance, and diffuse horizontal irradiance).
+	    </p>
+	  </li><li class="listitem">
+	    <p>Run the Radiance script to simulate daylight using information from the weather data. This step will generate a Perez sky, compile an octree model, and simulate illuminance at a point.
+	    </p>
+	  </li><li class="listitem">
+	    <p>Convert the script output from string to double precision format.
+	    </p>
+	  </li><li class="listitem">
+	    <p>Plot illuminance vs. time.
+	    </p>
+	  </li></ol></div><p>  
+      </p>
+    <div class="figure"><a id="configurationPtolemyRadianceSystem"/><p class="title"><strong>Figure 5.37. 
+       Ptolemy II system model that uses the <code class="code">SystemCommand</code> actor to run Radiance.</strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationPtolemyRadianceSystem.png" alt="Ptolemy II system model that uses the SystemCommand actor to run Radiance."/></div>
+     
+    </div></div><br class="figure-break"/>
+    <p>
+The line reader actor reads the <code class="code">epw</code> weather data file. The header (first 8 lines) is skipped by entering <code class="code">8</code> into the <code class="code">numberOfLinesToSkip</code> field as shown in <a class="xref" href="tit-RadianceCon.xhtml#configurationPtolemyRadianceLineReader" title="Figure 5.38.  Parameters for the LineReader actor.">Figure 5.38</a>.
+    </p><div class="figure"><a id="configurationPtolemyRadianceLineReader"/><p class="title"><strong>Figure 5.38. 
+       Parameters for the <code class="code">LineReader</code> actor.</strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationPtolemyRadianceLineReader.png" alt="Parameters for the LineReader actor."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+    </p>
+    <p>
+      The parsing of the file is done by a composite actor.  Looking inside the composite actor reveals an expression actor that splits the string at the commas into an array and five array element actors that select an element from the array as shown in <a class="xref" href="tit-RadianceCon.xhtml#configurationPtolemyRadianceParseWeatherRecord" title="Figure 5.39.  View inside the ParseWeatherRecord composite actor.">Figure 5.39</a>.
+    </p><div class="figure"><a id="configurationPtolemyRadianceParseWeatherRecord"/><p class="title"><strong>Figure 5.39. 
+       View inside the <code class="code">ParseWeatherRecord</code> composite actor.
+     </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationPtolemyRadianceParseWeatherRecord.png" alt="View inside the ParseWeatherRecord composite actor."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+    </p>
+    <p>
+      The system command actor runs a C shell script containing Radiance commands. The values read from the weather data file are passed as arguments to this C shell script as shown in <a class="xref" href="tit-RadianceCon.xhtml#configurationPtolemyRadianceSystemCommand" title="Figure 5.40.  Parameters for the SystemCommand actor.">Figure 5.40</a>.
+    </p><div class="figure"><a id="configurationPtolemyRadianceSystemCommand"/><p class="title"><strong>Figure 5.40. 
+       Parameters for the <code class="code">SystemCommand</code> actor.
+     </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationPtolemyRadianceSystemCommand.png" alt="Parameters for the SystemCommand actor."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+    </p>
+    <p>
+      The output of the csh script that is called by the <code class="code">SystemCommand</code> actor is the illuminance, but of type string and not double precision. The composite actor <code class="code">String2Double</code> contains actors that convert the string to double as shown in <a class="xref" href="tit-RadianceCon.xhtml#configurationPtolemyRadianceString2Double" title="Figure 5.41.  Inside the String2Double composite actor.">Figure 5.41</a>. The <code class="code">trim</code> actor is required to strip the newline character from the end of the string.
+    </p><div class="figure"><a id="configurationPtolemyRadianceString2Double"/><p class="title"><strong>Figure 5.41. 
+       Inside the <code class="code">String2Double</code> composite actor.
+     </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationPtolemyRadianceString2Double.png" alt="Inside the String2Double composite actor."/></div>
+     
+     </div></div><p><br class="figure-break"/>
+    </p>
+    <p>
+      The <code class="code">TimedPlotter</code> actor plots the illuminance vs. time, measured in hours from the beginning of the weather data file, as shown in <a class="xref" href="tit-RadianceCon.xhtml#configurationPtolemyRadianceTimedPlotter" title="Figure 5.42.  Output of the TimedPlotter actor.">Figure 5.42</a>.
+    </p><div class="figure"><a id="configurationPtolemyRadianceTimedPlotter"/><p class="title"><strong>Figure 5.42. 
+       Output of the <code class="code">TimedPlotter</code> actor.
+     </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationPtolemyRadianceTimedPlotter.png" alt="Output of the TimedPlotter actor."/></div>
+     
+     </div></div><p><br class="figure-break"/>
+    </p>
+    </div>
+  </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tit-CustomExeCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="configuration.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="ch05s12.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">5.10. Custom program using a system command </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 5.12. BACnet</td></tr></table></div></body></html>

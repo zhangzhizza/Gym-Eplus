@@ -1,0 +1,364 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE entity PUBLIC "-//UC Berkeley//DTD MoML 1//EN"
+    "http://ptolemy.eecs.berkeley.edu/xml/dtd/MoML_1.dtd">
+<entity name="system" class="ptolemy.actor.TypedCompositeActor">
+    <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="9.0.devel">
+    </property>
+    <property name="SDF Director" class="ptolemy.domains.sdf.kernel.SDFDirector">
+        <property name="iterations" class="ptolemy.data.expr.Parameter" value="numberOfHours">
+        </property>
+        <property name="period" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{-55.0, 150.0}">
+        </property>
+    </property>
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={204, 37, 1033, 640}, maximized=false}">
+    </property>
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[817, 516]">
+    </property>
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2840972840973">
+    </property>
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{178.2385253906248, 248.1770405016445}">
+    </property>
+    <property name="numberOfHours" class="ptolemy.data.expr.Parameter" value="48">
+        <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
+        </property>
+        <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
+            <property name="_color" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+            </property>
+        </property>
+        <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+      <svg>
+        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-P-</text>
+      </svg>
+    </configure>
+        </property>
+        <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[20.0, 140.0]">
+        </property>
+    </property>
+    <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="This model demonstrates how to link&#10;Radiance to the BCVTB.">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[180.0, 130.0]">
+        </property>
+    </property>
+    <property name="annotation" class="ptolemy.kernel.util.Attribute">
+        <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
+        </property>
+        <property name="_iconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+            <configure><svg><text x="20" y="20" style="font-size:14; font-family:SansSerif; fill:darkgray">Author: Andrew McNeil</text></svg></configure>
+        </property>
+        <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+      <svg>
+        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-A-</text>
+      </svg>
+    </configure>
+        </property>
+        <property name="_controllerFactory" class="ptolemy.vergil.basic.NodeControllerFactory">
+        </property>
+        <property name="_editorFactory" class="ptolemy.vergil.toolbox.AnnotationEditorFactory">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-160.0, 295.0]">
+        </property>
+    </property>
+    <entity name="LineReader" class="ptolemy.actor.lib.io.LineReader">
+        <property name="fileOrURL" class="ptolemy.data.expr.FileParameter" value="data/USA_CA_San.Francisco_TMY2.epw">
+        </property>
+        <property name="numberOfLinesToSkip" class="ptolemy.data.expr.Parameter" value="8">
+        </property>
+        <doc>Read one line at a time from a text file and output as a string</doc>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-50.0, 260.0]">
+        </property>
+    </entity>
+    <entity name="run radiance,csh" class="lbnl.actor.lib.SystemCommand">
+        <property name="programName" class="ptolemy.data.expr.FileParameter" value="./scripts/radiance.csh">
+        </property>
+        <property name="programArguments" class="ptolemy.data.expr.Parameter" value="&quot;$month $day $hour $directNormalIllum $diffuseHorizIllum 37.62 122.4 120&quot;">
+        </property>
+        <property name="showConsoleWindow" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[210.0, 250.0]">
+        </property>
+        <property name="_expertMode" class="ptolemy.kernel.util.SingletonAttribute">
+        </property>
+        <port name="exitValue" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="string">
+            </property>
+        </port>
+        <port name="error" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="month" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+        </port>
+        <port name="day" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+        </port>
+        <port name="hour" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+        </port>
+        <port name="directNormalIllum" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+        </port>
+        <port name="diffuseHorizIllum" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+        </port>
+    </entity>
+    <entity name="TimedPlotter" class="ptolemy.actor.lib.gui.TimedPlotter">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={847, 541, 565, 341}, maximized=false}">
+        </property>
+        <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[563, 280]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[425.0, 250.0]">
+        </property>
+        <configure>
+<?plotml <!DOCTYPE plot PUBLIC "-//UC Berkeley//DTD PlotML 1//EN"
+"http://ptolemy.eecs.berkeley.edu/xml/dtd/PlotML_1.dtd">
+<plot>
+<title>TimedPlotter</title>
+<xLabel>Hours</xLabel>
+<yLabel>Illuminance [Lux]</yLabel>
+<xRange min="0.0" max="47.0"/>
+<yRange min="0.0" max="25499.1179"/>
+<default marks="points"/>
+</plot>?>
+        </configure>
+    </entity>
+    <entity name="Parse Weather Record" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[55.0, 250.0]">
+        </property>
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={23, 22, 1215, 561}, maximized=false}">
+        </property>
+        <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1002, 451]">
+        </property>
+        <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8">
+        </property>
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{551.25, 231.875}">
+        </property>
+        <port name="month" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[585.0, 165.0]">
+            </property>
+        </port>
+        <port name="record" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[20.0, 205.0]">
+            </property>
+        </port>
+        <port name="day" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[585.0, 205.0]">
+            </property>
+        </port>
+        <port name="hour" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[585.0, 245.0]">
+            </property>
+        </port>
+        <port name="dnIllum" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[585.0, 285.0]">
+            </property>
+        </port>
+        <port name="dhillum" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[585.0, 325.0]">
+            </property>
+        </port>
+        <entity name="Expression" class="ptolemy.actor.lib.Expression">
+            <property name="expression" class="ptolemy.kernel.util.StringAttribute" value="input.split(&quot;,&quot;)">
+            </property>
+            <property name="_icon" class="ptolemy.vergil.icon.BoxedValueIcon">
+                <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="expression">
+                </property>
+                <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="60">
+                </property>
+                <property name="displayHeight" class="ptolemy.data.expr.Parameter" value="10">
+                </property>
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[140.0, 205.0]">
+            </property>
+            <port name="input" class="ptolemy.actor.TypedIOPort">
+                <property name="input"/>
+            </port>
+        </entity>
+        <entity name="getHour" class="ptolemy.actor.lib.ArrayElement">
+            <property name="index" class="ptolemy.actor.parameters.PortParameter" value="3">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[355.0, 280.0]">
+            </property>
+        </entity>
+        <entity name="getMonth" class="ptolemy.actor.lib.ArrayElement">
+            <property name="index" class="ptolemy.actor.parameters.PortParameter" value="1">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{355.0, 150.0}">
+            </property>
+        </entity>
+        <entity name="getDay" class="ptolemy.actor.lib.ArrayElement">
+            <property name="index" class="ptolemy.actor.parameters.PortParameter" value="2">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[355.0, 215.0]">
+            </property>
+        </entity>
+        <entity name="getDNIllum" class="ptolemy.actor.lib.ArrayElement">
+            <property name="index" class="ptolemy.actor.parameters.PortParameter" value="14">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[353.640625, 342.3046875]">
+            </property>
+        </entity>
+        <entity name="getDHillum" class="ptolemy.actor.lib.ArrayElement">
+            <property name="index" class="ptolemy.actor.parameters.PortParameter" value="15">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{353.640625, 407.3046875}">
+            </property>
+        </entity>
+        <relation name="relation" class="ptolemy.actor.TypedIORelation">
+            <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
+            </property>
+            <vertex name="vertex1" value="[270.0, 205.0]">
+            </vertex>
+        </relation>
+        <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <link port="month" relation="relation3"/>
+        <link port="record" relation="relation2"/>
+        <link port="day" relation="relation4"/>
+        <link port="hour" relation="relation5"/>
+        <link port="dnIllum" relation="relation6"/>
+        <link port="dhillum" relation="relation7"/>
+        <link port="Expression.output" relation="relation"/>
+        <link port="Expression.input" relation="relation2"/>
+        <link port="getHour.input" relation="relation"/>
+        <link port="getHour.output" relation="relation5"/>
+        <link port="getMonth.input" relation="relation"/>
+        <link port="getMonth.output" relation="relation3"/>
+        <link port="getDay.input" relation="relation"/>
+        <link port="getDay.output" relation="relation4"/>
+        <link port="getDNIllum.input" relation="relation"/>
+        <link port="getDNIllum.output" relation="relation6"/>
+        <link port="getDHillum.input" relation="relation"/>
+        <link port="getDHillum.output" relation="relation7"/>
+    </entity>
+    <entity name="String2Double" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[335.0, 250.0]">
+        </property>
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={87, 24, 816, 640}, maximized=false}">
+        </property>
+        <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[600, 400]">
+        </property>
+        <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0">
+        </property>
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{300.0, 200.0}">
+        </property>
+        <port name="port" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{20.0, 200.0}">
+            </property>
+        </port>
+        <port name="port2" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{580.0, 200.0}">
+            </property>
+        </port>
+        <entity name="StringFunction" class="ptolemy.actor.lib.string.StringFunction">
+            <doc>Trim a string, convert a string to uppercase, or convert a string to&#10;            lowercase depending on the user's selection.</doc>
+            <property name="_icon" class="ptolemy.vergil.icon.AttributeValueIcon">
+                <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="function">
+                </property>
+                <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="11">
+                </property>
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[140.0, 200.0]">
+            </property>
+        </entity>
+        <entity name="ExpressionToToken" class="ptolemy.actor.lib.conversions.ExpressionToToken">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[280.0, 200.0]">
+            </property>
+            <port name="output" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
+                </property>
+            </port>
+        </entity>
+        <relation name="relation" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <link port="port" relation="relation3"/>
+        <link port="port2" relation="relation2"/>
+        <link port="StringFunction.input" relation="relation3"/>
+        <link port="StringFunction.output" relation="relation"/>
+        <link port="ExpressionToToken.input" relation="relation"/>
+        <link port="ExpressionToToken.output" relation="relation2"/>
+    </entity>
+    <entity name="ErrorStream" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={578, 359, 524, 282}, maximized=false}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[522, 221]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[330.0, 315.0]">
+        </property>
+    </entity>
+    <relation name="relation" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation8" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <link port="LineReader.output" relation="relation"/>
+    <link port="run radiance,csh.output" relation="relation7"/>
+    <link port="run radiance,csh.error" relation="relation9"/>
+    <link port="run radiance,csh.month" relation="relation2"/>
+    <link port="run radiance,csh.day" relation="relation3"/>
+    <link port="run radiance,csh.hour" relation="relation4"/>
+    <link port="run radiance,csh.directNormalIllum" relation="relation5"/>
+    <link port="run radiance,csh.diffuseHorizIllum" relation="relation6"/>
+    <link port="TimedPlotter.input" relation="relation8"/>
+    <link port="Parse Weather Record.month" relation="relation2"/>
+    <link port="Parse Weather Record.record" relation="relation"/>
+    <link port="Parse Weather Record.day" relation="relation3"/>
+    <link port="Parse Weather Record.hour" relation="relation4"/>
+    <link port="Parse Weather Record.dnIllum" relation="relation5"/>
+    <link port="Parse Weather Record.dhillum" relation="relation6"/>
+    <link port="String2Double.port" relation="relation7"/>
+    <link port="String2Double.port2" relation="relation8"/>
+    <link port="ErrorStream.input" relation="relation9"/>
+</entity>

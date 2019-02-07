@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="matlab-room" default="clean">
+  <import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <delete verbose="true">
+      <fileset dir="." includes="matlab.log,simulation.log,socket.cfg,utilSocket.log"/>
+    </delete>
+  </target>
+  
+  <!-- Unit test -->
+  <target name="unitTest" description="Runs unit tests" if="have.matlab">
+    <echo message="Starting unit test in ${basedir}"/>
+    <exec executable="${ptUnitTestExecutable}" 
+    failonerror="true"
+    vmlauncher="false"> <!-- vmlauncher="false" is needed for Windows -->
+      <arg line="${ptExecutableFlags} system.xml"/>
+    </exec>
+  </target>
+
+</project>

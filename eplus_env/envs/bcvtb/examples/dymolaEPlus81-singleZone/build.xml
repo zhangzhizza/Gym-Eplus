@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="dymolaEPlus81-singleZone" default="unitTest">
+  <import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <delete verbose="true">
+      <fileset dir="ePlus"    includes="simulation.log,socket.cfg,utilSocket.log"/>
+      <fileset dir="ePlus"    includes="Energy+.ini,Energy+.idd,eplusout.end"/>
+      <fileset dir="ePlus"    includes="*.rdd,*.eio,*.rvaudit,*.shd,*.dxf,*.mtd"/>
+      <fileset dir="ePlus"    includes="*.eso,*.err,*.mtr,*.bnd,*.mdd,*.audit"/>
+      <fileset dir="ePlus"    includes="*.csv,*.svg"/>
+      <fileset dir="dymola"   includes="bcvtb_modelica.*, *.dll, *.so, bcvtb.h"/>
+      <fileset dir="dymola"   includes="dsmodel.c, buildlog.txt, dymosim.exe, dymosim"/>
+      <fileset dir="dymola"   includes="dymosim.exe.manifest"/>
+      <fileset dir="dymola"   includes="status, success, stop, failure, request"/>
+      <fileset dir="dymola"   includes="status., success., stop., failure., request."/>
+      <fileset dir="dymola"   includes="dsin.txt, dsres.mat, dslog.txt, dsfinal.txt"/>
+      <fileset dir="dymola"   includes="simulation.log,socket.cfg,utilSocket.log"/>
+    </delete>
+    <delete verbose="true" dir="ePlus/Output"/>
+    <delete verbose="true" dir="ePlus/Outputs"/>
+  </target>
+
+  <!-- Unit test -->
+  <target name="unitTest" description="Runs unit tests" if="have.dymolaEnergyPlus">
+    <echo message="Starting unit test in ${basedir}"/>
+    <exec executable="${ptUnitTestExecutable}" 
+	  failonerror="true"
+	  vmlauncher="false"> <!-- vmlauncher="false" is needed for Windows -->
+      <arg line="${ptExecutableFlags} ${ptUnitTestFile}"/>
+    </exec>
+  </target>
+
+</project>

@@ -1,0 +1,19 @@
+## materials.rad
+
+## default material
+void plastic sketchup_default_material
+0
+0
+5 0.5 0.5 0.5 0 0
+
+## material conversion from Sketchup rgb color
+void plastic Color_002
+0
+0
+5  0.88493 0.871367 0.821512 0.000 0.000
+
+## default material
+void plastic sketchup_default_material
+0
+0
+5 0.5 0.5 0.5 0 0

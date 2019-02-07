@@ -1,0 +1,4 @@
+<map id="adInterfaceMCC.actor.ADInterfaceMCCReader" name="adInterfaceMCC.actor.ADInterfaceMCCReader">
+<area shape="rect" id="node2" href="$classadInterfaceMCC_1_1util_1_1ADInterfaceMCC.html" title="This is an abstract base class for actors that generates an output stream. " alt="" coords="779,281,1023,308"/>
+<area shape="rect" id="node13" href="$classadInterfaceMCC_1_1util_1_1ADInterfaceMCCDeviceManager.html" title="This is the driver class in ADInterfaceMCC. " alt="" coords="317,70,531,111"/>
+</map>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="gcc noversion nomachine -c -I../../lib/util -I../../lib">
+      <target file="cclient.o" lastModified="1543aba0c40">
+         <source file="cclient.c" lastModified="15434bd2278"/>
+      </target>
+   </processor>
+   <processor signature="gcc -L../../lib/util -lbcvtb">
+      <target file="cclient" lastModified="1543aba0c40">
+         <source file="cclient.o" lastModified="1543aba0c40"/>
+      </target>
+   </processor>
+</history>

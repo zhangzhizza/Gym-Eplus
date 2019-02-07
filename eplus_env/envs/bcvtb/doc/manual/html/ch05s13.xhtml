@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>5.13. Analog/Digital Interface</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="configuration.xhtml" title="Chapter 5. Configuring programs for use with the BCVTB"/><link rel="prev" href="ch05s12.xhtml" title="5.12. BACnet"/><link rel="next" href="math.xhtml" title="Chapter 6. Mathematics of the Implemented Co-Simulation"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.13. Analog/Digital Interface</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch05s12.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 5. Configuring programs for use with the BCVTB</th><td width="20%" align="right"> <a accesskey="n" href="math.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="configuration.xhtml">Configuring programs for use with the BCVTB</a></span> &gt; <span class="breadcrumb-node">Analog/Digital Interface</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d5e1996"/>5.13. Analog/Digital Interface</h2></div></div></div>
+  
+  <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"/></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+   <p>
+    The ADInterfaceMCC (Analog/Digital Interface) is an interface between the BCVTB and USB-data acquisition devices. This interface has been tested for one device (USB-1208LS) 
+    of the Measurement Computing Corporation and is only supported on Windows. This interface will work properly only if the drivers of the Data Acquisition device have been installed correctly and the device has been configured. 
+    Read the user guide available at <a class="ulink" href="http://www.mccdaq.com/PDFmanuals/USB-1208LS.pdf" target="_top"> http://www.mccdaq.com/PDFmanuals/USB-1208LS.pdf</a> and the 
+    Data Acquisition software manual <a class="ulink" href="http://www.mccdaq.com/PDFs/Manuals/DAQ-Software-Quick-Start.pdf" target="_top"> http://www.mccdaq.com/PDFs/Manuals/DAQ-Software-Quick-Start.pdf</a> to learn how to
+    install and to configure the USB-1208LS.  
+    </p>
+  </td></tr></table></div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e2002"/>5.13.1. Introduction</h3></div></div></div>
+   
+   <p>
+    The BCVTB contains an actor, called
+    <code class="code">ADInterfaceMCCReader</code>, that can read from ADInterfaceMCC
+    devices and an actor, called <code class="code">ADInterfaceMCCWriter</code>,
+    that can write to ADInterfaceMCC devices. Both actors use a
+    configuration file that specifies the ADInterfaceMCC devices. The next sections describe how
+    to write these configuration files, and how to set
+    up a model that reads from and writes to ADInterfaceMCC devices.
+   </p>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="tit-ADInterfaceMCCConfDataRea"/>5.13.2. Reading from ADInterfaceMCC</h3></div></div></div>
+   
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e2009"/>5.13.2.1. Specification of data that will be read from ADInterfaceMCC</h4></div></div></div>
+    
+    <p>
+     The <code class="code">ADInterfaceMCCReader</code> actor reads an xml
+     configuration file to determine what data it needs to
+     read from ADInterfaceMCC devices. The xml configuration file has the following syntax:
+     It starts and ends with
+     </p><pre class="programlisting">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+     &lt;ADInterfaceMCC&gt;
+     &lt;!-- Child elements are not shown. --&gt;
+     &lt;/ADInterfaceMCC&gt;</pre><p>
+     The above element <code class="code">ADInterfaceMCC</code> has at least one child element of the form
+     </p><pre class="programlisting">&lt;Object BoardNumber = "0" ChannelNumber = "0" ChannelGain = "2" ChannelOptions = "0"  ApplicationTag = "read"/&gt;</pre><p>
+     The element name needs to be set to <code class="code">Object</code>.&#xD;   
+     The attribute <code class="code">BoardNumber</code> is the board number associated with the board used to collect the data when it was installed with InstalCal.&#xD;  
+     The attribute <code class="code">ChannelNumber</code> is the A/D (Analog/Digital) channel number.&#xD;  
+     The attribute <code class="code">ChannelGain</code> is the A/D range code. If the board has a programmable gain, it will be set according to this argument value.&#xD; 
+     The attribute <code class="code">ChannelOptions</code> is reserved for future use by the hardware manufacturer and should be set to zero.&#xD;  
+     The attribute <code class="code">ApplicationTag</code>  is a value that can be set to <code class="code">read</code> or <code class="code">write</code> depending on whether the interface should be used in the <code class="code">READ</code> or <code class="code">WRITE</code> mode.
+     <a class="xref" href="ch05s13.xhtml#tab-usb-1208Properties-reader" title="Table 5.9. Attribute's values for the USB-1208LS Data Acquisition Device (READ mode).">Table 5.9, “Attribute's values for the USB-1208LS Data Acquisition Device (<code class="code">READ</code> mode).”</a> gives a short overview about the values that the attributes could have in the configuration file.
+     </p><p>
+      </p><div class="table"><a id="tab-usb-1208Properties-reader"/><p class="title"><strong>Table 5.9. Attribute's values for the USB-1208LS Data Acquisition Device (<code class="code">READ</code> mode).</strong></p><div class="table-contents">
+       
+       <table summary="Attribute's values for the USB-1208LS Data Acquisition Device (READ mode)." border="1"><colgroup><col/><col/></colgroup><thead><tr><th align="left">Attribute</th><th align="left">Value</th></tr></thead><tbody><tr><td align="left">BoardNumber</td><td align="left">Integer from 0 to 99</td></tr><tr><td align="left">ChannelNumber</td><td align="left">Integer from 0 to 7</td></tr><tr><td align="left">ChannelGain</td><td align="left">1: channel with 10 volts unipolar &#xD; 
+          2: channel with 10 volts bipolar&#xD; 
+          3: channel with 5 volts unipolar&#xD; 
+          4: channel with 5 volts bipolar</td></tr><tr><td align="left">ChannelOptions</td><td align="left">0</td></tr><tr><td align="left">ApplicationTag</td><td align="left">read</td></tr></tbody></table>
+      </div></div><p><br class="table-break"/>
+     </p><p>
+     
+     </p>
+     </div>
+      <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e2052"/>5.13.2.2. Interface to adInterfaceMCC-Stack</h4></div></div></div>
+    
+    <p>
+     To read data from ADInterfaceMCC devices, the
+     <code class="code">ADInterfaceMCCReader</code> actor calls an executable
+     program that is in the directory <code class="code">bcvtb/lib/adInterfaceMCC-stack</code>. This
+     section describes how the entries in the xml file
+     relate to this executable. The example shows the
+     low-level implementation.
+    </p>
+    <p>
+     To read from ADInterfaceMCC, the adInterfaceMCC-stack provides the
+     following function:
+     </p><pre class="programlisting">java -jar adInterfaceReader.jar BoardNumber ChannelNumber ChannelGain ChannelOptions
+     </pre><p>
+    </p>
+   </div>
+  </div>
+  
+
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="tit-ADInterfaceMCCConfDataWri"/>5.13.3. Writing to ADInterfaceMCC</h3></div></div></div>
+   
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e2061"/>5.13.3.1. Specification of data that will be written to ADInterfaceMCC</h4></div></div></div>
+    
+    <p>
+     The <code class="code">ADInterfaceMCCWriter</code> actor reads an xml
+     configuration file to determine what data it needs to
+     write to ADInterfaceMCC devices. The xml configuration file has the following syntax:
+     It starts and ends with
+     </p><pre class="programlisting">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+     &lt;ADInterfaceMCC&gt;
+     &lt;!-- Child elements are not shown. --&gt;
+     &lt;/ADInterfaceMCC&gt;</pre><p>
+     The above element <code class="code">ADInterfaceMCC</code> has at least one child element of the form
+     </p><pre class="programlisting">&lt;Object BoardNumber = "0" ChannelNumber = "0" ChannelGain = "3" ChannelOptions = "0"  ApplicationTag = "write"/&gt;</pre><p>
+     The element name needs to be set to <code class="code">Object</code>.&#xD; 
+     The attribute <code class="code">BoardNumber</code> is the board number associated with the board used to collect the data when it was installed with InstalCal.&#xD; 
+     The attribute <code class="code">ChannelNumber</code> is the D/A (Digital/Analog) channel number. The maximum allowable channel depends on which type of D/A board is being used.&#xD; 
+     The attribute <code class="code">ChannelGain</code> is the D/A range code. If the device has a programmable gain, it will be set according to this argument value. If the specified range is not supported, 
+     the function will return a BADRANGE error. If the gain is fixed or manually selectable, you must make
+     sure this argument matches the gain configured for the device.&#xD; 
+     The attribute <code class="code">ChannelOptions</code> is reserved for future use by the hardware manufacturer and should be set to zero.&#xD; 
+     The attribute <code class="code">ApplicationTag</code> is a value that can be set to <code class="code">read</code> or <code class="code">write</code> depending on whether the interface should be used in the <code class="code">READ</code> or <code class="code">WRITE</code> mode.
+     <a class="xref" href="ch05s13.xhtml#tab-usb-1208Properties-writer" title="Table 5.10. Attribute's values for the USB-1208LS Data Acquisition Device (WRITE mode).">Table 5.10, “Attribute's values for the USB-1208LS Data Acquisition Device (<code class="code">WRITE</code> mode).”</a>  gives a short overview about the values that the attributes could have in the configuration file.
+     </p><p>
+      </p><div class="table"><a id="tab-usb-1208Properties-writer"/><p class="title"><strong>Table 5.10. Attribute's values for the USB-1208LS Data Acquisition Device (<code class="code">WRITE</code> mode).</strong></p><div class="table-contents">
+       
+       <table summary="Attribute's values for the USB-1208LS Data Acquisition Device (WRITE mode)." border="1"><colgroup><col/><col/></colgroup><thead><tr><th align="left">Attribute</th><th align="left">Value</th></tr></thead><tbody><tr><td align="left">BoardNumber</td><td align="left">Integer from 0 to 99</td></tr><tr><td align="left">ChannelNumber</td><td align="left">0 or 1</td></tr><tr><td align="left">ChannelGain</td><td align="left">1: channel with 10 volts unipolar &#xD; 
+          2: channel with 10 volts bipolar&#xD; 
+          3: channel with 5 volts unipolar&#xD; 
+          4: channel with 5 volts bipolar</td></tr><tr><td align="left">ChannelOptions</td><td align="left">0</td></tr><tr><td align="left">ApplicationTag</td><td align="left">write</td></tr></tbody></table>
+      </div></div><p><br class="table-break"/>
+     </p><p>
+     
+     </p>
+     </div>
+     <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e2104"/>5.13.3.2. Interface to adInterfaceMCC-Stack</h4></div></div></div>
+    
+    <p>
+     To write data to ADInterfaceMCC devices, the
+     <code class="code">ADInterfaceMCCWriter</code> actor calls an executable
+     program that is provided by the adInterfaceMCC-stack. This
+     section describes how the entries in the xml file
+     relate to this executable. The example shows the
+     low-level implementation.
+    </p>
+    <p>
+     To write to ADInterfaceMCC, the adInterfaceMCC-stack provides the
+     following function:
+</p><pre class="programlisting">java -jar adInterfaceWriter.jar BoardNumber ChannelNumber ChannelGain ValueToBeWritten ChannelOptions
+</pre><p>
+    </p>
+   </div>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e2110"/>5.13.4. Creating a Ptolemy II model</h3></div></div></div>
+   
+   <p>
+    The <code class="code">ADInterfaceMCCReader</code> and the
+    <code class="code">ADInterfaceMCCWriter</code> actor can be used in the same
+    Ptolemy II model. In this section, we will
+    explain how to configure a Ptolemy II model that
+    writes to and reads from ADInterfaceMCCdevices. This example can be found in the directory
+    <code class="code">bcvtb/examples/adInterfaceMCC-roomControl</code>. A similar example can also be found in the directory
+    <code class="code">bcvtb/examples/adInterfaceMCC-room</code>.
+   </p>
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e2117"/>5.13.4.1. Configuring the <code class="code">ADInterfaceMCCReader and ADInterfaceMCCWriter</code>
+    </h4></div></div></div>
+    
+    <p>
+    </p><div class="figure"><a id="configurationPtolemyADInterfaceMCCReaderWriter"/><p class="title"><strong>Figure 5.45. 
+			Ptolemy II system model that uses the <code class="code">ADInterfaceMCCReader and the ADInterfaceMCCWriter</code> actors.
+      </strong></p><div class="figure-contents">
+      <div class="mediaobject"><img src="img/configurationADInterfaceMCC-roomControl.png" width="762" alt="Ptolemy II system model that uses the ADInterfaceMCCReader and the ADInterfaceMCCWriter actors."/></div>
+      
+     </div></div><p><br class="figure-break"/>
+     <a class="xref" href="ch05s13.xhtml#configurationPtolemyADInterfaceMCCReaderWriter" title="Figure 5.45.  Ptolemy II system model that uses the ADInterfaceMCCReader and the ADInterfaceMCCWriter actors.">Figure 5.45</a>
+     shows a Ptolemy II system model that uses the
+     <code class="code">ADInterfaceMCCReader</code> and the <code class="code">ADInterfaceMCCWriter</code> actors. To configure the
+     <code class="code">ADInterfaceMCCReader</code>, double-click on its icon and
+     add the name of its configuration file that has been
+     developed as described in
+     <a class="xref" href="ch05s13.xhtml#tit-ADInterfaceMCCConfDataRea" title="5.13.2. Reading from ADInterfaceMCC">Section 5.13.2, “Reading from ADInterfaceMCC”</a>
+     . There is also a check-box called
+     <code class="code">continueWhenError</code>. If activated and an
+     error occurs, then Ptolemy II will continue the
+     simulation and the actor will output at its ports the
+     last known value and the error message, unless the
+     error occurs in the first step, in which case the
+     simulation stops. If deactivated and an error occurs,
+     then the simulation will stop, the error message will
+     be displayed on the screen and the user is required to
+     confirm the error message by clicking on its <span class="guibutton">OK</span>
+     button.
+     <span class="emphasis"><em>Thus, select this box if the BCVTB should continue its operation when a run-time error occurs.</em></span>
+    </p>
+    <p>
+     The <code class="code">ADInterfaceMCCReader</code> has the following ports:
+     There is one input port, which is a trigger port. If
+     the SDF Director is used in the Ptolemy II system
+     model, then this port need not be connected. The
+     <code class="code">ADInterfaceMCCReader</code> has the output ports shown
+     in <a class="xref" href="ch05s13.xhtml#tab-ADIntMCCReaderOutPor" title="Table 5.11. Output ports of the ADInterfaceMCCReader actor.">Table 5.11, “Output ports of the <code class="code">ADInterfaceMCCReader</code> actor.”</a>.
+     </p><div class="table"><a id="tab-ADIntMCCReaderOutPor"/><p class="title"><strong>Table 5.11. Output ports of the <code class="code">ADInterfaceMCCReader</code> actor.</strong></p><div class="table-contents">
+       
+      <table summary="Output ports of the ADInterfaceMCCReader actor." border="1"><colgroup><col width="1*" align="left"/><col width="3*" align="left"/></colgroup><thead><tr><th align="left">Port</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left">errorSignal</td><td align="left">If there were no errors in the previous data exchange, then this port outputs zero. Otherwise, the output is a non-zero integer.</td></tr><tr><td align="left">errorMessage</td><td align="left">If there was an error in the previous data exchange, then this port outputs the error message that was generated by the <code class="code">ADInterfaceMCCReader</code> actor.
+	      (The error messages that were generated by the binary of the ADInterfaceMCC are output of the <code class="code">consoleOutput</code> port.)</td></tr><tr><td align="left">consoleOutput</td><td align="left">
+          <p>
+           This port outputs the standard output stream and
+           the standard error stream of the binary that
+           communicates with ADInterfaceMCC.
+          </p>
+         </td></tr><tr><td align="left">propertyValue</td><td align="left">
+          <p>
+           This port outputs the values obtained at the last
+           successful communication with the ADInterfaceMCC device.
+          </p>
+          <p>
+           The output data type is a vector whose elements
+           are string representations of the ADInterfaceMCC
+           properties that are read according to the
+           configuration file. Elements can be extracted
+           from this vector using actors from Ptolemy II's
+           <code class="code">Actors-&gt;VectorDisassembler</code> library.
+          </p>
+         </td></tr></tbody></table>
+     </div></div><p><br class="table-break"/>
+    </p>
+
+    <p>
+     The configuration of the <code class="code">ADInterfaceMCCWriter</code>
+     actor is similar to the configuration of the
+     <code class="code">ADInterfaceMCCReader</code>.
+     To configure the
+     <code class="code">ADInterfaceMCCWriter</code>, double-click on its icon and
+     add the name of its configuration file that has been
+     developed as described in
+     <a class="xref" href="ch05s13.xhtml#tit-ADInterfaceMCCConfDataWri" title="5.13.3. Writing to ADInterfaceMCC">Section 5.13.3, “Writing to ADInterfaceMCC”</a>
+     . There is also a check-box called
+     <code class="code">continueWhenError</code>. If activated and an
+     error occurs, then Ptolemy II will continue the
+     simulation and the actor will output the error message
+     at its ports, unless the error occurs in the first
+     step, in which case the simulation stops. If
+     deactivated and an error occurs, then the simulation
+     will stop, the error message will be displayed on the
+     screen and the user is required to confirm the error
+     message by clicking on its <span class="guibutton">OK</span> button.
+     <span class="emphasis"><em>Thus, select this box if the BCVTB should continue its operation when a run-time error occurs.</em></span>
+    </p>
+    <p>
+     Input into the actor are values that will be
+     written to the ADInterfaceMCC device according to the order
+     specified in the xml configuration file.
+    </p>
+    <p>
+     The <code class="code">ADInterfaceMCCWriter</code> has one multiport input. This
+     port is used to collect the data that need to be sent
+     to the ADInterfaceMCCdevices. The <code class="code">ADInterfaceMCCWriter</code>
+     has the output ports shown
+     in <a class="xref" href="ch05s13.xhtml#tab-ADIntMCCWriterOutPor" title="Table 5.12. Output ports of the ADInterfaceMCCWriter actor.">Table 5.12, “Output ports of the <code class="code">ADInterfaceMCCWriter</code> actor.”</a>.
+     </p><div class="table"><a id="tab-ADIntMCCWriterOutPor"/><p class="title"><strong>Table 5.12. Output ports of the <code class="code">ADInterfaceMCCWriter</code> actor.</strong></p><div class="table-contents">
+       
+      <table summary="Output ports of the ADInterfaceMCCWriter actor." border="1"><colgroup><col width="1*" align="left"/><col width="3*" align="left"/></colgroup><thead><tr><th align="left">Port</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left">errorSignal</td><td align="left">If there were no errors in the previous data exchange, then this port outputs zero. Otherwise, the output is a non-zero integer.</td></tr><tr><td align="left">errorMessage</td><td align="left">If there was an error in the previous data exchange, then this port outputs the error message that was generated by the <code class="code">ADInterfaceMCCWriter</code> actor.
+	      (The error messages that were generated by the binary of the ADInterfaceMCC are output of the <code class="code">consoleOutput</code> port.)</td></tr><tr><td align="left">consoleOutput</td><td align="left">
+          <p>
+           This port outputs the standard output stream and
+           the standard error stream of the binary that
+           communicates with ADInterfaceMCC.
+          </p>
+         </td></tr></tbody></table>
+     </div></div><p><br class="table-break"/>
+    </p>
+   </div>
+
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e2206"/>5.13.4.2. Synchronization with real-time</h4></div></div></div>
+    
+    <p>
+     In most cases, the BCVTB should be synchronized to real
+     time. This can be done in Ptolemy II by double-clicking
+     the director icon, and activate the check-box
+     <code class="code">synchronizeToRealtime</code>.
+    </p>
+   </div>
+
+  </div>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch05s12.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="configuration.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="math.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">5.12. BACnet </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> Chapter 6. Mathematics of the Implemented Co-Simulation</td></tr></table></div></body></html>

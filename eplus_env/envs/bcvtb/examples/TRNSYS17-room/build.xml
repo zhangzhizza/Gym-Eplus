@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="TRNSYS17-room" default="clean">
+  <import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <delete verbose="true">
+      <fileset dir="." includes="*.lst,*.log, socket.cfg"/>
+    </delete>
+  </target>
+  
+  <!-- Unit test -->
+  <target name="unitTest" description="Runs unit tests" if="have.TRNSYS">
+    <echo message="Starting unit test in ${basedir}"/>
+    <exec executable="${ptUnitTestExecutable}" 
+    failonerror="true"
+    vmlauncher="false"> <!-- vmlauncher="false" is needed for Windows -->
+      <arg line="${ptExecutableFlags} ${ptUnitTestFile}"/>
+    </exec>
+  </target>
+
+</project>

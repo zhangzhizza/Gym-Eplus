@@ -1,0 +1,54 @@
+<project name="myActors" default="build">
+
+  <import file="../../../build-common.xml"/>
+  <property name="src.dir"             value="."/>
+  <property name="doc.dir"             value="doc/codeDoc/doc/codeDoc"/>
+  <property name="build.dir"           value="."/>
+  <property name="classes.dir"         value="."/>
+
+  <!-- The Ptolemy class files that are required to compile the source 
+       are in jar files. The id lib.path.jar is getting a list of this files
+       that will be passed to javac 
+  -->
+  <path id="lib.path.jar">
+    <fileset dir="${env.PTII}" includes="**/*.jar"/>
+  </path>
+  
+  <!-- clean -->
+  <target name="clean">
+    <delete verbose="true">
+      <fileset dir="." includes="*.class"/>
+    </delete>
+    <delete dir="doc"/>
+  </target>
+
+  <!-- all -->
+  <target name="all" depends="build,doc" description="Runs all targets"/>
+
+  <!-- build -->
+  <target name="build" depends="compile" description="Builds all"/>
+
+  <!-- compile -->
+  <target name="compile" 
+	  description="Compiles the source code">
+     <javac includeAntRuntime="false" 
+	    classpath="${toString:lib.path.jar}" 
+	    srcdir="${src.dir}"
+	    debug="${compile.debug}">
+     </javac>
+  </target>
+
+ <!-- javadoc -->
+  <target name="doc" description="Builds the javadoc">
+     <mkdir dir="${doc.dir}"/>
+     <javadoc packagenames="myActors"
+              destdir="${doc.dir}"
+	      classpath="${toString:lib.path.jar}"
+              failonerror="true">
+       <fileset dir="${src.dir}" defaultexcludes="yes">
+         <include name="**/*.java"/>
+       </fileset>
+     </javadoc>
+   </target>
+
+</project>

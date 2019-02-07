@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>7.3. Software requirements</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="development.xhtml" title="Chapter 7. Development"/><link rel="prev" href="ch07s02.xhtml" title="7.2. Functional requirements"/><link rel="next" href="ch07s04.xhtml" title="7.4. Version control"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.3. Software requirements</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch07s02.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 7. Development</th><td width="20%" align="right"> <a accesskey="n" href="ch07s04.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="development.xhtml">Development</a></span> &gt; <span class="breadcrumb-node">Software requirements</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="tit-sofReqDev"/>7.3. Software requirements</h2></div></div></div>
+  
+  <p>
+   The current version of the BCVTB has been compiled on Linux Ubuntu, 
+   Mac OS X, and Windows.
+  </p>
+  <p>
+   To install the tools required for developing and
+   compiling the BCVTB, proceed first as described in
+   <a class="xref" href="tit-InstallationUser.xhtml" title="3.2. Installation">Section 3.2, “Installation”</a>
+   to install the BCVTB. Then, install the software
+   described below and compile the BCVTB.
+  </p>
+  <p>
+   For development, the following additional software need
+   to be installed.
+  </p>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e2769"/>7.3.1. Linux</h3></div></div></div>
+   
+   <p>
+    Linux requires the Java Development Kit 5.0, Update 14
+    or higher, which may be obtained from
+    <a class="ulink" href="http://java.sun.com/javase/downloads/index.jsp" target="_top">http://java.sun.com/javase/downloads/index.jsp</a>
+   </p>
+   <p>
+    Also required are the GNOME xml library, the expat
+    library, and the Doxygen source code documentation
+    generator tool. These programs can be installed by
+    typing in a shell
+   </p>
+   <pre class="screen">sudo apt-get install libxml2-dev libexpat-dev doxygen graphviz</pre>
+   <p>
+     To generate the documentation, the following packages are required
+   </p>
+   <pre class="screen">sudo apt-get install docbook docbook-xsl libsaxon-java libxalan2-java docbook-xsl-saxon dblatex pdftk</pre>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e2777"/>7.3.2. Mac OS X</h3></div></div></div>
+   
+   <p>
+    The XCode development environment is needed, which
+    provides all required libraries as well as the required
+    Java Development Kit.
+   </p>
+   <p>
+    To generate source code documentation,
+    <a class="ulink" href="http://www.stack.nl/~dimitri/doxygen/download.html" target="_top">Doxygen</a>
+    is required.
+   </p>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e2782"/>7.3.3. Windows</h3></div></div></div>
+   
+   <p>
+    The Java Development Kit is required. This may be
+    obtained from
+    <a class="ulink" href="http://www.oracle.com" target="_top">http://www.oracle.com</a>
+    . In the Windows Environment Variables
+    setting, you may want to set the <code class="code">Path</code>
+    variable to <code class="code">%JAVA_JDK_PATH%\bin;%Path%</code> with <code class="code">%JAVA_JDK_PATH%</code> being the path
+    to the Java Development Kit.
+   </p>
+   <p>
+    To generate source code documentation,
+    <a class="ulink" href="http://www.stack.nl/~dimitri/doxygen/download.html" target="_top">Doxygen</a>
+    is required.
+   </p>
+   <p>
+    To compile C code or MATLAB/Simulink programs,
+    <a class="ulink" href="http://www.microsoft.com/express/vc/" target="_top">Microsoft Visual C++ Express 2008</a> and higher
+    is required on Windows 32 bit, whereas <a class="ulink" href="http://www.microsoft.com/visualstudio/en-gb/products/2010-editions/professional" target="_top">Microsoft Visual Studio Professional 2010</a> and higher is required on Windows 64 bit.
+   </p>
+   <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"/></td><th align="left">Note</th></tr><tr><td align="left" valign="top"> Recent free release versions of Visual Studio Express such as Microsoft Visual Studio Express 2013 for Windows Desktop can be used on Windows 32 and Windows 64 bit.
+   </td></tr></table></div>
+   <p>
+    The Intel Fortran compiler can be used to compile and
+    link Fortran programs to the BCVTB libraries.
+   </p>
+   <p>
+    MATLAB/Simulink provides its own compiler. However, due
+    to compatibility problems with the BCVTB libraries, we
+    only support the Microsoft compiler. MATLAB/Simulink can
+    be configured to use the Microsoft compiler by typing at
+    the MATLAB prompt
+   </p>
+   <pre class="screen">mex -setup</pre>
+   <p>
+    This command will provide a list of available compilers,
+    from which the Microsoft compiler should be selected.
+    MATLAB will write the selection to its configuration
+    file; and hence the selection needs to be done only
+    once.
+   </p>
+  </div>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch07s02.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="development.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="ch07s04.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">7.2. Functional requirements </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 7.4. Version control</td></tr></table></div></body></html>

@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>6.2. Description</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="math.xhtml" title="Chapter 6. Mathematics of the Implemented Co-Simulation"/><link rel="prev" href="math.xhtml" title="Chapter 6. Mathematics of the Implemented Co-Simulation"/><link rel="next" href="development.xhtml" title="Chapter 7. Development"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6.2. Description</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="math.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 6. Mathematics of the Implemented Co-Simulation</th><td width="20%" align="right"> <a accesskey="n" href="development.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="math.xhtml">Mathematics of the Implemented Co-Simulation</a></span> &gt; <span class="breadcrumb-node">Description</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d5e2215"/>6.2. Description</h2></div></div></div>
+  
+  <p>
+    In the BCVTB, data is exchanged between the different clients using a fixed synchronization time step. There is no iteration between the clients. In the co-simulation literature, this coupling scheme is referred to as <span class="emphasis"><em>quasi-dynamic coupling</em></span>, <span class="emphasis"><em>loose coupling</em></span> or <span class="emphasis"><em>ping-pong coupling</em></span>. See [<a class="citation" href="bibliography.xhtml#d5e3332"><span class="citation">Hensen (1999)</span></a>] and [<a class="citation" href="bibliography.xhtml#d5e3358"><span class="citation">Zhai and Chen (2005)</span></a>] for details.
+
+The algorithm for exchanging data between clients is as follows: Suppose we have a system with two clients, where each client solves an initial value ordinary differential equation that is coupled to the ordinary differential equation of the other client. Let
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<mi>N</mi>
+	<mo>∈</mo>
+	<mi mathvariant="double-struck">N</mi>
+</mrow>
+</math>
+denote the number of time steps and let 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<mi>k</mi>
+	<mo>∈</mo>
+	<mrow>
+		<mo maxsize="1.00em">{</mo>
+		<mn>0</mn>
+		<mo>,</mo>
+		<mo>…</mo>
+		<mo>,</mo>
+		<mi>N</mi>
+		<mo maxsize="1.00em">}</mo>
+	</mrow>
+</mrow>
+</math>
+denote the time steps. 
+For some 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<msub>
+		<mi>n</mi>
+		<mn>1</mn>
+	</msub>
+	<mo>,</mo>
+	<msub>
+		<mi>n</mi>
+		<mn>2</mn>
+	</msub>
+	<mo>∈</mo>
+	<mi>ℕ</mi>
+</mrow>
+</math>,
+let
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<msub>
+		<mi>f</mi>
+		<mn>1</mn>
+	</msub>
+	<mspace width="0.167em"/>
+	<mo>:</mo>
+	<mspace width="0.167em"/>
+	<msup>
+		<mo>ℜ</mo>
+		<mrow>
+			<msub>
+				<mi>n</mi>
+				<mn>1</mn>
+			</msub>
+		</mrow>
+	</msup>
+	<mo>×</mo>
+	<msup>
+		<mo>ℜ</mo>
+		<mrow>
+			<msub>
+				<mi>n</mi>
+				<mn>2</mn>
+			</msub>
+		</mrow>
+	</msup>
+	<mo>→</mo>
+	<msup>
+		<mo>ℜ</mo>
+		<mrow>
+			<msub>
+				<mi>n</mi>
+				<mn>1</mn>
+			</msub>
+		</mrow>
+	</msup>
+</mrow>
+</math>
+and 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<msub>
+		<mi>f</mi>
+		<mn>2</mn>
+	</msub>
+	<mspace width="0.167em"/>
+	<mo>:</mo>
+	<mspace width="0.167em"/>
+	<msup>
+		<mo>ℜ</mo>
+		<mrow>
+			<msub>
+				<mi>n</mi>
+				<mn>2</mn>
+			</msub>
+		</mrow>
+	</msup>
+	<mo>×</mo>
+	<msup>
+		<mo>ℜ</mo>
+		<mrow>
+			<msub>
+				<mi>n</mi>
+				<mn>1</mn>
+			</msub>
+		</mrow>
+	</msup>
+	<mo>→</mo>
+	<msup>
+		<mo>ℜ</mo>
+		<mrow>
+			<msub>
+				<mi>n</mi>
+				<mn>2</mn>
+			</msub>
+		</mrow>
+	</msup>
+</mrow>
+</math>
+denote the functions that compute the next value of the state variables in simulator 1 and 2. Note that these functions are defined by the sequence of code instructions executed in the respective simulator.
+The simulator 1 computes, for 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<mi>k</mi>
+	<mo>∈</mo>
+	<mrow>
+		<mo maxsize="1.00em">{</mo>
+		<mn>0</mn>
+		<mo>,</mo>
+		<mo>…</mo>
+		<mo>,</mo>
+		<mi>N</mi>
+		<mo>-</mo>
+		<mn>1</mn>
+		<mo maxsize="1.00em">}</mo>
+	</mrow>
+</mrow>
+</math>, the sequence
+     </p><div class="informalequation">
+       <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<mspace width="1.00em"/>
+	<msub>
+		<mi>x</mi>
+		<mn>1</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo>+</mo>
+		<mn>1</mn>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo>=</mo>
+	<msub>
+		<mi>f</mi>
+		<mn>1</mn>
+	</msub>
+	<mo maxsize="1.00em">(</mo>
+	<msub>
+		<mi>x</mi>
+		<mn>1</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo>,</mo>
+	<mspace width="0.167em"/>
+	<msub>
+		<mi>x</mi>
+		<mn>2</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo maxsize="1.00em">),</mo>
+</mrow>
+</math>,
+</div><p>
+and, similarly, the simulator 2 computes the sequence
+     </p><div class="informalequation">
+       <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<mspace width="1.00em"/>
+	<msub>
+		<mi>x</mi>
+		<mn>2</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo>+</mo>
+		<mn>1</mn>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo>=</mo>
+	<msub>
+		<mi>f</mi>
+		<mn>2</mn>
+	</msub>
+	<mo maxsize="1.00em">(</mo>
+	<msub>
+		<mi>x</mi>
+		<mn>2</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo>,</mo>
+	<mspace width="0.167em"/>
+	<msub>
+		<mi>x</mi>
+		<mn>1</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo maxsize="1.00em">),</mo>
+</mrow>
+</math>
+</div><p>
+with initial conditions 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<msub>
+		<mi>x</mi>
+		<mn>1</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mn>0</mn>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo>=</mo>
+	<msub>
+		<mi>x</mi>
+		<mrow>
+			<mn>1</mn>
+			<mo>,</mo>
+			<mn>0</mn>
+		</mrow>
+	</msub>
+</mrow>
+</math>
+and 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<msub>
+		<mi>x</mi>
+		<mn>2</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mn>0</mn>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo>=</mo>
+	<msub>
+		<mi>x</mi>
+		<mrow>
+			<mn>2</mn>
+			<mo>,</mo>
+			<mn>0</mn>
+		</mrow>
+	</msub>
+</mrow>
+</math>.
+An implementation difficulty is presented by the situation that
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<msub>
+		<mi>f</mi>
+		<mn>1</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mo>⋅</mo>
+		<mo>,</mo>
+		<mo>⋅</mo>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+</mrow>
+</math>
+and
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<msub>
+		<mi>f</mi>
+		<mn>2</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mo>⋅</mo>
+		<mo>,</mo>
+		<mo>⋅</mo>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+</mrow>
+</math>
+need to know the initial value of the other simulator. Thus, at 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mi>k=0</mi>
+</math>, both simulators exchange their initial value
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<msub>
+<mi>x</mi>
+<mn>1,0</mn>
+</msub>
+</math>
+and 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<msub>
+<mi>x</mi>
+<mn>2,0</mn>
+</msub>
+</math>.
+To advance from time 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mi>k</mi></math>
+to
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mi>k+1</mi></math>,
+each simulator uses its own time integration algorithm. At the end of the time step, the simulator 1 sends the new state 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<msub>
+<mi>x</mi>
+<mn>1</mn>
+</msub>
+<mi>(k+1)</mi>
+</math>
+to the BCVTB and it receives the state 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<msub>
+<mi>x</mi>
+<mn>2</mn>
+</msub>
+<mi>(k+1)</mi>
+</math>
+from the BCVTB. 
+The same procedure is done by the simulator 2. The BCVTB synchronizes the data in such a way that it does not matter which of the two simulators is called first. 
+</p>
+<p>
+In terms of numerical methods for ordinary differential equations, this scheme is identical to an explicit Euler integration, which is an integration algorithm for a differential equation 
+
+
+</p><div class="informalequation">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+  <mspace width="1.00em"/>
+  <mover accent="true">
+    <mi>x</mi>
+    <mo>˙</mo>
+  </mover>
+  <mo>=</mo>
+  <mi>h</mi>
+  <mrow>
+    <mo maxsize="1.00em">(</mo>
+    <mi>x</mi>
+    <mo maxsize="1.00em">)</mo>
+  </mrow>
+  <mo>,</mo>
+</mrow>
+<mo linebreak="newline"/>
+<mrow>
+  <mrow>
+    <mi>x</mi>
+    <mo maxsize="1.00em">(</mo>
+    <mn>0</mn>
+    <mo maxsize="1.00em">)</mo>
+  </mrow>
+  <mo>=</mo>
+  <msub>
+    <mi>x</mi>
+    <mn>0</mn>
+  </msub>
+  <mo>,</mo>
+</mrow>
+</math>
+</div><p>
+
+where
+
+
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<mi>h</mi>
+	<mspace width="0.167em"/>
+	<mo>:</mo>
+	<mspace width="0.167em"/>
+	<msup>
+		<mo>ℜ</mo>
+		<mi>n</mi>
+	</msup>
+	<mo>→</mo>
+	<msup>
+		<mo>ℜ</mo>
+		<mi>n</mi>
+	</msup>
+</mrow>
+</math>
+
+for some 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<mi>n</mi>
+	<mo>∈</mo>
+	<mi>ℕ</mi>
+</mrow>
+</math>.
+
+On the time interval 
+
+
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<mi>t</mi>
+	<mo>∈</mo>
+	<mo maxsize="1.00em">[</mo>
+	<mn>0</mn>
+	<mo>,</mo>
+	<mspace width="0.167em"/>
+	<mn>1</mn>
+	<mo maxsize="1.00em">]</mo>
+</mrow>
+</math>,
+
+the explicit Euler integration algorithm leads to the following sequence:
+</p><div class="informaltable">
+  <table width="100%" border="1"><colgroup><col width="10em"/><col/></colgroup><tbody><tr><td>
+	  <span class="emphasis"><em>Step 0:</em></span>
+	  </td><td>
+	  Initialize counter 
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	    <mi>k = 0</mi></mrow></math>
+	  and number of steps 
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	    <mi>n</mi>
+	    <mo>∈</mo>
+	    <mi>ℕ</mi>
+	    </mrow>
+	  </math>.
+	</td></tr><tr><td>
+	</td><td>
+	  Set initial state 
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	    <msub>
+	    <mi>x(k)=x</mi>
+	    <mn>0</mn>
+	    </msub>
+	    </mrow>
+	  </math>
+	  and set time step
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	    <mi>Δt = 1/N</mi></mrow></math>.
+	</td></tr><tr><td>
+	  <span class="emphasis"><em>Step 1:</em></span>
+	</td><td>
+	  Compute new state
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	    <mi>x(k+1) = x(k) + </mi><mo>h</mo><mi>(x(k)) Δt</mi>
+	    </mrow>
+	    </math>.
+	</td></tr><tr><td>
+	</td><td>
+	  Replace 
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow><mi>k</mi></mrow></math>
+	  by 
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	    <mi>k+1</mi></mrow></math>.
+	</td></tr><tr><td>
+	  <span class="emphasis"><em>Step 2:</em></span>
+	</td><td>
+	  If 
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	    <mi>k=N</mi></mrow></math>
+	  stop, else go to Step 1.
+	</td></tr></tbody></table>
+</div><p>
+In the situation where the differential equation is integrated over time 
+using co-simulation, the above algorithm becomes:
+</p><div class="informaltable">
+  <table width="100%" border="1"><colgroup><col width="10em"/><col/></colgroup><tbody><tr><td>
+	  <span class="emphasis"><em>Step 0:</em></span>
+	  </td><td>
+	  Initialize counter 
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	    <mi>k = 0</mi></mrow></math>
+	  and number of steps 
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	    <mi>n</mi>
+	    <mo>∈</mo>
+	    <mi>ℕ</mi>
+	    </mrow>
+	  </math>
+	</td></tr><tr><td>
+	</td><td>
+	  Set initial states
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	      <msub>
+		<mi>x</mi>
+		<mn>1</mn>
+	      </msub>
+	      <mi>(k)=</mi>
+	      <msub>
+		<mi>x</mi>
+		<mn>1,0</mn>
+	      </msub>
+	    </mrow>
+	  </math>
+	  and
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	      <msub>
+		<mi>x</mi>
+		<mn>2</mn>
+	      </msub>
+	      <mi>(k)=</mi>
+	      <msub>
+		<mi>x</mi>
+		<mn>2,0</mn>
+	      </msub>
+	    </mrow>
+	  </math>.
+	</td></tr><tr><td>
+	</td><td>
+	  Set time step
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	    <mi>Δt = 1/N</mi></mrow></math>.
+	</td></tr><tr><td>
+	  <span class="emphasis"><em>Step 1:</em></span>
+	</td><td>
+	  Compute new states
+	  </td></tr><tr><td>
+	</td><td>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<mspace width="1.00em"/>
+	<msub>
+		<mi>x</mi>
+		<mn>1</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo>+</mo>
+		<mn>1</mn>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo>=</mo>
+	<msub>
+		<mi>x</mi>
+		<mn>1</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo>+</mo>
+	<msub>
+		<mi>f</mi>
+		<mn>1</mn>
+	</msub>
+	<mo maxsize="1.00em">(</mo>
+	<msub>
+		<mi>x</mi>
+		<mn>1</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo>,</mo>
+	<mspace width="0.167em"/>
+	<msub>
+		<mi>x</mi>
+		<mn>2</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo maxsize="1.00em">)</mo>
+	<mspace width="0.167em"/>
+	<mi>Δ</mi>
+	<mi>t</mi>
+</mrow>
+</math>, and
+	</td></tr><tr><td>
+	</td><td>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow>
+	<mspace width="1.00em"/>
+	<msub>
+		<mi>x</mi>
+		<mn>2</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo>+</mo>
+		<mn>1</mn>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo>=</mo>
+	<msub>
+		<mi>x</mi>
+		<mn>2</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo>+</mo>
+	<msub>
+		<mi>f</mi>
+		<mn>2</mn>
+	</msub>
+	<mo maxsize="1.00em">(</mo>
+	<msub>
+		<mi>x</mi>
+		<mn>2</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo>,</mo>
+	<mspace width="0.167em"/>
+	<msub>
+		<mi>x</mi>
+		<mn>1</mn>
+	</msub>
+	<mrow>
+		<mo maxsize="1.00em">(</mo>
+		<mi>k</mi>
+		<mo maxsize="1.00em">)</mo>
+	</mrow>
+	<mo maxsize="1.00em">)</mo>
+	<mspace width="0.167em"/>
+	<mi>Δ</mi>
+	<mi>t</mi>
+</mrow>
+</math>.
+	</td></tr><tr><td>
+	</td><td>
+	  Replace 
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow><mi>k</mi></mrow></math>
+	  by 
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	    <mi>k+1</mi></mrow></math>.
+	</td></tr><tr><td>
+	  <span class="emphasis"><em>Step 2:</em></span>
+	</td><td>
+	  If 
+	  <math xmlns="http://www.w3.org/1998/Math/MathML">
+	    <mrow>
+	    <mi>k=N</mi></mrow></math>
+	  stop, else go to Step 1.
+	</td></tr></tbody></table>
+</div><p>
+This algorithm is implemented in the BCVTB. It does not require an iteration between the two simulators.
+</p>
+<p>
+We note that other data synchronizations may be possible. For example, in <span class="emphasis"><em>strong coupling</em></span>, within each time step, simulators exchange data until a convergence criteria is satisfied. This implementation requires the numerical solution of a nonlinear system of equations in which the termination criteria is a function of the state variables of the coupled simulators. However, many building simulation programs contain solvers that compute with relatively coarse precision. This can introduce significant numerical noise which may cause convergence problems for the co-simulation. The computing time of strong coupling vs. loose coupling of EnergyPlus and TRNSYS was compared by
+[<a class="citation" href="bibliography.xhtml#d5e3343"><span class="citation">Trcka et al. (2007)</span></a>]. 
+Although loose coupling required shorter synchronization time steps, the work per time step was smaller (as no iterations were needed) which caused loose coupling to compute faster than strong coupling. An additional implementation benefit of loose coupling is that state variables need not be reset to previous values. Thus, loose coupling is easier to implement, is numerically more robust and it computed faster in the experiments reported by
+[<a class="citation" href="bibliography.xhtml#d5e3343"><span class="citation">Trcka et al. (2007)</span></a>]. 
+</p>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="math.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="math.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="development.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 6. Mathematics of the Implemented Co-Simulation </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> Chapter 7. Development</td></tr></table></div></body></html>

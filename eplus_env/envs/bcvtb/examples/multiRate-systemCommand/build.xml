@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="c-room" default="all" xmlns:cpptasks="antlib:net.sf.antcontrib.cpptasks">
+  <import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <delete verbose="true">
+      <fileset dir="." includes="*.obj,*.o,history.xml"/>
+      <fileset dir="." includes="writeToConsole,writeToConsole.exe,writeToConsole.exe.manifest"/>
+      <fileset dir="." includes="simulation.log, simulationFSM.log"/>
+    </delete>
+  </target>
+  
+  <!-- All -->
+  <target name="all" description="Runs all targets">
+    <cpptasks:cc outtype="executable" subsystem="console" outfile="writeToConsole">
+      <compiler name="${cc}"/>
+      <linker name="${cc}"/>
+      <fileset dir="." includes="*.c"/>
+    </cpptasks:cc>
+  </target>
+
+  <!-- Unit test -->
+  <target name="unitTest" description="Runs unit tests">
+    <echo message="Starting unit test in ${basedir}"/>
+    <exec executable="${ptUnitTestExecutable}" 
+    failonerror="true"
+    vmlauncher="false"> <!-- vmlauncher="false" is needed for Windows -->
+      <arg line="${ptExecutableFlags} system.xml"/>
+    </exec>
+  </target>
+  
+</project>

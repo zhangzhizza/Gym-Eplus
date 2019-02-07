@@ -1,0 +1,7 @@
+
+void alias Component28_material Component33_material
+!xform -n group02 group02.rad
+
+void alias Component3_material Metal_Corrogated_Shiny3
+!xform -n group03 group03.rad
+

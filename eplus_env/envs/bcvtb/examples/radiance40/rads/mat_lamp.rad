@@ -1,0 +1,79 @@
+## materials.rad
+
+## default material
+void plastic sketchup_default_material
+0
+0
+5 0.4 0.4 0.4 0 0
+
+## material conversion from Sketchup rgb color
+void plastic Color_001
+0
+0
+5  0.7090 0.7090 0.7090 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Color_006
+0
+0
+5  0.2698 0.2698 0.2698 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Color_007
+0
+0
+5  0.1820 0.1820 0.1820 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Metal_Aluminum_Corrugated
+0
+0
+5  0.5333 0.5145 0.5145 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Metal_Aluminum_Corrugated1
+0
+0
+5  0.4580 0.4424 0.4424 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Metal_Corrogated_Rust
+0
+0
+5  0.6996 0.6996 0.6996 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Metal_Corrogated_Shiny3
+0
+0
+5  0.8000 0.8000 0.8000 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Metal_Corrogated_Shiny4
+0
+0
+5  0.0376 0.0376 0.0376 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Metal_Corrogated_Shiny5
+0
+0
+5  0.1412 0.1412 0.1412 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Metal_Corrogated_Shiny6
+0
+0
+5  0.1663 0.1663 0.1663 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Metal_Corrogated_Shiny8
+0
+0
+5  0.6149 0.6149 0.6149 0.000 0.000
+
+## default material
+void plastic sketchup_default_material
+0
+0
+5 0.4 0.4 0.4 0 0

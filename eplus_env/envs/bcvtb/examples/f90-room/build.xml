@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="f90-room" default="all">
+  <import file="../../build-common.xml"/>
+
+  <!-- Clean. Files are only deleted if ifort is present. -->
+  <target name="clean" if="have.ifort" description="Deletes generated files">
+    <delete verbose="true">
+      <fileset dir="." includes="*.obj,*.o,*.mod"/>
+      <fileset dir="." includes="f90client,f90client.exe,f90client.exe.manifest"/>
+      <fileset dir="." includes="client.log,utilSocket.log,simulation.log,socket.cfg"/>
+    </delete>
+  </target>
+  
+  <!-- Compile -->
+  <target name="compile" description="Compiles source" if="have.ifort">
+    <exec executable="ifort" failonerror="true" osfamily="unix">
+      <arg line="-vec_report0 -integer-size 32 -assume buffered_io -assume nounderscore -check uninit -fp-model strict -fpe0 -fpscomp nolibs -fno-omit-frame-pointer -fp-speculation=off -zero -traceback -c -o f90client.o f90client.f90"/>
+    </exec>
+    <exec executable="ifort" failonerror="true" osfamily="windows">
+      <arg line="/nologo /assume:buffered_io /recursive /fpscomp:nolibs /fpe:0 /traceback /check:uninit /4Yportlib /iface=cref /real-size:64 /c f90client.f90"/>
+    </exec>
+  </target>
+  
+  <!-- Link -->
+  <target name="link" depends="compile" if="have.ifort" description="Links binaries">
+    <exec executable="ifort"  failonerror="true" osfamily="unix">
+      <arg line="-o f90client f90client.o -L../../lib/util -l${lib.bcvtb}"/>
+    </exec>
+    <exec executable="cl"  failonerror="true" osfamily="windows"
+    vmlauncher="false">
+      <arg line="f90client.obj ..\..\lib\util\${lib.bcvtb}.lib"/>
+    </exec>
+   </target>
+
+  <!-- Build -->
+  <target name="build" depends="compile,link"/>
+  
+  <!-- All -->
+  <target name="all" depends="build" description="Runs all targets"/>
+
+  <!-- Unit test -->
+  <target name="unitTest" description="Runs unit tests" if="have.ifort">
+    <echo message="Starting unit test in ${basedir}"/>
+    <exec executable="${ptUnitTestExecutable}" 
+    failonerror="true"
+    vmlauncher="false"> <!-- vmlauncher="false" is needed for Windows -->
+      <arg line="${ptExecutableFlags} system.xml"/>
+    </exec>
+  </target>
+
+  
+</project>

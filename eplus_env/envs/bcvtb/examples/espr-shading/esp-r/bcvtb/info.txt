@@ -1,0 +1,2 @@
+In later versions, this folder can be included in the BCVTB distribution. 
+The folder will then typically go into ~/BCVTB/examples and is no longer needed here.

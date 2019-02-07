@@ -1,0 +1,4 @@
+!xform ./materials_SC.rad
+!xform -n group objects_SC/group.rad
+!xform -n group01 objects_SC/group01.rad
+!xform objects_SC/screen_faces.rad

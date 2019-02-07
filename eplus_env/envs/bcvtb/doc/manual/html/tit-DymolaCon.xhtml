@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>5.4. Dymola</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="configuration.xhtml" title="Chapter 5. Configuring programs for use with the BCVTB"/><link rel="prev" href="tit-EnePluCon.xhtml" title="5.3. EnergyPlus"/><link rel="next" href="tit-MatlabCon.xhtml" title="5.5. MATLAB"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.4. Dymola</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tit-EnePluCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 5. Configuring programs for use with the BCVTB</th><td width="20%" align="right"> <a accesskey="n" href="tit-MatlabCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="configuration.xhtml">Configuring programs for use with the BCVTB</a></span> &gt; <span class="breadcrumb-node">Dymola</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="tit-DymolaCon"/>5.4. Dymola</h2></div></div></div>
+  
+  <p>
+   To configure a Modelica model that will be simulated by
+   Dymola, you may modify the files in the directory
+   <code class="code">BCVTB/examples/dymola-room</code>, or you may
+   create a new Modelica model. This section describes how
+   to create a new Modelica model using the Dymola modeling
+   and simulation environment. The configuration consists of
+   creating a Modelica model, a Modelica script and a
+   Ptolemy II model.
+  </p>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e968"/>5.4.1. Create a Modelica model</h3></div></div></div>
+   
+   <p>
+    To create a new Modelica model, proceed as follows:
+    First, open Dymola and the Buildings library, which may
+    be downloaded from
+    <a class="ulink" href="http://simulationresearch.lbl.gov/modelica" target="_top">http://simulationresearch.lbl.gov/modelica</a>
+    . From the <code class="code">Buildings</code> library, add the block
+    <a class="ulink" href="http://gaia.lbl.gov/bie/modelica/releases/0.8.0/help/Buildings_Utilities_IO_BCVTB.html#Buildings.Utilities.IO.BCVTB.BCVTB" target="_top">Buildings.Utilities.IO.BCVTB.BCVTB</a>
+    to your model. Next, connect the <code class="code">bcvtb</code>
+    block to your other Modelica models to create a system
+    model that takes signals from the <code class="code">bcvtb</code>
+    block and writes signals to the <code class="code">bcvtb</code>
+    block. This may yield a system model as shown in
+    <a class="xref" href="tit-DymolaCon.xhtml#configuration-dymola-room-schematic" title="Figure 5.13.  Graphical view of the Modelica model that computes the change in temperature for two simple room models.">Figure 5.13</a>
+    , which is the model in the file
+    <code class="code">bcvtb/examples/dymola-room/TwoRoomsTotal.mo</code>.
+   </p>
+   <p>
+    </p><div class="figure"><a id="configuration-dymola-room-schematic"/><p class="title"><strong>Figure 5.13. 
+	      Graphical view of the Modelica model that computes the change in temperature for two simple room models.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configuration-dymola-room-schematic.png" alt="Graphical view of the Modelica model that computes the change in temperature for two simple room models."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    To configure the <code class="code">bcvtb</code> interface,
+    double-click on the <code class="code">bcvtb</code> block that is
+    shown in the left of the figure. This will open the
+    input form shown in
+    <a class="xref" href="tit-DymolaCon.xhtml#fig-configuration-dymola-room-parWin" title="Figure 5.14.  Configuration of the bcvtb block in the Modelica Buildings library">Figure 5.14</a>
+    .
+   </p>
+   <p>
+    </p><div class="figure"><a id="fig-configuration-dymola-room-parWin"/><p class="title"><strong>Figure 5.14. 
+	      Configuration of the <code class="code">bcvtb</code> block in the Modelica Buildings library
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configuration-dymola-room-parWin.png" alt="Configuration of the bcvtb block in the Modelica Buildings library"/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    In this example, a vector with two double values are
+    obtained from the BCVTB and written to the BCVTB every
+    60 seconds of simulation time. Additional information
+    about this block can be obtained by pressing the
+    <span class="guibutton">Info</span>
+    button.
+   </p>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1002"/>5.4.2. Create a Modelica script</h3></div></div></div>
+   
+   <p>
+    To perform a simulation, the BCVTB will call a batch
+    file (on Windows) or a shell script (on Linux), which in
+    turn calls Dymola to execute a Modelica script that
+    opens and simulates the model. The batch file or shell
+    script is stored in the directory <code class="code">bcvtb/bin</code>
+    and need not be changed by the user. To create the
+    Modelica script, adjust the following three lines as
+    needed and save them in a file called
+    <code class="code">simulateAndExit.mos</code>:
+   </p>
+<pre class="screen">openModel("TwoRoomsTotal.mo");
+simulateModel("Buildings_Utilities_IO_BCVTB_Examples_TwoRooms", stopTime=21600);
+exit();</pre>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1008"/>5.4.3. Create a Ptolemy II model</h3></div></div></div>
+   
+   <p>
+    To start Dymola from Ptolemy II, a Ptolemy II model will
+    need to be created. The model
+    <code class="code">BCVTB/examples/dymola-room/system-windows.xml</code>
+    shown in
+    <a class="xref" href="tit-DymolaCon.xhtml#fig-configuration-dymola-room-system" title="Figure 5.15.  Ptolemy II system model that links a model of a controller with the Simulator actor that communicates with the Modelica modeling and simulation environment Dymola.">Figure 5.15</a>
+    may be used as a starting point.
+   </p>
+   <p>
+    </p><div class="figure"><a id="fig-configuration-dymola-room-system"/><p class="title"><strong>Figure 5.15. 
+		Ptolemy II system model that links a model of a controller with the <code class="code">Simulator</code> actor that communicates with the Modelica modeling and simulation environment Dymola.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configuration-dymola-room-system.png" alt="Ptolemy II system model that links a model of a controller with the Simulator actor that communicates with the Modelica modeling and simulation environment Dymola."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    In this model, the <code class="code">Simulator</code> actor that
+    calls Dymola is configured as shown in
+    <a class="xref" href="tit-DymolaCon.xhtml#configuration-dymola-room-simulator" title="Figure 5.16.  Configuration of the Simulator actor that calls Dymola on Linux.">Figure 5.16</a>
+    .
+   </p>
+   <p>
+    </p><div class="figure"><a id="configuration-dymola-room-simulator"/><p class="title"><strong>Figure 5.16. 
+	      Configuration of the <code class="code">Simulator</code> actor that calls Dymola on Linux.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configuration-dymola-room-simulator.png" alt="Configuration of the Simulator actor that calls Dymola on Linux."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    The batch file <code class="code">runDymola.bat</code> (on Windows)
+    or the shell script <code class="code">runDymola.sh</code> (on Linux)
+    will copy the binary and header files that are required
+    by Dymola. If either <code class="code">dymosim.exe</code> (or
+    <code class="code">dymosim</code> on Linux) or <code class="code">dsin.txt</code>
+    do not exist in the current directory, then the batch
+    file starts Dymola, translates and simulates the model.
+    Otherwise, the batch file will call <code class="code">dymosim
+    -s</code> to simulate the model.
+   </p>
+  </div>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tit-EnePluCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="configuration.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="tit-MatlabCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">5.3. EnergyPlus </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 5.5. MATLAB</td></tr></table></div></body></html>

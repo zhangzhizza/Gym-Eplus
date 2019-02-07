@@ -1,0 +1,139 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE entity PUBLIC "-//UC Berkeley//DTD MoML 1//EN"
+    "http://ptolemy.eecs.berkeley.edu/xml/dtd/MoML_1.dtd">
+<entity name="SpeakingServerListeningClient" class="ptolemy.actor.TypedCompositeActor">
+    <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.devel">
+    </property>
+    <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
+        <property name="stopTime" class="ptolemy.data.expr.Parameter" value="3">
+        </property>
+        <property name="stopWhenQueueIsEmpty" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[75.0, 45.0]">
+        </property>
+    </property>
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={2, 23, 934, 634}, maximized=false}">
+    </property>
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 524]">
+    </property>
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0000000000000002">
+    </property>
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{339.9999999999996, 252.00000000000006}">
+    </property>
+    <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="A demo for JavaScript Web Socket to show full duplex communication between server&#10;and client. Once the connection is established, the client starts listening to the server&#10;and the server sends a message to the client.&#10;&#10;This also shows that multiple clients can connect to the same server.">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[35.0, 345.0]">
+        </property>
+    </property>
+    <property name="Annotation2" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+        <property name="textColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.6,0.6,0.6,1.0}">
+        </property>
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="Author: Hokeun Kim">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[35.0, 445.0]">
+        </property>
+    </property>
+    <entity name="ReceivedByClient" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={620, 371, 499, 208}, maximized=false}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[499, 164]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[290.0, 200.0]">
+        </property>
+    </entity>
+    <entity name="ReceivedByServer" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={619, 157, 499, 208}, maximized=false}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[499, 164]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[265.0, 110.0]">
+        </property>
+    </entity>
+    <entity name="ReceivedByClient2" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={618, 591, 499, 208}, maximized=false}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[499, 164]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[290.0, 290.0]">
+        </property>
+    </entity>
+    <entity name="WSServer" class="ptolemy.actor.lib.jjs.JavaScript">
+        <property name="script" class="ptolemy.actor.parameters.PortParameter" value="exports.setup = function() {&#10;	this.output('output');&#10;	this.output('started');&#10;}&#10;&#10;var WebSocket = require('webSocketServer');&#10;&#10;var server = null;&#10;&#10;exports.initialize = function() {&#10;  // Start an HTTP server and begin listening for connection requests.&#10;    server = new WebSocket.Server({port:8081});&#10;    server.on('listening', onListening.bind(this));&#10;    server.on('connection', onConnection.bind(this));&#10;    server.start();&#10;    console.log('*** server initialized.');&#10;}&#10;&#10;// When the server is listening for connections, print a message.&#10;function onListening() {&#10;  console.log('*** server is listenting.');&#10;  this.send('started', 'Server is listening for connections.');&#10;}&#10;&#10;// Count clients.&#10;var clientCount = 0;&#10;&#10;function onConnection(socket) {&#10;  console.log('*** server received connection ' + clientCount);&#10;  clientCount++;&#10;  var self = this;&#10;  socket.on('message', function(message) {&#10;    console.log('*** server received message: ' + message);&#10;    self.send('output', message);&#10;  });&#10;  socket.send('Hello to client number ' + clientCount);&#10;}&#10;&#10;exports.wrapup = function() {&#10;   console.log('*** server wrapping up.');&#10;   server.stop();&#10;}">
+            <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
+                <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
+                </property>
+            </property>
+        </property>
+        <property name="_tableauFactory" class="ptolemy.vergil.toolbox.TextEditorTableauFactory">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="script">
+            </property>
+            <property name="syntaxStyle" class="ptolemy.kernel.util.StringAttribute" value="text/javascript">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[63.51399612426758, 114.86297607421875]">
+        </property>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+        </port>
+        <port name="started" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+        </port>
+    </entity>
+    <entity name="WSClient1" class="ptolemy.actor.lib.jjs.JavaScript">
+        <property name="script" class="ptolemy.actor.parameters.PortParameter" value="exports.setup = function() {&#10;	this.output('output');&#10;}&#10;&#10;var WebSocket = require('webSocketClient');&#10;var client = null;&#10;&#10;function onMessage(data, flags) {&#10;  console.log('--- client 1 received message: ' + data);&#10;  this.send('output', 'Client received a message: ' + data);&#10;}&#10;&#10;function onOpen() {&#10;  console.log('--- client 1 connection open. Sending message to server.');&#10;  client.send('Hello from the client');&#10;}&#10;&#10;exports.initialize = function() {&#10;  if (client == null) {&#10;    client = new WebSocket.Client({'host':'localhost', 'port':8081});&#10;    client.on('open', onOpen.bind(this));&#10;    client.on('message', onMessage.bind(this));&#10;    client.open();&#10;  }&#10;  console.log('--- client 1 initialized.');&#10;}&#10;&#10;exports.wrapup = function() {&#10;  console.log('--- client 1 wrapping up.');&#10;  if (client != null) {&#10;    client.close();&#10;    client = null;&#10;  }&#10;}&#10;">
+            <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
+                <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
+                </property>
+            </property>
+        </property>
+        <property name="_tableauFactory" class="ptolemy.vergil.toolbox.TextEditorTableauFactory">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="script">
+            </property>
+            <property name="syntaxStyle" class="ptolemy.kernel.util.StringAttribute" value="text/javascript">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[70.0, 200.0]">
+        </property>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+        </port>
+    </entity>
+    <entity name="WSClient2" class="ptolemy.actor.lib.jjs.JavaScript">
+        <property name="script" class="ptolemy.actor.parameters.PortParameter" value="exports.setup = function() {&#10;	this.output('output');&#10;}&#10;&#10;var WebSocket = require('webSocketClient');&#10;var client = null;&#10;&#10;function onMessage(data, flags) {&#10;  console.log('+++ client 2 received message: ' + data);&#10;  this.send('output', 'Client received a message: ' + data);&#10;}&#10;&#10;function onOpen() {&#10;  console.log('+++ connection established. Sending message to server.');&#10;  client.send('Hello from the client');&#10;}&#10;&#10;exports.initialize = function() {&#10;  if (client == null) {&#10;    client = new WebSocket.Client({'host':'localhost', 'port':8081});&#10;    client.on('open', onOpen.bind(this));&#10;    client.on('message', onMessage.bind(this));&#10;    client.open();&#10;  }&#10;  console.log('+++ client 2 initialized.');&#10;}&#10;&#10;exports.wrapup = function() {&#10;  console.log('+++ client 2 wrapping up.');&#10;  if (client != null) {&#10;    client.close();&#10;    client = null;&#10;  }&#10;}&#10;">
+            <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
+                <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
+                </property>
+            </property>
+        </property>
+        <property name="_tableauFactory" class="ptolemy.vergil.toolbox.TextEditorTableauFactory">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="script">
+            </property>
+            <property name="syntaxStyle" class="ptolemy.kernel.util.StringAttribute" value="text/javascript">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[75.0, 290.0]">
+        </property>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+        </port>
+    </entity>
+    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <link port="ReceivedByClient.input" relation="relation2"/>
+    <link port="ReceivedByServer.input" relation="relation3"/>
+    <link port="ReceivedByServer.input" relation="relation4"/>
+    <link port="ReceivedByClient2.input" relation="relation"/>
+    <link port="WSServer.output" relation="relation3"/>
+    <link port="WSServer.started" relation="relation4"/>
+    <link port="WSClient1.output" relation="relation2"/>
+    <link port="WSClient2.output" relation="relation"/>
+</entity>

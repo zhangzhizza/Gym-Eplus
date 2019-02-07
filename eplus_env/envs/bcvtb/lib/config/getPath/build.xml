@@ -1,0 +1,12 @@
+<project name="GetPath" basedir="." default="build">
+  <property name="main-class"          value="${ant.project.name}"/>
+  <import file="../../build-java.xml"/>
+
+  <!-- clean 
+    Overwrites target of build-java.xml -->
+  <target name="clean">
+    <delete dir="${doc.dir}" />
+    <delete dir="${classes.dir}" />
+  </target>
+
+</project>

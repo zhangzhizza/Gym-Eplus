@@ -1,0 +1,38 @@
+# the bottom glass of the EC room window
+
+#@mkillum l- c=a d=A45.xml u=Z t=1.47
+
+bot_glass_mat polygon bottom_glass_1
+0
+0
+12	39	0	   22
+	3	0	   22
+	3	0	84
+	39	0	84
+
+bot_glass_mat polygon bottom_glass_2
+0
+0
+12	78	0	   22
+	42	0	   22
+	42	0	84
+	78	0	84
+
+bot_glass_mat polygon bottom_glass_3
+0
+0
+12	117	0	   22
+	81	0	   22
+	81	0	84
+	117	0	84
+
+# would be used if it's a single pane instead of 
+# 3 on the bottom.
+#bot_glass_mat polygon bottom_glass
+#0
+#0
+#12	117	0	   22
+#	3	0	   22
+#	3	0	84
+#	117	0	84
+

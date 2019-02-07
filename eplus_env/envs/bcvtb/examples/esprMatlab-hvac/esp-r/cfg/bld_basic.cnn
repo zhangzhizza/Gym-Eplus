@@ -1,0 +1,32 @@
+*connections for bld_basic_BCVTB
+*Date Fri Jan  6 16:01:42 2012
+     29   # number of connections
+   1   1   0   0   0  #    1 south in reception is External
+   1   2   0   0   0  #    2 east in reception is External
+   1   3   1   0   0  #    3 pasg in reception >|< Identical environment
+   1   4   0   0   0  #    4 north in reception is External
+   1   5   3   2   2  #    5 part_a in reception >|< part_a in office
+   1   6   3   2   1  #    6 part_b in reception >|< part_b in office
+   1   7   0   0   0  #    7 west in reception is External
+   1   8   3   3   1  #    8 ceiling in reception >|< Ceiling_r in roof_space
+   1   9   2  20   0  #    9 floor in reception >|< Constant @ 20 dC &   0 W rad
+   1  10   0   0   0  #   10 glz_s in reception is External
+   1  11   1   0   0  #   11 door_p in reception >|< Identical environment
+   1  12   3   2   7  #   12 door_a in reception >|< door_a in office
+   1  13   0   0   0  #   13 door_w in reception is External
+   1  14   0   0   0  #   14 east_glz in reception is External
+   2   1   3   1   6  #   15 part_b in office >|< part_b in reception
+   2   2   3   1   5  #   16 part_a in office >|< part_a in reception
+   2   3   0   0   0  #   17 North_w in office is External
+   2   4   0   0   0  #   18 West_w in office is External
+   2   5   3   3   2  #   19 Ceiling in office >|< Ceiling_o in roof_space
+   2   6   4   1   0  #   20 Floor in office >|< ground profile 1
+   2   7   3   1  12  #   21 door_a in office >|< door_a in reception
+   2   8   0   0   0  #   22 west_glz in office is External
+   3   1   3   1   8  #   23 Ceiling_r in roof_space >|< ceiling in reception
+   3   2   3   2   5  #   24 Ceiling_o in roof_space >|< Ceiling in office
+   3   3   0   0   0  #   25 s_roof in roof_space is External
+   3   4   2  12   0  #   26 Fire_wall in roof_space >|< Constant @ 12 dC &   0 W rad
+   3   5   0   0   0  #   27 North_wall in roof_space is External
+   3   6   0   0   0  #   28 w_roof in roof_space is External
+   3   7   0   0   0  #   29 soffit in roof_space is External

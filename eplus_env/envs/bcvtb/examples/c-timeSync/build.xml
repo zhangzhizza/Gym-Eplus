@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="c-room" default="all" xmlns:cpptasks="antlib:net.sf.antcontrib.cpptasks">
+  <import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <delete verbose="true">
+      <fileset dir="." includes="*.obj,*.o"/>
+      <fileset dir="." includes="cclient,cclient.exe,cclient.exe.manifest"/>
+      <fileset dir="workingDir1" includes="*.log,*.cfg"/>
+      <fileset dir="workingDir2" includes="*.log,*.cfg"/>
+    </delete>
+  </target>
+  
+  <!-- All -->
+  <target name="all" description="Runs all targets">
+    <cpptasks:cc outtype="executable" subsystem="console" outfile="cclient">
+      <compiler name="${cc}"/>
+      <linker name="${cc}"/>
+      <fileset dir="." includes="*.c"/>
+      <includepath path="../../lib/util"/>
+      <includepath path="../../lib"/>
+      <libset dir="../../lib/util" libs="${lib.bcvtb}"/>
+      <linkerarg value="../../lib/util/bcvtb.lib" if="windows"/>
+    </cpptasks:cc>
+  </target>
+
+  <!-- Unit test -->
+  <target name="unitTest" description="Runs unit tests">
+   <echo message="Starting unit test in ${basedir}"/>
+    <exec executable="${ptUnitTestExecutable}" 
+    failonerror="true"
+    vmlauncher="false"> <!-- vmlauncher="false" is needed for Windows -->
+      <arg line="${ptExecutableFlags} system.xml"/>
+    </exec>
+  </target>
+
+</project>

@@ -1,0 +1,19 @@
+<project name="BCVTB" basedir="." default="build">
+  <import file="../build-java.xml"/>
+  <property name="main-class"          value="${ant.project.name}.Launcher"/>
+
+  <!-- dist
+    Overwrites target of build-java.xml -->
+  <target name="dist" description="Distributes the files">
+    <copy file="${jar.dir}/${ant.project.name}.jar" todir="./../../bin"/>
+  </target>
+
+  <!-- clean 
+    Overwrites target of build-java.xml -->
+  <target name="clean">
+    <delete dir="${doc.dir}" />
+    <delete dir="${classes.dir}" />
+  </target>
+
+
+</project>

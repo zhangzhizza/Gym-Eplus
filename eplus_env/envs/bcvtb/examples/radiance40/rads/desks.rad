@@ -1,0 +1,3 @@
+!xform rads/mat_desks.rad
+!xform -n group rads/ob_desks/group.rad
+!xform -n group01 rads/ob_desks/group01.rad

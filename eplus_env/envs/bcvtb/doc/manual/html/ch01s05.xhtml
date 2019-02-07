@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>1.5. Version 1.2.0</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="releaseNotes.xhtml" title="Chapter 1. Release Notes"/><link rel="prev" href="ch01s04.xhtml" title="1.4. Version 1.3.0"/><link rel="next" href="ch01s06.xhtml" title="1.6. Version 1.1.0"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">1.5. Version 1.2.0</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch01s04.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 1. Release Notes</th><td width="20%" align="right"> <a accesskey="n" href="ch01s06.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="releaseNotes.xhtml">Release Notes</a></span> &gt; <span class="breadcrumb-node">Version 1.2.0</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d5e74"/>1.5. Version 1.2.0</h2></div></div></div>
+    
+    <p>
+      </p><div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc; "><li class="listitem">
+          <p>
+            Ptolemy II has been updated to version 9.0.devel.
+            Ptolemy II 9.0 introduced two new parameters called <code class="code">startTime</code> 
+            and <code class="code">stopTime</code> in the SDF Director. These parameters cause 
+            a name clash in the BCVTB examples which already use these names for their
+            own parameters. 
+	    The BCVTB will update files automatically to the new syntax when they
+	    are opened from a command line as described in 
+	    <a class="xref" href="tit-runTerWin.xhtml" title="4.3. Running the BCVTB from a terminal window">Section 4.3, “Running the BCVTB from a terminal window”</a> or in
+	    <a class="xref" href="tit-comLinArg.xhtml" title="4.4. Command line arguments">Section 4.4, “Command line arguments”</a>.
+	    However, if files are opened from an explorer window as described in
+	    <a class="xref" href="tit-runExpWin.xhtml" title="4.2. Running the BCVTB from an explorer window">Section 4.2, “Running the BCVTB from an explorer window”</a>, then files are not updated
+	    automatically.<a href="#ftn.d5e85" class="footnote" id="d5e85"><sup class="footnote">[1]</sup></a>
+            To manually update existing BCVTB files, the following strings need to be replaced
+            in the file <code class="code">system.xml</code> (or <code class="code">system-windows.xml</code>):
+            </p><div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: circle; "><li class="listitem">
+                <p>
+                  Replace <code class="code">startTime</code> with <code class="code">beginTime</code>.
+                </p>
+              </li><li class="listitem">
+                <p>
+                  Replace <code class="code">stopTime</code> with <code class="code">endTime</code>.
+                </p>
+              </li></ul></div><p>
+            These strings can be replaced using a text editor or by running
+            </p><pre class="screen">bcvtb -update 1.1 system.xml</pre><p>
+          </p>
+        </li><li class="listitem">
+          <p>
+            Added ESP-r as a client. Examples files can be found in
+            <code class="code">examples/esprMatlab-hvac</code> and in
+            <code class="code">examples/espr-shading</code> and are explained
+            in <a class="xref" href="tit-EsprCon.xhtml" title="5.7. ESP-r">Section 5.7, “ESP-r”</a>.
+        </p>
+        </li><li class="listitem">
+	  <p>
+	    Fixed a buffer overflow in <code class="code">lib/util/utilSocket.c</code> that
+	    occured in the function <code class="code">int sendclientmessage(const int *sockfd, const int *flaWri)</code>.
+	    The buffer overflow causes the error message <code class="code">*** stack smashing detected ***</code>,
+	    followed by a termination of the client program.
+        </p>
+        </li><li class="listitem">
+	  <p>
+	    The example files have been updated for EnergyPlus 7.1.
+        </p>
+        </li><li class="listitem">
+	  <p>
+	    The example files have been updated for EnergyPlus 7.2.
+        </p>
+        </li><li class="listitem">
+	  <p>
+	    An example file has been added that describes how to convert an array of strings 
+	    into an array of doubles. The example file can be found 
+	    in <code class="code">examples/ptolemy-dataTypeConversion</code>.
+        </p>
+        </li></ul></div><p>
+    </p>
+        <div class="footnotes"><br/><hr style="width:100; text-align:left;margin-left: 0"/><div id="ftn.d5e85" class="footnote">
+	    <p><a href="#d5e85" class="para"><sup class="para">[1] </sup></a>
+	      In this case, files are not automatically updated because Ptolemy II,
+	      and not the BCVTB, receives the file name. Hence, the BCVTB cannot 
+	      update the files automatically.
+	    </p>
+	    </div></div></div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch01s04.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="releaseNotes.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="ch01s06.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">1.4. Version 1.3.0 </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 1.6. Version 1.1.0</td></tr></table></div></body></html>

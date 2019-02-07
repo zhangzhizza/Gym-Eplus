@@ -1,0 +1,22 @@
+Notice of Redistributing, Copyrights, and Trademarks
+Redistributing a custom UL application
+Customers can distribute the necessary runtime files (University Library driver files) for any application created using the Universal Library. Customers may not distribute any files that give the end user the ability to develop applications using the Universal Library.
+
+Trademark and copyright information
+TracerDAQ, Universal Library, Measurement Computing Corporation, and the Measurement Computing logo are either trademarks or registered trademarks of Measurement Computing Corporation. 
+
+Windows, Microsoft, and Visual Studio are either trademarks or registered trademarks of Microsoft Corporation
+
+LabVIEW is a trademark of National Instruments.
+
+CompactFlash is a registered trademark of SanDisk Corporation.
+
+XBee and XBee-PRO are trademarks of MaxStream, Inc.
+
+All other trademarks are the property of their respective owners.
+
+Information furnished by Measurement Computing Corporation is believed to be accurate and reliable. However, no responsibility is assumed by Measurement Computing Corporation neither for its use; nor for any infringements of patents or other rights of third parties, which may result from its use. No license is granted by implication or otherwise under any patent or copyrights of Measurement Computing Corporation.
+
+All rights reserved. No part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form by any means, electronic, mechanical, by photocopying, recording, or otherwise without the prior written permission of Measurement Computing Corporation.
+
+Notice: Measurement Computing Corporation does not authorize any Measurement Computing Corporation product for use in life support systems and/or devices without prior written consent from Measurement Computing Corporation. Life support devices/systems are devices or systems which, a) are intended for surgical implantation into the body, or b) support or sustain life and whose failure to perform can be reasonably expected to result in injury. Measurement Computing Corporation products are not designed with the components required, and are not subject to the testing required to ensure a level of reliability suitable for the treatment and diagnosis of people. 

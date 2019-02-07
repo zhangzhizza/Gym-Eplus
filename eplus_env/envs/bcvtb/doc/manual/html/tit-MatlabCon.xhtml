@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>5.5. MATLAB</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="configuration.xhtml" title="Chapter 5. Configuring programs for use with the BCVTB"/><link rel="prev" href="tit-DymolaCon.xhtml" title="5.4. Dymola"/><link rel="next" href="tit-SimulinkCon.xhtml" title="5.6. Simulink"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.5. MATLAB</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tit-DymolaCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 5. Configuring programs for use with the BCVTB</th><td width="20%" align="right"> <a accesskey="n" href="tit-SimulinkCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="configuration.xhtml">Configuring programs for use with the BCVTB</a></span> &gt; <span class="breadcrumb-node">MATLAB</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="tit-MatlabCon"/>5.5. MATLAB</h2></div></div></div>
+  
+  <p>
+   To configure MATLAB, you may modify an example such as
+   the one in the directory
+   <code class="code">BCVTB/examples/matlab-room</code>, or you may
+   create new input files. This section describes the latter
+   approach, which consists of creating a MATLAB script and
+   a Ptolemy II model.
+  </p>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1045"/>5.5.1. Create a MATLAB script</h3></div></div></div>
+   
+   <p>
+    A MATLAB script that exchanges data with the BCVTB has
+    the following structure:
+   </p>
+<pre class="screen">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initialize variables
+% ... (not shown)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add path to BCVTB matlab libraries
+addpath( strcat(getenv('BCVTB_HOME'), '/lib/matlab'));
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Establish the socket connection
+sockfd = establishClientSocket('socket.cfg');
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exchange data (call this at each time step)
+% ... (loop over each time step)
+[retVal, flaRea, simTimRea, dblValRea ] = ...
+  exchangeDoublesWithSocket(sockfd, flaWri, length(u), simTimWri, ...
+                            dblValWri);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Close socket at the end of the simulation
+closeIPC(sockfd);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exit MATLAB
+exit</pre>
+   <p>
+    For a complete MATLAB script that also includes error
+    handling, see the file <code class="code">simulateAndExit.m</code> in
+    the directory <code class="code">bcvtb/examples/matlab-room</code>.
+   </p>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1052"/>5.5.2. Create a Ptolemy II model</h3></div></div></div>
+   
+   <p>
+    To start MATLAB from Ptolemy II, you will need to create
+    a Ptolemy II model. The model
+    <code class="code">BCVTB/examples/matlab-room/system.xml</code> shown
+    in
+    <a class="xref" href="tit-MatlabCon.xhtml#configurationRoomPtMatlab" title="Figure 5.17.  Ptolemy II system model that links an actor that computes a control signal with the Simulator actor that communicates with MATLAB.">Figure 5.17</a>
+    may be used as a starting point. In this example, MATLAB
+    computes the temperature change in two rooms for a given
+    control input. The controller is implemented in Ptolemy
+    II.
+   </p>
+   <p>
+    </p><div class="figure"><a id="configurationRoomPtMatlab"/><p class="title"><strong>Figure 5.17. 
+		Ptolemy II system model that links an actor that computes a control signal with the <code class="code">Simulator</code> actor that communicates with MATLAB.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationRoomPtMatlab.png" alt="Ptolemy II system model that links an actor that computes a control signal with the Simulator actor that communicates with MATLAB."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    In this model, the <code class="code">Simulator</code> actor that
+    calls MATLAB is configured as follows:
+   </p>
+   <p>
+    </p><div class="figure"><a id="configurationMATLABPt"/><p class="title"><strong>Figure 5.18. 
+		Configuration of the <code class="code">Simulator</code> actor that calls MATLAB on Mac OS X.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationMATLABPt.png" alt="Configuration of the Simulator actor that calls MATLAB on Mac OS X."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    This completes the configuration.
+   </p>
+  </div>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tit-DymolaCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="configuration.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="tit-SimulinkCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">5.4. Dymola </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 5.6. Simulink</td></tr></table></div></body></html>

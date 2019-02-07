@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>4.5. Example files</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="running.xhtml" title="Chapter 4. Running simulations with the BCVTB"/><link rel="prev" href="tit-comLinArg.xhtml" title="4.4. Command line arguments"/><link rel="next" href="configuration.xhtml" title="Chapter 5. Configuring programs for use with the BCVTB"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4.5. Example files</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tit-comLinArg.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 4. Running simulations with the BCVTB</th><td width="20%" align="right"> <a accesskey="n" href="configuration.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="running.xhtml">Running simulations with the BCVTB</a></span> &gt; <span class="breadcrumb-node">Example files</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d5e370"/>4.5. Example files</h2></div></div></div>
+  
+  <p>
+   The directory <code class="code">bcvtb/examples</code> contains
+   several example files that show how to use the BCVTB. In
+   these examples, the following programs are linked to the
+   BCVTB:
+  </p>
+  <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          EnergyPlus,
+        </li><li class="listitem">
+          Dymola,
+        </li><li class="listitem">
+          MATLAB,
+        </li><li class="listitem">
+          Simulink,
+        </li><li class="listitem">
+          Radiance,
+        </li><li class="listitem">
+          ESP-r,
+   </li><li class="listitem">
+          TRNSYS,
+        </li><li class="listitem">
+          Functional Mock-up Unit (FMU) for co-simulation,
+        </li><li class="listitem">
+          a simulation program implemented in C,
+        </li><li class="listitem">
+          a simulation program implemented in Fortran 90, and
+        </li><li class="listitem">
+          a program written in the C language that is called at each time step with different program arguments.
+        </li></ul></div>
+  <p>
+   The C and Fortran 90 simulation programs are provided to
+   show developers how to couple a new program to the BCVTB.
+   The program that is called at each time step with
+   different program arguments shows how programs can be
+   called and how their output files can be parsed. The
+   BCVTB also contains examples that show how models of
+   control systems and of HVAC systems can be implemented
+   directly in Ptolemy II using Ptolemy II's graphical model
+   editor. The examples of control systems include a
+   heterogeneous system consisting of a discrete time
+   controller with a Finite State Machine.
+  </p>
+  <p>
+   One of the simplest examples can be found in the
+   directory <code class="code">bcvtb/examples/c-room</code>. This
+   example illustrates the implementation of a simulation
+   program written in C that communicates with Ptolemy II
+   through BSD sockets. The simulation program computes the
+   temperature change in two rooms with different heat
+   capacities. Input to the simulation program is the vector
+   of control signals
+   <span class="emphasis"><em>u<sub>k</sub>
+   </em></span>
+   . Output of the simulation program are the vector of new
+   room temperatures
+   <span class="emphasis"><em>T<sub>k+1</sub>
+   </em></span>
+   . The control action is computed in Ptolemy II.
+   <a class="xref" href="ch04s05.xhtml#ptolemyRoomC" title="Figure 4.1.  System model that links Ptolemy II to a room model that is implemented in the C language.">Figure 4.1</a>
+   shows the Ptolemy II model.
+  </p>
+  <p>
+   </p><div class="figure"><a id="ptolemyRoomC"/><p class="title"><strong>Figure 4.1. 
+	    System model that links Ptolemy II to a room model that is implemented in the C language.
+	    </strong></p><div class="figure-contents">
+    <div class="mediaobject"><img src="img/configurationPtRoomC.png" alt="System model that links Ptolemy II to a room model that is implemented in the C language."/></div>
+    
+   </div></div><p><br class="figure-break"/>
+  </p>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tit-comLinArg.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="running.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="configuration.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">4.4. Command line arguments </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> Chapter 5. Configuring programs for use with the BCVTB</td></tr></table></div></body></html>

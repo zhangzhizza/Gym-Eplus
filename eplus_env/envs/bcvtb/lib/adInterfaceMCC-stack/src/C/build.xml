@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="adInterfaceMCC-stack" default="build" xmlns:cpptasks="antlib:net.sf.antcontrib.cpptasks">
+  <import file="../../../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <delete verbose="true">
+      <fileset dir="." includes="*.obj,*.o,*.lib,*.dll,*.exp,*.manifest, 
+      history.xml, dependencies.xml"/>
+    </delete>
+  </target>
+
+  <target name="cleanObjectFiles" description="Deletes generated object files">
+    <delete verbose="true">
+      <fileset dir="." includes="*.obj,*.o"/>
+    </delete>
+  </target>
+
+  <!-- Compile -->
+  <target name="compile" description="Compiles the source" if="windows">
+    <cpptasks:cc objdir=".">
+      <cpptasks:compiler name="${cc}"/>
+      <compilerarg value="-fPIC" unless="windows"/>
+      <fileset dir="." includes="*.c"/>
+	  <!-- There is a bug in ant which causes the build.xml file to not work when the hardwired path is replaced by ${BCVTB_JNI_DIR}-->
+	  <!-- Rather than expanding ${BCVTB_JNI_DIR}, the build.xml file adds the path to the working directory to ${BCVTB_JNI_DIR}. This causes -->
+	  <!-- the build.xml file to not longer find the path to the Lib. The work-around is currently to hardwired the path in the build.xml file. -->
+      <includepath path="C:\Program Files\Java\jdk1.8.0_77\include"/>
+      <includepath path="C:\Program Files\Java\jdk1.8.0_77\include\win32"/>	  
+    </cpptasks:cc>
+  </target>
+
+  <!-- Link -->
+  <target name="link" depends="compile" description="Links the binaries" if="windows">
+    <cpptasks:cc outtype="shared" outfile="ADInterfaceMCC">
+      <cpptasks:linker name="${cc}"/>
+      <linkerarg value="ad_interface_mcc.${extObj}"/>
+    </cpptasks:cc>
+      <!-- Copy the DLL file -->
+     <move file="ADInterfaceMCC.dll" todir="../../bin-windows"/>
+  </target>
+
+
+  <!-- Build -->
+  <target name="build" depends="link" description="Builds the libraries" if="windows"/>
+
+  <!-- All -->
+  <target name="all" depends="build" description="Runs all targets" if="windows"/>
+
+</project>

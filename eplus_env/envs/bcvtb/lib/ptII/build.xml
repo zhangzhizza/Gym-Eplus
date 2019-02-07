@@ -1,0 +1,480 @@
+<?xml version="1.1" encoding="ISO-8859-1"?>
+<project name="bcvtb" default="all"> 
+<import file="../../build-common.xml"/>
+
+<!-- all. Note that this only compiles the user libraries, but not Ptolemy. -->
+  <target name="all" depends="checkConfig" description="Runs all targets required to build user libraries">
+      <ant dir="adInterfaceMCC" target="all"/>
+      <ant dir="bacnet"         target="all"/>
+      <ant dir="myActors"       target="all"/>
+  </target>
+
+<!-- all. Note that this only compiles the user libraries, but not Ptolemy. -->
+  <target name="clean" depends="checkConfig" description="Cleans the compiled files in the user libraries">
+      <ant dir="adInterfaceMCC" target="clean"/>
+      <ant dir="bacnet"         target="clean"/>
+      <ant dir="myActors"       target="clean"/>
+  </target>
+
+
+ <!-- copy pdf documentation -->
+  <target name="copyPtolemyDocumentation" 
+          description="Copies the Ptolemy files to the BCVTB">
+
+    <copy todir="./doc/design/" flatten="true">
+      <resources>
+	<url url="http://www.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-28.pdf"/>
+	<url url="http://www.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-29.pdf"/>
+	<url url="http://www.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-37.pdf"/>
+      </resources>
+    </copy>
+    <move file="./doc/design/EECS-2008-28.pdf" 
+	  tofile="./doc/design/ptIIdesign1-intro.pdf"/>
+    <move file="./doc/design/EECS-2008-29.pdf"  
+	  tofile="./doc/design/ptIIdesign2-software.pdf"/>
+    <move file="./doc/design/EECS-2008-37.pdf" 
+	  tofile="./doc/design/ptIIdesign3-domains.pdf"/>
+  </target>
+
+  <!-- Copies the jar files and doc files from the Ptolemy development to the BCVTB -->
+  <target name="updatePtolemyFiles" 
+	  depends="cleanPtolemyFiles,copyPtolemyDocumentation,copyPtolemyFiles,insertBCVTBVersionInfo"
+          description="Copies the Ptolemy jar and doc files to the BCVTB">
+  </target>
+
+  <!-- Copies the jar files from the Ptolemy development to the BCVTB -->
+  <target name="copyPtolemyFiles"
+          description="Copies the Ptolemy files to the BCVTB">
+
+     <copy verbose="true" file="${env.BCVTB_PTIISrc}/copyright.txt"
+           todir="./"/>
+ 
+<!--    <copy todir="./doc/">
+       <fileset dir="${env.BCVTB_PTIISrc}/doc">
+	 <include name="**/*.htm,**/*.gif,**/*.jar"/>
+         <exclude name="**/*.svn,makefile"/>
+       </fileset>
+     </copy>
+-->
+     <copy todir="./ptolemy/configs">
+       <fileset dir="${env.BCVTB_PTIISrc}/ptolemy/configs" excludes="**/*.svn,makefile"/>
+     </copy>
+
+     <!-- Copy Ptolemy models that are used in the demo. -->
+     <exec dir="." executable="./updatePtolemy.sh">
+     </exec>
+
+  </target>
+     <!-- Insert bcvtb version info -->
+      
+  <target name="insertBCVTBVersionInfo"
+          description="Inserts the BCVTB version information">
+
+       <replace failOnNoReplacements="true"     
+	       file="./ptolemy/configs/bcvtb/intro.htm"> 
+        <replacetoken><![CDATA[<h1>Building Controls Virtual Test Bed (BCVTB) Edition</h1>]]></replacetoken>
+        <replacevalue><![CDATA[<h1>BCVTB Edition, Version MYVERSION, MYDATE</h1>]]>
+	</replacevalue>
+      </replace>
+      <replace failOnNoReplacements="true"     
+	       file="./ptolemy/configs/bcvtb/intro.htm" token="MYVERSION" value="${VERSION}"/> 
+      <replace failOnNoReplacements="true"      
+	       file="./ptolemy/configs/bcvtb/intro.htm" token="MYDATE" value="${TODAY}"/> 
+
+      <!-- Update copyright link -->
+      <replace failOnNoReplacements="true"     
+	       file="./ptolemy/configs/bcvtb/intro.htm"> 
+        <replacetoken><![CDATA[<li><a href="about:copyright" target="_blank">Copyright</a></li>]]></replacetoken>
+        <replacevalue><![CDATA[
+<li><a href="about:copyright" target="_blank">Copyright Ptolemy</a></li>
+<li><a href="../../../../../legal.html" target="_blank">Copyright BCVTB</a></li>
+]]></replacevalue>
+</replace>
+
+      <!-- Replace example list so that it points to BCVTB example list -->
+      <replace failOnNoReplacements="true"      
+	       file="./ptolemy/configs/bcvtb/intro.htm"> 
+        <replacetoken><![CDATA[<h2>Demonstrations</h2>
+<ul>
+  <li> <a href="../../../lbnl/demo/CRoom/CRoom.xml">C Room</a> - a simple interface to a small C program.
+  <li> <a href="../../../lbnl/demo/MatlabRoom/MatlabRoom.xml">Matlab Room</a> - a simple interface to a small Matlab program. (<i>Matlab required</i>)
+  <li> <a
+  href="../../../lbnl/demo/SystemCommand/SystemCommand.xml">System Command</a> - a simple interface to an external command.
+</ul>]]></replacetoken>
+	  <replacevalue><![CDATA[
+<h2>Demonstrations</h2>
+<h3>Windows</h3>
+<ul>
+<li>
+ <a href="../../../../../examples/adInterfaceMCC-room/system-windows.xml">adInterfaceMCC-room</a>:
+Analog/digital interface that links to a room model.
+</li>
+<li>
+ <a href="../../../../../examples/adInterfaceMCC-roomControl/system-windows.xml">adInterfaceMCC-roomControl</a>:
+Analog/digital interface that links to a room model with closed loop control.
+</li>
+<li>
+ <a href="../../../../../examples/dymola-room/system-windows.xml">dymola-room</a>:
+Modelica simple room model, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/dymolaEPlus85-singleZone/system-windows.xml">dymolaEPlus85-room</a>:
+Modelica model of HVAC system, building simulated by EnergyPlus.
+</li>
+<li>
+ <a href="../../../../../examples/dymolaSimulink-room/system-windows.xml">dymolaSimulink-room</a>:
+Modelica simple room model, controls simulated by Simulink.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85-actuator/system.xml">ePlus85-actuator</a>:
+EnergyPlus model illustrating the use of an actuator, shading controller simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85-schedule/system.xml">ePlus85-schedule</a>:
+EnergyPlus model illustrating the use of a schedule, setpoint computed by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85-variable/system.xml">ePlus85-variable</a>:
+EnergyPlus model illustrating the use of an EMS variable, shading controller simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85Ptolemy-vav/system.xml">ePlus85Ptolemy-vav</a>:
+EnergyPlus building, variable air volume flow system simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85Simulink-simple/system.xml">ePlus85Simulink-simple</a>:
+EnergyPlus building and HVAC system, setpoint computed by Simulink.
+</li>
+<li>
+ <a href="../../../../../examples/matlab-room/system.xml">matlab-room</a>:
+Matlab simple room model, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ptolemy-room/system.xml">ptolemy-room</a>:
+Room model, simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ptolemy-room/systemFSM.xml">ptolemy-room</a>:
+Room model with finite state machine, simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ptolemy-room/systemVisual.xml">ptolemy-room</a>:
+Room model with icon color changing based on room temperature, simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/simulink-room/system.xml">simulink-room</a>:
+Simulink controller, simple room model simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ptolemy-dataTypeConversion/system.xml">ptolemy-dataTypeConversion</a>:
+Example that illustrates how to convert an array of strings into an array of doubles.
+</li>
+<li>
+ <a href="../../../../../examples/TRNSYS17-room/system-windows.xml">TRNSYS17-room</a>:
+Room model simulated in TRNSYS, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/fmu-room/system-windows.xml">fmu-room</a>:
+Room model simulated in FMU, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/c-room/system.xml">c-room</a>:
+Room model simulated in C, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/c-timeSync/system.xml">c-timeSync</a>:
+Two programs implemented in C that exchange their data.
+</li>
+<li>
+ <a href="../../../../../examples/f90-room/system.xml">f90-room</a>:
+Room model simulated in F90, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/www-weather/system.xml">www-weather</a>:
+Example that gets minimum and maximum outside temperature from Berkeley weather forecast.
+</li>
+<li>
+ <a href="../../../../../examples/systemCommand/system.xml">systemCommand</a>:
+Model that calls a system command at each time step to compute a control action in a program that is written in the C language.
+</li>
+<li>
+ <a href="../../../../../examples/multiRate-systemCommand/system.xml">multiRate-systemCommand</a>:
+Model that illustrates how to call system commands at different rates using a finite state machine.
+</li>
+<li>
+ <a href="../../../../../examples/BACnetReaderALC/system.xml">BACnetReaderALC</a>:
+Model that illustrates how to read from a BACnet compatible ALC controller through an IP connection.
+</li>
+Note
+ that this example requires ALC hardware to run and a BACnet connnection.
+<li> 
+ <a href="../../../../../examples/BACnetWriterALC/system.xml">BACnetWriterALC</a>:
+Model that illustrates how to write to a BACnet compatible ALC controller through an IP connection.
+</li>
+Note 
+ that this example requires ALC hardware to run and a BACnet connnection.
+</ul>
+<h3>Linux</h3>
+<ul>
+<li>
+ <a href="../../../../../examples/dymola-room/system.xml">dymola-room</a>:
+Modelica simple room model, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/dymolaEPlus85-singleZone/system.xml">dymolaEPlus85-room</a>:
+Modelica model of HVAC system, building simulated by EnergyPlus.
+</li>
+<li>
+ <a href="../../../../../examples/dymolaSimulink-room/system.xml">dymolaSimulink-room</a>:
+Modelica simple room model, controls simulated by Simulink.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85-actuator/system.xml">ePlus85-actuator</a>:
+EnergyPlus model illustrating the use of an actuator, shading controller simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85-schedule/system.xml">ePlus85-schedule</a>:
+EnergyPlus model illustrating the use of a schedule, setpoint computed by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85-variable/system.xml">ePlus85-variable</a>:
+EnergyPlus model illustrating the use of an EMS variable, shading controller simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85Ptolemy-vav/system.xml">ePlus85Ptolemy-vav</a>:
+EnergyPlus building, variable air volume flow system simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85Simulink-simple/system.xml">ePlus85Simulink-simple</a>:
+EnergyPlus building and HVAC system, setpoint computed by Simulink.
+</li>
+<li>
+ <a href="../../../../../examples/matlab-room/system.xml">matlab-room</a>:
+Matlab simple room model, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ptolemy-room/system.xml">ptolemy-room</a>:
+Room model, simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ptolemy-room/systemFSM.xml">ptolemy-room</a>:
+Room model with finite state machine, simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ptolemy-room/systemVisual.xml">ptolemy-room</a>:
+Room model with icon color changing based on room temperature, simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ptolemy-dataTypeConversion/system.xml">ptolemy-dataTypeConversion</a>:
+Example that illustrates how to convert an array of strings into an array of doubles.
+</li>
+<li>
+ <a href="../../../../../examples/fmu-room/system.xml">fmu-room</a>:
+Room model simulated in FMU, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/radiance40/system.xml">radiance40</a>:
+Model that demonstrates how to link Radiance to the BCVTB.
+</li>
+<li>
+ <a href="../../../../../examples/simulink-room/system.xml">simulink-room</a>:
+Simulink controller, simple room model simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/espr-shading/system.xml">espr-shading</a>:
+ESP-r building model, shading controller simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/esprMatlab-hvac/system.xml">esprMatlab-hvac</a>:
+ESP-r building and HVAC model, controller simulated by Matlab.
+</li>
+<li>
+ <a href="../../../../../examples/c-room/system.xml">c-room</a>:
+Room model simulated in C, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/c-timeSync/system.xml">c-timeSync</a>:
+Two programs implemented in C that exchange their data.
+</li>
+<li>
+ <a href="../../../../../examples/f90-room/system.xml">f90-room</a>:
+Room model simulated in F90, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/www-weather/system.xml">www-weather</a>:
+Example that gets minimum and maximum outside temperature from Berkeley weather forecast.
+</li>
+<li>
+ <a href="../../../../../examples/systemCommand/system.xml">systemCommand</a>:
+Model that calls a system command at each time step to compute a control action in a program that is written in the C language.
+</li>
+<li>
+ <a href="../../../../../examples/multiRate-systemCommand/system.xml">multiRate-systemCommand</a>:
+Model that illustrates how to call system commands at different rates using a finite state machine.
+</li>
+<li>
+ <a href="../../../../../examples/BACnetReaderALC/system.xml">BACnetReaderALC</a>:
+Model that illustrates how to read from a BACnet compatible ALC controller through an IP connection.
+</li>
+Note
+ that this example requires ALC hardware to run and a BACnet connnection.
+<li>
+ <a href="../../../../../examples/BACnetWriterALC/system.xml">BACnetWriterALC</a>:
+Model that illustrates how to write to a BACnet compatible ALC controller through an IP connection.
+</li>
+Note
+ that this example requires ALC hardware to run and a BACnet connnection.
+</ul>
+<h3>Mac OS X</h3>
+<ul>
+<li>
+ <a href="../../../../../examples/ePlus85-actuator/system.xml">ePlus85-actuator</a>:
+EnergyPlus model illustrating the use of an actuator, shading controller simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85-schedule/system.xml">ePlus85-schedule</a>:
+EnergyPlus model illustrating the use of a schedule, setpoint computed by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85-variable/system.xml">ePlus85-variable</a>:
+EnergyPlus model illustrating the use of an EMS variable, shading controller simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85Ptolemy-vav/system.xml">ePlus85Ptolemy-vav</a>:
+EnergyPlus building, variable air volume flow system simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ePlus85Simulink-simple/system.xml">ePlus85Simulink-simple</a>:
+EnergyPlus building and HVAC system, setpoint computed by Simulink.
+</li>
+<li>
+ <a href="../../../../../examples/matlab-room/system.xml">matlab-room</a>:
+Matlab simple room model, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ptolemy-room/system.xml">ptolemy-room</a>:
+Room model, simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ptolemy-room/systemFSM.xml">ptolemy-room</a>:
+Room model with finite state machine, simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ptolemy-room/systemVisual.xml">ptolemy-room</a>:
+Room model with icon color changing based on room temperature, simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/ptolemy-dataTypeConversion/system.xml">ptolemy-dataTypeConversion</a>:
+Example that illustrates how to convert an array of strings into an array of doubles.
+</li>
+<li>
+ <a href="../../../../../examples/radiance40/system.xml">radiance40</a>:
+Model that demonstrates how to link Radiance to the BCVTB.
+</li>
+<li>
+ <a href="../../../../../examples/simulink-room/system.xml">simulink-room</a>:
+Simulink controller, simple room model simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/espr-shading/system.xml">espr-shading</a>:
+ESP-r building model, shading controller simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/esprMatlab-hvac/system.xml">esprMatlab-hvac</a>:
+ESP-r building and HVAC model, controller simulated by Matlab.
+</li>
+<li>
+ <a href="../../../../../examples/c-room/system.xml">c-room</a>:
+Room model simulated in C, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/c-timeSync/system.xml">c-timeSync</a>:
+Two programs implemented in C that exchange their data.
+</li>
+<li>
+ <a href="../../../../../examples/f90-room/system.xml">f90-room</a>:
+Room model simulated in F90, controls simulated by Ptolemy.
+</li>
+<li>
+ <a href="../../../../../examples/www-weather/system.xml">www-weather</a>:
+Example that gets minimum and maximum outside temperature from Berkeley weather forecast.
+</li>
+<li>
+ <a href="../../../../../examples/systemCommand/system.xml">systemCommand</a>:
+Model that calls a system command at each time step to compute a control action in a program that is written in the C language.
+</li>
+<li>
+ <a href="../../../../../examples/multiRate-systemCommand/system.xml">multiRate-systemCommand</a>:
+Model that illustrates how to call system commands at different rates using a finite state machine.
+</li>
+</ul>
+	  ]]></replacevalue>
+  </replace>
+
+  <!-- Update bcvtbLibrary.xml to include library that are not shipped with ptolemy -->
+  <replace failOnNoReplacements="true"       
+	   file="./ptolemy/configs/bcvtb/bcvtbLibrary.xml"> 
+  <replacetoken><![CDATA[</entity>
+</entity>]]></replacetoken>
+  <replacevalue><![CDATA[</entity>
+
+  <!-- User actor library. -->
+  <entity name="MyActors" class="ptolemy.moml.EntityLibrary">
+    <configure>
+      <?moml
+        <group>
+	<input source="myActors/myActor.xml"/>
+        </group>
+      ?>
+    </configure>
+  </entity>
+
+  <!-- BACnet actor library. -->
+  <entity name="BACnet" class="ptolemy.moml.EntityLibrary">
+    <configure>
+      <?moml
+        <group>
+	<input source="bacnet/bacnet.xml"/>
+        </group>
+      ?>
+    </configure>
+  </entity>
+
+  <!-- A/D converter actor library. -->
+  <entity name="ADInterfaceMCC" class="ptolemy.moml.EntityLibrary">
+    <configure>
+      <?moml
+        <group>
+	<input source="adInterfaceMCC/adInterfaceMCC.xml"/>
+        </group>
+      ?>
+    </configure>
+  </entity>
+
+</entity>
+]]>
+  </replacevalue>
+  </replace>
+
+  </target>
+
+  <!-- Deletes the Ptolemy files 
+       This target only deletes the directories that are recreated by running
+       'ant updatePtolemyFiles'. Any user-specified directory 
+       will not be deleted, which allows adding actors by the user.
+    -->
+  <target name="cleanPtolemyFiles" description="Deletes the Ptolemy files of the BCVTB">
+<!--    <delete verbose="true" dir="./doc"/> -->
+    <delete file="copyright.txt"/>
+    <delete>
+
+
+      <fileset dir="./lbnl"    includes="**/*" defaultexcludes="true"/>
+      <fileset dir="./lib"     includes="**/*" defaultexcludes="true"/>
+      <fileset dir="./doc"     includes="**/*" defaultexcludes="true"/>
+      <fileset dir="./ptolemy" includes="**/*" defaultexcludes="true"/>
+    </delete>
+  </target>
+
+  
+</project>

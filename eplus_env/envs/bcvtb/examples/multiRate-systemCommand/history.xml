@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="gcc noversion nomachine -c">
+      <target file="writeToConsole.o" lastModified="1543aba1028">
+         <source file="writeToConsole.c" lastModified="15434bd2660"/>
+      </target>
+   </processor>
+   <processor signature="gcc">
+      <target file="writeToConsole" lastModified="1543aba1028">
+         <source file="writeToConsole.o" lastModified="1543aba1028"/>
+      </target>
+   </processor>
+</history>

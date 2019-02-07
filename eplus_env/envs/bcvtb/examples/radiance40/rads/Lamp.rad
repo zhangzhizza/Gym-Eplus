@@ -1,0 +1,4 @@
+!xform ./mat_lamp.rad
+
+void alias Component41_material Color_001
+!xform -n group ob_lamp/group.rad

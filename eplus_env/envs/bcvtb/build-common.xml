@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="bcvtb-settings"> 
+ <property name="VERSION"    value="1.6.0"/>
+
+  <!-- Version information -->
+  <filterset id="build.filters">
+    <filter token="VERSION" value="${VERSION}"/>
+    <filter token="DATE" value="${TODAY}"/>
+    <filter token="TIME" value="${TSTAMP}"/>
+  </filterset>
+
+  <!-- Get environment variables and user properties -->
+  <property environment="env"/>
+  <property file="${env.BCVTB_HOME}${file.separator}user.properties"/>
+  <property file="${env.BCVTB_HOME}${file.separator}build.properties"/>
+  <!-- 
+       Set properties that depend on tools that a user has installed.
+       Note that conditions need to be set. Reading just the property
+       file is not sufficent for a conditional execution of the targets
+   -->  
+  <condition property="have.EnergyPlusMatlab" value="true">
+    <and>
+      <equals arg1="${haveEnergyPlus}" arg2="true" trim="true"/>
+      <equals arg1="${haveMatlab}"     arg2="true" trim="true"/>
+    </and>
+   </condition>
+  <condition property="have.dymolaEnergyPlus" value="true">
+    <and>
+      <equals arg1="${haveDymola}"     arg2="true" trim="true"/>
+      <equals arg1="${haveEnergyPlus}" arg2="true" trim="true"/>
+    </and>
+   </condition>
+  <condition property="have.dymolaMatlab" value="true">
+    <and>
+      <equals arg1="${haveDymola}"     arg2="true" trim="true"/>
+      <equals arg1="${haveMatlab}" arg2="true" trim="true"/>
+    </and>
+   </condition>
+  <condition property="have.EnergyPlus" value="true">
+      <equals arg1="${haveEnergyPlus}"  arg2="true" trim="true"/>
+   </condition>
+  <condition property="have.matlab" value="true">
+      <equals arg1="${haveMatlab}"  arg2="true" trim="true"/>
+   </condition>
+  <condition property="have.dymola" value="true">
+      <equals arg1="${haveDymola}"  arg2="true" trim="true"/>
+   </condition>
+  <condition property="have.Radiance" value="true">
+      <equals arg1="${haveRadiance}"  arg2="true" trim="true"/>
+   </condition>
+  <condition property="have.ifort" value="true">
+      <equals arg1="${haveIfort}"  arg2="true" trim="true"/>
+   </condition>
+  <condition property="have.doxygen" value="true">
+      <equals arg1="${haveDoxygen}"  arg2="true" trim="true"/>
+   </condition>
+  <condition property="have.adInterfaceMCC" value="true">
+      <equals arg1="${haveADInterfaceMCC}"  arg2="true" trim="true"/>
+   </condition>
+  <condition property="have.BACnetALC" value="true">
+      <equals arg1="${haveBACnetALC}"  arg2="true" trim="true"/>
+   </condition>
+  <condition property="have.eps-r" value="true">
+      <equals arg1="${haveESPR}"  arg2="true" trim="true"/>
+   </condition>
+
+  <condition property="have.eps-rMatlab" value="true">
+    <and>
+      <equals arg1="${haveESPR}"  arg2="true" trim="true"/>
+      <equals arg1="${haveMatlab}" arg2="true" trim="true"/>
+    </and>
+  </condition>
+  
+    <condition property="have.TRNSYS" value="true">
+      <equals arg1="${haveTRNSYS}"  arg2="true" trim="true"/>
+  </condition>
+
+    <!-- Set conditions that are used by different build files -->
+  <condition property="macOr64bit" value="true">
+     <or>
+       <os arch="AMD64"/>
+       <os name="Mac OS X"/>
+    </or>
+  </condition>
+  
+  <!-- Set conditions that are used by different build files -->
+  <condition property="mac" value="true">
+    <os name="Mac OS X"/>
+  </condition>
+  
+  <condition property="linux" value="true">
+    <os name="Linux"/>
+  </condition>
+  <!-- Windows 32 bit or 64 bit -->
+  <condition property="windows" value="true">
+    <os family="windows"/>
+  </condition>
+  <!-- Windows 64 bit -->
+  <condition property="windows64" value="true">
+    <and>
+      <os family="windows"/>
+      <equals arg1="${env.BCVTB_32bit}"     arg2="false" trim="true"/>
+    </and>
+  </condition>
+
+  <!-- Set the path to the Microsoft SDK, which is needed by bacnet-stack -->
+  <property name="BCVTB_SDKLib_DIR" value="${env.BCVTB_SDKLib_DIR}"/>
+  <property name="BCVTB_SDKLibs"   value="WS2_32,WinMM,IPHlpApi"/>
+  
+  <!-- Set the path to the JNI include files, which is needed by adInterfaceMCC-stack -->
+  <property name="BCVTB_JNI_DIR" value="${env.BCVTB_JNI_DIR}"/>
+
+  <property name="compiler.debug" value="false"/>
+
+  <!-- Set the name of the bcvtb library. -->
+  <property name="lib.bcvtb" value="bcvtb"/>
+
+  <!-- Set path to 3rd party libraries -->
+  <condition property="path.expat" 
+             value="${env.BCVTB_HOME}\lib\windows\expat">
+    <os family="windows"/>   <!-- only needed on Windows -->
+  </condition>
+
+  <!-- Files for unit tests -->
+  <property name="BCVTB_BINDIR" value="${env.BCVTB_HOME}${file.separator}bin"/>
+
+  <condition property="runFlag" value="-console" else="-run">
+    <istrue value="${console}"/>
+  </condition>
+
+  <property name="ptUnitTestExecutable" value="java"/>
+  <!-- For the unit test, we overwrite class path 
+       to make sure that BCVTB.jar sets them correctly. -->
+  <property name="ptExecutableFlags" 
+	    value="-cp . -jar &quot;${BCVTB_BINDIR}${file.separator}BCVTB.jar&quot; ${runFlag}"/>
+  <condition property="ptUnitTestFile"
+             value="system.xml" 
+	     else="system-windows.xml">
+    <os family="unix"/>
+  </condition>
+
+  <tstamp>
+    <format property="year" pattern="yyyy"/>
+    <format property="touch.time" pattern="MM/dd/yyyy HH:mm"/>
+  </tstamp>
+
+  <!-- Set c compiler and object file extension -->
+  <condition property="cc" value="msvc">
+    <os family="windows"/>
+  </condition>
+  <condition property="cc" value="gcc">
+    <os family="unix"/>
+  </condition>
+  <condition property="extObj" value="obj">
+    <os family="windows"/>
+  </condition>
+  <condition property="extObj" value="o">
+    <os family="unix"/>
+  </condition>
+
+ 
+  <!-- Make sure JAVA_HOME is set as ant requires it
+    <available property="foundJavaHome" file="${env.JAVA_HOME}" type="dir"/>
+    <fail message="Environment variable JAVA_HOME is not set." unless="foundJavaHome"/>
+ -->
+    <!-- Set path the lib/cpptasks.jar
+    <taskdef resource="cpptasks.tasks">
+      <classpath>
+        <pathelement location="${env.BCVTB_HOME}/lib/cpptasks.jar"/>
+      </classpath>
+    </taskdef>
+ -->
+<condition property="classPathLBNLActorsSet" value="true">
+  <contains string="${java.class.path}" substring="${env.BCVTB_HOME}"
+	    casesensitive="true" />
+</condition>
+
+<condition property="ptIISrcSet" value="true" else="false">
+  <contains string="${env.BCVTB_PTIISrc}" substring="ptII"
+	    casesensitive="true" />
+</condition>
+
+
+  <!-- Check if built system is configured -->
+  <target name="checkConfig" description="Checks if the built system is configured.">
+  <fail unless="classPathLBNLActorsSet"
+	message="CLASSPATH does not seem to be set to lib directory of the BCVTB. Did you run 'source bin/setDevelopmentEnvironment.sh' on Linux or Mac or 'bin/setDevelopmentEnvironment.bat' on Windows?"/>
+  </target>
+
+  <!-- Diagnostics information -->
+  <target name="diagnostics" description="Outputs diagnostics information">
+    <echo message="os.name = ${os.name}"/>
+    <echo message="os.arch = ${os.arch}"/>
+    <echo message="Compiler = ${cc}"/>
+    <echo message="ptUnitTestExecutable = ${ptUnitTestExecutable}"/>
+    <echo message="ptUnitTestFile = ${ptUnitTestFile}"/>
+    <echo message="Classpath for actors set = ${classPathLBNLActorsSet}"/>
+    <echo message="Ptolemy source directory set = ${ptIISrcSet}"/>
+    <echo message="Ptolemy source directory     = ${env.BCVTB_PTIISrc}"/>
+    <echo message="BCVTB_HOME = ${env.BCVTB_HOME}"/>
+    <echoproperties>
+      <propertyset>
+        <propertyref prefix="env.BCVTB"/>
+        <propertyref prefix="have."/>
+        <propertyref prefix="path."/>
+        <propertyref prefix="ptUnitTest."/>
+        <propertyref prefix="mac"/>
+        <propertyref prefix="windows"/>
+        <propertyref prefix="linux"/>
+      </propertyset>
+    </echoproperties>
+    <echo message="cc.compile      = ${cc.compile}"/>
+    <echo message="cc.link         = ${cc.link}"/>
+    <echo message="ifort.compile   = ${ifort.compile}"/>
+    <echo message="ifort.link      = ${ifort.link}"/>
+    <echo message="java.class.path = ${java.class.path}"/>
+    <echo message="lib.path.jar    = ${toString:lib.path.jar}"/>
+   </target>
+
+</project>

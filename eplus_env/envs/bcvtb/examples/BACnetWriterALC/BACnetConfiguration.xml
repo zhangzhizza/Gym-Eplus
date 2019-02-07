@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BACnet>
+  <!-- Root level BACnet device -->  
+  <Object Type="Device" Instance="637501">
+
+    <!-- BACnet object for analog input -->    
+    <Object Type="Analog Input" Instance="1">
+      <PropertyIdentifier Name="Present_Value" ApplicationTag="Real" 
+			  Priority="15" Index="-1"/>
+    </Object>
+    <!-- BACnet object for analog input -->    
+    <Object Type="Analog Input" Instance="2">
+      <PropertyIdentifier Name="Present_Value" ApplicationTag="Real" 
+			  Priority="15" Index="-1"/>
+    </Object>
+    <!-- BACnet object for analog input -->    
+    <Object Type="Analog Input" Instance="3">
+      <PropertyIdentifier Name="Present_Value" ApplicationTag="Real" 
+			  Priority="15" Index="-1"/>
+    </Object>
+  </Object>
+</BACnet>

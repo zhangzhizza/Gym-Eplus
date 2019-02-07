@@ -1,0 +1,28 @@
+*Operations 1.0
+*date Mon Jul 26 08:26:47 2004  # latest file modification 
+# operations of office defined in: 
+# ../zones/office.opr
+office space with two people (180W sens, 100W lat) & 200W lights 9-5 on weekdays. Nothing on weekends.
+# control(no control of air flow  ), low & high setpoints 
+   0     0.000     0.000   100.000
+     1   # no Weekday flow periods
+# Wkd: start, stop, infil, ventil, source, data
+   0, 24,    0.300    1.000    1    0.000
+     1   # no Saturday flow periods
+# Sat: start, stop, infil, ventil, source, data
+   0, 24,    0.300    1.000    1    0.000
+     1   # no Sunday flow periods 
+# Sun: start, stop, infil, ventil, source, data
+   0, 24,    0.300    1.000    1    0.000
+     6   # no Weekday casual gains 
+# Wkd: type, start, stop, sens, latent, rad_frac, conv_frac
+    1,   0,   9,      0.0,      0.0, 0.500, 0.500
+    1,   9,  17,    180.0,    100.0, 0.200, 0.800
+    1,  17,  24,      0.0,      0.0, 0.500, 0.500
+    2,   0,   9,      0.0,      0.0, 0.500, 0.500
+    2,   9,  17,    200.0,      0.0, 0.140, 0.000
+    2,  17,  24,      0.0,      0.0, 0.500, 0.500
+     0   # no Saturday casual gains 
+     0   # no Sunday casual gains 
+# Labels for gain types 
+ Occupt Lights Equipt

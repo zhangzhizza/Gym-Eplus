@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="simulink" default="all">
+  <import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <delete verbose="true">
+      <fileset dir="." includes="*.mexglx,*.mexw32,*.mexmaci"/>
+      <fileset dir="." includes="*.mexw64,*.mexa64,*.mexa64"/>
+      <fileset dir="." includes="*thunk_maci64.dylib,*.mexmaci64"/>
+      <fileset dir="." includes="*.exp,*.dll,*.lib,*.obj"/>
+      <fileset dir="." includes="establishBSDSocket.c"/>
+      <fileset dir="." includes="exchangeDoublesWithBSDSocket.c"/>
+      <fileset dir="." includes="closeBSDSocket.c"/>
+      <fileset dir="." includes="bcvtb_thunk_pcwin64.c"/>
+      <fileset dir="." includes="bcvtb.m"/>
+      <fileset dir="." includes="matlab.log"/>
+    </delete>
+  </target>
+
+  <!-- All -->
+  <target name="all" if="have.matlab" description="Builds Simulink interface">
+    <exec executable="matlab" failonerror="true" osfamily="unix">
+      <arg line="-nodesktop -nosplash -logfile matlab.log -r compile"/>
+    </exec>
+    <exec executable="matlab" failonerror="true" osfamily="windows">
+      <!-- The flag -wait is a windows only option, which is required since otherwise,
+            dos will continue with compilation in parallel to the matlab compilation. -->
+<!--      <arg line="-nojvm -nodesktop -nosplash -logfile matlab.log -wait -r compile"/>
+-->
+      <arg line="-nosplash -logfile matlab.log -wait -r compile"/>
+    </exec>
+  </target>
+  
+</project>

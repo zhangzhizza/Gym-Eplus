@@ -1,0 +1,13 @@
+
+void alias 11_material skp2A08_material
+!xform -n group02 group02.rad
+
+void alias 21_material skp2A08_material
+!xform -n group03 group03.rad
+
+void alias 31_material skp2A08_material
+!xform -n group04 group04.rad
+
+void alias 41_material skp2A08_material
+!xform -n group05 group05.rad
+

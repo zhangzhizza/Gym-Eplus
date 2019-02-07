@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>5.6. Simulink</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="configuration.xhtml" title="Chapter 5. Configuring programs for use with the BCVTB"/><link rel="prev" href="tit-MatlabCon.xhtml" title="5.5. MATLAB"/><link rel="next" href="tit-EsprCon.xhtml" title="5.7. ESP-r"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.6. Simulink</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tit-MatlabCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 5. Configuring programs for use with the BCVTB</th><td width="20%" align="right"> <a accesskey="n" href="tit-EsprCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="configuration.xhtml">Configuring programs for use with the BCVTB</a></span> &gt; <span class="breadcrumb-node">Simulink</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="tit-SimulinkCon"/>5.6. Simulink</h2></div></div></div>
+  
+  <p>
+   To configure Simulink, you may modify an example such as
+   the one in the directory
+   <code class="code">BCVTB/examples/simulink-room</code>, or you may
+   create a new Simulink model. This section describes the
+   latter, which consists of creating a Simulink block
+   diagram, a MATLAB script and a Ptolemy II model.
+  </p>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1082"/>5.6.1. Create a Simulink Block Diagram</h3></div></div></div>
+   
+   <p>
+    To create a new Simulink block diagram, proceed as
+    follows:
+   </p>
+   <p>
+    First, set the path to the Simulink library for the
+    BCVTB: On the MATLAB prompt, type
+   </p>
+<pre class="screen">addpath([getenv('BCVTB_HOME'), '/lib/matlab']);</pre>
+   <p>
+    Open Simulink and select <code class="code">File -&gt; New</code>.
+    Then, in the Simulink Library Browser, select the BCVTB
+    library.
+   </p>
+   <p>
+    </p><div class="figure"><a id="configurationSimulinkBCVTB"/><p class="title"><strong>Figure 5.19. 
+	      Simulink library with the block that connects to the BCVTB.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationSimulinkBCVTB.png" alt="Simulink library with the block that connects to the BCVTB."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    Drag and drop the BCVTB block into your Simulink flow
+    chart. In the Simulink flow chart, open the BCVTB block
+    which should show this model:
+   </p>
+   <p>
+    </p><div class="figure"><a id="simulinkBlockInternals"/><p class="title"><strong>Figure 5.20. 
+	      Model that is encapsulated in the <code class="code">BCVTB</code> Simulink block.
+	    </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationSimulinkBlock.png" alt="Model that is encapsulated in the BCVTB Simulink block."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    In this model, the block <code class="code">socketIO</code>
+    implements the communication with the BCVTB. It
+    typically need not be modified. However, you will need
+    to open the block <code class="code">selector</code> to adjust the
+    field called <code class="code">Index</code> in the input form shown
+    in
+    <a class="xref" href="tit-SimulinkCon.xhtml#configurationSimulinkSelector" title="Figure 5.21.  Configuration of the selector block that is shown in Figure 5.20.">Figure 5.21</a>
+    . This field specifies which elements of the input
+    vector should be selected and used as an output of this
+    block. For example, if we were to require three values,
+    then the field <code class="code">Index</code> needs to be <code class="code">[1 2
+    3]</code> to select the first, second and third element
+    of the input vector. Entering each element of the vector
+    is inconvenient if a large number of elements needs to
+    be received. In this situation, one can enter, for
+    example, <code class="code">linspace(1,50,50)</code> to retrieve a
+    vector with 50 elements.
+   </p>
+   <p>
+    In
+    <a class="xref" href="tit-SimulinkCon.xhtml#configurationSimulinkSelector" title="Figure 5.21.  Configuration of the selector block that is shown in Figure 5.20.">Figure 5.21</a>
+    , the field <code class="code">Input port size</code> denotes the
+    size of the input vector. It typically need not be
+    changed unless you changed the file
+    <code class="code">bcvtb/lib/defines.h</code>.
+   </p>
+   <p>
+    </p><div class="figure"><a id="configurationSimulinkSelector"/><p class="title"><strong>Figure 5.21. 
+	      Configuration of the <code class="code">selector</code> block that is shown in <a class="xref" href="tit-SimulinkCon.xhtml#simulinkBlockInternals" title="Figure 5.20.  Model that is encapsulated in the BCVTB Simulink block.">Figure 5.20</a>.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationSimulinkSelector.png" alt="Configuration of the selector block that is shown in Figure 5.20."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    Next, the sampling time step needs to be set. In this
+    example, we assume that the Simulink simulation needs to
+    be run with a fixed time step of 120 seconds. To
+    implement this configuration, select <code class="code">Simulation
+    -&gt; Configuration Parameters...</code> and configure
+    the input form as shown in
+    <a class="xref" href="tit-SimulinkCon.xhtml#configurationSimulinkSystem" title="Figure 5.22.  Configuration of the Simulink solver.">Figure 5.22</a>
+    . Note that we set the stop time to <code class="code">inf</code>
+    since Simulink will receive from the BCVTB interface a
+    signal when the final time is reached. We also set the
+    step size to <code class="code">120</code>, which is equal to the
+    time step in seconds that will, in this example, be used
+    in the Ptolemy II model.
+   </p>
+   <p>
+    </p><div class="figure"><a id="configurationSimulinkSystem"/><p class="title"><strong>Figure 5.22. 
+	      Configuration of the Simulink solver.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationSimulinkSystem.png" alt="Configuration of the Simulink solver."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    The BCVTB block can now be connected to a model that
+    processes the output from the <code class="code">BCVTB</code> block
+    and produces new input for the <code class="code">BCVTB</code> block.
+    Such an implementation can be found in the model
+    <code class="code">BCVTB/examples/simulink-room/controller.mdl</code>,
+    which is shown in
+    <a class="xref" href="tit-SimulinkCon.xhtml#configurationSimulinkDiagram" title="Figure 5.23.  Simulink block diagram that links the controller with the block that communicates with Ptolemy II.">Figure 5.23</a>
+    .
+   </p>
+   <p>
+    </p><div class="figure"><a id="configurationSimulinkDiagram"/><p class="title"><strong>Figure 5.23. 
+	      Simulink block diagram that links the controller with the block that communicates with Ptolemy II.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationSimulinkDiagram.png" alt="Simulink block diagram that links the controller with the block that communicates with Ptolemy II."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1155"/>5.6.2. Create a MATLAB script</h3></div></div></div>
+   
+   <p>
+    To perform a simulation, the BCVTB will call a MATLAB
+    script that adds the path of the BCVTB library to the
+    MATLAB path and then simulates the above model. To
+    create the MATLAB script, save the following three lines
+    in a file called <code class="code">simulateAndExit.m</code>:
+   </p>
+<pre class="screen">addpath([getenv('BCVTB_HOME'), '/lib/matlab']);
+sim('controller');
+quit;</pre>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1160"/>5.6.3. Create a Ptolemy II model</h3></div></div></div>
+   
+   <p>
+    To start Simulink from Ptolemy II, a Ptolemy II model
+    needs to be created. The model
+    <code class="code">BCVTB/examples/simulink-room/system.xml</code>
+    that is shown in
+    <a class="xref" href="tit-SimulinkCon.xhtml#fig-configurationRoomPtSimulink" title="Figure 5.24.  Ptolemy II system model that links the Simulator actor that communicates with MATLAB with an actor that computes the room temperature and with an actor that plots the results as the simulation progresses.">Figure 5.24</a>
+    may be used as a starting point.
+   </p>
+   <p>
+    </p><div class="figure"><a id="fig-configurationRoomPtSimulink"/><p class="title"><strong>Figure 5.24. 
+		Ptolemy II system model that links the <code class="code">Simulator</code> actor that communicates with MATLAB with an actor that computes the room temperature and with an actor that plots the results as the simulation progresses.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationRoomPtSimulink.png" alt="Ptolemy II system model that links the Simulator actor that communicates with MATLAB with an actor that computes the room temperature and with an actor that plots the results as the simulation progresses."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    In this model, the <code class="code">Simulator</code> actor that
+    calls Simulink is configured as shown in
+    <a class="xref" href="tit-SimulinkCon.xhtml#fig-configurationSimulinkPt" title="Figure 5.25.  Configuration of the Simulator actor that calls MATLAB on Linux.">Figure 5.25</a>
+    .
+   </p>
+   <p>
+    </p><div class="figure"><a id="fig-configurationSimulinkPt"/><p class="title"><strong>Figure 5.25. 
+		Configuration of the <code class="code">Simulator</code> actor that calls MATLAB on Linux.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationSimulinkPt.png" alt="Configuration of the Simulator actor that calls MATLAB on Linux."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    This completes the configuration.
+   </p>
+  </div>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tit-MatlabCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="configuration.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="tit-EsprCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">5.5. MATLAB </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 5.7. ESP-r</td></tr></table></div></body></html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="windows" default="all"> 
+<import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" depends="checkConfig" description="Deletes generated files">
+    <ant dir="expat"                       target="clean"/>
+  </target>
+
+  <!-- All -->
+  <target name="all" depends="checkConfig" if="windows"
+	  description="Runs all targets">
+    <ant dir="expat"            target="all"/>
+  </target>
+
+</project>

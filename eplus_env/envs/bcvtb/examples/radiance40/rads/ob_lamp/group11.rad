@@ -1,0 +1,7 @@
+
+void alias Component14_material Metal_Corrogated_Shiny3
+!xform -n group12 group12.rad
+
+void alias Component1_material Metal_Corrogated_Shiny3
+!xform -n group13 group13.rad
+

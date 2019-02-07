@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>5.2. Ptolemy II</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="configuration.xhtml" title="Chapter 5. Configuring programs for use with the BCVTB"/><link rel="prev" href="configuration.xhtml" title="Chapter 5. Configuring programs for use with the BCVTB"/><link rel="next" href="tit-EnePluCon.xhtml" title="5.3. EnergyPlus"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.2. Ptolemy II</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="configuration.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 5. Configuring programs for use with the BCVTB</th><td width="20%" align="right"> <a accesskey="n" href="tit-EnePluCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="configuration.xhtml">Configuring programs for use with the BCVTB</a></span> &gt; <span class="breadcrumb-node">Ptolemy II</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="tit-crePtoMod"/>5.2. Ptolemy II</h2></div></div></div>
+  
+  <p>
+   For Ptolemy II related information, we recommend to read
+   the
+   <a class="ulink" href="http://ptolemy.berkeley.edu/index.htm" target="_top">Ptolemy II web page</a>
+   and the
+   <a class="ulink" href="http://ptolemy.berkeley.edu/ptolemyII/tutorial.htm" target="_top">Ptolemy II tutorial</a>
+   from UC Berkeley.
+  </p>
+  
+   <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="tit-SDF"/>5.2.1. Synchronous Data Flow (SDF) director</h3></div></div></div>
+  
+  
+  <p>
+   In Ptolemy II, different
+   <span class="emphasis"><em>models of computations</em></span>
+   can be used to define how the different actors interact
+   with each other. The model of computation is defined by a
+   <span class="emphasis"><em>director</em></span>
+   that needs to be included in the Ptolemy II flow chart
+   diagram. For the BCVTB, we typically use the Synchronous
+   Dataflow director, which is in Ptolemy II called
+   <span class="emphasis"><em>SDF Director.</em></span>
+   This director can be dragged into the model from the left
+   pane shown in
+   <a class="xref" href="tit-crePtoMod.xhtml#confPtRoomC" title="Figure 5.1.  Ptolemy II system model that connects a model of a controller and a room.">Figure 5.1</a>
+   .
+  </p>
+  <p>
+   </p><div class="figure"><a id="confPtRoomC"/><p class="title"><strong>Figure 5.1. 
+	    Ptolemy II system model that connects a model of a controller and a room.
+	    </strong></p><div class="figure-contents">
+    <div class="mediaobject"><img src="img/configurationPtRoomC.png" alt="Ptolemy II system model that connects a model of a controller and a room."/></div>
+    
+   </div></div><p><br class="figure-break"/>
+  </p>
+  <p>
+   For convenience, the examples in the BCVTB expose the
+   three parameters <code class="code">beginTime</code>,
+   <code class="code">timeStep</code> and <code class="code">endTime</code>. These
+   three parameters have units of seconds and needs to
+   correspond with the begin time, time step and end time
+   that is used in the simulation program. The parameters
+   used to configure the SDF Director are shown in
+   <a class="xref" href="tit-crePtoMod.xhtml#confSDFDire" title="Figure 5.2.  Configuration of the SDF director.">Figure 5.2</a>
+   .
+  </p>
+  <p>
+   </p><div class="figure"><a id="confSDFDire"/><p class="title"><strong>Figure 5.2. 
+	    Configuration of the SDF director.
+	    </strong></p><div class="figure-contents">
+    <div class="mediaobject"><img src="img/configurationSDFDirector.png" alt="Configuration of the SDF director."/></div>
+    
+   </div></div><p><br class="figure-break"/>
+  </p>
+  <p>
+   Flow charts with the SDF director must not contain
+   algebraic loops. If there is an algebraic loop, then a
+   sample delay actor needs to be inserted. This actor can
+   be found in the Ptolemy II actor library in
+   (<code class="code">Actors-&gt;FlowControl-&gt;SequenceControl-&gt;SampleDelay</code>).
+   <a class="xref" href="tit-crePtoMod.xhtml#confSampDel" title="Figure 5.3.  Implementation of the controller with the SampleDelay actor that delays its output by one sampling interval. This delay eliminates an algebraic loop, which is not allowed with the SDF director.">Figure 5.3</a>
+   shows the use of a <code class="code">SampleDelay</code> actor for
+   delaying the output of a controller by one sampling
+   interval.
+  </p>
+  <p>
+   </p><div class="figure"><a id="confSampDel"/><p class="title"><strong>Figure 5.3. 
+	    Implementation of the controller with the <code class="code">SampleDelay</code> actor that delays its output by one sampling interval. This delay eliminates an algebraic loop, which is not allowed with the SDF director.
+	    </strong></p><div class="figure-contents">
+    <div class="mediaobject"><img src="img/configurationSampleDelay.png" alt="Implementation of the controller with the SampleDelay actor that delays its output by one sampling interval. This delay eliminates an algebraic loop, which is not allowed with the SDF director."/></div>
+    
+   </div></div><p><br class="figure-break"/>
+  </p>
+  <p>
+   The <code class="code">Simulator</code> actor conducts the data
+   exchange with the simulation program. There can be any
+   number of <code class="code">Simulator</code> actors in a model. The
+   parameters of the <code class="code">Simulator</code> actor are as
+   shown in
+   <a class="xref" href="tit-crePtoMod.xhtml#tabSimAct" title="Table 5.1. Parameters of the Simulator actor.">Table 5.1, “Parameters of the <code class="code">Simulator</code> actor.”</a>
+   .
+  </p>
+  <p>
+   </p><div class="table"><a id="tabSimAct"/><p class="title"><strong>Table 5.1. Parameters of the <code class="code">Simulator</code> actor.</strong></p><div class="table-contents">
+    
+    <table summary="Parameters of the Simulator actor." border="1"><colgroup><col width="1*" align="left"/><col width="3*" align="left"/></colgroup><thead><tr><th align="left">Parameter</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left">
+programName
+</td><td align="left">
+The name of the executable that starts the simulation.
+</td></tr><tr><td align="left">
+programArguments
+</td><td align="left">
+		  Arguments needed by the simulation. Text arguments need to be enclosed in apostrophes.
+</td></tr><tr><td align="left">
+workingDirectory
+</td><td align="left">
+Working directory of the program. For the current directory, enter a period.
+</td></tr><tr><td align="left">
+simulationLogFile
+</td><td align="left">
+Name of the file to which the BCVTB will write the console output and error stream that it receives from the simulation program. Use a separate file for each simulation program. This file typically shows what may have caused an error.
+</td></tr><tr><td align="left">
+socketTimeout
+</td><td align="left">
+Time out in milliseconds for the initial socket connection. At the start of the simulation, the BCVTB waits for the simulation program to connect through a socket connection to the BCVTB. If the simulation program does not connect within the here specified time, the BCVTB will stop with an error.
+</td></tr><tr><td align="left">
+showConsoleWindow
+</td><td align="left">
+Check box; if activated, a separate window will be opened that displays the console output of the program. 
+</td></tr></tbody></table>
+   </div></div><p><br class="table-break"/>
+  </p>
+  <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"/></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+    <p>
+      The value of the parameter <code class="code">workingDirectory</code> needs to be unique.
+      If multiple <code class="code">Simulator</code> actors are used, then each
+      <code class="code">Simulator</code> actor needs to have its own working directory. 
+      Otherwise, the BCVTB stops with an error message because
+      they would overwrite each other's files.
+    </p>
+  </td></tr></table></div>
+  <p>
+   An example that starts EnergyPlus on Linux and Mac is
+   shown in
+   <a class="xref" href="tit-crePtoMod.xhtml#confPtSimu" title="Figure 5.4.  Configuration of the Simulator actor that starts EnergyPlus on Linux.">Figure 5.4</a>
+   .
+  </p>
+  <p>
+   </p><div class="figure"><a id="confPtSimu"/><p class="title"><strong>Figure 5.4. 
+	    Configuration of the <code class="code">Simulator</code> actor that starts EnergyPlus on Linux.
+	    </strong></p><div class="figure-contents">
+    <div class="mediaobject"><img src="img/configuration-ptolemy-simulator.png" alt="Configuration of the Simulator actor that starts EnergyPlus on Linux."/></div>
+    
+   </div></div><p><br class="figure-break"/>
+  </p>
+    <p>
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"/></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+     In EnergyPlus 8.3.0 and higher, a cross platform's command line interface called <code class="code">energyplus</code> was added to EnergyPlus to run it from the command line. <a class="xref" href="tit-crePtoMod.xhtml#confEPlusAllOS" title="Figure 5.5.  Configuration of the Simulator actor that uses the command line interface to call EnergyPlus.">Figure 5.5</a> shows how the Simulator actor uses this interface to call Energyplus. The actor calls the program <code class="code">energyplus</code> with a list of parameters which are required to launch and execute EnergyPlus. Details about the interface can be found at <a class="ulink" href="https://github.com/NREL/EnergyPlus/blob/develop/doc/running-energyplus-from-command-line.md" target="_top">https://github.com/NREL/EnergyPlus/blob/develop/doc/running-energyplus-from-command-line.md</a>.
+      </td></tr></table></div><p>
+    </p>
+    <p>
+     </p><div class="figure"><a id="confEPlusAllOS"/><p class="title"><strong>Figure 5.5. 
+		Configuration of the <code class="code">Simulator</code> actor that uses the command line interface to call EnergyPlus.
+		</strong></p><div class="figure-contents">
+      <div class="mediaobject"><img src="img/configuration-energyplus-all-os.png" alt="Configuration of the Simulator actor that uses the command line interface to call EnergyPlus."/></div>
+      
+     </div></div><p><br class="figure-break"/>
+    </p>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e547"/>5.2.2. Data Type Conversion</h3></div></div></div>
+  
+  <p>
+    </p><div class="figure"><a id="convStrDbl-2"/><p class="title"><strong>Figure 5.6. 
+	    Ptolemy II system model that converts an array of strings into an array of doubles.
+	    </strong></p><div class="figure-contents">
+    <div class="mediaobject"><img src="img/conversion-strings-doubles-p2.png" alt="Ptolemy II system model that converts an array of strings into an array of doubles."/></div>
+    
+   </div></div><p><br class="figure-break"/> 
+ This example shows how to convert an array of strings into an array of doubles in Ptolemy II. 
+ Such a type conversion may be needed if the output of the <code class="code">BACnetReader</code> actor is used by other actors.
+ The model shown in <a class="xref" href="tit-crePtoMod.xhtml#convStrDbl-2" title="Figure 5.6.  Ptolemy II system model that converts an array of strings into an array of doubles.">Figure 5.6</a> illustrates the type conversion and
+ can be found in the directory
+ <code class="code">bcvtb/examples/ptolemy-dataTypeConversion</code>.
+
+ The conversion was done by 
+</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+          dragging and dropping an <code class="code">IterateOverArray</code> actor from the library,
+        </li><li class="listitem">
+          dragging an <code class="code">ExpressionToToken</code> actor from the library onto it (See <a class="xref" href="tit-crePtoMod.xhtml#convStrDbl-1" title="Figure 5.7.  Ptolemy II system model that shows the use of the IterateOverArray actor.">Figure 5.7</a>),
+        </li><li class="listitem">
+          setting the output of the <code class="code">IterateOverArray</code> actor to <code class="code">arrayType(double)</code> by right clicking 
+on <code class="code">IterateOverArray</code> and selecting <span class="guimenuitem">Customize-&gt;Ports</span>,
+        </li><li class="listitem">
+          including an additional <code class="code">ExpressionToToken</code> actor to the system model where its output is connected to 
+the <code class="code">IterateOverArray</code> actor input,
+        </li><li class="listitem">
+          setting the output of the <code class="code">ExpressionToToken</code> 
+actor to <code class="code">arrayType(string)</code>,
+        </li><li class="listitem">
+          adding an <code class="code">arrayToMatrix</code> actor to the system model and setting the 
+output of this actor to <code class="code">[double]</code>.
+        </li></ol></div><p>
+
+    </p><div class="figure"><a id="convStrDbl-1"/><p class="title"><strong>Figure 5.7. 
+	    Ptolemy II system model that shows the use of the <code class="code">IterateOverArray</code> actor.
+	    </strong></p><div class="figure-contents">
+    <div class="mediaobject"><img src="img/conversion-strings-doubles-p1.png" alt="Ptolemy II system model that shows the use of the IterateOverArray actor."/></div>
+    
+   </div></div><p><br class="figure-break"/> 
+
+  </p>
+  </div>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="configuration.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="configuration.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="tit-EnePluCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 5. Configuring programs for use with the BCVTB </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 5.3. EnergyPlus</td></tr></table></div></body></html>

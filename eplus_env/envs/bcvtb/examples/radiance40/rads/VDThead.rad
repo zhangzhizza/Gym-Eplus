@@ -1,0 +1,330 @@
+#
+# A 17" diagonal flat-panel LCD monitor head
+#
+# Origin is at pivot point behind screen
+#
+
+VDT_plastic cylinder pivot_center
+0
+0
+7
+	.5	0	0
+	-.5	0	0
+	.5
+
+VDT_plastic ring pivot_side1
+0
+0
+8
+	.5	0	0
+	1	0	0
+	0	.5
+
+VDT_plastic ring pivot_side2
+0
+0
+8
+	-.5	0	0
+	-1	0	0
+	0	.5
+
+VDT_plastic polygon pivot_link.4620
+0
+0
+12
+               -0.5                 -1                0.5
+               -0.5                  0                0.5
+               -0.5                  0               -0.5
+               -0.5                 -1               -0.5
+
+VDT_plastic polygon pivot_link.2310
+0
+0
+12
+               -0.5                  0               -0.5
+                0.5                  0               -0.5
+                0.5                 -1               -0.5
+               -0.5                 -1               -0.5
+
+VDT_plastic polygon pivot_link.5137
+0
+0
+12
+                0.5                 -1                0.5
+                0.5                 -1               -0.5
+                0.5                  0               -0.5
+                0.5                  0                0.5
+
+VDT_plastic polygon pivot_link.6457
+0
+0
+12
+               -0.5                  0                0.5
+               -0.5                 -1                0.5
+                0.5                 -1                0.5
+                0.5                  0                0.5
+
+VDT_plastic polygon VDT_border.lower
+0
+0
+12
+              6.885                 -3              -5.06
+             -6.885                 -3              -5.06
+             -6.635              -2.75              -4.81
+              6.635              -2.75              -4.81
+
+VDT_plastic polygon VDT_border.right
+0
+0
+12
+              6.885                 -3               6.06
+              6.885                 -3              -5.06
+              6.635              -2.75              -4.81
+              6.635              -2.75               5.81
+
+VDT_plastic polygon VDT_border.upper
+0
+0
+12
+             -6.885                 -3               6.06
+              6.885                 -3               6.06
+              6.635              -2.75               5.81
+             -6.635              -2.75               5.81
+
+VDT_plastic polygon VDT_border.left
+0
+0
+12
+             -6.885                 -3              -5.06
+             -6.885                 -3               6.06
+             -6.635              -2.75               5.81
+             -6.635              -2.75              -4.81
+
+VDT_plastic polygon VDT_face.lower
+0
+0
+12
+             -7.635                 -3              -6.81
+              7.635                 -3              -6.81
+              6.885                 -3              -5.06
+             -6.885                 -3              -5.06
+
+VDT_plastic polygon VDT_face.right
+0
+0
+12
+              7.635                 -3              -6.81
+              7.635                 -3               6.81
+              6.885                 -3               6.06
+              6.885                 -3              -5.06
+
+VDT_plastic polygon VDT_face.upper
+0
+0
+12
+              7.635                 -3               6.81
+             -7.635                 -3               6.81
+             -6.885                 -3               6.06
+              6.885                 -3               6.06
+
+VDT_plastic polygon VDT_face.left
+0
+0
+12
+             -7.635                 -3              -6.81
+             -6.885                 -3              -5.06
+             -6.885                 -3               6.06
+             -7.635                 -3               6.81
+
+# xform -t -7.885 -3 -7.06
+# genbox VDT_plastic VDT_case 15.77 2 14.12 -r .25
+
+# VDT_plastic polygon VDT_case.dhgc
+# 0
+# 0
+# 12
+#               7.635                 -3              -6.81
+#               7.635                 -3               6.81
+#              -7.635                 -3               6.81
+#              -7.635                 -3              -6.81
+
+VDT_plastic polygon VDT_case.oqmk
+0
+0
+12
+             -7.885              -2.75               6.81
+             -7.885              -1.25               6.81
+             -7.885              -1.25              -6.81
+             -7.885              -2.75              -6.81
+
+VDT_plastic polygon VDT_case.OPNM
+0
+0
+12
+             -7.635              -1.25              -7.06
+              7.635              -1.25              -7.06
+              7.635              -2.75              -7.06
+             -7.635              -2.75              -7.06
+
+VDT_plastic polygon VDT_case.feij
+0
+0
+12
+              7.635                 -1              -6.81
+             -7.635                 -1              -6.81
+             -7.635                 -1               6.81
+              7.635                 -1               6.81
+
+VDT_plastic polygon VDT_case.plnr
+0
+0
+12
+              7.885              -2.75               6.81
+              7.885              -2.75              -6.81
+              7.885              -1.25              -6.81
+              7.885              -1.25               6.81
+
+VDT_plastic polygon VDT_case.SQRT
+0
+0
+12
+             -7.635              -1.25               7.06
+             -7.635              -2.75               7.06
+              7.635              -2.75               7.06
+              7.635              -1.25               7.06
+
+VDT_plastic cylinder VDT_case.hi
+0
+0
+7
+             -7.635              -2.75              -6.81
+              7.635              -2.75              -6.81
+               0.25
+
+VDT_plastic cylinder VDT_case.hl
+0
+0
+7
+             -7.635              -2.75              -6.81
+             -7.635              -2.75               6.81
+               0.25
+
+VDT_plastic cylinder VDT_case.hj
+0
+0
+7
+             -7.635              -2.75              -6.81
+             -7.635              -1.25              -6.81
+               0.25
+
+VDT_plastic cylinder VDT_case.ki
+0
+0
+7
+              7.635              -1.25              -6.81
+              7.635              -2.75              -6.81
+               0.25
+
+VDT_plastic cylinder VDT_case.kj
+0
+0
+7
+              7.635              -1.25              -6.81
+             -7.635              -1.25              -6.81
+               0.25
+
+VDT_plastic cylinder VDT_case.ko
+0
+0
+7
+              7.635              -1.25              -6.81
+              7.635              -1.25               6.81
+               0.25
+
+VDT_plastic cylinder VDT_case.mi
+0
+0
+7
+              7.635              -2.75               6.81
+              7.635              -2.75              -6.81
+               0.25
+
+VDT_plastic cylinder VDT_case.ml
+0
+0
+7
+              7.635              -2.75               6.81
+             -7.635              -2.75               6.81
+               0.25
+
+VDT_plastic cylinder VDT_case.mo
+0
+0
+7
+              7.635              -2.75               6.81
+              7.635              -1.25               6.81
+               0.25
+
+VDT_plastic cylinder VDT_case.nj
+0
+0
+7
+             -7.635              -1.25               6.81
+             -7.635              -1.25              -6.81
+               0.25
+
+VDT_plastic cylinder VDT_case.nl
+0
+0
+7
+             -7.635              -1.25               6.81
+             -7.635              -2.75               6.81
+               0.25
+
+VDT_plastic cylinder VDT_case.no
+0
+0
+7
+             -7.635              -1.25               6.81
+              7.635              -1.25               6.81
+               0.25
+
+VDT_plastic sphere VDT_case.h
+0
+0
+4             -7.635              -2.75              -6.81               0.25
+
+VDT_plastic sphere VDT_case.i
+0
+0
+4              7.635              -2.75              -6.81               0.25
+
+VDT_plastic sphere VDT_case.j
+0
+0
+4             -7.635              -1.25              -6.81               0.25
+
+VDT_plastic sphere VDT_case.k
+0
+0
+4              7.635              -1.25              -6.81               0.25
+
+VDT_plastic sphere VDT_case.l
+0
+0
+4             -7.635              -2.75               6.81               0.25
+
+VDT_plastic sphere VDT_case.m
+0
+0
+4              7.635              -2.75               6.81               0.25
+
+VDT_plastic sphere VDT_case.n
+0
+0
+4             -7.635              -1.25               6.81               0.25
+
+VDT_plastic sphere VDT_case.o
+0
+0
+4              7.635              -1.25               6.81               0.25

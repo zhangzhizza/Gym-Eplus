@@ -1,0 +1,24 @@
+
+materials = approx.mat 
+scene = room_basic.rad 
+scene= 122109L38.rad
+scene= overhang.rad
+scene= topglass0.rad 
+#illum= bottomglass100.rad
+
+mkillum= -ab 2
+oconv = -f
+ZONE = I -8 120 -44 145 -8 133
+EXPOSURE = .5
+INDIRECT = 2
+PENUMBRAS = False
+DETAIL = High
+QUALITY = Medium
+VARIABILITY = High
+RESOLUTION = 800
+render = -av 0 0 0 -ab 2
+
+view= angular -vf luis_angular_mid.vf
+
+
+PICTURE= riftest

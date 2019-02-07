@@ -1,0 +1,243 @@
+body{
+	color: #191970;
+	background-color: #FFFFFF;
+	font-style: normal;
+	font-family: "Lucida Grande", Helvetica, Verdana, sans-serif;
+}
+	
+h1, h2{
+	color: #191970;
+	background-color: #FFFFFF;
+	font-style: italic;
+}
+
+h3, h4, h5, h6, p, b{
+        color: #191970;
+	background-color: #FFFFFF;
+	font-style: normal;
+}
+img{
+    border: none;
+}
+
+table{
+	border-collapse:collapse;
+        width: 80%;
+}
+
+table, td, th{
+        border: 1px solid #191970;
+	padding:5px;
+}
+td {
+        color: #191970;
+	background-color: #FFFFFF;
+	font-style: normal;
+}
+
+table.equation{
+        border: 0px;
+	margin-left: 100pt;
+
+}
+div.informaltable table tbody,
+div.informaltable table tbody tr,
+div.informaltable table tbody tr td,
+div.informaltable table,
+div.informaltable table tr,
+div.informaltable table tr td,
+div.informaltable table td p{
+    border: dotted 0px #FFFFFF;
+    background-color:  #FFFFFF;
+
+}
+
+/* Notes */
+div.note table tr, 
+div.note table tr td,
+div.note table tr th,a
+div.note table tr td p,
+div.note table tr td p code,
+div.note table tr td p a{
+	padding:2px;
+	border: none;
+/*	background-color: #E0ECF8;*/
+}
+div.note table tr th{
+        color: #750000;}
+div.note table{
+        border: 3px solid #750000;}
+
+p{
+        color: #191970;
+	background-color: #FFFFFF;
+	padding:1px;
+	font-style: normal;
+}
+
+i{
+        color: #191970;
+	background-color: #FFFFFF;
+	font-style: italic;
+}
+li{
+        color: #191970;
+	background-color: #FFFFFF;
+	font-style: normal;
+}
+address{
+        color: #191970;
+	background-color: #FFFFFF;
+	font-style: italic;
+}
+
+code{
+        color: #750000;
+	background-color: #FFFFFF;
+	font-style: normal;
+	font-family: 'Consolas', 'Deja Vu Sans Mono',
+                 'Bitstream Vera Sans Mono', monospace;
+}
+
+pre{
+    border: 1pt solid #AEBDCC;
+    background-color: #F3F5F7;
+    padding: 5pt;
+    font-family: 'Consolas', 'Deja Vu Sans Mono',
+                 'Bitstream Vera Sans Mono', monospace;
+    white-space: pre;
+    /* begin css 3 or browser specific rules - do not remove!
+       see: http://forums.techguy.org/archive/index.php/t-249849.html */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    /* end css 3 or browser specific rules */
+}
+
+.emph{	
+	color: #750000;
+	background-color: #FFFFFF;
+	font-style: normal;
+	font-weight: bold;
+}
+
+/* Title for examples, figures and tables */
+div.example p.title b{
+    font-style: italic;
+    font-weight: normal;
+}
+
+div.figure p.title b{
+    font-style: italic;
+    font-weight: normal;
+}
+
+table{
+    width:100%;
+}
+
+div.caption p{
+	color: #191970;
+	background-color: #FFFFFF;
+	font-style: italic;
+}
+
+.guibutton{ font-style: italic; }
+
+a:link
+{
+	color: #750000;	
+	background-color: #FFFFFF;
+ }
+a:visited
+{
+	color: black;
+	background-color: #FFFFFF;
+ }
+a.menu:link
+{
+	color: #191970; 
+	font-size: 13px; 
+	font-weight: bold;
+	text-decoration:none; 
+}
+a.menu:active
+{
+	color: #191970; 
+	font-size: 13px; 
+	font-weight: bold;
+	text-decoration:none; 
+}
+a.menu:hover
+{
+	color: #191970; 
+	font-size: 13px; 
+	font-weight: bold;
+	text-decoration: underline; 
+}
+a.menu:visited
+{
+	color: #191970; 
+	font-size: 13px; 
+	font-weight: bold;
+	text-decoration:none; 
+}
+a.menu:visited:hover
+{
+	color: #191970; 
+	font-size: 13px; 
+	font-weight: bold;
+	text-decoration: underline; 
+}
+a.thismenu:link
+{
+	color: #750000; 
+	font-size: 13px; 
+	font-weight: bold;
+	text-decoration:none; 
+}
+a.thismenu:active
+{
+	color: #750000; 
+	font-size: 13px; 
+	font-weight: bold;
+	text-decoration:none; 
+}
+a.thismenu:visited
+{
+	color: #750000; 
+	font-size: 13px; 
+	font-weight: bold;
+	text-decoration:none; 
+}
+a.thismenu:visited:hover
+{
+	color: #750000; 
+	font-size: 13px; 
+	font-weight: bold;
+	text-decoration:none; 
+}
+div.navheader table{
+        width: 100%;
+}
+div.navheader table,th,td{
+	border: none;
+}
+div.navheader table{
+	border: none;
+	border-bottom: 1px solid #191970;
+}
+div.navfooter table{
+        width: 100%;
+}
+
+div.navfooter table,th,td{
+	border: none;
+}
+div.navfooter table{
+	border: none;
+	border-top: 1px solid #191970;
+}
+

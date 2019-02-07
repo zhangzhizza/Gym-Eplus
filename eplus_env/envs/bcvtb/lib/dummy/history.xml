@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="gcc utilXml.o utilSocket.o -prebind -dynamiclib -L../../../../../../../../usr/lib -lexpat">
+      <target file="libbcvtb.dylib" lastModified="1543ab973e8">
+      </target>
+   </processor>
+   <processor signature="gcc noversion nomachine -fPIC -c -I..">
+      <target file="utilXml.o" lastModified="1543ab973e8">
+         <source file="utilXml.c" lastModified="15416bee1a8"/>
+      </target>
+      <target file="utilSocket.o" lastModified="1543ab973e8">
+         <source file="utilSocket.c" lastModified="15416bee1a8"/>
+      </target>
+   </processor>
+</history>

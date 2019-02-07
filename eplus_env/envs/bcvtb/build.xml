@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="bcvtb" default="all"> 
+<import file="build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <ant dir="lib"         target="clean"/>
+    <ant dir="examples"    target="clean"/>
+    <delete dir=".">
+      <include name="**/history.xml"/>
+      <include name="**/dependencies.xml"/>
+      <include name="**/simulation.log"/>
+      <include name="**/simulation.log"/>
+    </delete>
+  </target>
+
+  <!-- Cleandoc -->
+  <target name="cleandoc" description="Deletes generated documentation">
+    <ant dir="doc"   target="cleandoc"/>
+  </target>
+
+  <!-- All -->
+  <target name="all" description="Runs all targets">
+    <!-- Update build information -->
+    <propertyfile file="buildinfo.properties"
+		  comment="Build Information File - DO NOT CHANGE">
+      <entry key="build.version"
+	     value="${VERSION}"/>
+      <entry key="build.num"
+	     type="int" default="0000"
+	     operation="+" pattern="0000"/>
+      <entry key="build.date"
+	     type="date"
+	     value="now"
+	     pattern="yyyy-dd-MM HH:mm"/>
+    </propertyfile>
+
+    <ant dir="lib"       target="all"/>
+    <ant dir="examples"  target="all"/>
+  </target>
+  
+  <!-- Unit tests -->
+  <target name="unitTest" description="Runs unit tests">
+    <ant dir="examples"             target="unitTest"/>
+  </target>
+  
+  <!-- Generates doxygen code documentation -->
+  <target name="doc" description="Generates the code documentation">
+    <ant dir="doc"   target="doc"/>
+  </target>
+
+  <!-- Updates the Ptolemy files -->
+  <target name="updatePtolemyFiles"
+          description="Copies the Ptolemy files to the BCVTB and writes the BCVTB version number to the startup window">
+    <ant dir="lib"   target="updatePtolemyFiles"/>
+  </target>
+
+ <!-- copies Ptolemy pdf documentation -->
+  <target name="copyPtolemyDocumentation" 
+          description="Copies the Ptolemy documentation to the BCVTB">
+    <ant dir="lib"   target="copyPtolemyDocumentation"/>
+  </target>
+
+  <!-- Deletes the Ptolemy files -->
+  <target name="cleanPtolemyFiles" 
+	  description="Deletes the Ptolemy files of the BCVTB">
+    <ant dir="lib"   target="cleanPtolemyFiles"/>
+  </target>
+
+  <!-- Builds distribution file -->
+  <target name="dist" description="Builds all the distribution files"
+	  depends="updatePtolemyFiles">
+    <ant dir="install" target="dist"/>
+  </target>
+
+  <target name="dist-bcvtb" description="Builds the distribution files for the bcvtb only">
+    <ant dir="install" target="dist-bcvtb"/>
+  </target>
+  <target name="dist-EnergyPlus" description="Builds the distribution files for EnergyPlus only">
+    <ant dir="install" target="dist-EnergyPlus"/>
+  </target>
+
+</project>

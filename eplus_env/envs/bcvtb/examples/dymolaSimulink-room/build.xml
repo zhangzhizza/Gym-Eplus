@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="dymola-room" default="unitTest">
+  <import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <delete verbose="true">
+      <fileset dir="dymola"   includes="bcvtb_modelica.*, *.dll, *.so, bcvtb.h"/>
+      <fileset dir="dymola"   includes="dsmodel.c, buildlog.txt, dymosim.exe, dymosim, dymosim.exp, dymosim.lib"/>
+      <fileset dir="dymola"   includes="status, success, stop, failure, request"/>
+      <fileset dir="dymola"   includes="status., success., stop., failure., request."/>
+      <fileset dir="dymola"   includes="dsin.txt, dsres.mat, dslog.txt, dsfinal.txt"/>
+      <fileset dir="dymola"   includes="simulation.log,socket.cfg,utilSocket.log"/>
+      <fileset dir="simulink" includes="matlab.log,simulation.log,socket.cfg,utilSocket.log"/>
+    </delete>
+  </target>
+  
+  <!-- Unit test -->
+  <target name="unitTest" description="Runs unit tests" if="have.dymolaMatlab">
+    <echo message="Starting unit test in ${basedir}"/>
+    <exec executable="${ptUnitTestExecutable}" 
+    failonerror="true"
+    vmlauncher="false"> <!-- vmlauncher="false" is needed for Windows -->
+      <arg line="${ptExecutableFlags} ${ptUnitTestFile}"/>
+    </exec>
+  </target>
+
+</project>

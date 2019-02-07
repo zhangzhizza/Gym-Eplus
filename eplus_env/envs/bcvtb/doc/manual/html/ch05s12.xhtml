@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>5.12. BACnet</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="configuration.xhtml" title="Chapter 5. Configuring programs for use with the BCVTB"/><link rel="prev" href="tit-RadianceCon.xhtml" title="5.11. Radiance"/><link rel="next" href="ch05s13.xhtml" title="5.13. Analog/Digital Interface"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.12. BACnet</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tit-RadianceCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 5. Configuring programs for use with the BCVTB</th><td width="20%" align="right"> <a accesskey="n" href="ch05s13.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="configuration.xhtml">Configuring programs for use with the BCVTB</a></span> &gt; <span class="breadcrumb-node">BACnet</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d5e1608"/>5.12. BACnet</h2></div></div></div>
+  
+  <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"/></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+   <p>
+    The BACnet interface is only supported on Windows and on
+    Linux. It has not been ported to Mac OS X.
+   </p>
+  </td></tr></table></div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1612"/>5.12.1. Introduction</h3></div></div></div>
+   
+   <p>
+    The BCVTB contains an actor, called
+    <code class="code">BACnetReader</code>, that can read from BACnet
+    devices and an actor, called <code class="code">BACnetWriter</code>,
+    that can write to BACnet devices. These actors use the
+    open source
+    <a class="ulink" href="http://bacnet.sourceforge.net/" target="_top">
+BACnet protocol stack
+</a>
+    , which is shipped with the BCVTB installation and that
+    has been developed by Steve Karg. Both actors use a
+    configuration file that specifies the BACnet devices,
+    the object types and the property identifiers with which
+    data is to be exchanged. The next sections describe how
+    to configure these configuration files, and how to set
+    up a model that reads from and writes to BACnet devices.
+   </p>
+    <p>
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"/></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+	<p>
+	  BACnet systems typically allow a user to export a list
+	  of BACnet
+	  <span class="emphasis"><em>object types</em></span>
+	  with their instance numbers. Such a list needs to be
+	  obtained for the particular control system in order to
+	  configure the data exchange that is described in
+	  <a class="xref" href="ch05s12.xhtml#tit-BACnetConfDataRea" title="5.12.2. Reading from BACnet">Section 5.12.2, “Reading from BACnet”</a>
+	  and
+	  <a class="xref" href="ch05s12.xhtml#tit-BACnetConfDataWri" title="5.12.3. Writing to BACnet">Section 5.12.3, “Writing to BACnet”</a>
+	  .
+	</p>
+      </td></tr></table></div><p>
+    </p>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="tit-BACnetConfDataRea"/>5.12.2. Reading from BACnet</h3></div></div></div>
+   
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e1626"/>5.12.2.1. Specification of data that will be read from BACnet</h4></div></div></div>
+    
+    <p>
+     The <code class="code">BACnetReader</code> actor reads an xml
+     configuration file to determine what data it needs to
+     read from BACnet devices. This configuration file
+     specifies the BACnet
+     <span class="emphasis"><em>object types</em></span>
+     and their child elements,
+     <a href="#ftn.d5e1631" class="footnote" id="d5e1631"><sup class="footnote">[2]</sup></a>
+     which can be other BACnet
+     <span class="emphasis"><em>object types</em></span>
+     or BACnet
+     <span class="emphasis"><em>property identifiers</em></span>
+     . The xml configuration file has the following syntax:
+     It starts and ends with
+</p><pre class="programlisting">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;BACnet&gt;
+   &lt;!-- Child elements are not shown. --&gt;
+&lt;/BACnet&gt;</pre><p>
+     The above element <code class="code">BACnet</code> requires at least
+     one child element of the form
+</p><pre class="programlisting">&lt;Object Type="Device" Instance="123"&gt;
+   &lt;!-- Child elements are not shown. --&gt;
+&lt;/Object&gt;</pre><p>
+     i.e., the element name is <code class="code">Object</code>, the
+     attribute <code class="code">Type</code> needs to be
+     <code class="code">Device</code> and the attribute
+     <code class="code">Instance</code> needs to be set to its instance
+     number, which is a unique number that is assigned at
+     the discretion of the control provider. Any
+     <code class="code">Object</code> element can contain other
+     <code class="code">Object</code> elements and other
+     <code class="code">PropertyIdentifier</code> elements.
+    </p>
+    <p>
+     The <code class="code">Object</code> elements can have any of the
+     following values for the attribute <code class="code">Type</code>
+     (the meaning of these types is explained in Chapter 12
+     of the BACnet Standard
+     [<a class="citation" href="bibliography.xhtml#d5e3325"><span class="citation">ASHRAE 2004</span></a>]
+     ): <code class="code">Analog Input</code>, <code class="code">Analog
+     Output</code>, <code class="code">Analog Value</code>, <code class="code">Binary
+     Input</code>, <code class="code">Binary Output</code>, <code class="code">Binary
+     Value</code>, <code class="code">Calendar</code>,
+     <code class="code">Command</code>, <code class="code">Device</code>, <code class="code">Event
+     Enrollment</code>, <code class="code">File</code>,
+     <code class="code">Group</code>, <code class="code">Loop</code>, <code class="code">Multi
+     State Input</code>, <code class="code">Multi State Output</code>,
+     <code class="code">Notification Class</code>, <code class="code">Program</code>,
+     <code class="code">Schedule</code>, <code class="code">Averaging</code>,
+     <code class="code">Multi State Value</code>, <code class="code">Trend Log</code>,
+     <code class="code">Life Safety Point</code>, <code class="code">Life Safety
+     Zone</code>, <code class="code">Accumulator</code>, <code class="code">Pulse
+     Converter</code>, <code class="code">Event Log</code>, <code class="code">Global
+     Group</code>, <code class="code">Trend Log Multiple</code>,
+     <code class="code">Load Control</code>, <code class="code">Structured
+     View</code>, <code class="code">Access Door</code>, <code class="code">Lighting
+     Output</code>, <code class="code">Access Credential</code>,
+     <code class="code">Access Point</code>, <code class="code">Access Rights</code>,
+     <code class="code">Access User</code>, <code class="code">Access Zone</code>,
+     <code class="code">Authentication Factor Input</code>, <code class="code">Max
+     ASHRAE</code>, <code class="code">Load Control</code>,
+     <code class="code">Structured View</code>, <code class="code">Access Door</code>,
+     <code class="code">Lighting Output</code>, <code class="code">Access
+     Credential</code>, <code class="code">Access Point</code>,
+     <code class="code">Access Rights</code>, <code class="code">Access User</code>,
+     <code class="code">Access Zone</code>, <code class="code">Authentication Factor
+     Input</code>, <code class="code">Max ASHRAE</code>.
+    </p>
+    <p>
+     Each of these object types has its own set of
+     properties that can be read or written to. These
+     properties are declared in the element
+     <code class="code">PropertyIdentifier</code> which has one attribute
+     called <code class="code">Name</code>. For example, for the object
+     with type <code class="code">Analog Output</code>, the BACnet
+     standard lists in Table 12-3 the properties shown in
+     <a class="xref" href="ch05s12.xhtml#tab-bacAnaOutObjTyp" title="Table 5.4. Properties of the Analog Output Object Type according to BACnet Standard, Table 12-3 (not all properties are shown).">Table 5.4, “Properties of the Analog Output Object Type according to BACnet Standard, Table 12-3 (not all properties are shown).”</a>
+     .
+     </p><p>
+      </p><div class="table"><a id="tab-bacAnaOutObjTyp"/><p class="title"><strong>Table 5.4. Properties of the Analog Output Object Type according to BACnet Standard, Table 12-3 (not all properties are shown).</strong></p><div class="table-contents">
+       
+       <table summary="Properties of the Analog Output Object Type according to BACnet Standard, Table 12-3 (not all properties are shown)." border="1"><colgroup><col/><col/><col/></colgroup><thead><tr><th align="left">Property Identifier</th><th align="left">Property Datatype</th><th align="left">Conformance Code</th></tr></thead><tbody><tr><td align="left">Object_Identifier</td><td align="left">BACnetObjectIdentifier</td><td align="left">R</td></tr><tr><td align="left">Object_Name</td><td align="left">CharacterString</td><td align="left">R</td></tr><tr><td align="left">Object_Type</td><td align="left">BACnetObjectType</td><td align="left">R</td></tr><tr><td align="left">Present_Value</td><td align="left">REAL</td><td align="left">W</td></tr><tr><td align="left">Description</td><td align="left">CharacterString</td><td align="left">O</td></tr><tr><td align="left">(further entries are omitted)</td><td align="left"> </td><td align="left"> </td></tr></tbody></table>
+      </div></div><p><br class="table-break"/>
+     </p><p>
+     Thus, we can set, for example,
+</p><pre class="programlisting">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;BACnet&gt;
+  &lt;Object Type="Device" Instance="123"&gt;
+    &lt;Object Type="Analog Output" Instance="1"&gt;
+      &lt;PropertyIdentifier Name="Present_Value"/&gt;
+    &lt;/Object&gt;
+  &lt;/Object&gt;
+&lt;/BACnet&gt;</pre><p>
+     which would cause the <code class="code">BACnetReader</code> to read
+     the present value of the BACnet Analog Output object
+     type with instance number 1, which is part of a BACnet
+     Device Object with instance number 123.
+    </p>
+    <p>
+     The following code listing shows an example of a larger
+     configuration file that is used to read data from a
+     BACnet system.
+     </p><div class="programlistingco"><pre class="programlisting">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;BACnet&gt;
+  &lt;Object Type="Device" Instance="637501"&gt;                 <span  class="co" id="bnr-objTyp1"><img src="images/callouts/1.png" alt="(1)"/></span>
+    
+    &lt;PropertyIdentifier Name="Local_Date"/&gt;                <span  class="co" id="bnr-proIde1"><img src="images/callouts/2.png" alt="(2)"/></span>
+    
+    &lt;Object Type="Analog Input" Instance="1"&gt;              <span  class="co" id="bnr-objTyp11"><img src="images/callouts/3.png" alt="(3)"/></span>
+      &lt;PropertyIdentifier Name="Object_Identifier"/&gt;       <span  class="co" id="bnr-proIde11"><img src="images/callouts/4.png" alt="(4)"/></span>
+      &lt;PropertyIdentifier Name="Units"/&gt;                   <span  class="co" id="bnr-proIde12"><img src="images/callouts/5.png" alt="(5)"/></span>
+      &lt;PropertyIdentifier Name="Present_Value"/&gt;           <span  class="co" id="bnr-proIde13"><img src="images/callouts/6.png" alt="(6)"/></span>
+    &lt;/Object&gt;
+    
+    &lt;Object Type="Analog Output" Instance="2"&gt;             <span  class="co" id="bnr-objTyp12"><img src="images/callouts/7.png" alt="(7)"/></span>
+      &lt;PropertyIdentifier Name="Present_Value"
+                          Index="2"/&gt;                      <span  class="co" id="bnr-proIde15"><img src="images/callouts/8.png" alt="(8)"/></span>
+    &lt;/Object&gt;
+    
+  &lt;/Object&gt;
+  
+  &lt;Object Type="Device" Instance="637502"&gt;                 <span  class="co" id="bnr-objTyp2"><img src="images/callouts/9.png" alt="(9)"/></span>
+    
+    &lt;Object Type="Analog Input" Instance="1"&gt;
+      &lt;PropertyIdentifier Name="Present_Value"/&gt;
+    &lt;/Object&gt;
+    
+    &lt;Object Name="Analog Output" Instance="3"&gt;
+      &lt;PropertyIdentifier Name="Present_Value"/&gt;
+    &lt;/Object&gt;
+    
+  &lt;/Object&gt;
+&lt;/BACnet&gt;
+</pre></div><p>
+    </p>
+    <p>
+     The numbered items have the following functionalities:
+     </p><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><span><img src="images/callouts/1.png" alt="1" border="0"/></span><span><img src="images/callouts/9.png" alt="9" border="0"/></span></p></td><td valign="top" align="left">
+       <p>
+        The BACnet devices are declared at the top-level of
+        the control system. The only valid elements are
+</p><pre class="programlisting">&lt;Object Type="Device" Instance="123"&gt;
+   &lt;!-- Child elements are not shown. --&gt;
+&lt;/Object&gt;</pre><p>
+        which all need to have a unique, system-dependent
+        instance number.
+       </p>
+      </td></tr><tr><td width="5%" valign="top" align="left"><p><span><img src="images/callouts/2.png" alt="2" border="0"/></span></p></td><td valign="top" align="left">
+       <p>
+        This line declares a BACnet property identifier of
+        the device with instance number 637501. This
+        statement will cause the BACnet reader to read the
+        local date from the device.
+       </p>
+      </td></tr><tr><td width="5%" valign="top" align="left"><p><span><img src="images/callouts/3.png" alt="3" border="0"/></span><span><img src="images/callouts/7.png" alt="7" border="0"/></span></p></td><td valign="top" align="left">
+       <p>
+        These lines declare BACnet object types that are
+        children of the device object type with instance
+        number 637501. The first instance has the instance
+        number 1, and the second instance has the instance
+        number 2. Note that instance numbers are assigned by
+        the controls provider and need not start at 1.
+       </p>
+      </td></tr><tr><td width="5%" valign="top" align="left"><p><span><img src="images/callouts/4.png" alt="4" border="0"/></span><span><img src="images/callouts/5.png" alt="5" border="0"/></span><span><img src="images/callouts/6.png" alt="6" border="0"/></span></p></td><td valign="top" align="left">
+       <p>
+        These entries declare BACnet property identifiers of
+        the device with instance number 1. These statements
+        will cause the BACnet reader to read its object
+        identifier, its units and its present value.
+       </p>
+      </td></tr><tr><td width="5%" valign="top" align="left"><p><span><img src="images/callouts/8.png" alt="8" border="0"/></span></p></td><td valign="top" align="left">
+       <p>
+        The optional attribute <code class="code">Index="2"</code>
+        declares that the present value will only be
+        obtained for the second element of this Analog
+        Output object. If the <code class="code">Index</code> would not
+        be specified and the Analog Output object has an
+        array of values, then all elements of the array
+        would be read.
+       </p>
+      </td></tr></table></div><p>
+    </p>
+   </div>
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e1772"/>5.12.2.2. Interface to BACnet Stack</h4></div></div></div>
+    
+    <p>
+     To read data from BACnet devices, the
+     <code class="code">BACnetReader</code> actor calls an executable
+     program that is provided by the BACnet stack. This
+     section describes how the entries in the xml file
+     relate to this executable. The example shows the
+     low-level implementation and may be skipped by users
+     who are not interested in the implementation.
+    </p>
+    <p>
+     To read from BACnet, the BACnet stack provides the
+     following function:
+</p><pre class="programlisting">bacrp device-instance object-type object-instance property [index]
+</pre><p>
+     (For an explanation of the arguments, type
+     <code class="code">./bacrp --help</code> on a console.) The above
+     xml file would cause the following commands to be
+     executed:
+</p><pre class="programlisting">bacrp 637501 8 637501 56
+bacrp 637501 0 1 75
+bacrp 637501 0 1 117
+bacrp 637501 0 1 191
+bacrp 637501 1 2 117 2
+bacrp 637502 0 1 191
+bacrp 637502 1 3 191
+</pre><p>
+    </p>
+    <p>
+     In the first command, the second argument is 8 as this
+     is the enumeration for the BACnet Object Device, and
+     the fourth argument is 56 as this is the enumeration
+     for the Local Date Property. The following lines are
+     constructed similarly, using the enumerations that are
+     defined in the file <code class="code">bacenum.h</code> that is part
+     of the BACnet stack.
+    </p>
+   </div>
+  </div>
+
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="tit-BACnetConfDataWri"/>5.12.3. Writing to BACnet</h3></div></div></div>
+   
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e1784"/>5.12.3.1. Specification of data that will be written to BACnet</h4></div></div></div>
+    
+    <p>
+     The BCVTB contains an actor called
+     <code class="code">BACnetWriter</code> that can write to BACnet
+     devices. The BACnet standard
+     [<a class="citation" href="bibliography.xhtml#d5e3325"><span class="citation">ASHRAE 2004</span></a>]
+     defines the conformance codes shown in
+     <a class="xref" href="ch05s12.xhtml#tab-BACnetConCod" title="Table 5.5. BACnet Conformance Codes.">Table 5.5, “BACnet Conformance Codes.”</a>
+     . The <code class="code">BACnetReader</code> can write to any BACnet
+     properties with the conformance code <code class="code">W</code>.
+     </p><div class="table"><a id="tab-BACnetConCod"/><p class="title"><strong>Table 5.5. BACnet Conformance Codes.</strong></p><div class="table-contents">
+      
+      <table summary="BACnet Conformance Codes." border="1"><colgroup><col width="1*" align="left"/><col width="30*" align="left"/></colgroup><tbody><tr><td align="left">O</td><td align="left">Indicates that the property is optional.</td></tr><tr><td align="left">R</td><td align="left">Indicates that the property is required to be present and readable using BACnet services.</td></tr><tr><td align="left">W</td><td align="left">Indicates that the property is required to be present, readable, and writeable using BACnet services.</td></tr></tbody></table>
+     </div></div><p><br class="table-break"/>
+    </p>
+    <p>
+     The <code class="code">BACnetWriter</code> provides the
+     <span class="emphasis"><em>WriteProperty Service</em></span>
+     that is specified in Section 15.9 in the BACnet
+     Standard
+     [<a class="citation" href="bibliography.xhtml#d5e3325"><span class="citation">ASHRAE 2004</span></a>]
+     . The configuration file that is used by the
+     <code class="code">BACnetWriter</code> is identical to the one used
+     for the <code class="code">BACnetReader</code> explained in
+     <a class="xref" href="ch05s12.xhtml#tit-BACnetConfDataRea" title="5.12.2. Reading from BACnet">Section 5.12.2, “Reading from BACnet”</a>
+     , except that the xml elements of type
+     <code class="code">PropertyIdentifier</code> have the additional
+     attributes <code class="code">ApplicationTag</code>,
+     <code class="code">Priority</code>, and <code class="code">Index</code>. These
+     attributes are explained in
+     <a class="xref" href="ch05s12.xhtml#tab-BACWriAtt" title="Table 5.6. Attributes of the PropertyIdentifier xml element if used to write to a BACnet device.">Table 5.6, “Attributes of the <code class="code">PropertyIdentifier</code> xml element if used to write to a BACnet device.”</a>
+     . The following program listing shows an example
+     configuration file.
+</p><pre class="programlisting">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;BACnet&gt;
+  &lt;!-- Top level BACnet device --&gt;  
+  &lt;Object Type="Device" Instance="637501"&gt;
+
+    &lt;!-- BACnet object for analog input --&gt;    
+    &lt;Object Type="Analog Input" Instance="1"&gt;
+      &lt;PropertyIdentifier Name="Present_Value" ApplicationTag="Real" 
+			  Priority="15" Index="-1"/&gt;
+    &lt;/Object&gt;
+  &lt;/Object&gt;
+  &lt;!-- Top level BACnet device --&gt;    
+  &lt;Object Type="Device" Instance="637502"&gt;
+    
+    &lt;Object Type="Analog Input" Instance="1"&gt;
+      &lt;PropertyIdentifier Name="Present_Value" ApplicationTag="Real" 
+			  Priority="15" Index="-1"/&gt;
+    &lt;/Object&gt;
+    &lt;!-- BACnet object for analog input --&gt;        
+    &lt;Object Type="Analog Input" Instance="2"&gt;
+      &lt;PropertyIdentifier Name="Present_Value" ApplicationTag="Real" 
+			  Priority="15" Index="-1"/&gt;
+    &lt;/Object&gt;
+  &lt;/Object&gt;
+&lt;/BACnet&gt;
+</pre><p>
+     For the <code class="code">BACnetWriter</code>, the xml element
+     <code class="code">PropertyIdentifier</code> has the attributes
+     shown in
+     <a class="xref" href="ch05s12.xhtml#tab-BACWriAtt" title="Table 5.6. Attributes of the PropertyIdentifier xml element if used to write to a BACnet device.">Table 5.6, “Attributes of the <code class="code">PropertyIdentifier</code> xml element if used to write to a BACnet device.”</a>
+     .
+     </p><div class="table"><a id="tab-BACWriAtt"/><p class="title"><strong>Table 5.6. Attributes of the <code class="code">PropertyIdentifier</code> xml element if used to write to a BACnet device.</strong></p><div class="table-contents">
+      
+      <table summary="Attributes of the PropertyIdentifier xml element if used to write to a BACnet device." border="1"><colgroup><col width="10*" align="left"/><col width="5*" align="left"/><col width="30*" align="left"/></colgroup><thead><tr><th align="left">Attribute name</th><th align="left">Required</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left">
+		  Name
+		</td><td align="left">yes</td><td align="left">
+		  The name of the property identifier.
+		</td></tr><tr><td align="left">
+
+		  ApplicationTag
+		</td><td align="left">yes</td><td align="left">
+		  This attribute specifies the data format that is used to send the value to the BACnet device. Possible entries are
+		  <code class="code">NULL</code>, <code class="code">BOOLEAN</code>, <code class="code">UNSIGNED_INT</code>, <code class="code">SIGNED_INT</code>, <code class="code">REAL</code>, <code class="code">DOUBLE</code>, <code class="code">OCTET_STRING</code>, <code class="code">CHARACTER_STRING</code>, <code class="code">BIT_STRING</code>, <code class="code">ENUMERATED</code>, <code class="code">DATE</code>, <code class="code">TIME</code>, <code class="code">OBJECT_ID</code>, <code class="code">MAX_BACNET_APPLICATION_TAG</code>.
+The value of this attribute will be converted to upper-case, and then sent to the BACnet interface.
+		</td></tr><tr><td align="left">Priority</td><td align="left">no</td><td align="left">
+This parameter sets the priority of the write operation. 
+Allowed entries are any integers from 0 to 16.
+If Priority 0 is given, no priority is sent, which defaults
+according to the BACnet standard to the lowest priority.
+The highest priority is 1 and the lowest priority is 16.
+If the value is not specified, then it is set to 15.
+</td></tr><tr><td align="left">Index</td><td align="left">no</td><td align="left">
+          <p>
+           This integer parameter is the index number of an
+           array. If the property is an array, individual
+           elements can be written to if supported by the
+           BACnet device. If this parameter is -1, the index
+           is ignored and hence the entire array is
+           referenced. 
+	   If the value is not specified, then it is set to -1.
+          </p>
+         </td></tr></tbody></table>
+     </div></div><p><br class="table-break"/>
+    </p>
+   </div>
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e1867"/>5.12.3.2. Interface to BACnet Stack</h4></div></div></div>
+    
+    <p>
+     To write data to BACnet devices, the
+     <code class="code">BACnetWriter</code> actor calls an executable
+     program that is provided by the BACnet stack. This
+     section describes how the entries in the xml file
+     relate to this executable. The example shows the
+     low-level implementation and may be skipped by users
+     who are not interested in the implementation.
+    </p>
+    <p>
+     To write to BACnet, the BACnet stack provides the
+     following function:
+</p><pre class="programlisting">
+bacwp device-instance object-type object-instance property priority index tag value [tag value...]
+</pre><p>
+     (For an explanation of the arguments, type
+     <code class="code">./bacwp --help</code> on a console.) The above
+     xml file would cause the following commands to be
+     executed:
+</p><pre class="programlisting">
+bacwp 637501 0 1 85 15 -1 4 "value[1]"
+bacwp 637502 0 1 85 15 -1 4 "value[2]"
+bacwp 637502 0 2 85 15 -1 4 "value[3]"
+</pre><p>
+    </p>
+    <p>
+     Note that our implementation only supports one pair of
+     <code class="code">tag value</code>. However, multiple pairs can be
+     constructed by declaring a separate
+     <code class="code">PropertyIdentifier</code> element for each pair.
+    </p>
+    <p>
+     In the first command, the second argument is zero as
+     this is the enumeration for analog input objects in the
+     BACnet stack; the fourth argument is 85 which is the
+     enumeration for the present value property; the second
+     last element is 4 as this is the enumeration for the
+     application tag; and "value[1]" will be replaced with
+     the actual value of the first element of the vector
+     that is received at the input port of the actor.
+    </p>
+    <p>
+     In the second command, "value[2]" will be replaced with
+     the actual value of the second element of the vector
+     that is received at the input port of the actor. For a
+     list of the enumerations that are used in the above
+     commands, see the file <code class="code">bacenum.h</code> that is
+     part of the BACnet stack.
+    </p>
+   </div>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1881"/>5.12.4. Creating a Ptolemy II model</h3></div></div></div>
+   
+   <p>
+    The <code class="code">BACnetReader</code> and the
+    <code class="code">BACnetWriter</code> actor can be used in the same
+    Ptolemy II model. In this section, however, we will
+    explain how to configure separate Ptolemy II models that
+    write to and read from BACnet devices. These files can
+    be found in the directories
+    <code class="code">bcvtb/examples/BACnetReaderALC</code> and
+    <code class="code">bcvtb/examples/BACnetWriterALC</code>. Note that
+    these examples have been developed for a particular
+    hardware setup. To run these examples for other
+    hardware, their configuration files need to be modified
+    as described in
+    <a class="xref" href="ch05s12.xhtml#tit-BACnetConfDataRea" title="5.12.2. Reading from BACnet">Section 5.12.2, “Reading from BACnet”</a>
+    and
+    <a class="xref" href="ch05s12.xhtml#tit-BACnetConfDataWri" title="5.12.3. Writing to BACnet">Section 5.12.3, “Writing to BACnet”</a>
+    .
+   </p>
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e1890"/>5.12.4.1. Configuring the <code class="code">BACnetReader</code>
+    </h4></div></div></div>
+    
+    <p>
+     </p><div class="figure"><a id="configurationPtolemyBACnetReader"/><p class="title"><strong>Figure 5.43. 
+		    Ptolemy II system model that uses the <code class="code">BACnetReader</code> actor.
+		  </strong></p><div class="figure-contents">
+      <div class="mediaobject"><img src="img/configurationPtolemyBACnetReader.png" alt="Ptolemy II system model that uses the BACnetReader actor."/></div>
+      
+     </div></div><p><br class="figure-break"/>
+     <a class="xref" href="ch05s12.xhtml#configurationPtolemyBACnetReader" title="Figure 5.43.  Ptolemy II system model that uses the BACnetReader actor.">Figure 5.43</a>
+     shows a Ptolemy II system model that uses the
+     <code class="code">BACnetReader</code> actor. To configure the
+     <code class="code">BACnetReader</code>, double-click on its icon and
+     add the name of its configuration file that has been
+     developed as described in
+     <a class="xref" href="ch05s12.xhtml#tit-BACnetConfDataRea" title="5.12.2. Reading from BACnet">Section 5.12.2, “Reading from BACnet”</a>
+     . There is also a check-box called
+     <code class="code">continueWhenError</code>. If activated and an
+     error occurs, then Ptolemy II will continue the
+     simulation and the actor will output at its ports the
+     last known value and the error message, unless the
+     error occurs in the first step, in which case the
+     simulation stops. If deactivated and an error occurs,
+     then the simulation will stop, the error message will
+     be displayed on the screen and the user is required to
+     confirm the error message by clicking on its <span class="guibutton">OK</span>
+     button.
+     <span class="emphasis"><em>Thus, select this box if the BCVTB should continue its operation when a run-time error, such as a network timeout, occurs.</em></span>
+    </p>
+    <p>
+     The <code class="code">BACnetReader</code> has one input port, which is a trigger port. 
+     If the SDF Director is used in the Ptolemy II system
+     model, then this port need not be connected. The
+     <code class="code">BACnetReader</code> has the output
+     ports shown in <a class="xref" href="ch05s12.xhtml#tab-BACnetReaOutPor" title="Table 5.7. Output ports of the BACnetReader actor.">Table 5.7, “Output ports of the <code class="code">BACnetReader</code> actor.”</a>.
+     </p><div class="table"><a id="tab-BACnetReaOutPor"/><p class="title"><strong>Table 5.7. Output ports of the <code class="code">BACnetReader</code> actor.</strong></p><div class="table-contents">
+       
+      <table summary="Output ports of the BACnetReader actor." border="1"><colgroup><col width="1*" align="left"/><col width="3*" align="left"/></colgroup><thead><tr><th align="left">Port</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left">errorSignal</td><td align="left">If there were no errors in the previous data exchange, then this port outputs zero. Otherwise, the output is a non-zero integer.</td></tr><tr><td align="left">errorMessage</td><td align="left">If there was an error in the previous data exchange, then this port outputs the error message that was generated by the <code class="code">BACnetReader</code> actor.
+	      (The error messages that were generated by the BACnet stack are output of the <code class="code">consoleOutput</code> port.)</td></tr><tr><td align="left">consoleOutput</td><td align="left">
+          <p>
+           This port outputs the standard output stream and
+           the standard error stream of the executable that
+           communicates with BACnet.
+          </p>
+         </td></tr><tr><td align="left">propertyValueArray</td><td align="left">
+          <p>
+           This port outputs the values obtained at the last
+           successful communication with the BACnet devices.
+           If there was an error in the last communication,
+           then the values from the previous time step will
+           be output of this port.
+          </p>
+          <p>
+           The output data type is an array whose elements
+           are string representations of the BACnet
+           properties that are read according to the
+           configuration file. Elements can be extracted
+           from this array using actors from Ptolemy II's
+           <code class="code">Actors-&gt;Array</code> library.
+          </p>
+         </td></tr></tbody></table>
+     </div></div><p><br class="table-break"/>
+    </p>
+   </div>
+
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e1942"/>5.12.4.2. Configuring the <code class="code">BACnetWriter</code>
+    </h4></div></div></div>
+    
+    <p>
+     </p><div class="figure"><a id="configurationPtolemyBACnetWriter"/><p class="title"><strong>Figure 5.44. 
+			Ptolemy II system model that uses the <code class="code">BACnetWriter</code> actor.
+      </strong></p><div class="figure-contents">
+      <div class="mediaobject"><img src="img/configurationPtolemyBACnetWriter.png" alt="Ptolemy II system model that uses the BACnetWriter actor."/></div>
+      
+     </div></div><p><br class="figure-break"/>
+     The configuration of the <code class="code">BACnetWriter</code>
+     actor is similar to the configuration of
+     <code class="code">BACnetReader</code>.
+     <a class="xref" href="ch05s12.xhtml#configurationPtolemyBACnetWriter" title="Figure 5.44.  Ptolemy II system model that uses the BACnetWriter actor.">Figure 5.44</a>
+     shows a Ptolemy II system model that uses the
+     <code class="code">BACnetWriter</code>. To configure the
+     <code class="code">BACnetWriter</code>, double-click on its icon and
+     add the name of its configuration file that has been
+     developed as described in
+     <a class="xref" href="ch05s12.xhtml#tit-BACnetConfDataWri" title="5.12.3. Writing to BACnet">Section 5.12.3, “Writing to BACnet”</a>
+     . There is also a check-box called
+     <code class="code">continueWhenError</code>. If activated and an
+     error occurs, then Ptolemy II will continue the
+     simulation and the actor will output the error message
+     at its ports, unless the error occurs in the first
+     step, in which case the simulation stops. If
+     deactivated and an error occurs, then the simulation
+     will stop, the error message will be displayed on the
+     screen and the user is required to confirm the error
+     message by clicking on its <span class="guibutton">OK</span> button.
+     <span class="emphasis"><em>Thus, select this box if the BCVTB should continue its operation when a run-time error, such as a network timeout, occurs.</em></span>
+    </p>
+    <p>
+     Input into the actor is an array of values that will be
+     written to the BACnet devices according to the order
+     specified in the xml configuration file. In Ptolemy II,
+     such an array can be composed from scalar inputs by
+     using the actor
+     <code class="code">Actors-&gt;Array-&gt;ElementsToArray</code>.
+    </p>
+    <p>
+     The <code class="code">BACnetWriter</code> has one input port. This
+     port is used to collect the data that need to be sent
+     to the BACnet devices. The <code class="code">BACnetWriter</code>
+     has the output ports shown in <a class="xref" href="ch05s12.xhtml#tab-BACnetWriOutPor" title="Table 5.8. Output ports of the BACnetWriter actor.">Table 5.8, “Output ports of the <code class="code">BACnetWriter</code> actor.”</a>.
+     </p><div class="table"><a id="tab-BACnetWriOutPor"/><p class="title"><strong>Table 5.8. Output ports of the <code class="code">BACnetWriter</code> actor.</strong></p><div class="table-contents">
+       
+      <table summary="Output ports of the BACnetWriter actor." border="1"><colgroup><col width="1*" align="left"/><col width="3*" align="left"/></colgroup><thead><tr><th align="left">Port</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left">errorSignal</td><td align="left">If there were no errors in the previous data exchange, then this port outputs zero. Otherwise, the output is a non-zero integer.</td></tr><tr><td align="left">errorMessage</td><td align="left">If there was an error in the previous data exchange, then this port outputs the error message that was generated by the <code class="code">BACnetReader</code> actor.
+	      (The error messages that were generated by the BACnet stack are output of the <code class="code">consoleOutput</code> port.)</td></tr><tr><td align="left">consoleOutput</td><td align="left">
+          <p>
+           This port outputs the standard output stream and
+           the standard error stream of the executable that
+           communicates with BACnet.
+          </p>
+         </td></tr></tbody></table>
+     </div></div><p><br class="table-break"/>
+    </p>
+   </div>
+
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e1992"/>5.12.4.3. Synchronization with real-time</h4></div></div></div>
+    
+    <p>
+     In most cases, the BCVTB should be synchronized to real
+     time. This can be done in Ptolemy II by double-clicking
+     the director icon, and activate the check-box
+     <code class="code">synchronizeToRealtime</code>.
+    </p>
+   </div>
+
+  </div>
+ <div class="footnotes"><br/><hr style="width:100; text-align:left;margin-left: 0"/><div id="ftn.d5e1631" class="footnote">
+      <p><a href="#d5e1631" class="para"><sup class="para">[2] </sup></a>
+       In xml, an element <code class="code">B</code> is called a child
+       element of an element <code class="code">A</code> if
+       <code class="code">B</code> is contained exactly one level below
+       element <code class="code">A</code>.
+      </p>
+     </div></div></div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tit-RadianceCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="configuration.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="ch05s13.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">5.11. Radiance </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 5.13. Analog/Digital Interface</td></tr></table></div></body></html>

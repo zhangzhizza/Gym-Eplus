@@ -1,0 +1,17 @@
+*connections for bld_simple_BCVTB
+*Date Tue Jan  3 17:17:54 2012
+     14   # number of connections
+   1   1   0   0   0  #    1 south in reception is External
+   1   2   0   0   0  #    2 east in reception is External
+   1   3   1   0   0  #    3 passage in reception >|< Identical environment
+   1   4   0   0   0  #    4 north in reception is External
+   1   5   0   0   0  #    5 part_a in reception is External
+   1   6   0   0   0  #    6 part_b in reception is External
+   1   7   0   0   0  #    7 west in reception is External
+   1   8   0   0   0  #    8 ceiling in reception is External
+   1   9   2  10   0  #    9 floor in reception >|< Constant @ 10 dC &   0 W rad
+   1  10   0   0   0  #   10 glz_s_BCVTB in reception is External
+   1  11   0   0   0  #   11 door_p in reception is External
+   1  12   0   0   0  #   12 door_a in reception is External
+   1  13   0   0   0  #   13 door_w in reception is External
+   1  14   0   0   0  #   14 east_glz in reception is External

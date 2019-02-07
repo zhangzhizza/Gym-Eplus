@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 5. Configuring programs for use with the BCVTB</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="prev" href="ch04s05.xhtml" title="4.5. Example files"/><link rel="next" href="tit-crePtoMod.xhtml" title="5.2. Ptolemy II"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 5. Configuring programs for use with the BCVTB</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04s05.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="tit-crePtoMod.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-node">Configuring programs for use with the BCVTB</span></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="configuration"/>Chapter 5. Configuring programs for use with the BCVTB</h1></div></div></div><div class="toc"><dl class="toc"><dt><span class="section"><a href="configuration.xhtml#d5e404">5.1. Introduction</a></span></dt><dt><span class="section"><a href="tit-crePtoMod.xhtml">5.2. Ptolemy II</a></span></dt><dd><dl><dt><span class="section"><a href="tit-crePtoMod.xhtml#tit-SDF">5.2.1. Synchronous Data Flow (SDF) director</a></span></dt><dt><span class="section"><a href="tit-crePtoMod.xhtml#d5e547">5.2.2. Data Type Conversion</a></span></dt></dl></dd><dt><span class="section"><a href="tit-EnePluCon.xhtml">5.3. EnergyPlus</a></span></dt><dd><dl><dt><span class="section"><a href="tit-EnePluCon.xhtml#d5e698">5.3.1. Syntax of the xml file that configures the data mapping between EnergyPlus and the external interface</a></span></dt><dt><span class="section"><a href="tit-EnePluCon.xhtml#exa-enePlu-sch">5.3.2. Example 1: Interface using <code class="code">ExternalInterface:Schedule</code>
+   </a></span></dt><dd><dl><dt><span class="section"><a href="tit-EnePluCon.xhtml#d5e770">5.3.2.1. Create an EnergyPlus idf file</a></span></dt><dt><span class="section"><a href="tit-EnePluCon.xhtml#d5e794">5.3.2.2. Create a configuration file</a></span></dt><dt><span class="section"><a href="tit-EnePluCon.xhtml#sec-crePtoMod">5.3.2.3. Create a Ptolemy II model</a></span></dt></dl></dd><dt><span class="section"><a href="tit-EnePluCon.xhtml#exa-enePlu-act">5.3.3. Example 2: Interface using <code class="code">ExternalInterface:Actuator</code>
+   </a></span></dt><dd><dl><dt><span class="section"><a href="tit-EnePluCon.xhtml#d5e883">5.3.3.1. Create an EnergyPlus idf file</a></span></dt><dt><span class="section"><a href="tit-EnePluCon.xhtml#d5e897">5.3.3.2. Create a configuration file</a></span></dt></dl></dd><dt><span class="section"><a href="tit-EnePluCon.xhtml#exa-enePlu-var">5.3.4. Example 3: Interface using <code class="code">ExternalInterface:Variable</code>
+   </a></span></dt><dd><dl><dt><span class="section"><a href="tit-EnePluCon.xhtml#d5e928">5.3.4.1. Create an EnergyPlus idf file</a></span></dt><dt><span class="section"><a href="tit-EnePluCon.xhtml#d5e952">5.3.4.2. Create a configuration file</a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="tit-DymolaCon.xhtml">5.4. Dymola</a></span></dt><dd><dl><dt><span class="section"><a href="tit-DymolaCon.xhtml#d5e968">5.4.1. Create a Modelica model</a></span></dt><dt><span class="section"><a href="tit-DymolaCon.xhtml#d5e1002">5.4.2. Create a Modelica script</a></span></dt><dt><span class="section"><a href="tit-DymolaCon.xhtml#d5e1008">5.4.3. Create a Ptolemy II model</a></span></dt></dl></dd><dt><span class="section"><a href="tit-MatlabCon.xhtml">5.5. MATLAB</a></span></dt><dd><dl><dt><span class="section"><a href="tit-MatlabCon.xhtml#d5e1045">5.5.1. Create a MATLAB script</a></span></dt><dt><span class="section"><a href="tit-MatlabCon.xhtml#d5e1052">5.5.2. Create a Ptolemy II model</a></span></dt></dl></dd><dt><span class="section"><a href="tit-SimulinkCon.xhtml">5.6. Simulink</a></span></dt><dd><dl><dt><span class="section"><a href="tit-SimulinkCon.xhtml#d5e1082">5.6.1. Create a Simulink Block Diagram</a></span></dt><dt><span class="section"><a href="tit-SimulinkCon.xhtml#d5e1155">5.6.2. Create a MATLAB script</a></span></dt><dt><span class="section"><a href="tit-SimulinkCon.xhtml#d5e1160">5.6.3. Create a Ptolemy II model</a></span></dt></dl></dd><dt><span class="section"><a href="tit-EsprCon.xhtml">5.7. ESP-r</a></span></dt><dd><dl><dt><span class="section"><a href="tit-EsprCon.xhtml#d5e1189">5.7.1. Introduction</a></span></dt><dt><span class="section"><a href="tit-EsprCon.xhtml#d5e1195">5.7.2. Configuring ESP-r</a></span></dt><dt><span class="section"><a href="tit-EsprCon.xhtml#d5e1206">5.7.3. Examples</a></span></dt><dd><dl><dt><span class="section"><a href="tit-EsprCon.xhtml#d5e1208">5.7.3.1. HVAC control in MATLAB</a></span></dt><dt><span class="section"><a href="tit-EsprCon.xhtml#d5e1230">5.7.3.2. Solar shading control in Ptolemy II</a></span></dt></dl></dd><dt><span class="section"><a href="tit-EsprCon.xhtml#d5e1237">5.7.4. Developing new applications</a></span></dt></dl></dd><dt><span class="section"><a href="tit-TRNSYSCon.xhtml">5.8. TRNSYS</a></span></dt><dd><dl><dt><span class="section"><a href="tit-TRNSYSCon.xhtml#d5e1257">5.8.1. Introduction</a></span></dt><dt><span class="section"><a href="tit-TRNSYSCon.xhtml#d5e1271">5.8.2. Example: HVAC control in Ptolemy II</a></span></dt><dd><dl><dt><span class="section"><a href="tit-TRNSYSCon.xhtml#d5e1276">5.8.2.1. Create the TRNSYS input file</a></span></dt><dt><span class="section"><a href="tit-TRNSYSCon.xhtml#d5e1303">5.8.2.2. Create a Ptolemy II model</a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="tit-FMUCon.xhtml">5.9. Functional Mock-up Unit for Co-Simulation Import</a></span></dt><dd><dl><dt><span class="section"><a href="tit-FMUCon.xhtml#d5e1324">5.9.1. Introduction</a></span></dt><dt><span class="section"><a href="tit-FMUCon.xhtml#d5e1332">5.9.2. Import an FMU in the BCVTB</a></span></dt><dt><span class="section"><a href="tit-FMUCon.xhtml#d5e1338">5.9.3. Example: Modelica room model in an FMU</a></span></dt><dd><dl><dt><span class="section"><a href="tit-FMUCon.xhtml#d5e1343">5.9.3.1.  Create and export the Modelica model as an FMU</a></span></dt><dt><span class="section"><a href="tit-FMUCon.xhtml#d5e1365">5.9.3.2.  Create a Ptolemy II system model</a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="tit-CustomExeCon.xhtml">5.10. Custom program using a system command</a></span></dt><dd><dl><dt><span class="section"><a href="tit-CustomExeCon.xhtml#d5e1395">5.10.1. Create a Ptolemy II model</a></span></dt><dt><span class="section"><a href="tit-CustomExeCon.xhtml#d5e1411">5.10.2. Configure the ports of the <code class="code">SystemCommand</code> actor</a></span></dt><dt><span class="section"><a href="tit-CustomExeCon.xhtml#d5e1442">5.10.3. Configure the parameters of the <code class="code">SystemCommand</code> actor</a></span></dt></dl></dd><dt><span class="section"><a href="tit-RadianceCon.xhtml">5.11. Radiance</a></span></dt><dd><dl><dt><span class="section"><a href="tit-RadianceCon.xhtml#d5e1511">5.11.1. Introduction</a></span></dt><dt><span class="section"><a href="tit-RadianceCon.xhtml#d5e1514">5.11.2. Configuring Radiance</a></span></dt><dt><span class="section"><a href="tit-RadianceCon.xhtml#d5e1522">5.11.3. Create a Radiance script</a></span></dt><dt><span class="section"><a href="tit-RadianceCon.xhtml#d5e1526">5.11.4. Create a Ptolemy II model</a></span></dt></dl></dd><dt><span class="section"><a href="ch05s12.xhtml">5.12. BACnet</a></span></dt><dd><dl><dt><span class="section"><a href="ch05s12.xhtml#d5e1612">5.12.1. Introduction</a></span></dt><dt><span class="section"><a href="ch05s12.xhtml#tit-BACnetConfDataRea">5.12.2. Reading from BACnet</a></span></dt><dd><dl><dt><span class="section"><a href="ch05s12.xhtml#d5e1626">5.12.2.1. Specification of data that will be read from BACnet</a></span></dt><dt><span class="section"><a href="ch05s12.xhtml#d5e1772">5.12.2.2. Interface to BACnet Stack</a></span></dt></dl></dd><dt><span class="section"><a href="ch05s12.xhtml#tit-BACnetConfDataWri">5.12.3. Writing to BACnet</a></span></dt><dd><dl><dt><span class="section"><a href="ch05s12.xhtml#d5e1784">5.12.3.1. Specification of data that will be written to BACnet</a></span></dt><dt><span class="section"><a href="ch05s12.xhtml#d5e1867">5.12.3.2. Interface to BACnet Stack</a></span></dt></dl></dd><dt><span class="section"><a href="ch05s12.xhtml#d5e1881">5.12.4. Creating a Ptolemy II model</a></span></dt><dd><dl><dt><span class="section"><a href="ch05s12.xhtml#d5e1890">5.12.4.1. Configuring the <code class="code">BACnetReader</code>
+    </a></span></dt><dt><span class="section"><a href="ch05s12.xhtml#d5e1942">5.12.4.2. Configuring the <code class="code">BACnetWriter</code>
+    </a></span></dt><dt><span class="section"><a href="ch05s12.xhtml#d5e1992">5.12.4.3. Synchronization with real-time</a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="ch05s13.xhtml">5.13. Analog/Digital Interface</a></span></dt><dd><dl><dt><span class="section"><a href="ch05s13.xhtml#d5e2002">5.13.1. Introduction</a></span></dt><dt><span class="section"><a href="ch05s13.xhtml#tit-ADInterfaceMCCConfDataRea">5.13.2. Reading from ADInterfaceMCC</a></span></dt><dd><dl><dt><span class="section"><a href="ch05s13.xhtml#d5e2009">5.13.2.1. Specification of data that will be read from ADInterfaceMCC</a></span></dt><dt><span class="section"><a href="ch05s13.xhtml#d5e2052">5.13.2.2. Interface to adInterfaceMCC-Stack</a></span></dt></dl></dd><dt><span class="section"><a href="ch05s13.xhtml#tit-ADInterfaceMCCConfDataWri">5.13.3. Writing to ADInterfaceMCC</a></span></dt><dd><dl><dt><span class="section"><a href="ch05s13.xhtml#d5e2061">5.13.3.1. Specification of data that will be written to ADInterfaceMCC</a></span></dt><dt><span class="section"><a href="ch05s13.xhtml#d5e2104">5.13.3.2. Interface to adInterfaceMCC-Stack</a></span></dt></dl></dd><dt><span class="section"><a href="ch05s13.xhtml#d5e2110">5.13.4. Creating a Ptolemy II model</a></span></dt><dd><dl><dt><span class="section"><a href="ch05s13.xhtml#d5e2117">5.13.4.1. Configuring the <code class="code">ADInterfaceMCCReader and ADInterfaceMCCWriter</code>
+    </a></span></dt><dt><span class="section"><a href="ch05s13.xhtml#d5e2206">5.13.4.2. Synchronization with real-time</a></span></dt></dl></dd></dl></dd></dl></div>
+ 
+ <div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d5e404"/>5.1. Introduction</h2></div></div></div>
+  
+  <p>
+   This chapter describes how to configure a simulation
+   model for use with the BCVTB. Before configuring your own
+   simulation, it is recommended to run and modify the
+   examples in the folder <code class="code">bcvtb/examples</code> as
+   described in
+   <a class="xref" href="running.xhtml" title="Chapter 4. Running simulations with the BCVTB">Chapter 4, <em>Running simulations with the BCVTB</em></a>.
+  </p>
+  <p>
+   Setting up an own simulation is easiest if one of the
+   examples in the folder <code class="code">bcvtb/examples</code> is
+   used as a starting point. Configuring a simulation with
+   the BCVTB consists of the following steps, which are
+   described in the next sections:
+  </p>
+  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+        Create a Ptolemy II model. This is described in <a class="xref" href="tit-crePtoMod.xhtml" title="5.2. Ptolemy II">Section 5.2, “Ptolemy II”</a>.
+      </li><li class="listitem">
+        Create and configure a simulation model by following the instructions described in
+        <div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+      <a class="xref" href="tit-EnePluCon.xhtml" title="5.3. EnergyPlus">Section 5.3, “EnergyPlus”</a>,
+          </li><li class="listitem">
+      <a class="xref" href="tit-DymolaCon.xhtml" title="5.4. Dymola">Section 5.4, “Dymola”</a>,
+          </li><li class="listitem">
+      <a class="xref" href="tit-MatlabCon.xhtml" title="5.5. MATLAB">Section 5.5, “MATLAB”</a>,
+          </li><li class="listitem">
+      <a class="xref" href="tit-SimulinkCon.xhtml" title="5.6. Simulink">Section 5.6, “Simulink”</a>,
+          </li><li class="listitem">
+     <a class="xref" href="tit-EsprCon.xhtml" title="5.7. ESP-r">Section 5.7, “ESP-r”</a>,
+          </li><li class="listitem">
+     <a class="xref" href="tit-TRNSYSCon.xhtml" title="5.8. TRNSYS">Section 5.8, “TRNSYS”</a>,
+          </li><li class="listitem">
+     <a class="xref" href="tit-FMUCon.xhtml" title="5.9. Functional Mock-up Unit for Co-Simulation Import">Section 5.9, “Functional Mock-up Unit for Co-Simulation Import”</a>,
+          </li><li class="listitem">
+      <a class="xref" href="tit-CustomExeCon.xhtml" title="5.10. Custom program using a system command">Section 5.10, “Custom program using a system command”</a>,
+          </li><li class="listitem">
+      <a class="xref" href="tit-RadianceCon.xhtml" title="5.11. Radiance">Section 5.11, “Radiance”</a>.
+          </li></ol></div>
+   </li><li class="listitem">
+        Run the Ptolemy II model created in step 1. 
+      </li></ol></div>
+ </div>
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+  
+  
+
+
+ 
+  
+
+</div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04s05.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="tit-crePtoMod.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">4.5. Example files </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 5.2. Ptolemy II</td></tr></table></div></body></html>

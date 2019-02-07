@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>3.3. Setting system environment variables</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="installation.xhtml" title="Chapter 3. Installation and configuration"/><link rel="prev" href="tit-InstallationUser.xhtml" title="3.2. Installation"/><link rel="next" href="ch03s04.xhtml" title="3.4. Uninstallation"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.3. Setting system environment variables</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tit-InstallationUser.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 3. Installation and configuration</th><td width="20%" align="right"> <a accesskey="n" href="ch03s04.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="installation.xhtml">Installation and configuration</a></span> &gt; <span class="breadcrumb-node">Setting system environment variables</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="settingEnvironmentVariables"/>3.3. Setting system environment variables</h2></div></div></div>
+  
+  <p>
+   When the BCVTB starts, it reads environment variables
+   from the file
+   <code class="code">bcvtb/bin/systemVariables-*.properties</code>,
+   where <code class="code">*</code> is the name of the operating system.
+   This file needs to be modified by the user to set the
+   path to the different programs that are used by the
+   BCVTB. The file can be edited with any text editor. It
+   has the following syntax
+  </p>
+<pre class="programlisting">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"&gt;
+&lt;-- This is a comment line --&gt;
+
+&lt;properties&gt;
+  &lt;entry key="name"&gt;value&lt;/entry&gt;
+  &lt;entry key="name"&gt;value&lt;/entry&gt;
+&lt;/properties&gt;</pre>
+  <p>
+   The <code class="code">properties</code> section contains the
+   environment variables. The attribute <code class="code">name</code> is
+   the name of any environment variable that either exists
+   or that should be set by the BCVTB, and
+   <code class="code">value</code> is the new value of this environment
+   variable. There can be any number of environment
+   variables. For example, to set a new environment variable
+   <code class="code">myProgramBin=C:\myProg</code> (or
+   <code class="code">myProgramBin=/usr/local/myProg</code> on Mac or
+   Linux) and add this variable to the existing %Path% (or
+   $PATH) variable, proceed as follows:
+  </p>
+  <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+    <p>
+     in Windows, add the lines
+    </p>
+<pre class="screen">&lt;entry key="myProgramBin"&gt;C:\myProg&lt;/entry&gt;
+&lt;entry key="Path"&gt;%myProgramBin%;%Path%&lt;/entry&gt;</pre>
+to <code class="code">bcvtb/bin/systemVariables-windows.properties</code>.
+        </li><li class="listitem">
+    <p>
+     in Mac OS X, add the lines
+    </p>
+<pre class="screen">&lt;entry key="myProgramBin"&gt;/usr/local/myProg&lt;/entry&gt;
+&lt;entry key="PATH"&gt;$myProgramBin:$PATH&lt;/entry&gt;</pre>
+to <code class="code">bcvtb/bin/systemVariables-mac.properties</code>.
+        </li><li class="listitem">
+    <p>
+     in Linux, add the same lines as for Mac OS X to
+     <code class="code">bcvtb/bin/systemVariables-linux.properties</code>.
+    </p>
+   </li></ul></div>
+  <p>
+   Next, restart the BCVTB. To see the new environment
+   variables, type
+  </p>
+<pre class="screen">java -jar BCVTB.jar -diagnostics</pre>
+  <p>on a console.</p>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tit-InstallationUser.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="installation.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="ch03s04.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">3.2. Installation </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 3.4. Uninstallation</td></tr></table></div></body></html>

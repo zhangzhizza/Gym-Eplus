@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="config" default="all"> 
+<import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" depends="checkConfig" description="Deletes generated files">
+    <ant dir="getPath"                   target="clean"/>
+  </target>
+
+  <!-- All -->
+  <target name="all" depends="checkConfig" description="Runs all targets">
+    <ant dir="getPath"                   target="all"/>
+  </target>
+
+</project>

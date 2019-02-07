@@ -1,0 +1,12 @@
+!xform ./mat_furniture.rad
+!xform -n group ob_furniture/group.rad
+!xform -n group01 ob_furniture/group01.rad
+
+void alias Component41_material Color_001
+!xform -n group02 ob_furniture/group02.rad
+
+void alias Keyboard_material Color_006
+!xform -n group21 ob_furniture/group21.rad
+!xform -n group27 ob_furniture/group27.rad
+!xform -n group28 ob_furniture/group28.rad
+!xform ob_furniture/furniture_faces.rad

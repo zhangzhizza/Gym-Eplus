@@ -1,0 +1,8 @@
+#!/bin/bash
+##############################################################
+# This file runs the BCVTB with graphical user interface
+# 
+# MWetter@lbl.gov                                   2009-07-09
+##############################################################
+java -jar `dirname $0`/BCVTB.jar $*
+exit $?

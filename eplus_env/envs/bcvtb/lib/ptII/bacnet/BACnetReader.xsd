@@ -1,0 +1,16 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!-- xml schema file that is used to validate the configuration
+     of the BACnetReader -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="BACnet.xsd"/>
+
+    <xs:complexType name="PItype">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="Name" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+   </xs:complexType>
+
+</xs:schema>

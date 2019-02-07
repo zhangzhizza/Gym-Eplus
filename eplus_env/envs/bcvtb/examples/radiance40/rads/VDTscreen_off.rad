@@ -1,0 +1,13 @@
+#
+# 17" LCD screen switched off
+#
+
+VDT_screen_off polygon LCD_screen
+0
+0
+12
+             -6.635              -2.75              -4.81
+              6.635              -2.75              -4.81
+              6.635              -2.75               5.81
+             -6.635              -2.75               5.81
+

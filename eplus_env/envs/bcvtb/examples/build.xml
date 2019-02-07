@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="examples" default="all"> 
+<import file="../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <ant dir="BACnetReaderALC"               target="clean"/>
+    <ant dir="BACnetWriterALC"               target="clean"/>
+    <ant dir="adInterfaceMCC-room"           target="clean"/>
+    <ant dir="adInterfaceMCC-roomControl"    target="clean"/>
+    <ant dir="f90-room"                      target="clean"/>
+    <ant dir="c-room"                        target="clean"/>
+    <ant dir="c-timeSync"                    target="clean"/>
+    <ant dir="www-weather"                   target="clean"/>
+    <ant dir="ptolemy-room"                  target="clean"/>
+    <ant dir="ptolemy-dataTypeConversion"    target="clean"/>
+    <ant dir="matlab-room"                   target="clean"/>
+    <ant dir="simulink-room"                 target="clean"/>
+    <ant dir="systemCommand"                 target="clean"/>
+    <ant dir="radiance40"                    target="clean"/>
+    <ant dir="dymola-room"                   target="clean"/>
+    <ant dir="dymolaSimulink-room"           target="clean"/>
+    <ant dir="dymolaEPlus50-singleZone"      target="clean"/>
+    <ant dir="ePlus50-actuator"              target="clean"/>
+    <ant dir="ePlus50-variable"              target="clean"/>
+    <ant dir="ePlus50-schedule"              target="clean"/>
+    <ant dir="ePlus50Simulink-simple"        target="clean"/>
+    <ant dir="ePlus50Ptolemy-vav"            target="clean"/>
+    <ant dir="dymolaEPlus60-singleZone"      target="clean"/>
+    <ant dir="ePlus60-actuator"              target="clean"/>
+    <ant dir="ePlus60-variable"              target="clean"/>
+    <ant dir="ePlus60-schedule"              target="clean"/>
+    <ant dir="ePlus60Simulink-simple"        target="clean"/>
+    <ant dir="ePlus60Ptolemy-vav"            target="clean"/>
+    <ant dir="dymolaEPlus70-singleZone"      target="clean"/>
+    <ant dir="ePlus70-actuator"              target="clean"/>
+    <ant dir="ePlus70-variable"              target="clean"/>
+    <ant dir="ePlus70-schedule"              target="clean"/>
+    <ant dir="ePlus70Simulink-simple"        target="clean"/>
+    <ant dir="ePlus70Ptolemy-vav"            target="clean"/>
+    <ant dir="dymolaEPlus71-singleZone"      target="clean"/>
+    <ant dir="ePlus71-actuator"              target="clean"/>
+    <ant dir="ePlus71-variable"              target="clean"/>
+    <ant dir="ePlus71-schedule"              target="clean"/>
+    <ant dir="ePlus71Simulink-simple"        target="clean"/>
+    <ant dir="ePlus71Ptolemy-vav"            target="clean"/>
+    <ant dir="dymolaEPlus72-singleZone"      target="clean"/>
+    <ant dir="ePlus72-actuator"              target="clean"/>
+    <ant dir="ePlus72-variable"              target="clean"/>
+    <ant dir="ePlus72-schedule"              target="clean"/>
+    <ant dir="ePlus72Simulink-simple"        target="clean"/>
+    <ant dir="ePlus72Ptolemy-vav"            target="clean"/>
+    <ant dir="dymolaEPlus80-singleZone"      target="clean"/>
+    <ant dir="ePlus80-actuator"              target="clean"/>
+    <ant dir="ePlus80-variable"              target="clean"/>
+    <ant dir="ePlus80-schedule"              target="clean"/>
+    <ant dir="ePlus80Simulink-simple"        target="clean"/>
+    <ant dir="ePlus80Ptolemy-vav"            target="clean"/>
+    <ant dir="dymolaEPlus81-singleZone"      target="clean"/>
+    <ant dir="ePlus81-actuator"              target="clean"/>
+    <ant dir="ePlus81-variable"              target="clean"/>
+    <ant dir="ePlus81-schedule"              target="clean"/>
+    <ant dir="ePlus81Simulink-simple"        target="clean"/>
+    <ant dir="ePlus81Ptolemy-vav"            target="clean"/> 
+    <ant dir="dymolaEPlus82-singleZone"      target="clean"/>
+    <ant dir="ePlus82-actuator"              target="clean"/>
+    <ant dir="ePlus82-variable"              target="clean"/>
+    <ant dir="ePlus82-schedule"              target="clean"/>
+    <ant dir="ePlus82Simulink-simple"        target="clean"/>
+    <ant dir="ePlus82Ptolemy-vav"            target="clean"/>
+    <ant dir="dymolaEPlus85-singleZone"      target="clean"/>
+    <ant dir="ePlus85-actuator"              target="clean"/>
+    <ant dir="ePlus85-variable"              target="clean"/>
+    <ant dir="ePlus85-schedule"              target="clean"/>
+    <ant dir="ePlus85Simulink-simple"        target="clean"/>
+    <ant dir="ePlus85Ptolemy-vav"            target="clean"/>
+    <ant dir="espr-shading"                  target="clean"/>
+    <ant dir="esprMatlab-hvac"               target="clean"/>
+    <ant dir="multiRate-systemCommand"       target="clean"/>
+    <ant dir="TRNSYS17-room"                 target="clean"/>
+    <ant dir="fmu-room"                      target="clean"/>
+    <delete dir=".">
+      <include name="**/history.xml"/>
+      <include name="**/dependencies.xml"/>
+      <include name="**/simulation.log"/>
+    </delete>
+  </target>
+
+  <!-- All -->
+  <target name="all" description="Runs all targets">
+    <ant dir="c-room"                  target="all"/>
+    <ant dir="c-timeSync"              target="all"/>
+    <ant dir="f90-room"                target="all"/>
+    <ant dir="systemCommand"           target="all"/>
+    <ant dir="multiRate-systemCommand" target="all"/>
+  </target>
+  
+  <!-- Unit tests -->
+  <target name="unitTest" description="Runs unit tests"
+          depends="unitTestEnergyPlus,unitTestNoEnergyPlus">
+  </target>
+
+  <!-- Unit tests except for EnergyPlus only -->
+  <target name="unitTestNoEnergyPlus" description="Runs unit tests that do not contain EnergyPlus models">
+    <ant dir="adInterfaceMCC-room"           target="unitTest"/>
+    <ant dir="adInterfaceMCC-roomControl"    target="unitTest"/>
+    <ant dir="BACnetReaderALC"               target="unitTest"/>
+    <ant dir="BACnetWriterALC"               target="unitTest"/>
+    <ant dir="c-room"                        target="unitTest"/>
+    <ant dir="f90-room"                      target="unitTest"/>
+    <ant dir="c-timeSync"                    target="unitTest"/>
+    <ant dir="www-weather"                   target="unitTest"/>
+    <ant dir="matlab-room"                   target="unitTest"/>
+    <ant dir="simulink-room"                 target="unitTest"/>
+    <ant dir="systemCommand"                 target="unitTest"/>
+    <ant dir="radiance40"                    target="unitTest"/>
+    <ant dir="dymola-room"                   target="unitTest"/>
+    <ant dir="dymolaSimulink-room"           target="unitTest"/>
+    <ant dir="ptolemy-room"                  target="unitTest"/>
+    <ant dir="ptolemy-dataTypeConversion"    target="unitTest"/>
+    <ant dir="multiRate-systemCommand"       target="unitTest"/>
+    <ant dir="espr-shading"                  target="unitTest"/>
+    <ant dir="esprMatlab-hvac"               target="unitTest"/>
+    <ant dir="TRNSYS17-room"                 target="unitTest"/>
+    <ant dir="fmu-room"                      target="unitTest"/>
+  </target>
+
+  <!-- Unit tests for EnergyPlus only -->
+  <target name="unitTestEnergyPlus" description="Runs unit tests that contain EnergyPlus models">
+    <ant dir="dymolaEPlus85-singleZone"      target="unitTest"/>
+    <ant dir="ePlus85-actuator"              target="unitTest"/>
+    <ant dir="ePlus85-variable"              target="unitTest"/>
+    <ant dir="ePlus85-schedule"              target="unitTest"/>
+    <ant dir="ePlus85Simulink-simple"        target="unitTest"/>
+    <ant dir="ePlus85Ptolemy-vav"            target="unitTest"/>
+  </target>
+  
+</project>

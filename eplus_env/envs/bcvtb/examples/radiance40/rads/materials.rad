@@ -1,0 +1,13 @@
+## materials.rad
+
+## default material
+void plastic sketchup_default_material
+0
+0
+5 0.4 0.4 0.4 0 0
+
+## default material
+void plastic sketchup_default_material
+0
+0
+5 0.4 0.4 0.4 0 0

@@ -1,0 +1,55 @@
+## materials.rad
+
+## default material
+void plastic sketchup_default_material
+0
+0
+5 0.4 0.4 0.4 0 0
+
+## material conversion from Sketchup rgb color
+void plastic Color_002
+0
+0
+5  0.6212 0.6212 0.6212 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Color_003
+0
+0
+5  0.5333 0.5333 0.5333 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Color_005
+0
+0
+5  0.3576 0.3576 0.3576 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Color_006
+0
+0
+5  0.2698 0.2698 0.2698 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic Color_008
+0
+0
+5  0.0941 0.0941 0.0941 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void plastic GDLM2_antracite1
+0
+0
+5  0.3796 0.3796 0.3796 0.000 0.000
+
+## material conversion from Sketchup rgb color
+void glass Translucent_Glass_Gray
+0
+0
+3  0.1 0.1 0.1
+
+## default material
+void plastic sketchup_default_material
+0
+0
+5 0.4 0.4 0.4 0 0

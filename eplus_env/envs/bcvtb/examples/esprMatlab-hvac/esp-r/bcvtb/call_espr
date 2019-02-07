@@ -1,0 +1,75 @@
+#!/bin/sh
+#########################################################
+#
+# Script that is called by the BCVTB to run ESP-r.
+#
+#########################################################
+BCVTBpath=..
+ESPR_PATH=`which bps`
+
+sleep 1
+cp socket.cfg ${BCVTBpath}/cfg
+
+# Check whether ESP-r is installed and on the PATH
+if [ "${ESPR_PATH}x" == "x" ]; then
+    echo "Error: Did not find ESP-r executable 'bps'."
+    echo "       ESP-r directory must be on the PATH variable."
+    exit 1
+fi
+
+rm -f ${BCVTBpath}/resfile.res
+rm -f ${BCVTBpath}/output.txt.par
+rm -f ${BCVTBpath}/output.txt
+
+bps -file ${BCVTBpath}/cfg/bld_basic_BCVTB.cfg -mode text <<ABC
+
+c
+${BCVTBpath}/resfile.res
+8 2 # start date dd/mm
+10 2 # end date dd/mm
+2 # startup days
+12 # timesteps per hour
+n
+s
+y
+BCVTB1_heating_example
+y
+y
+-
+-
+ABC
+exiVal=$?
+if [ $exiVal != 0 ]; then
+    echo "Error: ESP-r program 'bps' failed with exit code $exiVal'."
+    exit $exiVal
+fi
+
+res -file ${BCVTBpath}/resfile.res -mode text <<BCD
+
+d # enquire about
+>
+a
+../output.txt
+results
+-
+d
+f
+d # hours below a value
+b # temperature
+a # zones
+21 # setpoint
+-
+c # hours above a value
+b # temperature
+a # zones 
+24 # setpoint
+-
+-
+-
+BCD
+exiVal=$?
+if [ $exiVal != 0 ]; then
+    echo "Error: ESP-r program 'res' failed with exit code $exiVal'."
+    exit $exiVal
+fi
+exit 0

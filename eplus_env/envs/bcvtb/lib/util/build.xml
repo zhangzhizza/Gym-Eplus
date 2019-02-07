@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="bcvtb" default="build" xmlns:cpptasks="antlib:net.sf.antcontrib.cpptasks">
+  <import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <delete verbose="true">
+      <fileset dir="." includes="*.obj,*.o,*.lib,*.dll,*.exp,*.manifest"/>
+      <fileset dir="." includes="libbcvtb*,libbcvtb.so"/>
+    </delete>
+  </target>
+
+  <target name="cleanObjectFiles" description="Deletes generated object files">
+    <delete verbose="true">
+      <fileset dir="." includes="*.obj,*.o"/>
+    </delete>
+  </target>
+
+  <!-- Compile -->
+  <target name="compile" description="Compiles the source">
+    <cpptasks:cc objdir=".">
+      <cpptasks:compiler name="${cc}"/>
+      <compilerarg value="-fPIC" unless="windows"/>
+      <fileset dir="." includes="*.c"/>
+      <includepath path=".."/>
+      <!-- Windows -->
+      <includepath path="${path.expat}\include" if="windows"/>
+    </cpptasks:cc>
+  </target>
+
+  <!-- Link -->
+  <target name="link" depends="compile" description="Links the binaries">
+    <cpptasks:cc outtype="shared" outfile="bcvtb">
+      <cpptasks:linker name="${cc}"/>
+      <linkerarg value="utilXml.${extObj}"/>
+      <linkerarg value="utilSocket.${extObj}"/>
+      <!-- Mac OS X -->
+      <libset dir="/usr/lib" libs="expat"       if="mac"/>
+      <!-- Linux -->
+      <libset dir="/usr/lib" libs="expat"       if="linux"/>
+      <!-- Windows -->
+      <libset dir="${path.expat}\lib" libs="libexpat"  if="windows"/>
+      <libset libs="WSock32" if="windows"/>
+      <linkerarg value="/EXPORT:getmainversionnumber"      	if="windows"/>
+      <linkerarg value="/EXPORT:establishclientsocket"     	if="windows"/>
+      <linkerarg value="/EXPORT:exchangedoubleswithsocket" 	if="windows"/>
+      <linkerarg value="/EXPORT:closeipc"                  	if="windows"/>
+      <linkerarg value="/EXPORT:sendclientmessage"         	if="windows"/>
+      <linkerarg value="/EXPORT:sendclienterror"           	if="windows"/>
+      <linkerarg value="/EXPORT:getepvariables"            	if="windows"/>
+      <linkerarg value="/EXPORT:getxmlvalue"               	if="windows"/>
+      <linkerarg value="/EXPORT:getxmlvaluesf"             	if="windows"/>
+      <linkerarg value="/EXPORT:getnumberofxmlvalues"      	if="windows"/>
+       <linkerarg value="/EXPORT:getepvariablesFMU"            	if="windows"/>
+       <linkerarg value="/EXPORT:exchangedoubleswithsocketFMU" 	if="windows"/>
+    </cpptasks:cc>
+    <delete file="bcvtb.exp" verbose="false"/>
+  </target>
+
+
+  <!-- Build -->
+  <target name="build" depends="link" description="Builds the libraries"/>
+
+  <!-- All -->
+  <target name="all" depends="build" description="Runs all targets"/>
+
+</project>

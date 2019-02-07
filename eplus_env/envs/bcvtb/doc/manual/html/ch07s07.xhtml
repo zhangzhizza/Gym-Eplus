@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>7.7. Structure of the file system</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="development.xhtml" title="Chapter 7. Development"/><link rel="prev" href="tit-buiManSys.xhtml" title="7.6. Compiling the BCVTB"/><link rel="next" href="ch07s08.xhtml" title="7.8. Running unit tests"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.7. Structure of the file system</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tit-buiManSys.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 7. Development</th><td width="20%" align="right"> <a accesskey="n" href="ch07s08.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="development.xhtml">Development</a></span> &gt; <span class="breadcrumb-node">Structure of the file system</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d5e2871"/>7.7. Structure of the file system</h2></div></div></div>
+  
+  <p>
+   <a class="xref" href="ch07s07.xhtml#tab-strFilSy" title="Table 7.1. Structure of the file system.">Table 7.1, “Structure of the file system.”</a>
+   shows the structure of the file system. Each directory
+   contains an Apache Ant build file called
+   <code class="code">build.xml</code> that can be used to compile code
+   and run unit tests. These files recursively run targets
+   in all their subdirectories. See
+   <a class="xref" href="tit-buiManSys.xhtml" title="7.6. Compiling the BCVTB">Section 7.6, “Compiling the BCVTB”</a>
+   for details.
+  </p>
+  <p>
+   </p><div class="table"><a id="tab-strFilSy"/><p class="title"><strong>Table 7.1. Structure of the file system.</strong></p><div class="table-contents">
+    
+    <table summary="Structure of the file system." border="1"><colgroup><col width="1*" align="left"/><col width="4*" align="left"/></colgroup><thead><tr><th align="left">Directory</th><th align="left">Contents</th></tr></thead><tbody><tr><td align="left">bin</td><td align="left">
+Scripts to set environment variables, the jar file that starts the BCVTB, and scripts to start the BCVTB or to start simulation programs.</td></tr><tr><td align="left">doc</td><td align="left">
+Documentation.</td></tr><tr><td align="left">doc/code</td><td align="left">
+Auto-generated source code documentation.</td></tr><tr><td align="left">doc/manual</td><td align="left">
+Source files, pdf and html files for manual.</td></tr><tr><td align="left">examples</td><td align="left">
+Example problems that are used to illustrate the use of the BCVTB and to conduct unit tests.</td></tr><tr><td align="left">install</td><td align="left">
+Files to build the installer.</td></tr><tr><td align="left">lib</td><td align="left">
+Library files that are used by various programs.</td></tr><tr><td align="left">lib/apache-ant</td><td align="left">
+Apache Ant build system that is used to compile the BCVTB.</td></tr><tr><td align="left">lib/bacnet-stack</td><td align="left">
+Source code and executables for the BACnet interface.</td></tr><tr><td align="left">lib/adInterfaceMCC-stack</td><td align="left">
+Source code and executables for the Analog/Digital interface.</td></tr><tr><td align="left">lib/config</td><td align="left">
+Code for detecting the configuration on Windows systems.</td></tr><tr><td align="left">lib/launcher</td><td align="left">
+Code for building the jar file that launches the BCVTB.</td></tr><tr><td align="left">lib/linux</td><td align="left">
+Files that are used on Linux only. This directory contains, for example, the expat parser.</td></tr><tr><td align="left">lib/matlab</td><td align="left">
+MATLAB and Simulink source code and libraries that are needed to connect MATLAB and Simulink to Ptolemy II.</td></tr><tr><td align="left">lib/modelica</td><td align="left">
+C source code that is called by Modelica to link to Ptolemy II. The Modelica source code is distributed with the Buildings library.</td></tr><tr><td align="left">lib/pt</td><td align="left">
+Binaries of a subset of Ptolemy II that is used for the BCVTB.</td></tr><tr><td align="left">lib/util</td><td align="left">
+Code that implements the socket connection for the clients and the xml file parsing.</td></tr><tr><td align="left">lib/windows</td><td align="left">
+Files that are used on Windows only. This directory contains the C runtime library files that are needed by users who did not install the Microsoft Developer Studio. It also contains the expat xml parser.</td></tr><tr><td align="left">lib/xml</td><td align="left">
+Code to validate the xml file <code class="code">variables.cfg</code>.
+</td></tr></tbody></table>
+   </div></div><p><br class="table-break"/>
+  </p>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tit-buiManSys.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="development.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="ch07s08.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">7.6. Compiling the BCVTB </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 7.8. Running unit tests</td></tr></table></div></body></html>

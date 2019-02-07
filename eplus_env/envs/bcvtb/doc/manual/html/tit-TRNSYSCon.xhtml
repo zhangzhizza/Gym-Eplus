@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>5.8. TRNSYS</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="configuration.xhtml" title="Chapter 5. Configuring programs for use with the BCVTB"/><link rel="prev" href="tit-EsprCon.xhtml" title="5.7. ESP-r"/><link rel="next" href="tit-FMUCon.xhtml" title="5.9. Functional Mock-up Unit for Co-Simulation Import"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.8. TRNSYS</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tit-EsprCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 5. Configuring programs for use with the BCVTB</th><td width="20%" align="right"> <a accesskey="n" href="tit-FMUCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="configuration.xhtml">Configuring programs for use with the BCVTB</a></span> &gt; <span class="breadcrumb-node">TRNSYS</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="tit-TRNSYSCon"/>5.8. TRNSYS</h2></div></div></div>
+
+  
+
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1257"/>5.8.1. Introduction</h3></div></div></div>
+
+  
+
+    <p>
+    TRNSYS is a software package consisting of a graphical front-end (
+    TRNSYS Simulation Studio) to graphically create a simulation, an interface for the  
+    TRNSYS multi-zone building (TRNBuild/Type56), a Google SketchUp plugin for creating the multi-zone 
+    building envelope (TRNSYS3D), and a tool for manually editing the TRNSYS input files and creating stand-alone 
+    TRNSYS-based applications (TRNEdit/TRNSED). TRNSYS takes a modular, black box component approach to developing and 
+    solving simulations: the outputs of one component are sent to the inputs of another component. 
+    </p>
+
+  </div>
+
+    <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"/></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+     <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+    <p>
+        Using TRNSYS in the BCVTB requires advanced TRNSYS knowledge and skills. 
+        A BCVTB user that is new to TRNSYS should first learn to use TRNSYS 
+        before attempting to use TRNSYS in BCVTB. 
+    </p>
+    </li><li class="listitem">
+     <p>
+     The TRNSYS interface and example has only been tested on Windows 32 bit.
+       </p>
+    </li><li class="listitem">
+     <p>
+     The TRNSYS dlls types (Type6666.dll, Type6667.dll) need to be requested from your TRNSYS provider.
+       </p>
+    </li><li class="listitem">
+     <p>
+        Prior to using TRNSYS with the BCVTB, adjust the path of the TRNSYS executable in <code class="code">bcvtb/bin/systemVariables-windows.properties</code>, and 
+	restart the BCVTB.
+        </p>
+    </li></ul></div>
+    </td></tr></table></div>
+
+    <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1271"/>5.8.2. Example: HVAC control in Ptolemy II</h3></div></div></div>
+
+      
+        <p>
+          This example is available in the directory <code class="code">examples/TRNSYS17-room</code>.
+          The application is a heating control for two rooms.
+        </p>
+
+        <p>
+          In Ptolemy II, a PID controller is implemented. For a given control action, TRNSYS computes the room temperature and sends it to the BCVTB.
+        </p>
+        <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e1276"/>5.8.2.1. Create the TRNSYS input file</h4></div></div></div>
+
+        
+
+        <p>
+Start the TRNSYS Simulation Studio and open the bld_hvac example project (see <a class="xref" href="tit-TRNSYSCon.xhtml#fig-configurationTRNSYS" title="Figure 5.27.  TRNSYS Studio Project for the bld_hvac example.">Figure 5.27</a>)
+This simple project contains two components: the BCVTB component which controls the communication between TRNSYS and BCVTB and a simple building component which takes control signals as inputs and calculates the resultant zone temperatures.
+
+    </p><div class="figure"><a id="fig-configurationTRNSYS"/><p class="title"><strong>Figure 5.27. 
+		TRNSYS Studio Project for the bld_hvac example.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationTRNSYS.png" alt="TRNSYS Studio Project for the bld_hvac example."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+
+The BCVTB component (Type 6666) controls how the variables are communicated between TRNSYS and the BCVTB.  There are 3 parameters: the number of variables passed to the BCVTB, the number of variables received from the BCVTB, and the number of TRNSYS timesteps per data exchange with the BCVTB.  By double clicking the icon for the BCVTB component the window for setting these parameters is displayed (see <a class="xref" href="tit-TRNSYSCon.xhtml#fig-parameterTRNSYS" title="Figure 5.28.  Parameters for the BCVTB component in TRNSYS.">Figure 5.28</a>). In this example there are 2 variables passed to BCVTB (the zone temperatures), 2 variables passed back to TRNSYS (the control signals) and the data exchange occurs at every timestep.
+
+</p><div class="figure"><a id="fig-parameterTRNSYS"/><p class="title"><strong>Figure 5.28. 
+		Parameters for the BCVTB component in TRNSYS.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/parameterTRNSYS.png" alt="Parameters for the BCVTB component in TRNSYS."/></div>
+
+     
+    </div></div><p><br class="figure-break"/>
+
+The outputs from the BCVTB component are connected to the inputs simple building component and vice versa using the usual TRNSYS linking process (see <a class="xref" href="tit-TRNSYSCon.xhtml#fig-linkTRNSYS" title="Figure 5.29.  Link window between BCVTB component and the simple building component.">Figure 5.29</a> for an example).
+</p><div class="figure"><a id="fig-linkTRNSYS"/><p class="title"><strong>Figure 5.29. 
+		Link window between BCVTB component and the simple building component.
+	      </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/linkTRNSYS.png" alt="Link window between BCVTB component and the simple building component."/></div>
+
+     
+    </div></div><p><br class="figure-break"/>
+
+Once the project is completed in the Simulation Studio, the dck file for the project must be created. (The BCVTB uses the dck file directly to run the TRNSYS simulation and not the Studio project file (tpf file).)  The dck file is written by the pen icon on the left side of the Simulation Studio window.
+     
+</p>
+</div>
+        <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e1303"/>5.8.2.2. Create a Ptolemy II model</h4></div></div></div>
+        
+        <p>
+To start TRNSYS from the BCVTB, you will need to create a Ptolemy II model.
+The model <code class="code">bcvtb/examples/c-room/system-windows.xml</code>, which is part of the BCVTB
+installation and is shown in <a class="xref" href="tit-crePtoMod.xhtml#confPtRoomC" title="Figure 5.1.  Ptolemy II system model that connects a model of a controller and a room.">Figure 5.1</a>, may be used as a starting point. 
+In this model, the <code class="code">Simulator</code> actor will be set-up to call the actor that fires TRNSYS. <a class="xref" href="tit-TRNSYSCon.xhtml#fig-configurationTRNSYSSDF" title="Figure 5.30.  Configuration of the Simulator actor that starts TRNSYS.">Figure 5.30</a> shows the configuration of the <code class="code">Simulator</code> actor.
+
+    </p><div class="figure"><a id="fig-configurationTRNSYSSDF"/><p class="title"><strong>Figure 5.30. 
+		Configuration of the <code class="code">Simulator</code> actor that starts TRNSYS.
+	      </strong></p><div class="figure-contents">
+
+     <div class="mediaobject"><img src="img/configurationTRNSYSSDF.png" alt="Configuration of the Simulator actor that starts TRNSYS."/></div>
+
+     
+
+    </div></div><p><br class="figure-break"/>
+
+The actor calls <code class="code">runTRNSYS.bat</code>, with the argument <code class="code">bld_hvac.dck</code>, which is the TRNSYS input file, to invoke TRNSYS. 
+The working directory is the current directory and the console output is written to the file <code class="code">simulation.log</code>. This completes the configuration of the Ptolemy II model.
+</p>
+</div> 
+</div> 
+     
+</div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tit-EsprCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="configuration.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="tit-FMUCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">5.7. ESP-r </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 5.9. Functional Mock-up Unit for Co-Simulation Import</td></tr></table></div></body></html>

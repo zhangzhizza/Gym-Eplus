@@ -1,0 +1,26 @@
+var exchangeDoublesWithSocket_8m =
+[
+    [ "are:gov:", "exchangeDoublesWithSocket_8m.html#a4419894fefc563c237e86dd51c212eeb", null ],
+    [ "if", "exchangeDoublesWithSocket_8m.html#a0037641cf0957380bf69ddde6bfe027a", null ],
+    [ "if", "exchangeDoublesWithSocket_8m.html#af996b39732bf01576cbd72b98ed57099", null ],
+    [ "throw", "exchangeDoublesWithSocket_8m.html#a02d5496b6774dc4f76888e05e32dc45e", null ],
+    [ "are", "exchangeDoublesWithSocket_8m.html#aa5570979aa52a893305635561642a7a3", null ],
+    [ "DBLPTR", "exchangeDoublesWithSocket_8m.html#ad3e2ba3fc269dd21452ac10ffbb25874", null ],
+    [ "dblValRea", "exchangeDoublesWithSocket_8m.html#aea0e4533126a266932054172e46077d4", null ],
+    [ "flaRea", "exchangeDoublesWithSocket_8m.html#a3bfb9d16b31087573b3eb43e4b9ffc6b", null ],
+    [ "function", "exchangeDoublesWithSocket_8m.html#a32f8b60b22c4f80750b0ae1e0a5be587", null ],
+    [ "INT32PTR", "exchangeDoublesWithSocket_8m.html#a33a67c2ff8760a6df52945efd8d5fb4a", null ],
+    [ "ME", "exchangeDoublesWithSocket_8m.html#aeb118d899043dc20122a190fbd0f6376", null ],
+    [ "myDblValRea", "exchangeDoublesWithSocket_8m.html#a77ad59c6dc5a73036d0af5d3979f08f0", null ],
+    [ "myDblValWri", "exchangeDoublesWithSocket_8m.html#aac2476de4996913f13f4fdfbcefdc5b0", null ],
+    [ "myFlaRea", "exchangeDoublesWithSocket_8m.html#abeca08a2355a4b24fdefcd3bd33e7abd", null ],
+    [ "myFlaWri", "exchangeDoublesWithSocket_8m.html#a0749a94efcbba0ba3b23ad60e22df6ae", null ],
+    [ "myNDblRea", "exchangeDoublesWithSocket_8m.html#a35caef57e25ab0025dac22fab27af44f", null ],
+    [ "mySimTimRea", "exchangeDoublesWithSocket_8m.html#a7271afaa78102bf6d5c89298d40e818a", null ],
+    [ "mySimTimWri", "exchangeDoublesWithSocket_8m.html#ab8c39ecc8c00a9089871088d518c470b", null ],
+    [ "nDblReceived", "exchangeDoublesWithSocket_8m.html#afff3139691f143fa9e28969eae0cfe6c", null ],
+    [ "nDblWri", "exchangeDoublesWithSocket_8m.html#ab640a555b0a60841f49b37a044a1ae9f", null ],
+    [ "retVal", "exchangeDoublesWithSocket_8m.html#a93061f874d9c692900fb2616502f4b00", null ],
+    [ "simTimRea", "exchangeDoublesWithSocket_8m.html#a940e44fa84b5e4997e48a664372013c3", null ],
+    [ "VAL", "exchangeDoublesWithSocket_8m.html#a271bf7f57e3b45ef7226050611d702a1", null ]
+];

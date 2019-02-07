@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="expat" default="build" xmlns:cpptasks="antlib:net.sf.antcontrib.cpptasks">
+  <import file="../../../build-common.xml"/>
+
+  <!-- 
+       This file compiles the expat library on Windows.
+       The original expat source is in the directory expat-2.0.1.
+       No changes have been made or will be made to this directory.
+       After running 
+         ant all
+       the dll will be in the directory ./lib and the header files
+       will be in the directory ./include
+    -->
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <delete verbose="false">
+      <fileset dir="lib" includes="libexpat*,libexpat.so"/>
+    </delete>
+    <!-- Clean the object files -->
+    <antcall target="cleanObjectFiles"/>
+  </target>
+
+  <target name="cleanObjectFiles" description="Deletes generated object files">
+    <delete dir="obj" verbose="false"/>
+  </target>
+
+  <!-- Compile -->
+  <target name="compile" description="Compiles the source" if="windows">
+    <mkdir dir="./obj"/>
+    <cpptasks:cc runtime="static" objdir="./obj">
+      <cpptasks:compiler name="${cc}"/>
+      <defineset define="COMPILED_FROM_DSP" if="windows"/>
+      <fileset dir=".\expat-2.0.1\lib" includes="*.c"/>
+   <!--   <includepath path=".."/> -->
+      <!-- Windows -->
+<!--      <includepath path="${path.expat}\include" if="windows"/> -->
+    </cpptasks:cc>
+  </target>
+
+  <!-- Link -->
+  <target name="link" depends="compile" description="Links the binaries" if="windows">
+    <cpptasks:cc runtime="static" outtype="shared" outfile="libexpat">
+      <cpptasks:linker name="${cc}"/>
+      <fileset dir="./obj" includes="*.${extObj}"/>
+      <linkerarg value="/EXPORT:XML_DefaultCurrent"                   if="windows"/>
+      <linkerarg value="/EXPORT:XML_ErrorString"                      if="windows"/>
+      <linkerarg value="/EXPORT:XML_ExpatVersion"                     if="windows"/>
+      <linkerarg value="/EXPORT:XML_ExpatVersionInfo"                 if="windows"/>
+      <linkerarg value="/EXPORT:XML_ExternalEntityParserCreate"       if="windows"/>
+      <linkerarg value="/EXPORT:XML_GetBase"                          if="windows"/>
+      <linkerarg value="/EXPORT:XML_GetBuffer"                        if="windows"/>
+      <linkerarg value="/EXPORT:XML_GetCurrentByteCount"              if="windows"/>
+      <linkerarg value="/EXPORT:XML_GetCurrentByteIndex"              if="windows"/>
+      <linkerarg value="/EXPORT:XML_GetCurrentColumnNumber"           if="windows"/>
+      <linkerarg value="/EXPORT:XML_GetCurrentLineNumber"             if="windows"/>
+      <linkerarg value="/EXPORT:XML_GetErrorCode"                     if="windows"/>
+      <linkerarg value="/EXPORT:XML_GetIdAttributeIndex"              if="windows"/>
+      <linkerarg value="/EXPORT:XML_GetInputContext"                  if="windows"/>
+      <linkerarg value="/EXPORT:XML_GetSpecifiedAttributeCount"       if="windows"/>
+      <linkerarg value="/EXPORT:XML_Parse"                            if="windows"/>
+      <linkerarg value="/EXPORT:XML_ParseBuffer"                      if="windows"/>
+      <linkerarg value="/EXPORT:XML_ParserCreate"                     if="windows"/>
+      <linkerarg value="/EXPORT:XML_ParserCreateNS"                   if="windows"/>
+      <linkerarg value="/EXPORT:XML_ParserCreate_MM"                  if="windows"/>
+      <linkerarg value="/EXPORT:XML_ParserFree"                       if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetAttlistDeclHandler"            if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetBase"                          if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetCdataSectionHandler"           if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetCharacterDataHandler"          if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetCommentHandler"                if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetDefaultHandler"                if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetDefaultHandlerExpand"          if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetDoctypeDeclHandler"            if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetElementDeclHandler"            if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetElementHandler"                if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetEncoding"                      if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetEndCdataSectionHandler"        if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetEndDoctypeDeclHandler"         if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetEndElementHandler"             if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetEndNamespaceDeclHandler"       if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetEntityDeclHandler"             if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetExternalEntityRefHandler"      if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetExternalEntityRefHandlerArg"   if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetNamespaceDeclHandler"          if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetNotStandaloneHandler"          if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetNotationDeclHandler"           if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetParamEntityParsing"            if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetProcessingInstructionHandler"  if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetReturnNSTriplet"               if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetStartCdataSectionHandler"      if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetStartDoctypeDeclHandler"       if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetStartElementHandler"           if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetStartNamespaceDeclHandler"     if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetUnknownEncodingHandler"        if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetUnparsedEntityDeclHandler"     if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetUserData"                      if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetXmlDeclHandler"                if="windows"/>
+      <linkerarg value="/EXPORT:XML_UseParserAsHandlerArg"            if="windows"/>
+      <linkerarg value="/EXPORT:XML_ParserReset"                      if="windows"/>
+      <linkerarg value="/EXPORT:XML_SetSkippedEntityHandler"          if="windows"/>
+      <linkerarg value="/EXPORT:XML_GetFeatureList"                   if="windows"/>
+      <linkerarg value="/EXPORT:XML_UseForeignDTD"                    if="windows"/>
+      <linkerarg value="/EXPORT:XML_FreeContentModel"                 if="windows"/>
+      <linkerarg value="/EXPORT:XML_MemMalloc"                        if="windows"/>
+      <linkerarg value="/EXPORT:XML_MemRealloc"                       if="windows"/>
+      <linkerarg value="/EXPORT:XML_MemFree"                          if="windows"/>
+      <linkerarg value="/EXPORT:XML_StopParser"                       if="windows"/>
+      <linkerarg value="/EXPORT:XML_ResumeParser"                     if="windows"/>
+      <linkerarg value="/EXPORT:XML_GetParsingStatus"                 if="windows"/>
+    </cpptasks:cc>
+    <delete file="libexpat.exp" verbose="false"/>
+    <move todir="lib">
+      <fileset dir="." includes="libexpat.*"/>
+    </move>
+    <!-- Copy header files that are needed to compile bcvtb.dll -->
+    <copy todir="include">
+      <fileset dir=".\expat-2.0.1\lib" includes="expat.h,expat_external.h"/>
+    </copy>
+    <!-- Clean the object files -->
+    <antcall target="cleanObjectFiles"/>
+  </target>
+
+
+  <!-- Build -->
+  <target name="build" depends="link" description="Builds the libraries"/>
+
+  <!-- All -->
+  <target name="all" depends="build" description="Runs all targets"/>
+
+</project>

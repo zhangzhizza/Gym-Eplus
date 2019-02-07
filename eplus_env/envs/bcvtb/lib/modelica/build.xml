@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="bcvtb_modelica" default="build" xmlns:cpptasks="antlib:net.sf.antcontrib.cpptasks">
+  <import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <delete verbose="true">
+      <fileset dir="." includes="*.obj,*.o,*.so,*.lib,*.dll,*.exp,*.manifest"/>
+    </delete>
+  </target>
+
+  <!-- Compile -->
+  <target name="compile" if="have.dymola" description="Compiles the source">
+    <cpptasks:cc objdir=".">
+      <cpptasks:compiler name="${cc}"/>
+      <compilerarg value="-fPIC" unless="windows"/>
+      <fileset dir="." includes="*.c"/>
+      <includepath path="../util"/>
+    </cpptasks:cc>
+  </target>
+
+  <!-- Link -->
+  <target name="link" if="have.dymola" depends="compile" description="Links the binaries">
+    <cpptasks:cc outtype="shared" outfile="bcvtb_modelica">
+      <cpptasks:linker name="${cc}"/>
+      <linkerarg value="bcvtb.${extObj}"/>
+      <libset    dir="../util" libs="bcvtb"/>
+      <linkerarg value="/EXPORT:establishModelicaClient" if="windows"/>
+      <linkerarg value="/EXPORT:exchangeModelicaClient"  if="windows"/>
+      <linkerarg value="/EXPORT:closeModelicaClient"     if="windows"/>
+    </cpptasks:cc>
+  </target>
+
+
+  <!-- Build -->
+  <target name="build" if="have.dymola" depends="link" description="Builds the libraries"/>
+
+  <!-- All -->
+  <target name="all" if="have.dymola" depends="build" description="Runs all targets"/>
+
+</project>

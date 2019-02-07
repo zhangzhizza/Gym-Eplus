@@ -1,0 +1,90 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016a (9.0.0.341360) 64-bit (maci64)
+                             February 11, 2016
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+*** Generating mex file
+*** Compiling code
+*** Compiling MATLAB interface for Mac OS X or Linux
+
+### Start Compiling establishBSDSocket
+    mex('-lxml2', '-I..', '-L../util', '-lbcvtb', '-compatibleArrayDims', '-I/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab', '-c', '-outdir', '/private/tmp/tp8f84c094_795d_4fe8_af29_c02350e34b00', '/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/simulinkSocket.c')
+Building with 'Xcode with Clang'.
+/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/simulinkSocket.c:26:14: warning: implicit declaration of function 'establishclientsocket' is invalid in C99 [-Wimplicit-function-declaration]
+    retVal = establishclientsocket("socket.cfg");
+             ^
+/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/simulinkSocket.c:46:16: warning: implicit declaration of function 'exchangedoubleswithsocket' is invalid in C99 [-Wimplicit-function-declaration]
+  int retVal = exchangedoubleswithsocket(&mySockfd, 
+               ^
+/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/simulinkSocket.c:71:12: warning: implicit declaration of function 'closeipc' is invalid in C99 [-Wimplicit-function-declaration]
+    return closeipc(&mySockfd);
+           ^
+3 warnings generated.
+
+MEX completed successfully.
+    mex('establishBSDSocket.c', '-lxml2', '-I..', '-L../util', '-lbcvtb', '-compatibleArrayDims', '-I/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab', '/private/tmp/tp8f84c094_795d_4fe8_af29_c02350e34b00/simulinkSocket.o')
+Building with 'Xcode with Clang'.
+MEX completed successfully.
+### Finish Compiling establishBSDSocket
+### Exit
+*** Returned from legacy_code
+*** Generating mex file
+*** Compiling code
+*** Compiling MATLAB interface for Mac OS X or Linux
+
+### Start Compiling exchangeDoublesWithBSDSocket
+    mex('-lxml2', '-I..', '-L../util', '-lbcvtb', '-compatibleArrayDims', '-I/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab', '-c', '-outdir', '/private/tmp/tp0a4cf27e_f0c0_4000_908b_048a04a0d363', '/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/simulinkSocket.c')
+Building with 'Xcode with Clang'.
+/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/simulinkSocket.c:26:14: warning: implicit declaration of function 'establishclientsocket' is invalid in C99 [-Wimplicit-function-declaration]
+    retVal = establishclientsocket("socket.cfg");
+             ^
+/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/simulinkSocket.c:46:16: warning: implicit declaration of function 'exchangedoubleswithsocket' is invalid in C99 [-Wimplicit-function-declaration]
+  int retVal = exchangedoubleswithsocket(&mySockfd, 
+               ^
+/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/simulinkSocket.c:71:12: warning: implicit declaration of function 'closeipc' is invalid in C99 [-Wimplicit-function-declaration]
+    return closeipc(&mySockfd);
+           ^
+3 warnings generated.
+
+MEX completed successfully.
+    mex('exchangeDoublesWithBSDSocket.c', '-lxml2', '-I..', '-L../util', '-lbcvtb', '-compatibleArrayDims', '-I/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab', '/private/tmp/tp0a4cf27e_f0c0_4000_908b_048a04a0d363/simulinkSocket.o')
+Building with 'Xcode with Clang'.
+/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/exchangeDoublesWithBSDSocket.c:251:4: warning: '/*' within block comment [-Wcomment]
+/* /* Set input port dimension */
+   ^
+1 warning generated.
+
+MEX completed successfully.
+### Finish Compiling exchangeDoublesWithBSDSocket
+### Exit
+*** Returned from legacy_code
+*** Generating mex file
+*** Compiling code
+*** Compiling MATLAB interface for Mac OS X or Linux
+
+### Start Compiling closeBSDSocket
+    mex('-lxml2', '-I..', '-L../util', '-lbcvtb', '-compatibleArrayDims', '-I/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab', '-c', '-outdir', '/private/tmp/tp72130a93_c2a5_48c2_b711_a0773637e553', '/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/simulinkSocket.c')
+Building with 'Xcode with Clang'.
+/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/simulinkSocket.c:26:14: warning: implicit declaration of function 'establishclientsocket' is invalid in C99 [-Wimplicit-function-declaration]
+    retVal = establishclientsocket("socket.cfg");
+             ^
+/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/simulinkSocket.c:46:16: warning: implicit declaration of function 'exchangedoubleswithsocket' is invalid in C99 [-Wimplicit-function-declaration]
+  int retVal = exchangedoubleswithsocket(&mySockfd, 
+               ^
+/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab/simulinkSocket.c:71:12: warning: implicit declaration of function 'closeipc' is invalid in C99 [-Wimplicit-function-declaration]
+    return closeipc(&mySockfd);
+           ^
+3 warnings generated.
+
+MEX completed successfully.
+    mex('closeBSDSocket.c', '-lxml2', '-I..', '-L../util', '-lbcvtb', '-compatibleArrayDims', '-I/Users/thierry/proj/bcvtb/git/migrateSVN/lib/matlab', '/private/tmp/tp72130a93_c2a5_48c2_b711_a0773637e553/simulinkSocket.o')
+Building with 'Xcode with Clang'.
+MEX completed successfully.
+### Finish Compiling closeBSDSocket
+### Exit
+*** Returned from legacy_code

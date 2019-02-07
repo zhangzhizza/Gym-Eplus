@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="bcvtb" default="all"> 
+<import file="../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" depends="checkConfig" description="Deletes generated files">
+    <ant dir="windows"                     target="clean"/>
+    <ant dir="dummy"                       target="clean"/>
+    <ant dir="util"                        target="clean"/>
+    <ant dir="modelica"                    target="clean"/>
+    <ant dir="matlab"                      target="clean"/>
+    <ant dir="config"                      target="clean"/>
+    <ant dir="xml"                         target="clean"/>
+    <ant dir="launcher"                    target="clean"/>
+    <ant dir="ptII"                        target="clean"/>
+    <ant dir="bacnet-stack"                target="clean"/>
+    <ant dir="adInterfaceMCC-stack"        target="clean"/>
+    <delete dir=".">
+      <include name="**/history.xml"/>
+      <include name="**/dependencies.xml"/>
+      <include name="**/simulation.log"/>
+      <include name="**/simulation.log"/>
+    </delete>
+  </target>
+
+  <!-- All -->
+  <target name="all" depends="checkConfig" description="Runs all targets">
+    <ant dir="windows"          target="all"/>
+    <ant dir="dummy"            target="all"/>
+    <ant dir="util"             target="all"/>
+    <ant dir="modelica"         target="all"/>
+    <ant dir="matlab"           target="all"/>
+    <ant dir="config"           target="all"/>
+    <ant dir="xml"              target="all"/>
+    <ant dir="launcher"         target="all"/>
+    <ant dir="ptII"             target="all"/>
+    <ant dir="bacnet-stack"     target="all"/>
+    <ant dir="adInterfaceMCC-stack"  target="all"/>
+  </target>
+
+
+  <!-- Updates the Ptolemy files -->
+  <target name="updatePtolemyFiles"
+          description="Copies the Ptolemy files to the BCVTB">
+    <ant dir="ptII"   target="updatePtolemyFiles"/>
+  </target>
+
+ <!-- copies Ptolemy pdf documentation -->
+  <target name="copyPtolemyDocumentation" 
+          description="Copies the Ptolemy documentation to the BCVTB">
+    <ant dir="ptII"   target="copyPtolemyDocumentation"/>
+  </target>
+
+  <!-- Deletes the Ptolemy files -->
+  <target name="cleanPtolemyFiles" 
+	  description="Deletes the Ptolemy files of the BCVTB">
+    <ant dir="ptII"   target="cleanPtolemyFiles"/>
+  </target>
+  
+</project>

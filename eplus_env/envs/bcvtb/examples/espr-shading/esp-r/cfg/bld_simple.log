@@ -1,0 +1,29 @@
+Notes on simple 1 zone building model with convective heating
+and ideal control:
+
+This model (bld_simple.cfg) relates to an L-shaped
+reception with convective heating.  This simple representation
+contains a single thermal zone, composed of 14 surfaces: 7 walls,
+1 ceiling, 1 floor, 3 doors and two windows.
+
+The heating system is 100% convective with an ideal control
+which heats the room to 15degC from 7h00 to 9h00 and then
+to 20degC until 18h00 on weekdays. Weekends are free-floating.
+
+This model is also used to demonstrate more complex controls. 
+
+The following files are used in this example problem.
+
+   file                description
+________________________________________________________________
+bld_simple .cfg     problem configuration
+bld_simple.ctl      configuration control (convective heating
+                    and ideal control)
+bld_simple.log      project notes (this file)
+
+(zone files are in the directory ../zones)
+reception.geo       zone geometry
+reception.con       zone construction
+reception.opr       zone schedules
+reception.tmc       zone transparent properties
+________________________________________________________________

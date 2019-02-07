@@ -1,0 +1,1823 @@
+Archive member included because of file (symbol)
+
+../../lib/libbacnet.a(bvlc.o)
+                              globalwi.o (bvlc_maintenance_timer)
+../../lib/libbacnet.a(h_npdu.o)
+                              globalwi.o (npdu_handler)
+../../lib/libbacnet.a(s_whois.o)
+                              globalwi.o (Send_WhoIs)
+../../lib/libbacnet.a(apdu.o)
+                              globalwi.o (apdu_set_confirmed_handler)
+../../lib/libbacnet.a(address.o)
+                              globalwi.o (address_init)
+../../lib/libbacnet.a(device.o)
+                              globalwi.o (Device_Set_Object_Instance_Number)
+../../lib/libbacnet.a(bip-init.o)
+                              globalwi.o (bip_getaddrbyname)
+../../lib/libbacnet.a(bip.o)  ../../lib/libbacnet.a(bip-init.o) (bip_set_socket)
+../../lib/libbacnet.a(h_iam.o)
+                              globalwi.o (handler_i_am_add)
+../../lib/libbacnet.a(h_rp.o)
+                              globalwi.o (handler_read_property)
+../../lib/libbacnet.a(noserv.o)
+                              globalwi.o (handler_unrecognized_service)
+../../lib/libbacnet.a(bactext.o)
+                              globalwi.o (bactext_reject_reason_name)
+../../lib/libbacnet.a(bacint.o)
+                              ../../lib/libbacnet.a(bvlc.o) (encode_unsigned16)
+../../lib/libbacnet.a(npdu.o)
+                              ../../lib/libbacnet.a(s_whois.o) (npdu_encode_pdu)
+../../lib/libbacnet.a(txbuf.o)
+                              ../../lib/libbacnet.a(s_whois.o) (Handler_Transmit_Buffer)
+../../lib/libbacnet.a(whois.o)
+                              ../../lib/libbacnet.a(s_whois.o) (whois_encode_apdu)
+../../lib/libbacnet.a(dcc.o)  ../../lib/libbacnet.a(s_whois.o) (dcc_communication_enabled)
+../../lib/libbacnet.a(bacdcode.o)
+                              ../../lib/libbacnet.a(dcc.o) (encode_max_segs_max_apdu)
+../../lib/libbacnet.a(tsm.o)  ../../lib/libbacnet.a(apdu.o) (tsm_free_invoke_id)
+../../lib/libbacnet.a(bacstr.o)
+                              ../../lib/libbacnet.a(device.o) (bitstring_init)
+../../lib/libbacnet.a(bacaddr.o)
+                              ../../lib/libbacnet.a(tsm.o) (bacnet_address_copy)
+../../lib/libbacnet.a(version.o)
+                              ../../lib/libbacnet.a(device.o) (BACnet_Version)
+../../lib/libbacnet.a(bacapp.o)
+                              ../../lib/libbacnet.a(device.o) (bacapp_decode_application_data)
+../../lib/libbacnet.a(h_cov.o)
+                              ../../lib/libbacnet.a(device.o) (handler_cov_encode_subscriptions)
+../../lib/libbacnet.a(iam.o)  ../../lib/libbacnet.a(h_iam.o) (iam_decode_service_request)
+../../lib/libbacnet.a(bacerror.o)
+                              ../../lib/libbacnet.a(h_rp.o) (bacerror_encode_apdu)
+../../lib/libbacnet.a(rp.o)   ../../lib/libbacnet.a(h_rp.o) (rp_decode_service_request)
+../../lib/libbacnet.a(abort.o)
+                              ../../lib/libbacnet.a(h_rp.o) (abort_encode_apdu)
+../../lib/libbacnet.a(reject.o)
+                              ../../lib/libbacnet.a(noserv.o) (reject_encode_apdu)
+../../lib/libbacnet.a(indtext.o)
+                              ../../lib/libbacnet.a(bactext.o) (indtext_by_istring)
+../../lib/libbacnet.a(bacreal.o)
+                              ../../lib/libbacnet.a(bacapp.o) (decode_real_safe)
+../../lib/libbacnet.a(datetime.o)
+                              ../../lib/libbacnet.a(bacapp.o) (datetime_copy_date)
+../../lib/libbacnet.a(cov.o)  ../../lib/libbacnet.a(h_cov.o) (ccov_notify_encode_apdu)
+../../lib/libbacnet.a(bi.o)   ../../lib/libbacnet.a(h_cov.o) (Binary_Input_Valid_Instance)
+/mingw/lib/libws2_32.a(dgxfs00097.o)
+                              globalwi.o (inet_ntoa@4)
+/mingw/lib/libws2_32.a(dgxfs00103.o)
+                              ../../lib/libbacnet.a(bvlc.o) (recvfrom@24)
+/mingw/lib/libws2_32.a(dgxfs00104.o)
+                              ../../lib/libbacnet.a(bvlc.o) (select@20)
+/mingw/lib/libws2_32.a(dgxfs00106.o)
+                              ../../lib/libbacnet.a(bvlc.o) (sendto@24)
+/mingw/lib/libws2_32.a(dgxfs00095.o)
+                              ../../lib/libbacnet.a(bvlc.o) (htons@4)
+/mingw/lib/libws2_32.a(dgxfs00094.o)
+                              ../../lib/libbacnet.a(bvlc.o) (htonl@4)
+/mingw/lib/libws2_32.a(dgxfs00101.o)
+                              ../../lib/libbacnet.a(bvlc.o) (ntohs@4)
+/mingw/lib/libws2_32.a(dgxfs00100.o)
+                              ../../lib/libbacnet.a(bvlc.o) (ntohl@4)
+/mingw/lib/libws2_32.a(dgxfs00078.o)
+                              ../../lib/libbacnet.a(bip-init.o) (bind@12)
+/mingw/lib/libws2_32.a(dgxfs00079.o)
+                              ../../lib/libbacnet.a(bip-init.o) (closesocket@4)
+/mingw/lib/libws2_32.a(dgxfs00107.o)
+                              ../../lib/libbacnet.a(bip-init.o) (setsockopt@20)
+/mingw/lib/libws2_32.a(dgxfs00109.o)
+                              ../../lib/libbacnet.a(bip-init.o) (socket@12)
+/mingw/lib/libws2_32.a(dgxfs00026.o)
+                              ../../lib/libbacnet.a(bip-init.o) (WSAGetLastError@0)
+/mingw/lib/libws2_32.a(dgxfs00064.o)
+                              ../../lib/libbacnet.a(bip-init.o) (WSAStartup@8)
+/mingw/lib/libws2_32.a(dgxfs00014.o)
+                              ../../lib/libbacnet.a(bip-init.o) (WSACleanup@0)
+/mingw/lib/libws2_32.a(dgxfs00096.o)
+                              ../../lib/libbacnet.a(bip-init.o) (inet_addr@4)
+/mingw/lib/libws2_32.a(dgxfs00085.o)
+                              ../../lib/libbacnet.a(bip-init.o) (gethostname@8)
+/mingw/lib/libws2_32.a(dgxfs00084.o)
+                              ../../lib/libbacnet.a(bip-init.o) (gethostbyname@4)
+/mingw/lib/libws2_32.a(dgxfh.o)
+                              /mingw/lib/libws2_32.a(dgxfs00097.o) (_head_libws2_32_a)
+/mingw/lib/libws2_32.a(dgxft.o)
+                              /mingw/lib/libws2_32.a(dgxfh.o) (_libws2_32_a_iname)
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o)
+                              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/crtbegin.o (__w32_sharedptr_initialize)
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(_chkstk.o)
+                              globalwi.o (_alloca)
+/mingw/lib/libiphlpapi.a(dkbhs00012.o)
+                              ../../lib/libbacnet.a(bip-init.o) (GetAdaptersInfo@8)
+/mingw/lib/libiphlpapi.a(dkbhh.o)
+                              /mingw/lib/libiphlpapi.a(dkbhs00012.o) (_head_libiphlpapi_a)
+/mingw/lib/libiphlpapi.a(dkbht.o)
+                              /mingw/lib/libiphlpapi.a(dkbhh.o) (_libiphlpapi_a_iname)
+/mingw/lib/libmingw32.a(CRTglob.o)
+                              /mingw/lib/crt2.o (_CRT_glob)
+/mingw/lib/libmingw32.a(CRTfmode.o)
+                              /mingw/lib/crt2.o (_CRT_fmode)
+/mingw/lib/libmingw32.a(txtmode.o)
+                              /mingw/lib/crt2.o (_fmode)
+/mingw/lib/libmingw32.a(gccmain.o)
+                              /mingw/lib/crt2.o (__main)
+/mingw/lib/libmingw32.a(pseudo-reloc.o)
+                              /mingw/lib/crt2.o (_pei386_runtime_relocator)
+/mingw/lib/libmingw32.a(cpu_features.o)
+                              /mingw/lib/crt2.o (__cpu_features_init)
+/mingw/lib/libmingw32.a(CRT_fp10.o)
+                              /mingw/lib/crt2.o (_fpreset)
+/mingw/lib/libmingw32.a(pseudo-reloc-list.o)
+                              /mingw/lib/libmingw32.a(pseudo-reloc.o) (__RUNTIME_PSEUDO_RELOC_LIST__)
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(_ctors.o)
+                              /mingw/lib/libmingw32.a(gccmain.o) (__CTOR_LIST__)
+/mingw/lib/libmingwex.a(strtodnrp.o)
+                              ../../lib/libbacnet.a(bacapp.o) (__strtod)
+/mingw/lib/libmingwex.a(strtodg.o)
+                              /mingw/lib/libmingwex.a(strtodnrp.o) (__strtodg)
+/mingw/lib/libmingwex.a(misc.o)
+                              /mingw/lib/libmingwex.a(strtodg.o) (__Balloc_D2A)
+/mingw/lib/libmingwex.a(gmisc.o)
+                              /mingw/lib/libmingwex.a(strtodg.o) (__rshift_D2A)
+/mingw/lib/libmingwex.a(sum.o)
+                              /mingw/lib/libmingwex.a(strtodg.o) (__sum_D2A)
+/mingw/lib/libmingwex.a(smisc.o)
+                              /mingw/lib/libmingwex.a(strtodg.o) (__s2b_D2A)
+/mingw/lib/libmingwex.a(hexnan.o)
+                              /mingw/lib/libmingwex.a(strtodg.o) (__hexnan_D2A)
+/mingw/lib/libmingwex.a(gethex.o)
+                              /mingw/lib/libmingwex.a(strtodg.o) (__gethex_D2A)
+/mingw/lib/libmingwex.a(hd_init.o)
+                              /mingw/lib/libmingwex.a(hexnan.o) (hexdig_init_D2A)
+/mingw/lib/libmsvcrt.a(dsjhs00266.o)
+                              /mingw/lib/crt2.o (_imp___iob)
+/mingw/lib/libmsvcrt.a(dsjhs00099.o)
+                              /mingw/lib/crt2.o (_imp____set_app_type)
+/mingw/lib/libmsvcrt.a(dsjhs00590.o)
+                              /mingw/lib/crt2.o (_imp__atexit)
+/mingw/lib/libmsvcrt.a(dsjhs00383.o)
+                              /mingw/lib/crt2.o (_imp___onexit)
+/mingw/lib/libmsvcrt.a(dsjhs00147.o)
+                              /mingw/lib/crt2.o (_cexit)
+/mingw/lib/libmsvcrt.a(dsjhs00077.o)
+                              /mingw/lib/crt2.o (__p__environ)
+/mingw/lib/libmsvcrt.a(dsjhs00706.o)
+                              /mingw/lib/crt2.o (signal)
+/mingw/lib/libmsvcrt.a(dsjhs00079.o)
+                              /mingw/lib/crt2.o (__p__fmode)
+/mingw/lib/libmsvcrt.a(dsjhs00426.o)
+                              /mingw/lib/crt2.o (_setmode)
+/mingw/lib/libmsvcrt.a(dsjhs00055.o)
+                              /mingw/lib/crt2.o (__getmainargs)
+/mingw/lib/libmsvcrt.a(dsjhs00739.o)
+                              globalwi.o (time)
+/mingw/lib/libmsvcrt.a(dsjhs00604.o)
+                              globalwi.o (exit)
+/mingw/lib/libmsvcrt.a(dsjhs00731.o)
+                              globalwi.o (strtol)
+/mingw/lib/libmsvcrt.a(dsjhs00637.o)
+                              globalwi.o (getenv)
+/mingw/lib/libmsvcrt.a(dsjhs00689.o)
+                              globalwi.o (printf)
+/mingw/lib/libmsvcrt.a(dsjhs00619.o)
+                              globalwi.o (fprintf)
+/mingw/lib/libmsvcrt.a(dsjhs00682.o)
+                              ../../lib/libbacnet.a(bvlc.o) (memcpy)
+/mingw/lib/libmsvcrt.a(dsjhs00684.o)
+                              ../../lib/libbacnet.a(bvlc.o) (memset)
+/mingw/lib/libmsvcrt.a(dsjhs00692.o)
+                              ../../lib/libbacnet.a(h_npdu.o) (puts)
+/mingw/lib/libmsvcrt.a(dsjhs00182.o)
+                              ../../lib/libbacnet.a(s_whois.o) (_errno)
+/mingw/lib/libmsvcrt.a(dsjhs00719.o)
+                              ../../lib/libbacnet.a(s_whois.o) (strerror)
+/mingw/lib/libmsvcrt.a(dsjhs00607.o)
+                              ../../lib/libbacnet.a(address.o) (fclose)
+/mingw/lib/libmsvcrt.a(dsjhs00712.o)
+                              ../../lib/libbacnet.a(address.o) (sscanf)
+/mingw/lib/libmsvcrt.a(dsjhs00613.o)
+                              ../../lib/libbacnet.a(address.o) (fgets)
+/mingw/lib/libmsvcrt.a(dsjhs00618.o)
+                              ../../lib/libbacnet.a(address.o) (fopen)
+/mingw/lib/libmsvcrt.a(dsjhs00715.o)
+                              ../../lib/libbacnet.a(device.o) (strcmp)
+/mingw/lib/libmsvcrt.a(dsjhs00683.o)
+                              ../../lib/libbacnet.a(device.o) (memmove)
+/mingw/lib/libmsvcrt.a(dsjhs00621.o)
+                              ../../lib/libbacnet.a(bip-init.o) (fputs)
+/mingw/lib/libmsvcrt.a(dsjhs00065.o)
+                              ../../lib/libbacnet.a(bacapp.o) (_imp____mb_cur_max)
+/mingw/lib/libmsvcrt.a(dsjhs00392.o)
+                              ../../lib/libbacnet.a(bacapp.o) (_imp___pctype)
+/mingw/lib/libmsvcrt.a(dsjhs00620.o)
+                              ../../lib/libbacnet.a(bacapp.o) (fputc)
+/mingw/lib/libmsvcrt.a(dsjhs00732.o)
+                              ../../lib/libbacnet.a(bacapp.o) (strtoul)
+/mingw/lib/libmsvcrt.a(dsjhs00268.o)
+                              ../../lib/libbacnet.a(bacapp.o) (_isctype)
+/mingw/lib/libmsvcrt.a(dsjhs00742.o)
+                              ../../lib/libbacnet.a(indtext.o) (tolower)
+/mingw/lib/libmsvcrt.a(dsjhs00709.o)
+                              ../../lib/libbacnet.a(bi.o) (sprintf)
+/mingw/lib/libmsvcrt.a(dsjhs00137.o)
+                              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o) (_assert)
+/mingw/lib/libmsvcrt.a(dsjhs00625.o)
+                              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o) (free)
+/mingw/lib/libmsvcrt.a(dsjhs00676.o)
+                              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o) (malloc)
+/mingw/lib/libmsvcrt.a(dsjhs00583.o)
+                              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o) (abort)
+/mingw/lib/libmsvcrt.a(dsjhs00671.o)
+                              /mingw/lib/libmingwex.a(strtodg.o) (localeconv)
+/mingw/lib/libmsvcrt.a(dsjhh.o)
+                              /mingw/lib/libmsvcrt.a(dsjhs00266.o) (_head_libmsvcrt_a)
+/mingw/lib/libmsvcrt.a(dsjht.o)
+                              /mingw/lib/libmsvcrt.a(dsjhh.o) (_libmsvcrt_a_iname)
+/mingw/lib/libkernel32.a(dekds00739.o)
+                              /mingw/lib/crt2.o (SetUnhandledExceptionFilter@4)
+/mingw/lib/libkernel32.a(dekds00156.o)
+                              /mingw/lib/crt2.o (ExitProcess@4)
+/mingw/lib/libkernel32.a(dekds00221.o)
+                              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o) (_imp__GetAtomNameA@12)
+/mingw/lib/libkernel32.a(dekds00176.o)
+                              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o) (_imp__FindAtomA@4)
+/mingw/lib/libkernel32.a(dekds00001.o)
+                              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o) (_imp__AddAtomA@4)
+/mingw/lib/libkernel32.a(dekds00497.o)
+                              /mingw/lib/libmingwex.a(misc.o) (InterlockedExchange@8)
+/mingw/lib/libkernel32.a(dekds00107.o)
+                              /mingw/lib/libmingwex.a(misc.o) (DeleteCriticalSection@4)
+/mingw/lib/libkernel32.a(dekds00751.o)
+                              /mingw/lib/libmingwex.a(misc.o) (Sleep@4)
+/mingw/lib/libkernel32.a(dekds00126.o)
+                              /mingw/lib/libmingwex.a(misc.o) (EnterCriticalSection@4)
+/mingw/lib/libkernel32.a(dekds00492.o)
+                              /mingw/lib/libmingwex.a(misc.o) (InitializeCriticalSection@4)
+/mingw/lib/libkernel32.a(dekds00523.o)
+                              /mingw/lib/libmingwex.a(misc.o) (LeaveCriticalSection@4)
+/mingw/lib/libkernel32.a(dekdh.o)
+                              /mingw/lib/libkernel32.a(dekds00739.o) (_head_libkernel32_a)
+/mingw/lib/libkernel32.a(dekdt.o)
+                              /mingw/lib/libkernel32.a(dekdh.o) (_libkernel32_a_iname)
+
+Allocating common symbols
+Common symbol       size              file
+
+__DTOR_LIST__       0x10              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(_ctors.o)
+__w32_sharedptr_terminate
+                    0x10              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o)
+Local_Date          0x10              ../../lib/libbacnet.a(device.o)
+__hexdig_D2A        0x100             /mingw/lib/libmingwex.a(hd_init.o)
+__w32_sharedptr     0x10              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o)
+__CTOR_LIST__       0x10              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(_ctors.o)
+__w32_sharedptr_unexpected
+                    0x10              C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o)
+Local_Time          0x10              ../../lib/libbacnet.a(device.o)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 /mingw/lib/libmsvcrt.a(dsjhs00099.o)
+ .text          0x00000000        0x0 /mingw/lib/libkernel32.a(dekds00221.o)
+ .text          0x00000000        0x0 /mingw/lib/libkernel32.a(dekds00176.o)
+ .text          0x00000000        0x0 /mingw/lib/libkernel32.a(dekds00001.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x00400000                __image_base__ = 0x400000
+                0x00000000                __dll__ = 0x0
+                0x00400000                ___ImageBase = 0x400000
+                0x00001000                __section_alignment__ = 0x1000
+                0x00000200                __file_alignment__ = 0x200
+                0x00000004                __major_os_version__ = 0x4
+                0x00000000                __minor_os_version__ = 0x0
+                0x00000001                __major_image_version__ = 0x1
+                0x00000000                __minor_image_version__ = 0x0
+                0x00000004                __major_subsystem_version__ = 0x4
+                0x00000000                __minor_subsystem_version__ = 0x0
+                0x00000003                __subsystem__ = 0x3
+                0x00200000                __size_of_stack_reserve__ = 0x200000
+                0x00001000                __size_of_stack_commit__ = 0x1000
+                0x00100000                __size_of_heap_reserve__ = 0x100000
+                0x00001000                __size_of_heap_commit__ = 0x1000
+                0x00000000                __loader_flags__ = 0x0
+LOAD /mingw/lib/crt2.o
+LOAD C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/crtbegin.o
+LOAD globalwi.o
+LOAD ../../lib/libbacnet.a
+LOAD /mingw/lib/libws2_32.a
+LOAD C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a
+LOAD /mingw/lib/libm.a
+LOAD /mingw/lib/libiphlpapi.a
+LOAD /mingw/lib/libwinmm.a
+LOAD /mingw/lib/libmingw32.a
+LOAD C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a
+LOAD /mingw/lib/libmoldname.a
+LOAD /mingw/lib/libmingwex.a
+LOAD /mingw/lib/libmsvcrt.a
+LOAD /mingw/lib/libuser32.a
+LOAD /mingw/lib/libkernel32.a
+LOAD /mingw/lib/libadvapi32.a
+LOAD /mingw/lib/libshell32.a
+LOAD /mingw/lib/libmingw32.a
+LOAD C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a
+LOAD /mingw/lib/libmoldname.a
+LOAD /mingw/lib/libmingwex.a
+LOAD /mingw/lib/libmsvcrt.a
+LOAD C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/crtend.o
+                0x00000240                . = SIZEOF_HEADERS
+                0x00001000                . = ALIGN (__section_alignment__)
+
+.text           0x00401000     0xe600
+ *(.init)
+ *(.text)
+ .text          0x00401000      0x2e0 /mingw/lib/crt2.o
+                0x004012a0                WinMainCRTStartup
+                0x00401280                mainCRTStartup
+                0x004012c0                atexit
+                0x004012d0                _onexit
+ .text          0x004012e0       0x10 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/crtbegin.o
+                0x004012e0                __do_sjlj_init
+ .text          0x004012f0      0x364 globalwi.o
+                0x0040131c                MyRejectHandler
+                0x004012f0                MyAbortHandler
+                0x00401348                main
+ .text          0x00401654     0x1198 ../../lib/libbacnet.a(bvlc.o)
+                0x00401860                bvlc_encode_original_unicast_npdu
+                0x004026bb                bvlc_send_pdu
+                0x0040174e                bvlc_encode_read_bdt
+                0x00401815                bvlc_encode_delete_fdt_entry
+                0x00401659                bvlc_maintenance_timer
+                0x00401c92                bvlc_register_with_bbmd
+                0x0040171e                bvlc_encode_write_bdt_init
+                0x00401956                bvlc_bacnet_to_internet_address
+                0x00401d7c                bvlc_receive
+                0x004017ec                bvlc_encode_read_fdt
+                0x004018ac                bvlc_encode_original_broadcast_npdu
+ .text          0x004027ec       0xbc ../../lib/libbacnet.a(h_npdu.o)
+                0x004027ec                npdu_handler
+ .text          0x004028a8       0x90 ../../lib/libbacnet.a(s_whois.o)
+                0x004028a8                Send_WhoIs
+ .text          0x00402938      0x55c ../../lib/libbacnet.a(apdu.o)
+                0x00402b08                apdu_handler
+                0x004029e4                apdu_set_confirmed_ack_handler
+                0x00402938                apdu_set_confirmed_handler
+                0x00402a20                apdu_set_abort_handler
+                0x00402ae0                apdu_timeout_set
+                0x00402a3a                apdu_decode_confirmed_service_request
+                0x00402a2d                apdu_set_reject_handler
+                0x00402afb                apdu_retries_set
+                0x00402a09                apdu_set_error_handler
+                0x0040295c                apdu_set_unconfirmed_handler
+                0x004029bf                apdu_set_confirmed_simple_ack_handler
+                0x0040294f                apdu_set_unrecognized_service_handler_handler
+                0x00402ad4                apdu_timeout
+                0x00402aef                apdu_retries
+                0x00402973                apdu_service_supported
+ .text          0x00402e94      0x788 ../../lib/libbacnet.a(address.o)
+                0x00403327                address_get_by_device
+                0x004034cb                address_get_by_index
+                0x00403546                address_list_encode
+                0x00403478                address_add_binding
+                0x004030e6                address_file_init
+                0x004035e3                address_cache_timer
+                0x00402fbd                address_add
+                0x00403379                address_get_device_id
+                0x004033d0                address_bind_request
+                0x004032e8                address_init_partial
+                0x004032c4                address_init
+                0x00402f41                address_remove_oldest
+                0x0040351c                address_count
+                0x00402f19                address_remove_device
+                0x00402e94                address_match
+                0x00403090                address_set_device_TTL
+ .text          0x0040361c      0x9d8 ../../lib/libbacnet.a(device.o)
+                0x00403889                Device_Object_List_Identifier
+                0x00403828                Device_Protocol_Version
+                0x00403832                Device_Protocol_Revision
+                0x0040394a                Device_Valid_Object_Name
+                0x00403e1d                Device_Write_Property
+                0x00403680                Device_Set_Object_Instance_Number
+                0x004037be                Device_Set_Description
+                0x00403fee                Device_Init
+                0x0040371b                Device_Vendor_Identifier
+                0x0040390e                Device_Valid_Object_Id
+                0x0040385f                Device_Object_List_Count
+                0x004036c0                Device_Object_Name
+                0x00403727                Device_Set_Vendor_Identifier
+                0x004039cc                Device_Encode_Property_APDU
+                0x00403711                Device_Vendor_Name
+                0x0040369f                Device_Valid_Object_Instance_Number
+                0x0040377a                Device_Application_Software_Version
+                0x00403784                Device_Set_Application_Software_Version
+                0x0040361c                Device_Object_Function_Set
+                0x004037f8                Device_Set_Location
+                0x00403676                Device_Object_Instance_Number
+                0x00403736                Device_Model_Name
+                0x004037ee                Device_Location
+                0x00403846                Device_Database_Revision
+                0x0040383c                Device_Segmentation_Supported
+                0x00403852                Device_Set_Database_Revision
+                0x004037b4                Device_Description
+                0x0040364a                Device_Property_Lists
+                0x004036ca                Device_Set_Object_Name
+                0x00403704                Device_Set_System_Status
+                0x00403770                Device_Firmware_Revision
+                0x004036fa                Device_System_Status
+                0x00403740                Device_Set_Model_Name
+ .text          0x00403ff4      0x6d0 ../../lib/libbacnet.a(bip-init.o)
+                0x0040441b                bip_init
+                0x004040f1                bip_set_interface
+                0x00403ff4                bip_getaddrbyname
+ .text          0x004046c4      0x574 ../../lib/libbacnet.a(bip.o)
+                0x00404762                bip_send_pdu
+                0x004046d1                bip_socket
+                0x004046ec                bip_cleanup
+                0x0040473d                bip_get_broadcast_addr
+                0x00404b7d                bip_get_my_address
+                0x00404756                bip_get_port
+                0x00404893                bip_receive
+                0x00404747                bip_set_port
+                0x0040472b                bip_set_broadcast_addr
+                0x00404721                bip_get_addr
+                0x004046c4                bip_set_socket
+                0x004046db                bip_valid
+                0x00404bd8                bip_get_broadcast_address
+                0x0040470f                bip_set_addr
+ .text          0x00404c38      0x104 ../../lib/libbacnet.a(h_iam.o)
+                0x00404cf1                handler_i_am_bind
+                0x00404c38                handler_i_am_add
+ .text          0x00404d3c      0x288 ../../lib/libbacnet.a(h_rp.o)
+                0x00404de5                handler_read_property
+                0x00404d60                Encode_Property_APDU
+                0x00404d3c                handler_read_property_object_set
+ .text          0x00404fc4       0xa4 ../../lib/libbacnet.a(noserv.o)
+                0x00404fc4                handler_unrecognized_service
+ .text          0x00405068      0x2c8 ../../lib/libbacnet.a(bactext.o)
+                0x004052cd                bactext_binary_present_value_index
+                0x004051d5                bactext_error_code_name
+                0x0040529d                bactext_event_state_name
+                0x004050b0                bactext_object_type_name
+                0x004052e5                bactext_reliability_name
+                0x0040526d                bactext_event_transition_name
+                0x00405068                bactext_confirmed_service_name
+                0x004051b5                bactext_error_class_name
+                0x00405285                bactext_event_transition_index
+                0x0040515d                bactext_engineering_unit_index
+                0x0040510e                bactext_property_id
+                0x00405195                bactext_abort_reason_name
+                0x0040520d                bactext_week_of_month_name
+                0x004052fd                bactext_device_status_name
+                0x004050d3                bactext_object_type_index
+                0x00405080                bactext_unconfirmed_service_name
+                0x004051f5                bactext_month_name
+                0x00405315                bactext_segmentation_name
+                0x00405255                bactext_days_of_week_index
+                0x0040523d                bactext_days_of_week_name
+                0x0040513a                bactext_engineering_unit_name
+                0x004052b5                bactext_binary_present_value_name
+                0x00405175                bactext_reject_reason_name
+                0x004050eb                bactext_property_name
+                0x00405225                bactext_day_of_week_name
+                0x00405098                bactext_application_tag_name
+                0x00405122                bactext_property_index
+ .text          0x00405330      0x23c ../../lib/libbacnet.a(bacint.o)
+                0x00405330                encode_unsigned16
+                0x0040534b                decode_unsigned16
+                0x00405508                encode_signed32
+                0x004053c2                encode_unsigned32
+                0x004054c8                decode_signed24
+                0x00405476                decode_signed16
+                0x00405372                encode_unsigned24
+                0x0040545d                encode_signed16
+                0x004053ea                decode_unsigned32
+                0x00405426                encode_signed8
+                0x00405438                decode_signed8
+                0x00405391                decode_unsigned24
+                0x004054a9                encode_signed24
+                0x00405530                decode_signed32
+ .text          0x0040556c      0x3a4 ../../lib/libbacnet.a(npdu.o)
+                0x0040556c                npdu_copy_data
+                0x004055b7                npdu_encode_pdu
+                0x00405744                npdu_decode
+                0x00405714                npdu_encode_npdu_data
+ .text          0x00405910        0x0 ../../lib/libbacnet.a(txbuf.o)
+ .text          0x00405910      0x124 ../../lib/libbacnet.a(whois.o)
+                0x00405910                whois_encode_apdu
+                0x00405974                whois_decode_service_request
+ .text          0x00405a34      0x25c ../../lib/libbacnet.a(dcc.o)
+                0x00405a60                dcc_communication_initiation_disabled
+                0x00405ab6                dcc_set_status_duration
+                0x00405a4f                dcc_communication_disabled
+                0x00405a71                dcc_duration_seconds
+                0x00405a7b                dcc_timer_seconds
+                0x00405aec                dcc_encode_apdu
+                0x00405b73                dcc_decode_service_request
+                0x00405a3e                dcc_communication_enabled
+                0x00405a34                dcc_enable_status
+ .text          0x00405c90     0x1498 ../../lib/libbacnet.a(bacdcode.o)
+                0x004066a8                encode_application_octet_string
+                0x00406903                decode_context_character_string
+                0x0040687e                encode_context_character_string
+                0x0040631b                encode_application_null
+                0x0040650c                encode_context_bitstring
+                0x0040666a                encode_octet_string
+                0x0040632e                encode_context_null
+                0x00406d05                encode_application_signed
+                0x00405ea5                encode_closing_tag
+                0x00406fe0                encode_application_date
+                0x00406a27                encode_bacnet_unsigned
+                0x004064d4                encode_application_bitstring
+                0x004070c4                decode_context_date
+                0x00406d31                encode_context_signed
+                0x00406ac5                encode_application_unsigned
+                0x0040706c                decode_date_safe
+                0x00406793                decode_context_octet_string
+                0x004066fe                encode_context_octet_string
+                0x004061e4                decode_is_opening_tag_number
+                0x00405f73                decode_is_opening_tag
+                0x00406f58                decode_context_bacnet_time
+                0x00406df2                encode_application_double
+                0x0040630d                decode_boolean
+                0x00405e6f                encode_opening_tag
+                0x00406832                encode_application_character_string
+                0x0040710b                encode_simple_ack
+                0x00406ea9                encode_context_time
+                0x00406057                decode_tag_number_and_value_safe
+                0x0040663b                encode_application_object_id
+                0x00406ba4                encode_context_enumerated
+                0x004069d7                decode_context_unsigned
+                0x0040703b                decode_date
+                0x00405f1c                decode_tag_number_safe
+                0x00406bfb                decode_signed
+                0x00406175                decode_is_context_tag
+                0x00406b6f                encode_bacnet_enumerated
+                0x00405d82                decode_max_apdu
+                0x00407093                decode_application_date
+                0x00406b78                encode_application_enumerated
+                0x00406c59                decode_context_signed
+                0x004063fc                decode_context_bitstring
+                0x00406e53                encode_bacnet_time
+                0x00406ca9                encode_bacnet_signed
+                0x0040626c                encode_application_boolean
+                0x004068d0                decode_character_string
+                0x004065e7                encode_bacnet_object_id
+                0x0040676b                decode_octet_string
+                0x0040659c                decode_context_object_id
+                0x004062c6                decode_context_boolean2
+                0x00406a6e                encode_context_unsigned
+                0x0040654a                decode_object_id
+                0x004067ef                encode_bacnet_character_string
+                0x00406d97                encode_application_real
+                0x00406609                encode_context_object_id
+                0x00405dc4                encode_tag
+                0x00405edb                decode_tag_number
+                0x00406f02                decode_bacnet_time_safe
+                0x00406968                decode_unsigned
+                0x004062b3                decode_context_boolean
+                0x00406287                encode_context_boolean
+                0x00406e7d                encode_application_time
+                0x00406228                decode_is_closing_tag_number
+                0x00405c90                encode_max_segs_max_apdu
+                0x00406f27                decode_application_time
+                0x004061aa                decode_is_context_tag_with_length
+                0x00406f9f                encode_bacnet_date
+                0x00405f8a                decode_is_closing_tag
+                0x00406ed8                decode_bacnet_time
+                0x00406b24                decode_context_enumerated
+                0x00405fa1                decode_tag_number_and_value
+                0x00406dc3                encode_context_real
+                0x00406af1                decode_enumerated
+                0x00406e21                encode_context_double
+                0x0040644c                encode_bitstring
+                0x0040638a                decode_bitstring
+                0x00406580                decode_object_id_safe
+                0x0040700c                encode_context_date
+                0x00405d13                decode_max_segs
+ .text          0x00407128      0x3c0 ../../lib/libbacnet.a(tsm.o)
+                0x00407178                tsm_transaction_idle_count
+                0x004074a5                tsm_invoke_id_free
+                0x00407479                tsm_free_invoke_id
+                0x00407152                tsm_transaction_available
+                0x0040733a                tsm_get_transaction_pdu
+                0x004071a9                tsm_next_free_invokeID
+                0x004074bb                tsm_invoke_id_failed
+                0x00407267                tsm_set_confirmed_unsegmented_transaction
+                0x004073d3                tsm_timer_milliseconds
+ .text          0x004074e8      0x618 ../../lib/libbacnet.a(bacstr.o)
+                0x004077ba                characterstring_length
+                0x00407aa1                octetstring_capacity
+                0x004077ca                characterstring_copy
+                0x004076fa                characterstring_init
+                0x004075b3                bitstring_bytes_used
+                0x0040798e                characterstring_capacity
+                0x00407a81                octetstring_truncate
+                0x0040763c                bitstring_bits_capacity
+                0x004074e8                bitstring_init
+                0x00407500                bitstring_set_bit
+                0x00407794                characterstring_encoding
+                0x0040768d                bitstring_same
+                0x004075f1                bitstring_set_octet
+                0x00407a41                octetstring_append
+                0x0040764c                bitstring_copy
+                0x00407845                characterstring_same
+                0x0040792e                characterstring_append
+                0x004075a8                bitstring_bits_used
+                0x00407618                bitstring_set_bits_used
+                0x00407565                bitstring_bit
+                0x004077ff                characterstring_ansi_copy
+                0x00407766                characterstring_init_ansi
+                0x00407a18                octetstring_copy
+                0x004077a9                characterstring_value
+                0x00407ab3                octetstring_value_same
+                0x004078b1                characterstring_ansi_same
+                0x004079a0                octetstring_init
+                0x004075d0                bitstring_octet
+                0x0040796e                characterstring_truncate
+                0x00407a08                octetstring_length
+                0x004079f7                octetstring_value
+ .text          0x00407b00       0xe8 ../../lib/libbacnet.a(bacaddr.o)
+                0x00407b00                bacnet_address_copy
+                0x00407b55                bacnet_address_same
+ .text          0x00407be8        0x0 ../../lib/libbacnet.a(version.o)
+ .text          0x00407be8      0xe40 ../../lib/libbacnet.a(bacapp.o)
+                0x00407ccf                bacapp_decode_data
+                0x00408081                bacapp_context_tag_type
+                0x00408242                bacapp_copy
+                0x00408452                bacapp_print_value
+                0x00407be8                bacapp_encode_application_data
+                0x0040831a                bacapp_data_len
+                0x00407dfe                bacapp_decode_application_data
+                0x004081f9                bacapp_encode_data
+                0x00407e79                bacapp_decode_application_data_safe
+                0x00408111                bacapp_encode_context_data
+                0x00408165                bacapp_decode_context_data
+                0x00407f59                bacapp_encode_context_data_value
+                0x00408812                bacapp_parse_application_data
+ .text          0x00408a28      0x79c ../../lib/libbacnet.a(h_cov.o)
+                0x00408c51                handler_cov_task
+                0x00408a28                handler_cov_encode_subscriptions
+                0x00408e9f                handler_cov_subscribe
+                0x00408bfc                handler_cov_init
+ .text          0x004091c4      0x1c0 ../../lib/libbacnet.a(iam.o)
+                0x004091c4                iam_encode_apdu
+                0x00409224                iam_decode_service_request
+ .text          0x00409384      0x13c ../../lib/libbacnet.a(bacerror.o)
+                0x004093ca                bacerror_decode_error_class_and_code
+                0x00409476                bacerror_decode_service_request
+                0x00409384                bacerror_encode_apdu
+ .text          0x004094c0      0x3c4 ../../lib/libbacnet.a(rp.o)
+                0x0040977f                rp_ack_decode_service_request
+                0x0040963f                rp_ack_encode_apdu_init
+                0x0040953f                rp_decode_service_request
+                0x004096b6                rp_ack_encode_apdu_object_property_end
+                0x004094c0                rp_encode_apdu
+                0x004096ce                rp_ack_encode_apdu
+ .text          0x00409884       0x60 ../../lib/libbacnet.a(abort.o)
+                0x004098b6                abort_decode_service_request
+                0x00409884                abort_encode_apdu
+ .text          0x004098e4       0x4c ../../lib/libbacnet.a(reject.o)
+                0x004098e4                reject_encode_apdu
+                0x00409905                reject_decode_service_request
+ .text          0x00409930      0x1fc ../../lib/libbacnet.a(indtext.o)
+                0x00409b10                indtext_count
+                0x00409a7f                indtext_by_istring_default
+                0x00409a53                indtext_by_string_default
+                0x00409ad7                indtext_by_index_split_default
+                0x00409afe                indtext_by_index
+                0x004099e9                indtext_by_istring
+                0x0040997f                indtext_by_string
+                0x00409930                stricmp
+                0x00409aab                indtext_by_index_default
+ .text          0x00409b2c      0x1f8 ../../lib/libbacnet.a(bacreal.o)
+                0x00409c72                decode_double_safe
+                0x00409b64                decode_real_safe
+                0x00409bf8                decode_double
+                0x00409b83                decode_context_real
+                0x00409bd0                encode_bacnet_real
+                0x00409c8f                encode_bacnet_double
+                0x00409b2c                decode_real
+                0x00409cd5                decode_context_double
+ .text          0x00409d24      0x71c ../../lib/libbacnet.a(datetime.o)
+                0x00409e82                datetime_compare_date
+                0x0040a127                datetime_add_minutes
+                0x00409ec9                datetime_compare_time
+                0x0040a2ad                datetime_wildcard
+                0x0040a04c                datetime_set
+                0x0040a33d                bacapp_encode_context_datetime
+                0x0040a3e8                bacapp_decode_context_datetime
+                0x00409fbb                datetime_copy
+                0x0040a023                datetime_set_time
+                0x00409f4c                datetime_copy_date
+                0x0040a3a3                bacapp_decode_datetime
+                0x0040a0a8                datetime_set_values
+                0x00409f84                datetime_copy_time
+                0x0040a2e2                datetime_date_wildcard_set
+                0x00409fe6                datetime_set_date
+                0x00409f1e                datetime_compare
+                0x0040a31a                datetime_wildcard_set
+                0x0040a2ff                datetime_time_wildcard_set
+ .text          0x0040a440      0x9fc ../../lib/libbacnet.a(cov.o)
+                0x0040a8ab                cov_subscribe_encode_adpu
+                0x0040aaba                cov_subscribe_property_encode_adpu
+                0x0040a94a                cov_subscribe_decode_service_request
+                0x0040a54f                ccov_notify_encode_apdu
+                0x0040a592                ucov_notify_encode_apdu
+                0x0040abbe                cov_subscribe_property_decode_service_request
+                0x0040a5c9                cov_notify_decode_service_request
+ .text          0x0040ae3c      0x424 ../../lib/libbacnet.a(bi.o)
+                0x0040af07                Binary_Input_Change_Of_Value
+                0x0040ae88                Binary_Input_Init
+                0x0040af2a                Binary_Input_Change_Of_Value_Clear
+                0x0040aeb0                Binary_Input_Instance_To_Index
+                0x0040af44                Binary_Input_Encode_Value_List
+                0x0040ae80                Binary_Input_Index_To_Instance
+                0x0040b00c                Binary_Input_Encode_Property_APDU
+                0x0040ae3c                Binary_Input_Property_Lists
+                0x0040ae76                Binary_Input_Count
+                0x0040b140                Binary_Input_Write_Property
+                0x0040ae68                Binary_Input_Valid_Instance
+                0x0040afe8                Binary_Input_Name
+ .text          0x0040b260        0x8 /mingw/lib/libws2_32.a(dgxfs00097.o)
+                0x0040b260                inet_ntoa@4
+ .text          0x0040b268        0x8 /mingw/lib/libws2_32.a(dgxfs00103.o)
+                0x0040b268                recvfrom@24
+ .text          0x0040b270        0x8 /mingw/lib/libws2_32.a(dgxfs00104.o)
+                0x0040b270                select@20
+ .text          0x0040b278        0x8 /mingw/lib/libws2_32.a(dgxfs00106.o)
+                0x0040b278                sendto@24
+ .text          0x0040b280        0x8 /mingw/lib/libws2_32.a(dgxfs00095.o)
+                0x0040b280                htons@4
+ .text          0x0040b288        0x8 /mingw/lib/libws2_32.a(dgxfs00094.o)
+                0x0040b288                htonl@4
+ .text          0x0040b290        0x8 /mingw/lib/libws2_32.a(dgxfs00101.o)
+                0x0040b290                ntohs@4
+ .text          0x0040b298        0x8 /mingw/lib/libws2_32.a(dgxfs00100.o)
+                0x0040b298                ntohl@4
+ .text          0x0040b2a0        0x8 /mingw/lib/libws2_32.a(dgxfs00078.o)
+                0x0040b2a0                bind@12
+ .text          0x0040b2a8        0x8 /mingw/lib/libws2_32.a(dgxfs00079.o)
+                0x0040b2a8                closesocket@4
+ .text          0x0040b2b0        0x8 /mingw/lib/libws2_32.a(dgxfs00107.o)
+                0x0040b2b0                setsockopt@20
+ .text          0x0040b2b8        0x8 /mingw/lib/libws2_32.a(dgxfs00109.o)
+                0x0040b2b8                socket@12
+ .text          0x0040b2c0        0x8 /mingw/lib/libws2_32.a(dgxfs00026.o)
+                0x0040b2c0                WSAGetLastError@0
+ .text          0x0040b2c8        0x8 /mingw/lib/libws2_32.a(dgxfs00064.o)
+                0x0040b2c8                WSAStartup@8
+ .text          0x0040b2d0        0x8 /mingw/lib/libws2_32.a(dgxfs00014.o)
+                0x0040b2d0                WSACleanup@0
+ .text          0x0040b2d8        0x8 /mingw/lib/libws2_32.a(dgxfs00096.o)
+                0x0040b2d8                inet_addr@4
+ .text          0x0040b2e0        0x8 /mingw/lib/libws2_32.a(dgxfs00085.o)
+                0x0040b2e0                gethostname@8
+ .text          0x0040b2e8        0x8 /mingw/lib/libws2_32.a(dgxfs00084.o)
+                0x0040b2e8                gethostbyname@4
+ .text          0x0040b2f0        0x0 /mingw/lib/libws2_32.a(dgxfh.o)
+ .text          0x0040b2f0        0x0 /mingw/lib/libws2_32.a(dgxft.o)
+ .text          0x0040b2f0      0x320 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o)
+                0x0040b3a0                __w32_sharedptr_initialize
+ .text          0x0040b610       0x30 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(_chkstk.o)
+                0x0040b610                __chkstk
+                0x0040b610                _alloca
+ .text          0x0040b640        0x8 /mingw/lib/libiphlpapi.a(dkbhs00012.o)
+                0x0040b640                GetAdaptersInfo@8
+ .text          0x0040b648        0x0 /mingw/lib/libiphlpapi.a(dkbhh.o)
+ .text          0x0040b648        0x0 /mingw/lib/libiphlpapi.a(dkbht.o)
+ .text          0x0040b648        0x0 /mingw/lib/libmingw32.a(CRTglob.o)
+ .text          0x0040b648        0x0 /mingw/lib/libmingw32.a(CRTfmode.o)
+ .text          0x0040b648        0x0 /mingw/lib/libmingw32.a(txtmode.o)
+ *fill*         0x0040b648        0x8 00
+ .text          0x0040b650       0xb0 /mingw/lib/libmingw32.a(gccmain.o)
+                0x0040b6e0                __main
+                0x0040b650                __do_global_dtors
+                0x0040b680                __do_global_ctors
+ .text          0x0040b700       0x30 /mingw/lib/libmingw32.a(pseudo-reloc.o)
+                0x0040b700                _pei386_runtime_relocator
+ .text          0x0040b730      0x100 /mingw/lib/libmingw32.a(cpu_features.o)
+                0x0040b730                __cpu_features_init
+ .text          0x0040b830       0x10 /mingw/lib/libmingw32.a(CRT_fp10.o)
+                0x0040b830                _fpreset
+                0x0040b830                fpreset
+ .text          0x0040b840        0x0 /mingw/lib/libmingw32.a(pseudo-reloc-list.o)
+ .text          0x0040b840        0x0 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(_ctors.o)
+ .text          0x0040b840       0xd0 /mingw/lib/libmingwex.a(strtodnrp.o)
+                0x0040b840                __strtod
+ .text          0x0040b910     0x2040 /mingw/lib/libmingwex.a(strtodg.o)
+                0x0040b9e0                __decrement_D2A
+                0x0040ba20                __set_ones_D2A
+                0x0040be90                __strtodg
+                0x0040b910                __increment_D2A
+ .text          0x0040d950      0xc00 /mingw/lib/libmingwex.a(misc.o)
+                0x0040dc10                __multadd_D2A
+                0x0040e110                __cmp_D2A
+                0x0040db00                __Balloc_D2A
+                0x0040e000                __lshift_D2A
+                0x0040def0                __pow5mult_D2A
+                0x0040dd70                __mult_D2A
+                0x0040e160                __diff_D2A
+                0x0040dd40                __i2b_D2A
+                0x0040e410                __d2b_D2A
+                0x0040e2d0                __b2d_D2A
+                0x0040dbd0                __Bfree_D2A
+                0x0040e530                __strcp_D2A
+ .text          0x0040e550      0x120 /mingw/lib/libmingwex.a(gmisc.o)
+                0x0040e620                __trailz_D2A
+                0x0040e550                __rshift_D2A
+ .text          0x0040e670      0x1c0 /mingw/lib/libmingwex.a(sum.o)
+                0x0040e670                __sum_D2A
+ .text          0x0040e830      0x280 /mingw/lib/libmingwex.a(smisc.o)
+                0x0040e830                __s2b_D2A
+                0x0040e9d0                __copybits_D2A
+                0x0040e900                __ratio_D2A
+                0x0040e980                __match_D2A
+                0x0040ea20                __any_on_D2A
+ .text          0x0040eab0      0x260 /mingw/lib/libmingwex.a(hexnan.o)
+                0x0040eaf0                __hexnan_D2A
+ .text          0x0040ed10      0x630 /mingw/lib/libmingwex.a(gethex.o)
+                0x0040ed10                __gethex_D2A
+ .text          0x0040f340       0x80 /mingw/lib/libmingwex.a(hd_init.o)
+                0x0040f370                hexdig_init_D2A
+ .text          0x0040f3c0        0x0 /mingw/lib/libmsvcrt.a(dsjhs00266.o)
+ .text          0x0040f3c0        0x0 /mingw/lib/libmsvcrt.a(dsjhs00590.o)
+ .text          0x0040f3c0        0x0 /mingw/lib/libmsvcrt.a(dsjhs00383.o)
+ .text          0x0040f3c0        0x8 /mingw/lib/libmsvcrt.a(dsjhs00147.o)
+                0x0040f3c0                _cexit
+ .text          0x0040f3c8        0x8 /mingw/lib/libmsvcrt.a(dsjhs00077.o)
+                0x0040f3c8                __p__environ
+ .text          0x0040f3d0        0x8 /mingw/lib/libmsvcrt.a(dsjhs00706.o)
+                0x0040f3d0                signal
+ .text          0x0040f3d8        0x8 /mingw/lib/libmsvcrt.a(dsjhs00079.o)
+                0x0040f3d8                __p__fmode
+ .text          0x0040f3e0        0x8 /mingw/lib/libmsvcrt.a(dsjhs00426.o)
+                0x0040f3e0                _setmode
+ .text          0x0040f3e8        0x8 /mingw/lib/libmsvcrt.a(dsjhs00055.o)
+                0x0040f3e8                __getmainargs
+ .text          0x0040f3f0        0x8 /mingw/lib/libmsvcrt.a(dsjhs00739.o)
+                0x0040f3f0                time
+ .text          0x0040f3f8        0x8 /mingw/lib/libmsvcrt.a(dsjhs00604.o)
+                0x0040f3f8                exit
+ .text          0x0040f400        0x8 /mingw/lib/libmsvcrt.a(dsjhs00731.o)
+                0x0040f400                strtol
+ .text          0x0040f408        0x8 /mingw/lib/libmsvcrt.a(dsjhs00637.o)
+                0x0040f408                getenv
+ .text          0x0040f410        0x8 /mingw/lib/libmsvcrt.a(dsjhs00689.o)
+                0x0040f410                printf
+ .text          0x0040f418        0x8 /mingw/lib/libmsvcrt.a(dsjhs00619.o)
+                0x0040f418                fprintf
+ .text          0x0040f420        0x8 /mingw/lib/libmsvcrt.a(dsjhs00682.o)
+                0x0040f420                memcpy
+ .text          0x0040f428        0x8 /mingw/lib/libmsvcrt.a(dsjhs00684.o)
+                0x0040f428                memset
+ .text          0x0040f430        0x8 /mingw/lib/libmsvcrt.a(dsjhs00692.o)
+                0x0040f430                puts
+ .text          0x0040f438        0x8 /mingw/lib/libmsvcrt.a(dsjhs00182.o)
+                0x0040f438                _errno
+ .text          0x0040f440        0x8 /mingw/lib/libmsvcrt.a(dsjhs00719.o)
+                0x0040f440                strerror
+ .text          0x0040f448        0x8 /mingw/lib/libmsvcrt.a(dsjhs00607.o)
+                0x0040f448                fclose
+ .text          0x0040f450        0x8 /mingw/lib/libmsvcrt.a(dsjhs00712.o)
+                0x0040f450                sscanf
+ .text          0x0040f458        0x8 /mingw/lib/libmsvcrt.a(dsjhs00613.o)
+                0x0040f458                fgets
+ .text          0x0040f460        0x8 /mingw/lib/libmsvcrt.a(dsjhs00618.o)
+                0x0040f460                fopen
+ .text          0x0040f468        0x8 /mingw/lib/libmsvcrt.a(dsjhs00715.o)
+                0x0040f468                strcmp
+ .text          0x0040f470        0x8 /mingw/lib/libmsvcrt.a(dsjhs00683.o)
+                0x0040f470                memmove
+ .text          0x0040f478        0x8 /mingw/lib/libmsvcrt.a(dsjhs00621.o)
+                0x0040f478                fputs
+ .text          0x0040f480        0x0 /mingw/lib/libmsvcrt.a(dsjhs00065.o)
+ .text          0x0040f480        0x0 /mingw/lib/libmsvcrt.a(dsjhs00392.o)
+ .text          0x0040f480        0x8 /mingw/lib/libmsvcrt.a(dsjhs00620.o)
+                0x0040f480                fputc
+ .text          0x0040f488        0x8 /mingw/lib/libmsvcrt.a(dsjhs00732.o)
+                0x0040f488                strtoul
+ .text          0x0040f490        0x8 /mingw/lib/libmsvcrt.a(dsjhs00268.o)
+                0x0040f490                _isctype
+ .text          0x0040f498        0x8 /mingw/lib/libmsvcrt.a(dsjhs00742.o)
+                0x0040f498                tolower
+ .text          0x0040f4a0        0x8 /mingw/lib/libmsvcrt.a(dsjhs00709.o)
+                0x0040f4a0                sprintf
+ .text          0x0040f4a8        0x8 /mingw/lib/libmsvcrt.a(dsjhs00137.o)
+                0x0040f4a8                _assert
+ .text          0x0040f4b0        0x8 /mingw/lib/libmsvcrt.a(dsjhs00625.o)
+                0x0040f4b0                free
+ .text          0x0040f4b8        0x8 /mingw/lib/libmsvcrt.a(dsjhs00676.o)
+                0x0040f4b8                malloc
+ .text          0x0040f4c0        0x8 /mingw/lib/libmsvcrt.a(dsjhs00583.o)
+                0x0040f4c0                abort
+ .text          0x0040f4c8        0x8 /mingw/lib/libmsvcrt.a(dsjhs00671.o)
+                0x0040f4c8                localeconv
+ .text          0x0040f4d0        0x0 /mingw/lib/libmsvcrt.a(dsjhh.o)
+ .text          0x0040f4d0        0x0 /mingw/lib/libmsvcrt.a(dsjht.o)
+ .text          0x0040f4d0        0x8 /mingw/lib/libkernel32.a(dekds00739.o)
+                0x0040f4d0                SetUnhandledExceptionFilter@4
+ .text          0x0040f4d8        0x8 /mingw/lib/libkernel32.a(dekds00156.o)
+                0x0040f4d8                ExitProcess@4
+ .text          0x0040f4e0        0x8 /mingw/lib/libkernel32.a(dekds00497.o)
+                0x0040f4e0                InterlockedExchange@8
+ .text          0x0040f4e8        0x8 /mingw/lib/libkernel32.a(dekds00107.o)
+                0x0040f4e8                DeleteCriticalSection@4
+ .text          0x0040f4f0        0x8 /mingw/lib/libkernel32.a(dekds00751.o)
+                0x0040f4f0                Sleep@4
+ .text          0x0040f4f8        0x8 /mingw/lib/libkernel32.a(dekds00126.o)
+                0x0040f4f8                EnterCriticalSection@4
+ .text          0x0040f500        0x8 /mingw/lib/libkernel32.a(dekds00492.o)
+                0x0040f500                InitializeCriticalSection@4
+ .text          0x0040f508        0x8 /mingw/lib/libkernel32.a(dekds00523.o)
+                0x0040f508                LeaveCriticalSection@4
+ .text          0x0040f510        0x0 /mingw/lib/libkernel32.a(dekdh.o)
+ .text          0x0040f510        0x0 /mingw/lib/libkernel32.a(dekdt.o)
+ .text          0x0040f510       0x10 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/crtend.o
+ *(SORT(.text$*))
+ *(.glue_7t)
+ *(.glue_7)
+                0x0040f520                ___CTOR_LIST__ = .
+                0x0040f520                __CTOR_LIST__ = .
+                0x0040f520        0x4 LONG 0xffffffff
+ *(.ctors)
+ .ctors         0x0040f524        0x4 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/crtend.o
+ *(.ctor)
+ *(SORT(.ctors.*))
+                0x0040f528        0x4 LONG 0x0
+                0x0040f52c                ___DTOR_LIST__ = .
+                0x0040f52c                __DTOR_LIST__ = .
+                0x0040f52c        0x4 LONG 0xffffffff
+ *(.dtors)
+ *(.dtor)
+ *(SORT(.dtors.*))
+                0x0040f530        0x4 LONG 0x0
+ *(.fini)
+ *(.gcc_exc)
+                0x0040f534                PROVIDE (etext, .)
+ *(.gcc_except_table)
+
+.data           0x00410000     0x1e00
+                0x00410000                __data_start__ = .
+ *(.data)
+ .data          0x00410000        0x0 /mingw/lib/crt2.o
+ .data          0x00410000        0x0 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/crtbegin.o
+ .data          0x00410000        0x4 globalwi.o
+ .data          0x00410004        0x0 ../../lib/libbacnet.a(bvlc.o)
+ .data          0x00410004        0x0 ../../lib/libbacnet.a(h_npdu.o)
+ .data          0x00410004        0x0 ../../lib/libbacnet.a(s_whois.o)
+ *fill*         0x00410004       0x1c 00
+ .data          0x00410020       0xe0 ../../lib/libbacnet.a(apdu.o)
+ .data          0x00410100        0x4 ../../lib/libbacnet.a(address.o)
+ .data          0x00410104       0x60 ../../lib/libbacnet.a(device.o)
+ .data          0x00410164        0x0 ../../lib/libbacnet.a(bip-init.o)
+ .data          0x00410164        0x8 ../../lib/libbacnet.a(bip.o)
+ .data          0x0041016c        0x0 ../../lib/libbacnet.a(h_iam.o)
+ .data          0x0041016c        0x0 ../../lib/libbacnet.a(h_rp.o)
+ .data          0x0041016c        0x0 ../../lib/libbacnet.a(noserv.o)
+ *fill*         0x0041016c       0x14 00
+ .data          0x00410180     0x19e0 ../../lib/libbacnet.a(bactext.o)
+                0x00410320                bacnet_day_of_week_names
+                0x004107e0                bacnet_engineering_unit_names
+                0x00410de0                bacnet_property_names
+                0x00410380                bacnet_week_of_month_names
+                0x00410780                bacnet_reject_reason_names
+                0x00410440                bacnet_error_code_names
+                0x00410700                bacnet_error_class_names
+                0x00410260                bacnet_binary_present_value_names
+                0x004102e0                bacnet_days_of_week_names
+                0x00411a60                bacnet_confirmed_service_names
+                0x00410180                bacnet_segmentation_names
+                0x00410200                bacnet_reliability_names
+                0x004101c0                bacnet_device_status_names
+                0x00411a00                bacnet_unconfirmed_service_names
+                0x00411820                bacnet_object_type_names
+                0x00411960                bacnet_application_tag_names
+                0x004103c0                bacnet_month_names
+                0x004102c0                bacnet_event_transition_names
+                0x00410740                bacnet_abort_reason_names
+                0x00410280                bacnet_event_state_names
+ .data          0x00411b60        0x0 ../../lib/libbacnet.a(bacint.o)
+ .data          0x00411b60        0x0 ../../lib/libbacnet.a(npdu.o)
+ .data          0x00411b60        0x0 ../../lib/libbacnet.a(txbuf.o)
+ .data          0x00411b60        0x0 ../../lib/libbacnet.a(whois.o)
+ .data          0x00411b60        0x0 ../../lib/libbacnet.a(dcc.o)
+ .data          0x00411b60        0x0 ../../lib/libbacnet.a(bacdcode.o)
+ .data          0x00411b60        0x4 ../../lib/libbacnet.a(tsm.o)
+ .data          0x00411b64        0x0 ../../lib/libbacnet.a(bacstr.o)
+ .data          0x00411b64        0x0 ../../lib/libbacnet.a(bacaddr.o)
+ .data          0x00411b64        0x4 ../../lib/libbacnet.a(version.o)
+                0x00411b64                BACnet_Version
+ .data          0x00411b68        0x0 ../../lib/libbacnet.a(bacapp.o)
+ .data          0x00411b68        0x0 ../../lib/libbacnet.a(h_cov.o)
+ .data          0x00411b68        0x0 ../../lib/libbacnet.a(iam.o)
+ .data          0x00411b68        0x0 ../../lib/libbacnet.a(bacerror.o)
+ .data          0x00411b68        0x0 ../../lib/libbacnet.a(rp.o)
+ .data          0x00411b68        0x0 ../../lib/libbacnet.a(abort.o)
+ .data          0x00411b68        0x0 ../../lib/libbacnet.a(reject.o)
+ .data          0x00411b68        0x0 ../../lib/libbacnet.a(indtext.o)
+ .data          0x00411b68        0x0 ../../lib/libbacnet.a(bacreal.o)
+ .data          0x00411b68       0x34 ../../lib/libbacnet.a(datetime.o)
+ .data          0x00411b9c        0x0 ../../lib/libbacnet.a(cov.o)
+ *fill*         0x00411b9c        0x4 00
+ .data          0x00411ba0       0x20 ../../lib/libbacnet.a(bi.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00097.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00103.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00104.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00106.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00095.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00094.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00101.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00100.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00078.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00079.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00107.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00109.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00026.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00064.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00014.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00096.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00085.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfs00084.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxfh.o)
+ .data          0x00411bc0        0x0 /mingw/lib/libws2_32.a(dgxft.o)
+ .data          0x00411bc0       0x20 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o)
+ .data          0x00411be0        0x0 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(_chkstk.o)
+ .data          0x00411be0        0x0 /mingw/lib/libiphlpapi.a(dkbhs00012.o)
+ .data          0x00411be0        0x0 /mingw/lib/libiphlpapi.a(dkbhh.o)
+ .data          0x00411be0        0x0 /mingw/lib/libiphlpapi.a(dkbht.o)
+ .data          0x00411be0        0x4 /mingw/lib/libmingw32.a(CRTglob.o)
+                0x00411be0                _CRT_glob
+ .data          0x00411be4        0x0 /mingw/lib/libmingw32.a(CRTfmode.o)
+ .data          0x00411be4        0x4 /mingw/lib/libmingw32.a(txtmode.o)
+                0x00411be4                _fmode
+ .data          0x00411be8        0x4 /mingw/lib/libmingw32.a(gccmain.o)
+ .data          0x00411bec        0x0 /mingw/lib/libmingw32.a(pseudo-reloc.o)
+ .data          0x00411bec        0x0 /mingw/lib/libmingw32.a(cpu_features.o)
+ .data          0x00411bec        0x0 /mingw/lib/libmingw32.a(CRT_fp10.o)
+ .data          0x00411bec        0x0 /mingw/lib/libmingw32.a(pseudo-reloc-list.o)
+ .data          0x00411bec        0x0 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(_ctors.o)
+ .data          0x00411bec       0x14 /mingw/lib/libmingwex.a(strtodnrp.o)
+ .data          0x00411c00        0x0 /mingw/lib/libmingwex.a(strtodg.o)
+ .data          0x00411c00       0x10 /mingw/lib/libmingwex.a(misc.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmingwex.a(gmisc.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmingwex.a(sum.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmingwex.a(smisc.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmingwex.a(hexnan.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmingwex.a(gethex.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmingwex.a(hd_init.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00266.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00099.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00590.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00383.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00147.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00077.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00706.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00079.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00426.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00055.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00739.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00604.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00731.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00637.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00689.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00619.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00682.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00684.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00692.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00182.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00719.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00607.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00712.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00613.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00618.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00715.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00683.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00621.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00065.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00392.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00620.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00732.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00268.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00742.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00709.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00137.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00625.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00676.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00583.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhs00671.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjhh.o)
+ .data          0x00411c10        0x0 /mingw/lib/libmsvcrt.a(dsjht.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekds00739.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekds00156.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekds00221.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekds00176.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekds00001.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekds00497.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekds00107.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekds00751.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekds00126.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekds00492.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekds00523.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekdh.o)
+ .data          0x00411c10        0x0 /mingw/lib/libkernel32.a(dekdt.o)
+ .data          0x00411c10        0x0 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/crtend.o
+ *(.data2)
+ *(SORT(.data$*))
+ *(.jcr)
+                0x00411c10                __data_end__ = .
+ *(.data_cygwin_nocopy)
+
+.rdata          0x00412000     0x4a00
+ *(.rdata)
+ .rdata         0x00412000       0xe8 globalwi.o
+ .rdata         0x004120e8       0x30 ../../lib/libbacnet.a(bvlc.o)
+ .rdata         0x00412118       0x74 ../../lib/libbacnet.a(h_npdu.o)
+ .rdata         0x0041218c       0x28 ../../lib/libbacnet.a(s_whois.o)
+ .rdata         0x004121b4      0x134 ../../lib/libbacnet.a(address.o)
+ *fill*         0x004122e8       0x18 00
+ .rdata         0x00412300       0xc0 ../../lib/libbacnet.a(device.o)
+ .rdata         0x004123c0      0x904 ../../lib/libbacnet.a(bip-init.o)
+ .rdata         0x00412cc4       0x54 ../../lib/libbacnet.a(bip.o)
+ .rdata         0x00412d18       0x3c ../../lib/libbacnet.a(h_iam.o)
+ .rdata         0x00412d54       0xd0 ../../lib/libbacnet.a(h_rp.o)
+ .rdata         0x00412e24       0x2c ../../lib/libbacnet.a(noserv.o)
+ .rdata         0x00412e50     0x32e8 ../../lib/libbacnet.a(bactext.o)
+ .rdata         0x00416138       0x18 ../../lib/libbacnet.a(bacdcode.o)
+ .rdata         0x00416150        0x8 ../../lib/libbacnet.a(version.o)
+ .rdata         0x00416158      0x224 ../../lib/libbacnet.a(bacapp.o)
+ .rdata         0x0041637c      0x110 ../../lib/libbacnet.a(h_cov.o)
+ *fill*         0x0041648c       0x14 00
+ .rdata         0x004164a0       0x60 ../../lib/libbacnet.a(bi.o)
+ .rdata         0x00416500       0xc0 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o)
+ .rdata         0x004165c0       0x1c /mingw/lib/libmingwex.a(strtodnrp.o)
+ *fill*         0x004165dc        0x4 00
+ .rdata         0x004165e0      0x140 /mingw/lib/libmingwex.a(strtodg.o)
+ .rdata         0x00416720      0x140 /mingw/lib/libmingwex.a(misc.o)
+                0x00416820                __bigtens_D2A
+                0x004167e0                __tinytens_D2A
+                0x00416720                __tens_D2A
+ .rdata         0x00416860       0x1c /mingw/lib/libmingwex.a(hd_init.o)
+ *(SORT(.rdata$*))
+ *(.eh_frame)
+                0x0041687c                ___RUNTIME_PSEUDO_RELOC_LIST__ = .
+                0x0041687c                __RUNTIME_PSEUDO_RELOC_LIST__ = .
+ *(.rdata_runtime_pseudo_reloc)
+                0x0041687c                ___RUNTIME_PSEUDO_RELOC_LIST_END__ = .
+                0x0041687c                __RUNTIME_PSEUDO_RELOC_LIST_END__ = .
+
+.pdata
+ *(.pdata)
+
+.bss            0x00417000    0x6b770
+                0x00417000                __bss_start__ = .
+ *(.bss)
+ .bss           0x00417000        0x8 /mingw/lib/crt2.o
+                0x00417004                _argc
+                0x00417000                _argv
+ .bss           0x00417008        0x0 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/crtbegin.o
+ .bss           0x00417008      0x610 globalwi.o
+ .bss           0x00417618     0x1018 ../../lib/libbacnet.a(bvlc.o)
+                0x00417618                BVLC_Result_Code
+ .bss           0x00418630        0x0 ../../lib/libbacnet.a(h_npdu.o)
+ .bss           0x00418630        0x0 ../../lib/libbacnet.a(s_whois.o)
+ .bss           0x00418630      0x1e0 ../../lib/libbacnet.a(apdu.o)
+ .bss           0x00418810     0x23e0 ../../lib/libbacnet.a(address.o)
+ .bss           0x0041abf0     0x3030 ../../lib/libbacnet.a(device.o)
+ .bss           0x0041dc20        0x4 ../../lib/libbacnet.a(bip-init.o)
+                0x0041dc20                BIP_Debug
+ *fill*         0x0041dc24        0x4 00
+ .bss           0x0041dc28       0x20 ../../lib/libbacnet.a(bip.o)
+ .bss           0x0041dc48        0x0 ../../lib/libbacnet.a(h_iam.o)
+ .bss           0x0041dc48     0x25d0 ../../lib/libbacnet.a(h_rp.o)
+ .bss           0x00420218        0x0 ../../lib/libbacnet.a(noserv.o)
+ .bss           0x00420218        0x0 ../../lib/libbacnet.a(bactext.o)
+ .bss           0x00420218        0x0 ../../lib/libbacnet.a(bacint.o)
+ .bss           0x00420218        0x0 ../../lib/libbacnet.a(npdu.o)
+ *fill*         0x00420218        0x8 00
+ .bss           0x00420220      0x5e0 ../../lib/libbacnet.a(txbuf.o)
+                0x00420220                Handler_Transmit_Buffer
+ .bss           0x00420800        0x0 ../../lib/libbacnet.a(whois.o)
+ .bss           0x00420800       0x20 ../../lib/libbacnet.a(dcc.o)
+ .bss           0x00420820        0x0 ../../lib/libbacnet.a(bacdcode.o)
+ .bss           0x00420820    0x60df0 ../../lib/libbacnet.a(tsm.o)
+ .bss           0x00481610        0x0 ../../lib/libbacnet.a(bacstr.o)
+ .bss           0x00481610        0x0 ../../lib/libbacnet.a(bacaddr.o)
+ .bss           0x00481610        0x0 ../../lib/libbacnet.a(version.o)
+ .bss           0x00481610       0x30 ../../lib/libbacnet.a(bacapp.o)
+ .bss           0x00481640      0x580 ../../lib/libbacnet.a(h_cov.o)
+ .bss           0x00481bc0        0x0 ../../lib/libbacnet.a(iam.o)
+ .bss           0x00481bc0        0x0 ../../lib/libbacnet.a(bacerror.o)
+ .bss           0x00481bc0        0x0 ../../lib/libbacnet.a(rp.o)
+ .bss           0x00481bc0        0x0 ../../lib/libbacnet.a(abort.o)
+ .bss           0x00481bc0        0x0 ../../lib/libbacnet.a(reject.o)
+ .bss           0x00481bc0        0x0 ../../lib/libbacnet.a(indtext.o)
+ .bss           0x00481bc0        0x0 ../../lib/libbacnet.a(bacreal.o)
+ .bss           0x00481bc0        0x0 ../../lib/libbacnet.a(datetime.o)
+ .bss           0x00481bc0        0x0 ../../lib/libbacnet.a(cov.o)
+ .bss           0x00481bc0       0x50 ../../lib/libbacnet.a(bi.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00097.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00103.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00104.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00106.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00095.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00094.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00101.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00100.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00078.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00079.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00107.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00109.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00026.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00064.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00014.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00096.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00085.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfs00084.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxfh.o)
+ .bss           0x00481c10        0x0 /mingw/lib/libws2_32.a(dgxft.o)
+ .bss           0x00481c10       0x40 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o)
+ .bss           0x00481c50        0x0 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(_chkstk.o)
+ .bss           0x00481c50        0x0 /mingw/lib/libiphlpapi.a(dkbhs00012.o)
+ .bss           0x00481c50        0x0 /mingw/lib/libiphlpapi.a(dkbhh.o)
+ .bss           0x00481c50        0x0 /mingw/lib/libiphlpapi.a(dkbht.o)
+ .bss           0x00481c50        0x0 /mingw/lib/libmingw32.a(CRTglob.o)
+ .bss           0x00481c50        0x4 /mingw/lib/libmingw32.a(CRTfmode.o)
+                0x00481c50                _CRT_fmode
+ .bss           0x00481c54        0x0 /mingw/lib/libmingw32.a(txtmode.o)
+ *fill*         0x00481c54        0x4 00
+ .bss           0x00481c58       0x10 /mingw/lib/libmingw32.a(gccmain.o)
+ .bss           0x00481c68        0x0 /mingw/lib/libmingw32.a(pseudo-reloc.o)
+ .bss           0x00481c68        0x4 /mingw/lib/libmingw32.a(cpu_features.o)
+                0x00481c68                __cpu_features
+ .bss           0x00481c6c        0x0 /mingw/lib/libmingw32.a(CRT_fp10.o)
+ .bss           0x00481c6c        0x4 /mingw/lib/libmingw32.a(pseudo-reloc-list.o)
+ .bss           0x00481c70        0x0 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(_ctors.o)
+ .bss           0x00481c70        0x0 /mingw/lib/libmingwex.a(strtodnrp.o)
+ .bss           0x00481c70        0x0 /mingw/lib/libmingwex.a(strtodg.o)
+ .bss           0x00481c70      0x990 /mingw/lib/libmingwex.a(misc.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmingwex.a(gmisc.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmingwex.a(sum.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmingwex.a(smisc.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmingwex.a(hexnan.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmingwex.a(gethex.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmingwex.a(hd_init.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00266.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00099.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00590.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00383.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00147.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00077.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00706.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00079.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00426.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00055.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00739.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00604.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00731.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00637.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00689.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00619.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00682.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00684.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00692.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00182.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00719.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00607.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00712.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00613.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00618.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00715.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00683.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00621.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00065.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00392.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00620.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00732.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00268.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00742.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00709.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00137.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00625.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00676.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00583.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhs00671.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjhh.o)
+ .bss           0x00482600        0x0 /mingw/lib/libmsvcrt.a(dsjht.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekds00739.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekds00156.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekds00221.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekds00176.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekds00001.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekds00497.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekds00107.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekds00751.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekds00126.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekds00492.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekds00523.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekdh.o)
+ .bss           0x00482600        0x0 /mingw/lib/libkernel32.a(dekdt.o)
+ .bss           0x00482600        0x0 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/crtend.o
+ *(COMMON)
+ COMMON         0x00482600       0x20 ../../lib/libbacnet.a(device.o)
+                0x00482600                Local_Date
+                0x00482610                Local_Time
+ COMMON         0x00482620       0x30 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(w32-shared-ptr.o)
+                0x00482620                __w32_sharedptr_terminate
+                0x00482630                __w32_sharedptr
+                0x00482640                __w32_sharedptr_unexpected
+ COMMON         0x00482650       0x20 C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/libgcc.a(_ctors.o)
+ COMMON         0x00482670      0x100 /mingw/lib/libmingwex.a(hd_init.o)
+                0x00482670                __hexdig_D2A
+                0x00482770                __bss_end__ = .
+
+.edata
+ *(.edata)
+
+/DISCARD/
+ *(.debug$S)
+ *(.debug$T)
+ *(.debug$F)
+ *(.drectve)
+
+.idata          0x00483000      0x800
+ SORT(*)(.idata$2)
+ .idata$2       0x00483000       0x14 /mingw/lib/libiphlpapi.a(dkbhh.o)
+                0x00483000                _head_libiphlpapi_a
+ .idata$2       0x00483014       0x14 /mingw/lib/libkernel32.a(dekdh.o)
+                0x00483014                _head_libkernel32_a
+ .idata$2       0x00483028       0x14 /mingw/lib/libmsvcrt.a(dsjhh.o)
+                0x00483028                _head_libmsvcrt_a
+ .idata$2       0x0048303c       0x14 /mingw/lib/libws2_32.a(dgxfh.o)
+                0x0048303c                _head_libws2_32_a
+ SORT(*)(.idata$3)
+                0x00483050        0x4 LONG 0x0
+                0x00483054        0x4 LONG 0x0
+                0x00483058        0x4 LONG 0x0
+                0x0048305c        0x4 LONG 0x0
+                0x00483060        0x4 LONG 0x0
+ SORT(*)(.idata$4)
+ .idata$4       0x00483064        0x4 /mingw/lib/libiphlpapi.a(dkbhh.o)
+ .idata$4       0x00483068        0x4 /mingw/lib/libiphlpapi.a(dkbhs00012.o)
+ .idata$4       0x0048306c        0x4 /mingw/lib/libiphlpapi.a(dkbht.o)
+ .idata$4       0x00483070        0x4 /mingw/lib/libkernel32.a(dekdh.o)
+ .idata$4       0x00483074        0x4 /mingw/lib/libkernel32.a(dekds00001.o)
+ .idata$4       0x00483078        0x4 /mingw/lib/libkernel32.a(dekds00107.o)
+ .idata$4       0x0048307c        0x4 /mingw/lib/libkernel32.a(dekds00126.o)
+ .idata$4       0x00483080        0x4 /mingw/lib/libkernel32.a(dekds00156.o)
+ .idata$4       0x00483084        0x4 /mingw/lib/libkernel32.a(dekds00176.o)
+ .idata$4       0x00483088        0x4 /mingw/lib/libkernel32.a(dekds00221.o)
+ .idata$4       0x0048308c        0x4 /mingw/lib/libkernel32.a(dekds00492.o)
+ .idata$4       0x00483090        0x4 /mingw/lib/libkernel32.a(dekds00497.o)
+ .idata$4       0x00483094        0x4 /mingw/lib/libkernel32.a(dekds00523.o)
+ .idata$4       0x00483098        0x4 /mingw/lib/libkernel32.a(dekds00739.o)
+ .idata$4       0x0048309c        0x4 /mingw/lib/libkernel32.a(dekds00751.o)
+ .idata$4       0x004830a0        0x4 /mingw/lib/libkernel32.a(dekdt.o)
+ .idata$4       0x004830a4        0x4 /mingw/lib/libmsvcrt.a(dsjhh.o)
+ .idata$4       0x004830a8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00055.o)
+ .idata$4       0x004830ac        0x4 /mingw/lib/libmsvcrt.a(dsjhs00065.o)
+ .idata$4       0x004830b0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00077.o)
+ .idata$4       0x004830b4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00079.o)
+ .idata$4       0x004830b8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00099.o)
+ .idata$4       0x004830bc        0x4 /mingw/lib/libmsvcrt.a(dsjhs00137.o)
+ .idata$4       0x004830c0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00147.o)
+ .idata$4       0x004830c4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00182.o)
+ .idata$4       0x004830c8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00266.o)
+ .idata$4       0x004830cc        0x4 /mingw/lib/libmsvcrt.a(dsjhs00268.o)
+ .idata$4       0x004830d0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00383.o)
+ .idata$4       0x004830d4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00392.o)
+ .idata$4       0x004830d8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00426.o)
+ .idata$4       0x004830dc        0x4 /mingw/lib/libmsvcrt.a(dsjhs00583.o)
+ .idata$4       0x004830e0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00590.o)
+ .idata$4       0x004830e4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00604.o)
+ .idata$4       0x004830e8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00607.o)
+ .idata$4       0x004830ec        0x4 /mingw/lib/libmsvcrt.a(dsjhs00613.o)
+ .idata$4       0x004830f0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00618.o)
+ .idata$4       0x004830f4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00619.o)
+ .idata$4       0x004830f8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00620.o)
+ .idata$4       0x004830fc        0x4 /mingw/lib/libmsvcrt.a(dsjhs00621.o)
+ .idata$4       0x00483100        0x4 /mingw/lib/libmsvcrt.a(dsjhs00625.o)
+ .idata$4       0x00483104        0x4 /mingw/lib/libmsvcrt.a(dsjhs00637.o)
+ .idata$4       0x00483108        0x4 /mingw/lib/libmsvcrt.a(dsjhs00671.o)
+ .idata$4       0x0048310c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00676.o)
+ .idata$4       0x00483110        0x4 /mingw/lib/libmsvcrt.a(dsjhs00682.o)
+ .idata$4       0x00483114        0x4 /mingw/lib/libmsvcrt.a(dsjhs00683.o)
+ .idata$4       0x00483118        0x4 /mingw/lib/libmsvcrt.a(dsjhs00684.o)
+ .idata$4       0x0048311c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00689.o)
+ .idata$4       0x00483120        0x4 /mingw/lib/libmsvcrt.a(dsjhs00692.o)
+ .idata$4       0x00483124        0x4 /mingw/lib/libmsvcrt.a(dsjhs00706.o)
+ .idata$4       0x00483128        0x4 /mingw/lib/libmsvcrt.a(dsjhs00709.o)
+ .idata$4       0x0048312c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00712.o)
+ .idata$4       0x00483130        0x4 /mingw/lib/libmsvcrt.a(dsjhs00715.o)
+ .idata$4       0x00483134        0x4 /mingw/lib/libmsvcrt.a(dsjhs00719.o)
+ .idata$4       0x00483138        0x4 /mingw/lib/libmsvcrt.a(dsjhs00731.o)
+ .idata$4       0x0048313c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00732.o)
+ .idata$4       0x00483140        0x4 /mingw/lib/libmsvcrt.a(dsjhs00739.o)
+ .idata$4       0x00483144        0x4 /mingw/lib/libmsvcrt.a(dsjhs00742.o)
+ .idata$4       0x00483148        0x4 /mingw/lib/libmsvcrt.a(dsjht.o)
+ .idata$4       0x0048314c        0x4 /mingw/lib/libws2_32.a(dgxfh.o)
+ .idata$4       0x00483150        0x4 /mingw/lib/libws2_32.a(dgxfs00014.o)
+ .idata$4       0x00483154        0x4 /mingw/lib/libws2_32.a(dgxfs00026.o)
+ .idata$4       0x00483158        0x4 /mingw/lib/libws2_32.a(dgxfs00064.o)
+ .idata$4       0x0048315c        0x4 /mingw/lib/libws2_32.a(dgxfs00078.o)
+ .idata$4       0x00483160        0x4 /mingw/lib/libws2_32.a(dgxfs00079.o)
+ .idata$4       0x00483164        0x4 /mingw/lib/libws2_32.a(dgxfs00084.o)
+ .idata$4       0x00483168        0x4 /mingw/lib/libws2_32.a(dgxfs00085.o)
+ .idata$4       0x0048316c        0x4 /mingw/lib/libws2_32.a(dgxfs00094.o)
+ .idata$4       0x00483170        0x4 /mingw/lib/libws2_32.a(dgxfs00095.o)
+ .idata$4       0x00483174        0x4 /mingw/lib/libws2_32.a(dgxfs00096.o)
+ .idata$4       0x00483178        0x4 /mingw/lib/libws2_32.a(dgxfs00097.o)
+ .idata$4       0x0048317c        0x4 /mingw/lib/libws2_32.a(dgxfs00100.o)
+ .idata$4       0x00483180        0x4 /mingw/lib/libws2_32.a(dgxfs00101.o)
+ .idata$4       0x00483184        0x4 /mingw/lib/libws2_32.a(dgxfs00103.o)
+ .idata$4       0x00483188        0x4 /mingw/lib/libws2_32.a(dgxfs00104.o)
+ .idata$4       0x0048318c        0x4 /mingw/lib/libws2_32.a(dgxfs00106.o)
+ .idata$4       0x00483190        0x4 /mingw/lib/libws2_32.a(dgxfs00107.o)
+ .idata$4       0x00483194        0x4 /mingw/lib/libws2_32.a(dgxfs00109.o)
+ .idata$4       0x00483198        0x4 /mingw/lib/libws2_32.a(dgxft.o)
+ SORT(*)(.idata$5)
+ .idata$5       0x0048319c        0x4 /mingw/lib/libiphlpapi.a(dkbhh.o)
+ .idata$5       0x004831a0        0x4 /mingw/lib/libiphlpapi.a(dkbhs00012.o)
+                0x004831a0                _imp__GetAdaptersInfo@8
+ .idata$5       0x004831a4        0x4 /mingw/lib/libiphlpapi.a(dkbht.o)
+ .idata$5       0x004831a8        0x4 /mingw/lib/libkernel32.a(dekdh.o)
+ .idata$5       0x004831ac        0x4 /mingw/lib/libkernel32.a(dekds00001.o)
+                0x004831ac                _imp__AddAtomA@4
+ .idata$5       0x004831b0        0x4 /mingw/lib/libkernel32.a(dekds00107.o)
+                0x004831b0                _imp__DeleteCriticalSection@4
+ .idata$5       0x004831b4        0x4 /mingw/lib/libkernel32.a(dekds00126.o)
+                0x004831b4                _imp__EnterCriticalSection@4
+ .idata$5       0x004831b8        0x4 /mingw/lib/libkernel32.a(dekds00156.o)
+                0x004831b8                _imp__ExitProcess@4
+ .idata$5       0x004831bc        0x4 /mingw/lib/libkernel32.a(dekds00176.o)
+                0x004831bc                _imp__FindAtomA@4
+ .idata$5       0x004831c0        0x4 /mingw/lib/libkernel32.a(dekds00221.o)
+                0x004831c0                _imp__GetAtomNameA@12
+ .idata$5       0x004831c4        0x4 /mingw/lib/libkernel32.a(dekds00492.o)
+                0x004831c4                _imp__InitializeCriticalSection@4
+ .idata$5       0x004831c8        0x4 /mingw/lib/libkernel32.a(dekds00497.o)
+                0x004831c8                _imp__InterlockedExchange@8
+ .idata$5       0x004831cc        0x4 /mingw/lib/libkernel32.a(dekds00523.o)
+                0x004831cc                _imp__LeaveCriticalSection@4
+ .idata$5       0x004831d0        0x4 /mingw/lib/libkernel32.a(dekds00739.o)
+                0x004831d0                _imp__SetUnhandledExceptionFilter@4
+ .idata$5       0x004831d4        0x4 /mingw/lib/libkernel32.a(dekds00751.o)
+                0x004831d4                _imp__Sleep@4
+ .idata$5       0x004831d8        0x4 /mingw/lib/libkernel32.a(dekdt.o)
+ .idata$5       0x004831dc        0x4 /mingw/lib/libmsvcrt.a(dsjhh.o)
+ .idata$5       0x004831e0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00055.o)
+                0x004831e0                _imp____getmainargs
+ .idata$5       0x004831e4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00065.o)
+                0x004831e4                _imp____mb_cur_max
+ .idata$5       0x004831e8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00077.o)
+                0x004831e8                _imp____p__environ
+ .idata$5       0x004831ec        0x4 /mingw/lib/libmsvcrt.a(dsjhs00079.o)
+                0x004831ec                _imp____p__fmode
+ .idata$5       0x004831f0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00099.o)
+                0x004831f0                _imp____set_app_type
+ .idata$5       0x004831f4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00137.o)
+                0x004831f4                _imp___assert
+ .idata$5       0x004831f8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00147.o)
+                0x004831f8                _imp___cexit
+ .idata$5       0x004831fc        0x4 /mingw/lib/libmsvcrt.a(dsjhs00182.o)
+                0x004831fc                _imp___errno
+ .idata$5       0x00483200        0x4 /mingw/lib/libmsvcrt.a(dsjhs00266.o)
+                0x00483200                _imp___iob
+ .idata$5       0x00483204        0x4 /mingw/lib/libmsvcrt.a(dsjhs00268.o)
+                0x00483204                _imp___isctype
+ .idata$5       0x00483208        0x4 /mingw/lib/libmsvcrt.a(dsjhs00383.o)
+                0x00483208                _imp___onexit
+ .idata$5       0x0048320c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00392.o)
+                0x0048320c                _imp___pctype
+ .idata$5       0x00483210        0x4 /mingw/lib/libmsvcrt.a(dsjhs00426.o)
+                0x00483210                _imp___setmode
+ .idata$5       0x00483214        0x4 /mingw/lib/libmsvcrt.a(dsjhs00583.o)
+                0x00483214                _imp__abort
+ .idata$5       0x00483218        0x4 /mingw/lib/libmsvcrt.a(dsjhs00590.o)
+                0x00483218                _imp__atexit
+ .idata$5       0x0048321c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00604.o)
+                0x0048321c                _imp__exit
+ .idata$5       0x00483220        0x4 /mingw/lib/libmsvcrt.a(dsjhs00607.o)
+                0x00483220                _imp__fclose
+ .idata$5       0x00483224        0x4 /mingw/lib/libmsvcrt.a(dsjhs00613.o)
+                0x00483224                _imp__fgets
+ .idata$5       0x00483228        0x4 /mingw/lib/libmsvcrt.a(dsjhs00618.o)
+                0x00483228                _imp__fopen
+ .idata$5       0x0048322c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00619.o)
+                0x0048322c                _imp__fprintf
+ .idata$5       0x00483230        0x4 /mingw/lib/libmsvcrt.a(dsjhs00620.o)
+                0x00483230                _imp__fputc
+ .idata$5       0x00483234        0x4 /mingw/lib/libmsvcrt.a(dsjhs00621.o)
+                0x00483234                _imp__fputs
+ .idata$5       0x00483238        0x4 /mingw/lib/libmsvcrt.a(dsjhs00625.o)
+                0x00483238                _imp__free
+ .idata$5       0x0048323c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00637.o)
+                0x0048323c                _imp__getenv
+ .idata$5       0x00483240        0x4 /mingw/lib/libmsvcrt.a(dsjhs00671.o)
+                0x00483240                _imp__localeconv
+ .idata$5       0x00483244        0x4 /mingw/lib/libmsvcrt.a(dsjhs00676.o)
+                0x00483244                _imp__malloc
+ .idata$5       0x00483248        0x4 /mingw/lib/libmsvcrt.a(dsjhs00682.o)
+                0x00483248                _imp__memcpy
+ .idata$5       0x0048324c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00683.o)
+                0x0048324c                _imp__memmove
+ .idata$5       0x00483250        0x4 /mingw/lib/libmsvcrt.a(dsjhs00684.o)
+                0x00483250                _imp__memset
+ .idata$5       0x00483254        0x4 /mingw/lib/libmsvcrt.a(dsjhs00689.o)
+                0x00483254                _imp__printf
+ .idata$5       0x00483258        0x4 /mingw/lib/libmsvcrt.a(dsjhs00692.o)
+                0x00483258                _imp__puts
+ .idata$5       0x0048325c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00706.o)
+                0x0048325c                _imp__signal
+ .idata$5       0x00483260        0x4 /mingw/lib/libmsvcrt.a(dsjhs00709.o)
+                0x00483260                _imp__sprintf
+ .idata$5       0x00483264        0x4 /mingw/lib/libmsvcrt.a(dsjhs00712.o)
+                0x00483264                _imp__sscanf
+ .idata$5       0x00483268        0x4 /mingw/lib/libmsvcrt.a(dsjhs00715.o)
+                0x00483268                _imp__strcmp
+ .idata$5       0x0048326c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00719.o)
+                0x0048326c                _imp__strerror
+ .idata$5       0x00483270        0x4 /mingw/lib/libmsvcrt.a(dsjhs00731.o)
+                0x00483270                _imp__strtol
+ .idata$5       0x00483274        0x4 /mingw/lib/libmsvcrt.a(dsjhs00732.o)
+                0x00483274                _imp__strtoul
+ .idata$5       0x00483278        0x4 /mingw/lib/libmsvcrt.a(dsjhs00739.o)
+                0x00483278                _imp__time
+ .idata$5       0x0048327c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00742.o)
+                0x0048327c                _imp__tolower
+ .idata$5       0x00483280        0x4 /mingw/lib/libmsvcrt.a(dsjht.o)
+ .idata$5       0x00483284        0x4 /mingw/lib/libws2_32.a(dgxfh.o)
+ .idata$5       0x00483288        0x4 /mingw/lib/libws2_32.a(dgxfs00014.o)
+                0x00483288                _imp__WSACleanup@0
+ .idata$5       0x0048328c        0x4 /mingw/lib/libws2_32.a(dgxfs00026.o)
+                0x0048328c                _imp__WSAGetLastError@0
+ .idata$5       0x00483290        0x4 /mingw/lib/libws2_32.a(dgxfs00064.o)
+                0x00483290                _imp__WSAStartup@8
+ .idata$5       0x00483294        0x4 /mingw/lib/libws2_32.a(dgxfs00078.o)
+                0x00483294                _imp__bind@12
+ .idata$5       0x00483298        0x4 /mingw/lib/libws2_32.a(dgxfs00079.o)
+                0x00483298                _imp__closesocket@4
+ .idata$5       0x0048329c        0x4 /mingw/lib/libws2_32.a(dgxfs00084.o)
+                0x0048329c                _imp__gethostbyname@4
+ .idata$5       0x004832a0        0x4 /mingw/lib/libws2_32.a(dgxfs00085.o)
+                0x004832a0                _imp__gethostname@8
+ .idata$5       0x004832a4        0x4 /mingw/lib/libws2_32.a(dgxfs00094.o)
+                0x004832a4                _imp__htonl@4
+ .idata$5       0x004832a8        0x4 /mingw/lib/libws2_32.a(dgxfs00095.o)
+                0x004832a8                _imp__htons@4
+ .idata$5       0x004832ac        0x4 /mingw/lib/libws2_32.a(dgxfs00096.o)
+                0x004832ac                _imp__inet_addr@4
+ .idata$5       0x004832b0        0x4 /mingw/lib/libws2_32.a(dgxfs00097.o)
+                0x004832b0                _imp__inet_ntoa@4
+ .idata$5       0x004832b4        0x4 /mingw/lib/libws2_32.a(dgxfs00100.o)
+                0x004832b4                _imp__ntohl@4
+ .idata$5       0x004832b8        0x4 /mingw/lib/libws2_32.a(dgxfs00101.o)
+                0x004832b8                _imp__ntohs@4
+ .idata$5       0x004832bc        0x4 /mingw/lib/libws2_32.a(dgxfs00103.o)
+                0x004832bc                _imp__recvfrom@24
+ .idata$5       0x004832c0        0x4 /mingw/lib/libws2_32.a(dgxfs00104.o)
+                0x004832c0                _imp__select@20
+ .idata$5       0x004832c4        0x4 /mingw/lib/libws2_32.a(dgxfs00106.o)
+                0x004832c4                _imp__sendto@24
+ .idata$5       0x004832c8        0x4 /mingw/lib/libws2_32.a(dgxfs00107.o)
+                0x004832c8                _imp__setsockopt@20
+ .idata$5       0x004832cc        0x4 /mingw/lib/libws2_32.a(dgxfs00109.o)
+                0x004832cc                _imp__socket@12
+ .idata$5       0x004832d0        0x4 /mingw/lib/libws2_32.a(dgxft.o)
+ SORT(*)(.idata$6)
+ .idata$6       0x004832d4       0x12 /mingw/lib/libiphlpapi.a(dkbhs00012.o)
+ .idata$6       0x004832e6        0xc /mingw/lib/libkernel32.a(dekds00001.o)
+ .idata$6       0x004832f2       0x18 /mingw/lib/libkernel32.a(dekds00107.o)
+ .idata$6       0x0048330a       0x18 /mingw/lib/libkernel32.a(dekds00126.o)
+ .idata$6       0x00483322        0xe /mingw/lib/libkernel32.a(dekds00156.o)
+ .idata$6       0x00483330        0xc /mingw/lib/libkernel32.a(dekds00176.o)
+ .idata$6       0x0048333c       0x10 /mingw/lib/libkernel32.a(dekds00221.o)
+ .idata$6       0x0048334c       0x1c /mingw/lib/libkernel32.a(dekds00492.o)
+ .idata$6       0x00483368       0x16 /mingw/lib/libkernel32.a(dekds00497.o)
+ .idata$6       0x0048337e       0x18 /mingw/lib/libkernel32.a(dekds00523.o)
+ .idata$6       0x00483396       0x1e /mingw/lib/libkernel32.a(dekds00739.o)
+ .idata$6       0x004833b4        0x8 /mingw/lib/libkernel32.a(dekds00751.o)
+ .idata$6       0x004833bc       0x10 /mingw/lib/libmsvcrt.a(dsjhs00055.o)
+ .idata$6       0x004833cc       0x10 /mingw/lib/libmsvcrt.a(dsjhs00065.o)
+ .idata$6       0x004833dc       0x10 /mingw/lib/libmsvcrt.a(dsjhs00077.o)
+ .idata$6       0x004833ec        0xe /mingw/lib/libmsvcrt.a(dsjhs00079.o)
+ .idata$6       0x004833fa       0x12 /mingw/lib/libmsvcrt.a(dsjhs00099.o)
+ .idata$6       0x0048340c        0xa /mingw/lib/libmsvcrt.a(dsjhs00137.o)
+ .idata$6       0x00483416        0xa /mingw/lib/libmsvcrt.a(dsjhs00147.o)
+ .idata$6       0x00483420        0xa /mingw/lib/libmsvcrt.a(dsjhs00182.o)
+ .idata$6       0x0048342a        0x8 /mingw/lib/libmsvcrt.a(dsjhs00266.o)
+ .idata$6       0x00483432        0xc /mingw/lib/libmsvcrt.a(dsjhs00268.o)
+ .idata$6       0x0048343e        0xa /mingw/lib/libmsvcrt.a(dsjhs00383.o)
+ .idata$6       0x00483448        0xa /mingw/lib/libmsvcrt.a(dsjhs00392.o)
+ .idata$6       0x00483452        0xc /mingw/lib/libmsvcrt.a(dsjhs00426.o)
+ .idata$6       0x0048345e        0x8 /mingw/lib/libmsvcrt.a(dsjhs00583.o)
+ .idata$6       0x00483466        0xa /mingw/lib/libmsvcrt.a(dsjhs00590.o)
+ .idata$6       0x00483470        0x8 /mingw/lib/libmsvcrt.a(dsjhs00604.o)
+ .idata$6       0x00483478        0xa /mingw/lib/libmsvcrt.a(dsjhs00607.o)
+ .idata$6       0x00483482        0x8 /mingw/lib/libmsvcrt.a(dsjhs00613.o)
+ .idata$6       0x0048348a        0x8 /mingw/lib/libmsvcrt.a(dsjhs00618.o)
+ .idata$6       0x00483492        0xa /mingw/lib/libmsvcrt.a(dsjhs00619.o)
+ .idata$6       0x0048349c        0x8 /mingw/lib/libmsvcrt.a(dsjhs00620.o)
+ .idata$6       0x004834a4        0x8 /mingw/lib/libmsvcrt.a(dsjhs00621.o)
+ .idata$6       0x004834ac        0x8 /mingw/lib/libmsvcrt.a(dsjhs00625.o)
+ .idata$6       0x004834b4        0xa /mingw/lib/libmsvcrt.a(dsjhs00637.o)
+ .idata$6       0x004834be        0xe /mingw/lib/libmsvcrt.a(dsjhs00671.o)
+ .idata$6       0x004834cc        0xa /mingw/lib/libmsvcrt.a(dsjhs00676.o)
+ .idata$6       0x004834d6        0xa /mingw/lib/libmsvcrt.a(dsjhs00682.o)
+ .idata$6       0x004834e0        0xa /mingw/lib/libmsvcrt.a(dsjhs00683.o)
+ .idata$6       0x004834ea        0xa /mingw/lib/libmsvcrt.a(dsjhs00684.o)
+ .idata$6       0x004834f4        0xa /mingw/lib/libmsvcrt.a(dsjhs00689.o)
+ .idata$6       0x004834fe        0x8 /mingw/lib/libmsvcrt.a(dsjhs00692.o)
+ .idata$6       0x00483506        0xa /mingw/lib/libmsvcrt.a(dsjhs00706.o)
+ .idata$6       0x00483510        0xa /mingw/lib/libmsvcrt.a(dsjhs00709.o)
+ .idata$6       0x0048351a        0xa /mingw/lib/libmsvcrt.a(dsjhs00712.o)
+ .idata$6       0x00483524        0xa /mingw/lib/libmsvcrt.a(dsjhs00715.o)
+ .idata$6       0x0048352e        0xc /mingw/lib/libmsvcrt.a(dsjhs00719.o)
+ .idata$6       0x0048353a        0xa /mingw/lib/libmsvcrt.a(dsjhs00731.o)
+ .idata$6       0x00483544        0xa /mingw/lib/libmsvcrt.a(dsjhs00732.o)
+ .idata$6       0x0048354e        0x8 /mingw/lib/libmsvcrt.a(dsjhs00739.o)
+ .idata$6       0x00483556        0xa /mingw/lib/libmsvcrt.a(dsjhs00742.o)
+ .idata$6       0x00483560        0xe /mingw/lib/libws2_32.a(dgxfs00014.o)
+ .idata$6       0x0048356e       0x12 /mingw/lib/libws2_32.a(dgxfs00026.o)
+ .idata$6       0x00483580        0xe /mingw/lib/libws2_32.a(dgxfs00064.o)
+ .idata$6       0x0048358e        0x8 /mingw/lib/libws2_32.a(dgxfs00078.o)
+ .idata$6       0x00483596        0xe /mingw/lib/libws2_32.a(dgxfs00079.o)
+ .idata$6       0x004835a4       0x10 /mingw/lib/libws2_32.a(dgxfs00084.o)
+ .idata$6       0x004835b4        0xe /mingw/lib/libws2_32.a(dgxfs00085.o)
+ .idata$6       0x004835c2        0x8 /mingw/lib/libws2_32.a(dgxfs00094.o)
+ .idata$6       0x004835ca        0x8 /mingw/lib/libws2_32.a(dgxfs00095.o)
+ .idata$6       0x004835d2        0xc /mingw/lib/libws2_32.a(dgxfs00096.o)
+ .idata$6       0x004835de        0xc /mingw/lib/libws2_32.a(dgxfs00097.o)
+ .idata$6       0x004835ea        0x8 /mingw/lib/libws2_32.a(dgxfs00100.o)
+ .idata$6       0x004835f2        0x8 /mingw/lib/libws2_32.a(dgxfs00101.o)
+ .idata$6       0x004835fa        0xc /mingw/lib/libws2_32.a(dgxfs00103.o)
+ .idata$6       0x00483606        0xa /mingw/lib/libws2_32.a(dgxfs00104.o)
+ .idata$6       0x00483610        0xa /mingw/lib/libws2_32.a(dgxfs00106.o)
+ .idata$6       0x0048361a        0xe /mingw/lib/libws2_32.a(dgxfs00107.o)
+ .idata$6       0x00483628        0xa /mingw/lib/libws2_32.a(dgxfs00109.o)
+ SORT(*)(.idata$7)
+ *fill*         0x00483632        0x2 00
+ .idata$7       0x00483634        0x4 /mingw/lib/libiphlpapi.a(dkbhs00012.o)
+ .idata$7       0x00483638       0x10 /mingw/lib/libiphlpapi.a(dkbht.o)
+                0x00483638                _libiphlpapi_a_iname
+ .idata$7       0x00483648        0x4 /mingw/lib/libkernel32.a(dekds00001.o)
+ .idata$7       0x0048364c        0x4 /mingw/lib/libkernel32.a(dekds00107.o)
+ .idata$7       0x00483650        0x4 /mingw/lib/libkernel32.a(dekds00126.o)
+ .idata$7       0x00483654        0x4 /mingw/lib/libkernel32.a(dekds00156.o)
+ .idata$7       0x00483658        0x4 /mingw/lib/libkernel32.a(dekds00176.o)
+ .idata$7       0x0048365c        0x4 /mingw/lib/libkernel32.a(dekds00221.o)
+ .idata$7       0x00483660        0x4 /mingw/lib/libkernel32.a(dekds00492.o)
+ .idata$7       0x00483664        0x4 /mingw/lib/libkernel32.a(dekds00497.o)
+ .idata$7       0x00483668        0x4 /mingw/lib/libkernel32.a(dekds00523.o)
+ .idata$7       0x0048366c        0x4 /mingw/lib/libkernel32.a(dekds00739.o)
+ .idata$7       0x00483670        0x4 /mingw/lib/libkernel32.a(dekds00751.o)
+ .idata$7       0x00483674       0x10 /mingw/lib/libkernel32.a(dekdt.o)
+                0x00483674                _libkernel32_a_iname
+ .idata$7       0x00483684        0x4 /mingw/lib/libmsvcrt.a(dsjhs00055.o)
+ .idata$7       0x00483688        0x4 /mingw/lib/libmsvcrt.a(dsjhs00065.o)
+ .idata$7       0x0048368c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00077.o)
+ .idata$7       0x00483690        0x4 /mingw/lib/libmsvcrt.a(dsjhs00079.o)
+ .idata$7       0x00483694        0x4 /mingw/lib/libmsvcrt.a(dsjhs00099.o)
+ .idata$7       0x00483698        0x4 /mingw/lib/libmsvcrt.a(dsjhs00137.o)
+ .idata$7       0x0048369c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00147.o)
+ .idata$7       0x004836a0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00182.o)
+ .idata$7       0x004836a4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00266.o)
+ .idata$7       0x004836a8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00268.o)
+ .idata$7       0x004836ac        0x4 /mingw/lib/libmsvcrt.a(dsjhs00383.o)
+ .idata$7       0x004836b0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00392.o)
+ .idata$7       0x004836b4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00426.o)
+ .idata$7       0x004836b8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00583.o)
+ .idata$7       0x004836bc        0x4 /mingw/lib/libmsvcrt.a(dsjhs00590.o)
+ .idata$7       0x004836c0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00604.o)
+ .idata$7       0x004836c4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00607.o)
+ .idata$7       0x004836c8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00613.o)
+ .idata$7       0x004836cc        0x4 /mingw/lib/libmsvcrt.a(dsjhs00618.o)
+ .idata$7       0x004836d0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00619.o)
+ .idata$7       0x004836d4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00620.o)
+ .idata$7       0x004836d8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00621.o)
+ .idata$7       0x004836dc        0x4 /mingw/lib/libmsvcrt.a(dsjhs00625.o)
+ .idata$7       0x004836e0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00637.o)
+ .idata$7       0x004836e4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00671.o)
+ .idata$7       0x004836e8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00676.o)
+ .idata$7       0x004836ec        0x4 /mingw/lib/libmsvcrt.a(dsjhs00682.o)
+ .idata$7       0x004836f0        0x4 /mingw/lib/libmsvcrt.a(dsjhs00683.o)
+ .idata$7       0x004836f4        0x4 /mingw/lib/libmsvcrt.a(dsjhs00684.o)
+ .idata$7       0x004836f8        0x4 /mingw/lib/libmsvcrt.a(dsjhs00689.o)
+ .idata$7       0x004836fc        0x4 /mingw/lib/libmsvcrt.a(dsjhs00692.o)
+ .idata$7       0x00483700        0x4 /mingw/lib/libmsvcrt.a(dsjhs00706.o)
+ .idata$7       0x00483704        0x4 /mingw/lib/libmsvcrt.a(dsjhs00709.o)
+ .idata$7       0x00483708        0x4 /mingw/lib/libmsvcrt.a(dsjhs00712.o)
+ .idata$7       0x0048370c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00715.o)
+ .idata$7       0x00483710        0x4 /mingw/lib/libmsvcrt.a(dsjhs00719.o)
+ .idata$7       0x00483714        0x4 /mingw/lib/libmsvcrt.a(dsjhs00731.o)
+ .idata$7       0x00483718        0x4 /mingw/lib/libmsvcrt.a(dsjhs00732.o)
+ .idata$7       0x0048371c        0x4 /mingw/lib/libmsvcrt.a(dsjhs00739.o)
+ .idata$7       0x00483720        0x4 /mingw/lib/libmsvcrt.a(dsjhs00742.o)
+ .idata$7       0x00483724        0xc /mingw/lib/libmsvcrt.a(dsjht.o)
+                0x00483724                _libmsvcrt_a_iname
+ .idata$7       0x00483730        0x4 /mingw/lib/libws2_32.a(dgxfs00014.o)
+ .idata$7       0x00483734        0x4 /mingw/lib/libws2_32.a(dgxfs00026.o)
+ .idata$7       0x00483738        0x4 /mingw/lib/libws2_32.a(dgxfs00064.o)
+ .idata$7       0x0048373c        0x4 /mingw/lib/libws2_32.a(dgxfs00078.o)
+ .idata$7       0x00483740        0x4 /mingw/lib/libws2_32.a(dgxfs00079.o)
+ .idata$7       0x00483744        0x4 /mingw/lib/libws2_32.a(dgxfs00084.o)
+ .idata$7       0x00483748        0x4 /mingw/lib/libws2_32.a(dgxfs00085.o)
+ .idata$7       0x0048374c        0x4 /mingw/lib/libws2_32.a(dgxfs00094.o)
+ .idata$7       0x00483750        0x4 /mingw/lib/libws2_32.a(dgxfs00095.o)
+ .idata$7       0x00483754        0x4 /mingw/lib/libws2_32.a(dgxfs00096.o)
+ .idata$7       0x00483758        0x4 /mingw/lib/libws2_32.a(dgxfs00097.o)
+ .idata$7       0x0048375c        0x4 /mingw/lib/libws2_32.a(dgxfs00100.o)
+ .idata$7       0x00483760        0x4 /mingw/lib/libws2_32.a(dgxfs00101.o)
+ .idata$7       0x00483764        0x4 /mingw/lib/libws2_32.a(dgxfs00103.o)
+ .idata$7       0x00483768        0x4 /mingw/lib/libws2_32.a(dgxfs00104.o)
+ .idata$7       0x0048376c        0x4 /mingw/lib/libws2_32.a(dgxfs00106.o)
+ .idata$7       0x00483770        0x4 /mingw/lib/libws2_32.a(dgxfs00107.o)
+ .idata$7       0x00483774        0x4 /mingw/lib/libws2_32.a(dgxfs00109.o)
+ .idata$7       0x00483778        0xc /mingw/lib/libws2_32.a(dgxft.o)
+                0x00483778                _libws2_32_a_iname
+
+.CRT            0x00484000        0x0
+                0x00484000                ___crt_xc_start__ = .
+ *(SORT(.CRT$XC*))
+                0x00484000                ___crt_xc_end__ = .
+                0x00484000                ___crt_xi_start__ = .
+ *(SORT(.CRT$XI*))
+                0x00484000                ___crt_xi_end__ = .
+                0x00484000                ___crt_xl_start__ = .
+ *(SORT(.CRT$XL*))
+                0x00484000                ___crt_xp_start__ = .
+ *(SORT(.CRT$XP*))
+                0x00484000                ___crt_xp_end__ = .
+                0x00484000                ___crt_xt_start__ = .
+ *(SORT(.CRT$XT*))
+                0x00484000                ___crt_xt_end__ = .
+
+.tls            0x00484000        0x0
+                0x00484000                ___tls_start__ = .
+ *(.tls)
+ *(.tls$)
+ *(SORT(.tls$*))
+                0x00484000                ___tls_end__ = .
+
+.endjunk        0x00484000        0x0
+                0x00484000                PROVIDE (end, .)
+                0x00484000                PROVIDE (_end, .)
+                0x00484000                __end__ = .
+
+.rsrc
+ *(.rsrc)
+ *(SORT(.rsrc$*))
+
+.reloc
+ *(.reloc)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_ranges
+ *(.debug_ranges)
+OUTPUT(globalwi.exe pei-i386)

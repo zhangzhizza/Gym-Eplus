@@ -1,0 +1,5 @@
+!xform rads/mat_PC.rad
+
+void alias Keyboard_material Color_006
+!xform -n group rads/ob_PC/group.rad
+!xform -n group06 rads/ob_PC/group06.rad

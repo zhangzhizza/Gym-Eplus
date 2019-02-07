@@ -1,0 +1,12 @@
+#
+# A VDT display, switched off
+# Taken from NYT model
+
+!xform -t 0 0 12 -rz 90 -t 4 60 30 VDThead.rad VDTscreen_off.rad
+
+!genbox VDT_plastic base 8 8.5 1 -r .25 | xform -t -4 -5 0 -rz 90 -t 4 60 30
+
+!genbox VDT_plastic base_support 2 1 9.75 | xform -t -1 -.5 1 -rz 90 -t 4 60 30
+
+!genbox VDT_plastic support_side .5 1 1.5 \
+	| xform -t -1 -.5 10.75 -a 2 -t 1.5 0 0 -i 1 -rz 90 -t 4 60 30

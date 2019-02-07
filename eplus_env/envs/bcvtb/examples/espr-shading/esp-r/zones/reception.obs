@@ -1,0 +1,15 @@
+# site obstruction file defined in ../zones/reception.obs
+# associated with zone geometry file ../zones/reception.geo
+ 0. 0.   # dummy values for site position
+    8    # no obstruction blocks
+# origin  X   Y   Z   width   depth   height  angle  descr  matr
+   -4.900   -7.000    0.000    5.800    1.000    2.950    0.000  blk_1    extern_wall  # block  1
+    1.200   -7.000    0.000    3.600    1.000    2.950    0.000  blk_2    extern_wall  # block  2
+    5.200   -7.000    0.000    3.600    1.000    2.950    0.000  blk_3    extern_wall  # block  3
+    9.100   -7.000    0.000   10.800    1.000    2.950    0.000  blk_4    extern_wall  # block  4
+   -4.900   -7.000    3.100    5.800    1.000    2.900    0.000  xblk_1   extern_wall  # block  5
+    1.200   -7.000    3.100    3.600    1.000    2.900    0.000  xblk_2   extern_wall  # block  6
+    5.200   -7.000    3.100    3.600    1.000    2.900    0.000  xblk_3   extern_wall  # block  7
+    9.100   -7.000    3.100   10.800    1.000    2.900    0.000  xblk_4   extern_wall  # block  8
+# grid opq X  opq Z
+    20    20

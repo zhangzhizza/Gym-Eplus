@@ -1,0 +1,35 @@
+Notes on basic 3 zone building:
+
+This set of files is an example of a basic multi-zone
+building  representation.  There are several variant
+configurations in this directory which add in additional
+assessment details.
+
+The problem comprises the following files.
+
+    file                       description
+____________________________________________________________
+cfg/bld_basic.cfg        problem configuration file defining a basic
+                         3 zone model.
+ctl/bld_basic.ctl        configuration control file defining convective
+                         heating and ideal control for zones 1 & 2.
+
+zones/reception.opr      zone schedules.
+zones/office.opr
+zones/roof_space.opr
+
+zones/reception.geo      zone geometry.
+zones/office.geo
+zones/roof_space.geo
+
+zones/reception.con      zone constructions.
+zones/office.con
+zones/roof_space.con
+
+zones/reception.tmc      zone TMC files.
+zones/office.tmc        
+
+_________
+IPV reports which are generated from
+basic.ipv are included in winter.txt, spring.txt and summer.txt.
+ 

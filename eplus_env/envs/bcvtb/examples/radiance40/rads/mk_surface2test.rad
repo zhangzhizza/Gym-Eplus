@@ -1,0 +1,12 @@
+# the mkilum surface of the EC room window
+
+void polygon mk_surface
+0
+0
+12      1  	3.0	110.5
+	118	3.0     110.5
+	118	3.0	6
+	1	3.0	6 
+
+
+

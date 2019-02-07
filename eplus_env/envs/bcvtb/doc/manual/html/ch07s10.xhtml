@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>7.10. Linking a simulation program to the BCVTB</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="development.xhtml" title="Chapter 7. Development"/><link rel="prev" href="ch07s09.xhtml" title="7.9. Adding actors"/><link rel="next" href="ch07s11.xhtml" title="7.11. Data exchange between Ptolemy II and programs that are started by the Simulator actor"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7.10. Linking a simulation program to the BCVTB</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch07s09.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 7. Development</th><td width="20%" align="right"> <a accesskey="n" href="ch07s11.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="development.xhtml">Development</a></span> &gt; <span class="breadcrumb-node">Linking a simulation program to the BCVTB</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="d5e3005"/>7.10. Linking a simulation program to the BCVTB</h2></div></div></div>
+   
+   <p>
+     This section describes an example that illustrates how to link a simulation program to the BCVTB in such a way that they exchange data at a fixed time step through a BSD socket connection. We will consider a system with two rooms. Each room has a heater that is controlled by a proportional controller. We will implement the simulation program for the two rooms in a C program, and we will link it to a controller that is implemented in Ptolemy II. 
+   </p>
+   <p>
+     Let 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <mi>k</mi><mo>∈</mo><mi>{1, 2, ...}</mi>
+     </math>
+     denote equally spaced time steps and let
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <mi>i</mi><mo>∈</mo><mi>{1, 2}</mi>
+     </math> denote the number of the room. For the 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <mi>k</mi>
+     </math>-th time step and the room number 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <mi>i</mi>
+     </math>,
+     let 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <msup>
+	 <mi>T</mi>
+	 <mi>i</mi>
+       </msup>
+       <mrow>
+	 <mo maxsize="1.00em">(</mo>
+	 <mi>k</mi>
+	 <mo maxsize="1.00em">)</mo>
+       </mrow>
+     </math>
+     denote the room temperature and let 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msup>
+	<mi>u</mi>
+	<mi>i</mi>
+      </msup>
+      <mrow>
+	<mo>(</mo>
+	<mi>k</mi>
+	<mo>)</mo>
+      </mrow>
+     </math>
+     denote the control signal for the heater. The room temperature is governed by
+     </p><div class="informalequation">
+       <math xmlns="http://www.w3.org/1998/Math/MathML">
+	 <mrow>
+	   <msup>
+	     <mi>T</mi>
+	     <mi>i</mi>
+	   </msup>
+	   <mrow>
+	     <mo maxsize="1.00em">(</mo>
+	     <mi>k</mi>
+	     <mo>+</mo>
+	     <mn>1</mn>
+	     <mo maxsize="1.00em">)</mo>
+	   </mrow>
+	   <mo>=</mo>
+	   <msup>
+	     <mi>T</mi>
+	     <mi>i</mi>
+	   </msup>
+	   <mrow>
+	     <mo maxsize="1.00em">(</mo>
+	     <mi>k</mi>
+	     <mo maxsize="1.00em">)</mo>
+	   </mrow>
+	   <mo>+</mo>
+	   <mfrac linethickness="1">
+	     <mrow>
+	       <mi>Δ</mi>
+	       <mi>t</mi>
+	     </mrow>
+	     <mrow>
+	       <msup>
+		 <mi>C</mi>
+		 <mi>i</mi>
+	       </msup>
+	     </mrow>
+	   </mfrac>
+	   <mspace width="0.167em"/>
+	   <msup>
+	     <mrow>
+	       <mo maxsize="1.00em">(</mo>
+	       <mi>U</mi>
+	       <mi>A</mi>
+	       <mo maxsize="1.00em">)</mo>
+	     </mrow>
+	     <mi>i</mi>
+	   </msup>
+	   <mspace width="0.167em"/>
+	   <mrow>
+	     <mo maxsize="1.00em">(</mo>
+	     <msub>
+	       <mi>T</mi>
+	       <mrow>
+		 <mi>o</mi>
+		 <mi>u</mi>
+		 <mi>t</mi>
+	       </mrow>
+	     </msub>
+	     <mo>-</mo>
+	     <msup>
+	       <mi>T</mi>
+	       <mi>i</mi>
+	     </msup>
+	     <mo maxsize="1.00em">(</mo>
+	     <mi>k</mi>
+	     <mo maxsize="1.00em">)</mo>
+	     <mo maxsize="1.00em">)</mo>
+	   </mrow>
+	   <mo>+</mo>
+	   <mfrac linethickness="1">
+	     <mrow>
+	       <mi>Δ</mi>
+	       <mi>t</mi>
+	     </mrow>
+	     <mrow>
+	       <msup>
+		 <mi>C</mi>
+		 <mi>i</mi>
+	       </msup>
+	     </mrow>
+	   </mfrac>
+	   <mspace width="0.167em"/>
+	   <msubsup>
+	     <mi>Q</mi>
+	     <mn>0</mn>
+	     <mi>i</mi>
+	   </msubsup>
+	   <mspace width="0.167em"/>
+	   <msup>
+	     <mi>u</mi>
+	     <mi>i</mi>
+	   </msup>
+	   <mrow>
+	     <mo maxsize="1.00em">(</mo>
+	     <mi>k</mi>
+	     <mo maxsize="1.00em">)</mo>
+	   </mrow>
+	   <mo>,</mo>
+	 </mrow>
+       </math>
+     </div><p>
+     with initial conditions
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <msup>
+	 <mi>T</mi>
+	 <mi>i</mi>
+       </msup>
+       <mrow>
+	 <mo maxsize="1.00em">(</mo>
+	 <mn>0</mn>
+	 <mo maxsize="1.00em">)</mo>
+       </mrow>
+       <mo>=</mo>
+       <msubsup>
+	 <mi>T</mi>
+	 <mn>0</mn>
+	 <mi>i</mi>
+       </msubsup>
+       <mo>,</mo>
+     </math>
+     where 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <mi>Δ t</mi>
+     </math>
+     is the time interval, 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <msup>
+	 <mi>C</mi><mi>i</mi>
+       </msup>
+     </math>
+     is the room thermal capacity, 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <msup>
+	 <mi>(UA)</mi><mi>i</mi>
+       </msup>
+     </math>
+     is the room heat loss coefficient, 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <msub>
+	 <mi>T</mi><mi>out</mi>
+       </msub>
+     </math>
+     is the outside temperature, 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <msubsup>
+	 <mi>Q</mi><mi>0</mi><mi>i</mi>
+       </msubsup>
+     </math>
+     is the nominal capacity of the heater and 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <msubsup>
+	 <mi>T</mi><mi>0</mi><mi>i</mi>
+       </msubsup>
+     </math>
+     is the initial temperature. In these equations, we assumed that the communication time step is small enough to be used as the integration time step. If this is not the case, we could use a different integration time step and synchronize the integration time step with the communication time step.
+   </p>
+   <p>
+     The governing equation for the control signal is
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <mrow>
+	 <msup>
+	   <mi>u</mi>
+	   <mi>i</mi>
+	 </msup>
+	 <mrow>
+	   <mo maxsize="1.00em">(</mo>
+	   <mi>k</mi>
+	   <mo>+</mo>
+	   <mn>1</mn>
+	   <mo maxsize="1.00em">)</mo>
+	 </mrow>
+	 <mo>=</mo>
+	 <mi>min</mi>
+	 <mo minsize="1.50em">(</mo>
+	 <mn>1</mn>
+	 <mo>,</mo>
+	 <mspace width="0.167em"/>
+	 <mi>max</mi>
+	 <mo minsize="1.3em">(</mo>
+	 <mn>0</mn>
+	 <mo>,</mo>
+	 <mspace width="0.167em"/>
+	 <msup>
+	   <mi>γ</mi>
+	   <mi>i</mi>
+	 </msup>
+	 <mspace width="0.167em"/>
+	 <mrow>
+	   <mo maxsize="1.00em">(</mo>
+	   <msubsup>
+	     <mi>T</mi>
+	     <mrow>
+	       <mi>s</mi>
+	       <mi>e</mi>
+	       <mi>t</mi>
+	     </mrow>
+	     <mi>i</mi>
+	   </msubsup>
+	   <mo>-</mo>
+	   <msup>
+	     <mi>T</mi>
+	     <mi>i</mi>
+	   </msup>
+	   <mo maxsize="1.00em">(</mo>
+	   <mi>k</mi>
+	   <mo maxsize="1.00em">)</mo>
+	   <mo maxsize="1.00em">)</mo>
+	 </mrow>
+	 <mo minsize="1.3em">)</mo>
+	 <mo minsize="1.50em">)</mo>
+	 <mo>,</mo>
+       </mrow>
+     </math>
+     where 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <msup>
+	 <mi>γ</mi><mi>i</mi>
+       </msup>
+       <mo minsize="1.50em">&gt;</mo>
+       <mi>0</mi>
+     </math>
+     is the proportional gain, 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <msubsup>
+	 <mi>T</mi><mi>set</mi><mi>i</mi>
+       </msubsup>
+     </math>
+     is the set point temperature and the 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <mi>min</mi>
+       <mo>(</mo>
+       <mo>⋅</mo>
+       <mo>,</mo>
+       <mo>⋅</mo>
+       <mo>)</mo>
+     </math>
+     and
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <mi>max</mi>
+       <mo>(</mo>
+       <mo>⋅</mo>
+       <mo>,</mo>
+       <mo>⋅</mo>
+       <mo>)</mo>
+     </math>
+     functions limit the control signal between 
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <mi>0</mi>
+     </math>
+     and
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <mi>1</mi>
+     </math>.
+   </p>
+   <p>
+     <a class="xref" href="ch07s10.xhtml#exaRooCSou" title="Figure 7.1. Source code for a model of two rooms that is implemented in the C language.">Figure 7.1</a> shows a source code snippet of the implemented client. This source code can be found in the directory <code class="code">bcvtb/examples/c-room</code>. A similar implementation in Fortran 90 can be found in the directory <code class="code">bcvtb/examples/f90-room</code>.
+     </p><div class="figure"><a id="exaRooCSou"/><p class="title"><strong>Figure 7.1. Source code for a model of two rooms that is implemented in the C language.</strong></p><div class="figure-contents">
+       <pre class="programlisting">  1 // Establish the client socket
+      const int sockfd = establishclientsocket("socket.cfg");
+      if (sockfd &lt; 0){
+        fprintf(stderr,"Error: Failed to obtain socket file descriptor.\n");
+  5     exit((sockfd)+100);  }
+      // Simulation loop
+      while(1){
+        // assign values to be exchanged
+        for(i=0; i &lt; nDblWri; i++)  dblValWri[i]=TRoo[i];
+ 10     // Exchange values
+         retVal = exchangedoubleswithsocket(&amp;sockfd, &amp;flaWri, &amp;flaRea,
+    				       &amp;nDblWri, &amp;nDblRea,
+    				       &amp;simTimWri, dblValWri, 
+    				       &amp;simTimRea, dblValRea);
+ 15     /////////////////////////////////////////////////////////////
+        // Check flags
+        if (retVal &lt; 0){
+          sendclientmessage(&amp;sockfd, &amp;cliErrFla);
+          printf("Simulator received value %d from socket.\n", retVal);
+ 20       closeipc(&amp;sockfd);    exit((retVal)+100);  }
+        if (flaRea == 1){
+          printf("Simulator received end of simulation signal.\n");
+          closeipc(&amp;sockfd);    exit(0);  }
+        if (flaRea != 0){
+ 25       printf("Simulator received flag = %d. Exit simulation.\n", flaRea);
+          closeipc(&amp;sockfd);    exit(1);  }
+        /////////////////////////////////////////////////////////////
+        // No flags found that require the simulation to terminate. 
+        // Assign exchanged variables
+ 30     for(i=0; i &lt; nRoo; i++)
+          u[i] = dblValRea[i];
+        /////////////////////////////////////////////////////////////
+        // Having obtained u_k, we compute the new state x_k+1 = f(u_k).
+        // This is the actual simulation time step of the client
+ 35     for(i=0; i &lt; nRoo; i++)
+          TRoo[i] = TRoo[i] + delTim/C[i] * ( UA * (TOut-TRoo[i] ) 
+                    + Q0Hea * u[i] );
+        simTimWri += delTim; // advance simulation time
+      } // end of simulation loop</pre>
+       
+     </div></div><p><br class="figure-break"/>
+     There are three functions that interface the client with the BCVTB: The function call 
+     <code class="code">establishclientsocket</code> establishes the socket connection from the client to the middleware. The return value is an integer that references the socket. This descriptor is then used on line 11 as an argument to the function call <code class="code">exchangedoubleswithsocket</code>. This function writes data to the socket and reads data from the socket. Its arguments are the socket file descriptor, a flag to send a signal to the middleware (a non-zero value means that the client will stop its simulation) and a flag received from the middleware (a non-zero value indicates that no further values will be written to or read from the socket by the client). The remaining arguments are the array lengths and the array data to be written to and read from the middleware. After the call to 
+     <code class="code">exchangedoubleswithsocket</code> follows error handling. 
+     The test <code class="code">retVal &lt; 0</code> checks for errors during the communication. 
+     If there was an error, then a message is sent to the server to indicate that the client will terminate the co-simulation. Finally, the socket connection is closed by calling <code class="code">closeipc</code>.
+   </p>
+   <p>
+     To compile the source code,  type on a command shell
+   </p>
+   <pre class="screen">cd bcvtb/examples/c-room
+ant all</pre>
+   <p>
+     This will invoke the ant build system, which calls the file <code class="code">bcvtb/examples/c-room/build.xml</code> that contains the compiler and linker commands.
+   </p>
+   <p>
+     To simulate this example, we implemented the controller directly in the middleware, using actors from the Ptolemy II library. 
+     However, the controller could as well be implemented in Modelica, MATLAB, Simulink or in a user written program that communicates through a BSD socket similarly to the C client above. 
+     <a class="xref" href="ch07s10.xhtml#figDevCRoom" title="Figure 7.2.  Ptolemy II system model that connects a model of a controller and a room.">Figure 7.2</a> shows the system diagram with the actor for the controller and the actor that interfaces the simulation program.
+   </p>
+   <p>
+     </p><div class="figure"><a id="figDevCRoom"/><p class="title"><strong>Figure 7.2. 
+	 Ptolemy II system model that connects a model of a controller and a room.
+       </strong></p><div class="figure-contents">
+       <div class="mediaobject"><img src="img/devCRoom.png" width="780" alt="Ptolemy II system model that connects a model of a controller and a room."/></div>
+       
+     </div></div><p><br class="figure-break"/>
+   </p>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch07s09.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="development.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="ch07s11.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">7.9. Adding actors </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 7.11. Data exchange between Ptolemy II and programs that are started by the Simulator actor</td></tr></table></div></body></html>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="bacnet-stack" default="build" xmlns:cpptasks="antlib:net.sf.antcontrib.cpptasks">
+    <import file="../../build-common.xml"/>
+
+    <!--import file="bacnet-stack.xml"/-->
+    <condition property="bindir" value="bin-linux">
+        <os name="Linux"/>
+    </condition>
+    <condition property="bindir" value="bin-windows">
+        <os family="windows"/>
+    </condition>
+    <condition property="BACNET_PORT" value="linux">
+        <os name="Linux"/>
+    </condition>
+    <condition property="BACNET_PORT" value="win32">
+        <os family="windows"/>
+    </condition>
+    <condition property="extension" value="">
+        <os name="Linux"/>
+    </condition>
+    <condition property="extension" value="">
+        <os family="windows"/>
+    </condition>
+    <condition property="NoMac" value="true">
+        <or> 
+            <os name="Linux"/>
+            <os family="windows"/>
+       </or>
+    </condition>
+     <condition property="Linux" value="true">
+      	    <os name="Linux"/>
+    </condition>
+    <condition property="windows" value="true">
+      	    <os family="windows"/>
+    </condition>
+    <!--User should change the following parameter according to specific needs -->
+    <property name="BACDL_DEFINE"  value="-DBACDL_BIP=1"/>
+    <!--property name="BACDL_DEFINE"  value="-DBACDL_ETHERNET=1"/-->
+    <!--property name="BACDL_DEFINE"  value="-DBACDL_ARCNET=1"/-->
+    <!--property name="BACDL_DEFINE"  value="-DBACDL_MSTP=1"/-->
+    <!--Clean-->
+    <target name="clean" description="Delete generated files">
+        <delete verbose="true">
+            <fileset dir=".">
+	      <include name="**/history.xml"/>
+	    </fileset>
+            <fileset dir="bin-linux"   includes="*"/>
+            <fileset dir="bin-windows" includes="*"/>
+	    <fileset dir="src" includes="*.o,*.obj"/>
+            <fileset dir="demo/handler" includes="*.o,*.obj"/>
+            <fileset dir="demo/object" includes="*.o,*.obj"/>
+            <fileset dir="ports/linux" includes="*.o,*.obj"/>
+            <fileset dir="ports/win32" includes="*.o,*.obj"/>
+            <fileset dir="lib" includes="*,o,*.a,*.so,*.lib"/>
+            <fileset dir="demo/bcvtb" includes="*.o,*.obj"/>
+       </delete>
+    </target>
+
+    <!--Compile
+       The BACnet interface is only supported on Windows and on Linux.
+       It has not been ported to Mac OS X.
+      -->
+
+    <target name="compile" if="NoMac" description="Compiles the source">
+        <cpptasks:cc runtime="static" objdir="src">
+	    <cpptasks:compiler name="${cc}"/>
+	    <compilerarg value="-c" if="Linux"/>
+ 	    <compilerarg value="-Wall" if="Linux"/>
+	    <compilerarg value="-Os" if="Linux"/>
+ 	    <compilerarg value="-DBACFILE=1"/>
+            <compilerarg value="-DPRINT_ENABLED=1"/>
+            <compilerarg value="-DBACAPP_ALL"/>
+            <compilerarg value="${BACDL_DEFINE}"/>
+	    <fileset dir="src" includes="apdu.c"/>
+	    <fileset dir="src" includes="npdu.c"/>
+            <fileset dir="src" includes="bacdcode.c"/>
+            <fileset dir="src" includes="bacint.c"/>
+            <fileset dir="src" includes="bacreal.c"/>
+            <fileset dir="src" includes="bacstr.c"/>
+            <fileset dir="src" includes="bacapp.c"/>
+            <fileset dir="src" includes="bacprop.c"/>
+            <fileset dir="src" includes="bactext.c"/>
+            <fileset dir="src" includes="datetime.c"/>
+            <fileset dir="src" includes="indtext.c"/>
+            <fileset dir="src" includes="debug.c"/>
+            <fileset dir="src" includes="bigend.c"/>	  
+            <fileset dir="src" includes="arf.c"/>
+            <fileset dir="src" includes="awf.c"/>
+            <fileset dir="src" includes="cov.c"/>  
+            <fileset dir="src" includes="dcc.c"/>
+            <fileset dir="src" includes="iam.c"/>
+            <fileset dir="src" includes="ihave.c"/>
+            <fileset dir="src" includes="rd.c"/>
+            <fileset dir="src" includes="rp.c"/>
+            <fileset dir="src" includes="rpm.c"/>
+            <fileset dir="src" includes="timesync.c"/>
+            <fileset dir="src" includes="whohas.c"/>
+            <fileset dir="src" includes="whois.c"/>
+            <fileset dir="src" includes="wp.c"/>
+            <fileset dir="src" includes="abort.c"/>
+            <fileset dir="src" includes="reject.c"/>
+            <fileset dir="src" includes="bacerror.c"/>
+            <fileset dir="src" includes="ptransfer.c"/>
+            <fileset dir="src" includes="memcopy.c"/>
+            <fileset dir="src" includes="filename.c"/>
+            <fileset dir="src" includes="tsm.c"/>
+            <fileset dir="src" includes="bacaddr.c"/>
+            <fileset dir="src" includes="address.c"/>
+            <fileset dir="src" includes="version.c"/>
+            <includepath path="include"/>
+            <includepath path="ports/${BACNET_PORT}"/>  
+            <includepath path="demo/object"/>
+            <includepath path="demo/handler"/>   
+        </cpptasks:cc>
+ 
+     <cpptasks:cc runtime="static" objdir="demo/handler">
+	     <cpptasks:compiler name="${cc}"/>
+            <compilerarg value="-c" if="Linux"/>
+            <compilerarg value="-Wall" if="Linux"/>
+            <compilerarg value="-Os" if="Linux"/>
+            <compilerarg value="-DBACFILE=1"/>
+            <compilerarg value="-DPRINT_ENABLED=1"/>
+            <compilerarg value="-DBACAPP_ALL"/>
+            <compilerarg value="${BACDL_DEFINE}"/>
+            <fileset dir="demo/handler" includes="dlenv.c"/>
+            <fileset dir="demo/handler" includes="txbuf.c"/>
+            <fileset dir="demo/handler" includes="noserv.c"/>
+            <fileset dir="demo/handler" includes="h_npdu.c"/>
+            <fileset dir="demo/handler" includes="h_whois.c"/>
+            <fileset dir="demo/handler" includes="h_iam.c"/>
+            <fileset dir="demo/handler" includes="h_rp.c"/>
+            <fileset dir="demo/handler" includes="h_rp_a.c"/>
+            <fileset dir="demo/handler" includes="h_rpm.c"/>
+            <fileset dir="demo/handler" includes="h_rpm_a.c"/>
+            <fileset dir="demo/handler" includes="h_wp.c"/>
+            <fileset dir="demo/handler" includes="h_arf.c"/>
+            <fileset dir="demo/handler" includes="h_arf_a.c"/>
+            <fileset dir="demo/handler" includes="h_awf.c"/>
+            <fileset dir="demo/handler" includes="h_rd.c"/>
+            <fileset dir="demo/handler" includes="h_dcc.c"/>
+            <fileset dir="demo/handler" includes="h_ts.c"/>
+            <fileset dir="demo/handler" includes="h_whohas.c"/>
+            <fileset dir="demo/handler" includes="h_ihave.c"/>
+            <fileset dir="demo/handler" includes="h_cov.c"/>
+            <fileset dir="demo/handler" includes="h_ucov.c"/>
+            <fileset dir="demo/handler" includes="h_pt.c"/>
+            <fileset dir="demo/handler" includes="h_pt_a.c"/>
+            <fileset dir="demo/handler" includes="h_upt.c"/>
+            <fileset dir="demo/handler" includes="s_arfs.c"/>
+            <fileset dir="demo/handler" includes="s_awfs.c"/>
+            <fileset dir="demo/handler" includes="s_dcc.c"/>
+            <fileset dir="demo/handler" includes="s_ihave.c"/>
+            <fileset dir="demo/handler" includes="s_iam.c"/>
+            <fileset dir="demo/handler" includes="s_cov.c"/>
+            <fileset dir="demo/handler" includes="s_rd.c"/>
+            <fileset dir="demo/handler" includes="s_rp.c"/>
+            <fileset dir="demo/handler" includes="s_rpm.c"/>
+            <fileset dir="demo/handler" includes="s_ts.c"/>
+            <fileset dir="demo/handler" includes="s_cevent.c"/>
+            <fileset dir="demo/handler" includes="s_uevent.c"/>
+            <fileset dir="demo/handler" includes="s_whohas.c"/>
+            <fileset dir="demo/handler" includes="s_whois.c"/>
+            <fileset dir="demo/handler" includes="s_router.c"/>
+            <fileset dir="demo/handler" includes="s_upt.c"/>
+            <fileset dir="demo/handler" includes="s_wp.c"/>
+            <includepath path="include"/>
+            <includepath path="ports/${BACNET_PORT}"/>
+            <includepath path="demo/object"/>
+            <includepath path="demo/handler"/> 
+        </cpptasks:cc>
+    
+        <cpptasks:cc runtime="static" objdir="demo/object">
+	<cpptasks:compiler name="${cc}"/>
+            <compilerarg value="-c" if="Linux"/>
+            <compilerarg value="-Wall" if="Linux"/>
+            <compilerarg value="-Os" if="Linux"/>
+            <compilerarg value="-DBACFILE=1"/>
+            <compilerarg value="-DPRINT_ENABLED=1"/>
+            <compilerarg value="-DBACAPP_ALL"/>
+            <compilerarg value="${BACDL_DEFINE}"/>
+            <fileset dir="demo/object" includes="device.c"/>
+            <fileset dir="demo/object" includes="ai.c"/>
+            <fileset dir="demo/object" includes="ao.c"/>
+            <fileset dir="demo/object" includes="av.c"/>
+            <fileset dir="demo/object" includes="bi.c"/> 
+            <fileset dir="demo/object" includes="bo.c"/> 
+            <fileset dir="demo/object" includes="bv.c"/> 
+            <fileset dir="demo/object" includes="lc.c"/> 
+            <fileset dir="demo/object" includes="lsp.c"/>
+            <fileset dir="demo/object" includes="mso.c"/>
+            <fileset dir="demo/object" includes="bacfile.c"/>  
+            <includepath path="include"/>
+            <includepath path="ports/${BACNET_PORT}"/>
+            <includepath path="demo/object"/>
+            <includepath path="demo/handler"/>    
+        </cpptasks:cc>
+ 
+      
+        <cpptasks:cc runtime="static" objdir="src">
+		<cpptasks:compiler name="${cc}"/>
+            <compilerarg value="-c" if="Linux"/>
+            <compilerarg value="-Wall" if="Linux"/>
+            <compilerarg value="-Os" if="Linux"/>
+            <compilerarg value="-DBACFILE=1"/>
+            <compilerarg value="-DPRINT_ENABLED=1"/>
+            <compilerarg value="-DBACAPP_ALL"/>
+            <compilerarg value="${BACDL_DEFINE}"/>
+            <fileset dir="src" includes="mstp.c"/>
+            <fileset dir="src" includes="mstptext.c"/>
+            <fileset dir="src" includes="crc.c"/>
+            <fileset dir="src" includes="bvlc.c"/>
+            <fileset dir="src" includes="bip.c"/>
+            <includepath path="include"/>
+            <includepath path="ports/${BACNET_PORT}"/>
+            <includepath path="demo/object"/>
+            <includepath path="demo/handler"/> 
+    	</cpptasks:cc>
+
+   	<cpptasks:cc runtime="static" objdir="ports/${BACNET_PORT}">
+		<cpptasks:compiler name="${cc}"/>
+            <compilerarg value="-c" if="Linux"/>
+            <compilerarg value="-Wall" if="Linux"/>
+            <compilerarg value="-Os" if="Linux"/>
+            <compilerarg value="-DBACFILE=1"/>
+            <compilerarg value="-DPRINT_ENABLED=1"/>
+            <compilerarg value="-DBACAPP_ALL"/>
+            <compilerarg value="${BACDL_DEFINE}"/>
+	    <fileset dir="ports/${BACNET_PORT}" includes="arcnet.c"/>
+	    <fileset dir="ports/${BACNET_PORT}" includes="rs485.c"/>	
+	    <fileset dir="ports/${BACNET_PORT}" includes="dlmstp.c"/>
+	    <fileset dir="ports/${BACNET_PORT}" includes="bip-init.c"/>
+            <includepath path="include"/>
+            <includepath path="ports/${BACNET_PORT}"/>
+            <includepath path="demo/object"/>
+            <includepath path="demo/handler"/> 
+        </cpptasks:cc>
+    </target>
+
+    <!--Link-->
+    <target name="link" if="NoMac" depends="compile" description="Links the binaries">
+        <cpptasks:cc runtime="static" outtype="static" outfile="lib/bacnet">
+	    <cpptasks:linker name="${cc}"/>
+	    <fileset dir="src" includes="*.o" if="Linux"/>
+            <fileset dir="src" includes="*.obj" if="windows"/>
+	    <fileset dir="ports/${BACNET_PORT}" includes="*.o" if="Linux"/>
+	    <fileset dir="ports/${BACNET_PORT}" includes="*.obj" if="windows"/>
+	    <fileset dir="demo/handler" includes="*.o" if="Linux"/>
+	    <fileset dir="demo/handler" includes="*.obj" if="windows"/>
+	    <fileset dir="demo/object" includes="*.o" if="Linux"/>
+	    <fileset dir="demo/object" includes="*.obj" if="windows"/>
+        </cpptasks:cc>
+    </target>
+
+    <!--Compile Binaries-->
+    <target name="compileBinary" if="NoMac" depends="link" description="Compile the binaries for use in bcvtb">
+        <cpptasks:cc runtime="static" objdir="demo/bcvtb">
+	    <cpptasks:compiler name="${cc}"/>
+            <compilerarg value="-c" if="Linux"/>
+            <compilerarg value="-Wall" if="Linux"/>
+            <compilerarg value="-Os" if="Linux"/>
+            <compilerarg value="-DBACFILE=1"/>
+            <compilerarg value="-DPRINT_ENABLED=1"/>
+            <compilerarg value="-DBACAPP_ALL"/>
+            <compilerarg value="${BACDL_DEFINE}"/>
+            <fileset dir="demo/bcvtb" includes="*.c"/>
+            <includepath path="include"/>
+            <includepath path="ports/${BACNET_PORT}"/>
+        </cpptasks:cc>
+    </target>
+
+    <!--Build Binaries globalwi, bacrp and bacwp -->
+    <target name="buildBinary" if="NoMac" depends="compileBinary" description="Build the binaries for use in bcvtb">
+        <cpptasks:cc outtype="executable" subsystem="console" outfile="${bindir}/globalwi${extension}">
+	  <cpptasks:linker name="${cc}"/>
+	    <linkerarg value="../demo/bcvtb/globalwi.obj" if="windows"/>
+	    <linkerarg value="../demo/bcvtb/globalwi.o" if="Linux"/>
+	    <linkerarg value="-lc" if="Linux"/>
+	    <linkerarg value="-lbacnet" if="Linux"/>
+            <linkerarg value="-lgcc" if="Linux"/>
+            <linkerarg value="-lm" if="Linux"/>
+            <libset dir="lib" libs="bacnet"/>
+	    <!-- There is a bug in ant which causes the build.xml file to not work when the hardwired path is replaced by ${BCVTB_SDKLib_DIR}-->
+	    <!-- Rather than expanding ${BCVTB_SDKLib_DIR}, the build.xml file adds the path to the working directory to ${BCVTB_SDKLib_DIR}. This causes -->
+	    <!-- the build.xml file to not longer find the path to the Lib. The work-around is currently to hardwired the path in the build.xml file. -->
+	    <!-- <libset dir="C:\Program Files\Microsoft SDKs\Windows\v7.0A\Lib" libs="${BCVTB_SDKLibs}" if="windows"/> -->
+	    <libset dir="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Lib\x64" libs="${BCVTB_SDKLibs}" if="windows"/> 
+	</cpptasks:cc>
+
+        <cpptasks:cc outtype="executable" subsystem="console" outfile="${bindir}/bacrp${extension}">
+	  <cpptasks:linker name="${cc}"/>
+	    <linkerarg value="../demo/bcvtb/bacrp.obj" if="windows"/>
+	    <linkerarg value="../demo/bcvtb/bacrp.o" if="Linux"/>
+	    <linkerarg value="-lc" if="Linux"/>
+	    <linkerarg value="-lbacnet" if="Linux"/>
+	    <linkerarg value="-lgcc" if="Linux"/>
+            <linkerarg value="-lm" if="Linux"/>
+            <libset dir="lib" libs="bacnet"/>
+	    <!-- There is a bug in ant which causes the build.xml file to not work when the hardwired path is replaced by ${BCVTB_SDKLib_DIR}-->
+	    <!-- Rather than expanding ${BCVTB_SDKLib_DIR}, the build file adds the path to the working directory to ${BCVTB_SDKLib_DIR}. This causes -->
+	    <!-- the build.xml file to not longer find the path to the Lib. The work-around is currently to hardwired the path in the build.xml file. -->
+	    <!-- <libset dir="C:\Program Files\Microsoft SDKs\Windows\v7.0A\Lib" libs="${BCVTB_SDKLibs}" if="windows"/> -->
+	    <libset dir="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Lib\x64" libs="${BCVTB_SDKLibs}" if="windows"/> 
+        </cpptasks:cc>
+        <cpptasks:cc outtype="executable" subsystem="console" outfile="${bindir}/bacwp${extension}">
+	  <cpptasks:linker name="${cc}"/>
+	    <linkerarg value="../demo/bcvtb/bacwp.obj" if="windows"/>
+	    <linkerarg value="../demo/bcvtb/bacwp.o" if="Linux"/>
+	    <linkerarg value="-lc" if="Linux"/>
+	    <linkerarg value="-lbacnet" if="Linux"/>
+	    <linkerarg value="-lgcc" if="Linux"/>
+            <linkerarg value="-lm" if="Linux"/>
+            <libset dir="lib" libs="bacnet"/>
+	    <!-- There is a bug in ant which causes the build.xml file to not work when the hardwired path is replaced by ${BCVTB_SDKLib_DIR}-->
+	    <!-- Rather than expanding ${BCVTB_SDKLib_DIR}, the build file adds the path to the working directory to ${BCVTB_SDKLib_DIR}. This causes -->
+	    <!-- the build.xml file to not longer find the path to the Lib. The work-around is currently to hardwired the path in the build.xml file. -->
+	    <!-- <libset dir="C:\Program Files\Microsoft SDKs\Windows\v7.0A\Lib" libs="${BCVTB_SDKLibs}" if="windows"/> -->
+	    <libset dir="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Lib\x64" libs="${BCVTB_SDKLibs}" if="windows"/> 
+        </cpptasks:cc>
+    </target>
+    <!--Build-->
+    <target name="build" if="NoMac" depends="buildBinary" description="Builds the libraries"/>
+    <!--All-->
+    <target name="all"  if="NoMac" depends="build" description="Runs all targets"/>
+</project>

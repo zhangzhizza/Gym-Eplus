@@ -1,0 +1,32 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!-- xml schema file that is used to validate the configuration
+     of the BACnetReader and BACnetWriter.
+     This file is included in BACnetReader.xsd and in BACnetWriter.xsd
+  -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="BACnet" type="BACnetType"/>
+   <xs:complexType name="BACnetType">
+       <xs:sequence>
+          <xs:element name="Object" type="ObjectType" maxOccurs="1000"/>
+       </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="ObjectType">
+      <xs:sequence>
+         <xs:element name="PropertyIdentifier" type="PItype" minOccurs="0" maxOccurs="1000"/>
+         <xs:element name="Object" type="AnoObjectType" minOccurs="0" maxOccurs="1000"/>
+    </xs:sequence>
+    <xs:attribute name="Type"     type="xs:string" use="required" fixed="Device" />
+    <xs:attribute name="Instance" type="xs:integer" use="required"/>
+    </xs:complexType>
+
+   <xs:complexType name="AnoObjectType">
+       <xs:sequence>
+          <xs:element name="PropertyIdentifier" type="PItype" maxOccurs="1000"/>
+       </xs:sequence>
+       <xs:attribute name="Type"     type="xs:string" use="required"/>
+       <xs:attribute name="Instance" type="xs:integer" use="required"/>
+  </xs:complexType>
+
+</xs:schema>

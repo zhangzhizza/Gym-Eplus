@@ -1,0 +1,70 @@
+<project>
+  <import file="../build-common.xml"/>
+  <property name="src.dir"             value="src"/>
+  <property name="doc.dir"             value="javadoc"/>
+  <property name="build.dir"           value="build"/>
+  <property name="classes.dir"         value="${build.dir}${file.separator}classes"/>
+  <property name="jar.dir"             value="${build.dir}${file.separator}jar"/>
+  
+  <!-- clean -->
+  <target name="clean" depends="cleanTemp"
+	  description="Cleans all generated files">
+    <delete dir="${doc.dir}" />
+    <delete dir="${build.dir}" />
+  </target>
+
+  <target name="cleanTemp" description="Cleans temporary files">
+    <delete dir="${classes.dir}" />
+  </target>
+
+  <!-- all -->
+  <target name="all" depends="build" description="Runs all targets"/>
+
+  <!-- build -->
+  <target name="build" depends="compile, jar, doc, dist" description="Builds all"/>
+
+  <!-- compile -->
+  <target name="compile" description="Compiles the source code">
+     <mkdir dir="${build.dir}"/>
+     <mkdir dir="${classes.dir}"/>
+     <javac srcdir="${src.dir}" destdir="${classes.dir}" debug="${compile.debug}"
+	    includeAntRuntime="no">
+<!--          <compilerarg value="-g"/>  -->
+     </javac>
+  </target>
+
+  <!-- jar -->
+  <target name="jar" depends="compile" description="Builds runable jar file for the project">
+     <mkdir dir="${jar.dir}"/>
+    <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+    <manifest>
+        <attribute name="Built-By" value="${user.name}" />
+        <attribute name="Main-Class" value="${main-class}"/>
+    </manifest>
+    </jar>
+    <!-- Delete class files -->
+    <ant target="cleanTemp"/>
+  </target>
+
+ <!-- javadoc -->
+  <target name="doc" description="Builds the javadoc">
+     <mkdir dir="${doc.dir}"/>
+     <javadoc packagenames="config"
+              destdir="${doc.dir}"
+              failonerror="true">
+       <fileset dir="${src.dir}" defaultexcludes="yes">
+         <include name="**/*.java"/>
+       </fileset>
+     </javadoc>
+
+     </target>
+
+  <!-- distribute 
+    This task has been left empty. Java packages that require to copy files (such as a jar file)
+    can reimplement this task in their build.xml file -->
+  <target name="dist" description="Distributes the files">
+  </target>
+     
+</project>
+			
+				

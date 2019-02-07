@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Chapter 2. Introduction</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="prev" href="ch01s07.xhtml" title="1.7. Version 1.0.0"/><link rel="next" href="installation.xhtml" title="Chapter 3. Installation and configuration"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 2. Introduction</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch01s07.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="installation.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-node">Introduction</span></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="introduction"/>Chapter 2. Introduction</h1></div></div></div>
+ 
+ <p>
+  This user manual explains how to install, use and further
+  develop the BCVTB version 1.6.0.
+ </p>
+ <p>
+  The Building Controls Virtual Test Bed (BCVTB) is a
+  software environment that allows users to couple
+  different simulation programs for co-simulation. For
+  example, the BCVTB allows the simulation of a building and HVAC
+  system in EnergyPlus and the control logic in Modelica or in
+  MATLAB/Simulink, while exchanging data between the
+  software as they simulate. A system model for such a coupled
+  simulation is shown in <a class="xref" href="introduction.xhtml#ptolemyEPlusSimuMac" title="Figure 2.1.  System model that links EnergyPlus with Simulink.">Figure 2.1</a>.
+ </p>
+ <div class="figure"><a id="ptolemyEPlusSimuMac"/><p class="title"><strong>Figure 2.1. 
+	System model that links EnergyPlus with Simulink.
+      </strong></p><div class="figure-contents">
+  <div class="mediaobject"><img src="img/ptolemyEPlusSimuMac.png" alt="System model that links EnergyPlus with Simulink."/></div>
+  
+ </div></div><br class="figure-break"/>
+ <p>
+  The BCVTB is based on the
+  <a class="ulink" href="http://ptolemy.berkeley.edu/ptolemyII/index.htm" target="_top">
+   <em class="citetitle">Ptolemy II</em>
+  </a>
+  software environment that has been developed by the
+  University of California at Berkeley. The BCVTB is aimed
+  at expert users of simulation that hit limitations of
+  existing simulation programs.
+ </p>
+ <p>
+  Programs that are currently linked to the BCVTB are
+ </p>
+ <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+   <a class="ulink" href="http://www.energyplus.gov" target="_top">
+    <em class="citetitle">EnergyPlus,</em>
+   </a>
+  </li><li class="listitem">
+   <a class="ulink" href="http://www.dynasim.se" target="_top">
+    <em class="citetitle">Dymola,</em>
+   </a>
+	    which is a 
+	<a class="ulink" href="http://www.modelica.org" target="_top">
+    <em class="citetitle">Modelica</em>
+   </a>
+	    modeling and simulation environment,
+      </li><li class="listitem">
+   <a class="ulink" href="http://radsite.lbl.gov/radiance" target="_top">
+    <em class="citetitle">Radiance,</em>
+   </a>
+  </li><li class="listitem">
+   <a class="ulink" href="http://www.mathworks.com/products/matlab" target="_top">
+    <em class="citetitle">MATLAB,</em>
+   </a>
+  </li><li class="listitem">
+   <a class="ulink" href="http://www.mathworks.com/products/simulink/" target="_top">
+    <em class="citetitle">Simulink,</em>
+   </a>
+  </li><li class="listitem">
+   <a class="ulink" href="http://www.esru.strath.ac.uk/Programs/ESP-r.htm" target="_top">
+    <em class="citetitle">ESP-r,</em>
+   </a>
+  </li><li class="listitem">
+     <a class="ulink" href="http://www.trnsys.com/" target="_top">
+    <em class="citetitle">TRNSYS,</em>
+   </a>
+  </li><li class="listitem">
+   <a class="ulink" href="https://www.fmi-standard.org/start" target="_top">
+    <em class="citetitle">Functional Mock-up Units (FMU) for co-simulation,</em>
+   </a>
+  </li><li class="listitem">
+	the
+          <a class="ulink" href="http://bacnet.sourceforge.net/" target="_top">
+    <em class="citetitle">BACnet stack,</em>
+   </a>
+	    which is an open-source implementation that allows exchanging data with <a class="ulink" href="http://www.bacnet.org" target="_top">
+    <em class="citetitle"> BACnet</em>
+   </a> compatible building automation systems for use of models during operation for fault detection and diagnostics or for model-based operation, and
+      </li><li class="listitem">
+	an
+          <a class="ulink" href="http://www.mccdaq.com/PDFmanuals/USB-1208LS.pdf" target="_top">
+    <em class="citetitle">analog/digital interface</em>
+   </a> that can be connected to a USB port.
+      </li></ul></div>
+ <p>
+  In addition, any executable can be called from the BCVTB at each 
+  time step of the BCVTB system model.
+  This allows, for example, the use of an external program with 
+  communication through its command line interface or through text files.
+ </p>
+ <p>
+  In addition to using programs that are coupled to Ptolemy
+  II, Ptolemy II's graphical modeling environment can be
+  used to define models of control systems, models of
+  physical devices, models of communication systems or it
+  can be used for post-processing, real-time visualization
+  and data exchange with databases.
+ </p>
+</div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch01s07.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="installation.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">1.7. Version 1.0.0 </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> Chapter 3. Installation and configuration</td></tr></table></div></body></html>

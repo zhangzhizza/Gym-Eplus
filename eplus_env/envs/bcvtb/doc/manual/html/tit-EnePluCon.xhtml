@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>5.3. EnergyPlus</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="configuration.xhtml" title="Chapter 5. Configuring programs for use with the BCVTB"/><link rel="prev" href="tit-crePtoMod.xhtml" title="5.2. Ptolemy II"/><link rel="next" href="tit-DymolaCon.xhtml" title="5.4. Dymola"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.3. EnergyPlus</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tit-crePtoMod.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 5. Configuring programs for use with the BCVTB</th><td width="20%" align="right"> <a accesskey="n" href="tit-DymolaCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="configuration.xhtml">Configuring programs for use with the BCVTB</a></span> &gt; <span class="breadcrumb-node">EnergyPlus</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="tit-EnePluCon"/>5.3. EnergyPlus</h2></div></div></div>
+  
+  <p>
+   <a class="xref" href="tit-EnePluCon.xhtml#extIntEPlus" title="Figure 5.8.  Architecture of the BCVTB with the EnergyPlus client (black) and other clients (grey).">Figure 5.8</a>
+   shows the architecture of the connection between
+   EnergyPlus and Ptolemy II. Ptolemy II connects to the
+   external interface in EnergyPlus. In the external
+   interface, the input/output signals that are exchanged
+   between Ptolemy II and EnergyPlus are mapped to
+   EnergyPlus objects. The subject of this section is to
+   show how to configure this mapping and how to use these
+   objects.
+  </p>
+  <p>
+   </p><div class="figure"><a id="extIntEPlus"/><p class="title"><strong>Figure 5.8. 
+	    Architecture of the BCVTB with the EnergyPlus client (black) and other clients (grey).
+	    </strong></p><div class="figure-contents">
+    <div class="mediaobject"><img src="img/externalInterface.png" alt="Architecture of the BCVTB with the EnergyPlus client (black) and other clients (grey)."/></div>
+    
+   </div></div><p><br class="figure-break"/>
+  </p>
+  <p>
+   The external interface can map to three EnergyPlus input
+   objects called <code class="code">ExternalInterface:Schedule</code>,
+   <code class="code">ExternalInterface:Actuator</code> and
+   <code class="code">ExternalInterface:Variable</code>. The
+   <code class="code">ExternalInterface:Schedule</code> can be used to
+   overwrite schedules. The other two objects can be used in
+   place of Energy Management System (EMS) actuators and EMS
+   variables. The objects have similar functionality as the
+   objects <code class="code">Schedule:Compact</code>,
+   <code class="code">EnergyManagementSystem:Actuator</code> and
+   <code class="code">EnergyManagementSystem:GlobalVariable</code>,
+   except that their numerical value is obtained from the
+   external interface at the beginning of each EnergyPlus
+   zone time step, and will remain constant during this zone
+   time step.
+  </p>
+  <p>
+   Compared to <code class="code">EnergyManagementSystem:Actuator</code>,
+   the object <code class="code">ExternalInterface:Actuator</code> has an
+   optional field called “initial value.” If a value is
+   specified for this field, then this value will be used
+   during the warm-up period and the system sizing. If
+   unspecified, then the numerical value for this object
+   will only be used during the time stepping. Since
+   actuators always overwrite other objects (such as a
+   schedule), all these objects have values that are defined
+   during the warm-up and the system sizing even if no
+   initial value is specified. For the objects
+   <code class="code">ExternalInterface:Schedule</code> and
+   <code class="code">ExternalInterface:Variable</code>, the field
+   “initial value” is required, and its value will be
+   used during the warm-up period and the system-sizing.
+  </p>
+  <p>
+   <code class="code">ExternalInterface:Variable</code> is a global
+   variable from the point of view of the EMS language.
+   Thus, it can be used within any
+   <code class="code">EnergyManagementSystem:Program</code> in the same
+   way as an
+   <code class="code">EnergyManagementSystem:GlobalVariable</code> or an
+   <code class="code">EnergyManagementSystem:Sensor</code> can be used.
+  </p>
+  <p>
+   Although variables of type
+   <code class="code">ExternalInterface:Variable</code> can be assigned
+   to <code class="code">EnergyManagementSystem:Actuator</code> objects,
+   for convenience, there is also an object called
+   <code class="code">ExternalInterface:Actuator</code>. This object
+   behaves identically to
+   <code class="code">EnergyManagementSystem:Actuator</code>, with the
+   following exceptions:
+  </p>
+  <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+          Its value is assigned by the external interface.
+        </li><li class="listitem">
+          Its value is fixed during the zone time step because this is the synchronization time step for the external interface.
+        </li></ul></div>
+  <p>
+   The external interface can also map to the EnergyPlus
+   objects <code class="code">Output:Variable</code> and
+   <code class="code">EnergyManagementSystem:OutputVariable</code>. These
+   objects can be used to send data from EnergyPlus to
+   Ptolemy II at each zone time step.
+  </p>
+  <p>
+   We will now present examples that use all of these
+   objects.
+   <a class="xref" href="tit-EnePluCon.xhtml#tabEneOveExe" title="Table 5.2.  Overview of the EnergyPlus objects used in the examples.">Table 5.2, “
+        Overview of the EnergyPlus objects used in the examples.
+	”</a>
+   shows which EnergyPlus features are used in the examples.
+  </p>
+  <div class="table"><a id="tabEneOveExe"/><p class="title"><strong>Table 5.2. 
+        Overview of the EnergyPlus objects used in the examples.
+	</strong></p><div class="table-contents">
+   
+   <table summary="&#xA;        Overview of the EnergyPlus objects used in the examples.&#xA;&#x9;" border="1"><colgroup><col width="3*"/><col width="1*" align="center"/><col width="1*" align="center"/><col width="1*" align="center"/></colgroup><tbody><tr valign="middle"><td valign="middle"> </td><td align="center" valign="middle">
+       <p>
+        Example 1
+       </p>
+      </td><td align="center" valign="middle">
+       <p>
+        Example 2
+       </p>
+      </td><td align="center" valign="middle">
+       <p>
+        Example 3
+       </p>
+      </td></tr><tr valign="middle"><td valign="middle">
+       <p>
+        <code class="code">ExternalInterface:Schedule</code>
+       </p>
+      </td><td align="center" valign="middle">
+       <p>
+        x
+       </p>
+      </td><td align="center" valign="middle"> </td><td align="center" valign="middle"> </td></tr><tr valign="middle"><td valign="middle">
+       <p>
+        <code class="code">ExternalInterface:Actuator</code>
+       </p>
+      </td><td align="center" valign="middle"> </td><td align="center" valign="middle">
+       <p>
+        x
+       </p>
+      </td><td align="center" valign="middle"> </td></tr><tr valign="middle"><td valign="middle">
+       <p>
+        <code class="code">ExternalInterface:Variable</code>
+       </p>
+      </td><td align="center" valign="middle"> </td><td align="center" valign="middle"> </td><td align="center" valign="middle">
+       <p>
+        x
+       </p>
+      </td></tr><tr valign="middle"><td valign="middle">
+       <p>
+        <code class="code">Output:Variable</code>
+       </p>
+      </td><td align="center" valign="middle">
+       <p>
+        x
+       </p>
+      </td><td align="center" valign="middle">
+       <p>
+        x
+       </p>
+      </td><td align="center" valign="middle">
+       <p>
+        x
+       </p>
+      </td></tr><tr valign="middle"><td valign="middle">
+       <p>
+        <code class="code">EnergyManagementSystem:OutputVariable</code>
+       </p>
+      </td><td align="center" valign="middle"> </td><td align="center" valign="middle"> </td><td align="center" valign="middle">
+       <p>
+        x
+       </p>
+      </td></tr></tbody></table>
+  </div></div><br class="table-break"/>
+  <p>
+   To configure the data exchange, the following three steps
+   are required from the user:
+  </p>
+  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+    <p>
+     Create an EnergyPlus idf file.
+    </p>
+   </li><li class="listitem">
+    <p>
+     Create an xml file that defines the mapping between
+     EnergyPlus and BCVTB variables.
+    </p>
+   </li><li class="listitem">
+    <p>
+     Create a Ptolemy II model.
+    </p>
+   </li></ol></div>
+  <p>
+   These steps are described in the examples below. Prior to
+   discussing the examples, we will explain the syntax of
+   the xml configuration file that defines how data are
+   mapped between the external interface and EnergyPlus
+  </p>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e698"/>5.3.1. Syntax of the xml file that configures the data mapping between EnergyPlus and the external interface</h3></div></div></div>
+   
+   <p>
+    The data mapping between EnergyPlus and the external
+    interface is defined in an xml file called
+    <code class="code">variables.cfg</code>. This file needs to be in the
+    same directory as the EnergyPlus idf file. The file has
+    the following header:
+   </p>
+<pre class="programlisting">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;!DOCTYPE BCVTB-variables SYSTEM "variables.dtd"&gt;</pre>
+   <p>
+    Following the header is an element of the form
+   </p>
+<pre class="programlisting">&lt;BCVTB-variables&gt;
+
+&lt;/BCVTB-variables&gt;</pre>
+   <p>
+    This element will contain child elements that define the
+    variable mapping. In between the element tags, a user
+    needs to specify how the exchanged data is mapped to
+    EnergyPlus objects. Hence, the order of these elements
+    matter, and it need to be the same as the order of the
+    elements in the input and output signal vector of
+    Ptolemy II actor that calls EnergyPlus. The exchanged
+    variables are declared in elements that are called
+    “variable” and have an attribute “source.” As
+    described above, the external interface can send data to
+    <code class="code">ExternalInterface:Schedule</code>,
+    <code class="code">ExternalInterface:Actuator</code>, and
+    <code class="code">ExternalInterface:Variable</code>. For these
+    objects, the <code class="code">source</code> attribute needs to be
+    set to <code class="code">Ptolemy</code>, because they are sent by
+    Ptolemy II. The xml elements for these objects are
+    defined as follows:
+   </p>
+   <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+     <p>
+      For <code class="code">ExternalInterface:Schedule</code>, use
+     </p>
+<pre class="programlisting">&lt;variable source="Ptolemy"&gt;
+    &lt;EnergyPlus schedule="NAME"/&gt;
+&lt;/variable&gt;</pre>
+     <p>
+      where <code class="code">NAME</code> needs to be the EnergyPlus
+      schedule name. See
+      <a class="xref" href="tit-EnePluCon.xhtml#exa-enePlu-sch" title="5.3.2. Example 1: Interface using ExternalInterface:Schedule">Section 5.3.2, “Example 1: Interface using <code class="code">ExternalInterface:Schedule</code>
+   ”</a>
+      for an example.
+     </p>
+    </li><li class="listitem">
+     <p>
+      For <code class="code">ExternalInterface:Actuator</code>, use
+     </p>
+<pre class="programlisting">&lt;variable source="Ptolemy"&gt;
+    &lt;EnergyPlus actuator="NAME" /&gt;
+&lt;/variable&gt;</pre>
+     <p>
+      where <code class="code">NAME</code> needs to be the EnergyPlus
+      actuator name. See
+      <a class="xref" href="tit-EnePluCon.xhtml#exa-enePlu-act" title="5.3.3. Example 2: Interface using ExternalInterface:Actuator">Section 5.3.3, “Example 2: Interface using <code class="code">ExternalInterface:Actuator</code>
+   ”</a>
+      for an example.
+     </p>
+    </li><li class="listitem">
+     <p>
+      For <code class="code">ExternalInterface:Variable</code>, use
+     </p>
+<pre class="programlisting">&lt;variable source="Ptolemy"&gt;
+    &lt;EnergyPlus variable="NAME"/&gt;
+&lt;/variable&gt;</pre>
+     <p>
+      where <code class="code">NAME</code> needs to be the EnergyPlus
+      Energy Runtime Language (Erl) variable name. See
+      <a class="xref" href="tit-EnePluCon.xhtml#exa-enePlu-var" title="5.3.4. Example 3: Interface using ExternalInterface:Variable">Section 5.3.4, “Example 3: Interface using <code class="code">ExternalInterface:Variable</code>
+   ”</a>
+      for an example.
+     </p>
+    </li></ul></div>
+   <p>
+    The external interface can also read data from any
+    <code class="code">Output:Variable</code> and
+    <code class="code">EnergyManagementSystem:OutputVariable</code>. For
+    these objects, set the "source" attribute to
+    "EnergyPlus," because they are computed by EnergyPlus.
+   </p>
+   <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+     <p>
+      The read an <code class="code">Output:Variable</code>, use
+     </p>
+<pre class="programlisting">&lt;variable source="EnergyPlus"&gt;
+  &lt;EnergyPlus name="NAME" type="TYPE"/&gt;       
+&lt;/variable&gt;</pre>
+     <p>
+      where <code class="code">NAME</code> needs to be the EnergyPlus key
+      value (which is typically the name of the EnergyPlus
+      object instance, such as <code class="code">WEST ZONE</code>) and
+      <code class="code">TYPE</code> needs to be the EnergyPlus variable
+      (such as ZONE/SYS AIR TEMP). See the following
+      sections for an example.
+     </p>
+    </li><li class="listitem">
+     <p>
+      To read an
+      <code class="code">EnergyManagementSystem:OutputVariable</code>,
+      use
+     </p>
+<pre class="programlisting">&lt;variable source="EnergyPlus"&gt;
+    &lt;EnergyPlus name="EMS" type="TYPE"/&gt;
+&lt;/variable&gt;</pre>
+     <p>
+      i.e., the attribute <code class="code">name</code> must be EMS, and
+      the attribute <code class="code">type</code> must be set to the EMS
+      variable name. See
+      <a class="xref" href="tit-EnePluCon.xhtml#exa-enePlu-var" title="5.3.4. Example 3: Interface using ExternalInterface:Variable">Section 5.3.4, “Example 3: Interface using <code class="code">ExternalInterface:Variable</code>
+   ”</a>
+      for an example.
+     </p>
+    </li></ul></div>
+   <p>
+    The following sections present examples of this xml
+    file.
+   </p>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="exa-enePlu-sch"/>5.3.2. Example 1: Interface using <code class="code">ExternalInterface:Schedule</code>
+   </h3></div></div></div>
+   
+   <p>
+    In this example, a controller that is implemented in
+    Ptolemy II computes the room temperature set points for
+    cooling and heating. The example can be found in the
+    BCVTB distribution in the folder
+    <code class="code">bcvtb/examples/ePlusX-schedule</code>, where
+    <code class="code">X</code> stands for the EnergyPlus version number.
+    Suppose we need to send a schedule value from Ptolemy II
+    to EnergyPlus, and an output variable from EnergyPlus to
+    Ptolemy II at each zone time step. This can be
+    accomplished by using an object of type
+    <code class="code">ExternalInterface:Schedule</code> and an object of
+    type <code class="code">Output:Variable</code>. To interface
+    EnergyPlus using an EnergyPlus schedule, the following three
+    items are needed:
+   </p>
+   <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+     <p>
+      An object that instructs EnergyPlus to activate the
+      external interface.
+     </p>
+    </li><li class="listitem">
+     <p>
+      An EnergyPlus schedule object to which the external interface
+      can write to.
+     </p>
+    </li><li class="listitem">
+     <p>
+      A configuration file to configure the data exchange.
+     </p>
+    </li></ul></div>
+   <p>
+    The following sections explain how to declare these
+    items.
+   </p>
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e770"/>5.3.2.1. Create an EnergyPlus idf file</h4></div></div></div>
+    
+    <p>
+     The EnergyPlus idf file contains the following objects
+     to activate and use the external interface:
+    </p>
+    <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+      <p>
+       An object that instructs EnergyPlus to activate the
+       external interface.
+      </p>
+     </li><li class="listitem">
+      <p>
+       An object of type
+       <code class="code">ExternalInterface:Schedule</code>. The external
+       interface will write its values to these objects at
+       each zone time-step.
+      </p>
+     </li><li class="listitem">
+      <p>
+       Objects of type <code class="code">Output:Variable</code> that
+       store the data that will be read by the external
+       interface. The value of any EnergyPlus
+       <code class="code">Output:Variable</code> can be read by the
+       external interface.
+      </p>
+     </li></ul></div>
+    <p>
+     The code below shows how to declare these objects. To
+     activate the external interface, we use:
+    </p>
+<pre class="screen">ExternalInterface,           !- Object to activate the external interface
+ PtolemyServer;              !- Name of external interface</pre>
+    <p>
+     To enter schedules to which the external interface
+     writes, we use:
+    </p>
+<pre class="screen">! Cooling schedule. This schedule is set directly by the external interface.
+! During warm-up and system-sizing, it is fixed at 24 degC.
+  ExternalInterface:Schedule,
+    TSetCoo,                 !- Name
+    Temperature,             !- ScheduleType
+    24;                      !- Initial Value, used during warm-up
+
+! Heating schedule. This schedule is set directly by the external interface.
+! During warm-up and system-sizing, it is fixed at 20 degC.
+  ExternalInterface:Schedule,
+    TSetHea,                 !- Name
+    Temperature,             !- ScheduleType
+    20;                      !- Initial Value, used during warm-up</pre>
+    <p>
+     These schedules can be used in the same way as other
+     EnergyPlus schedules. In this example, they are used to
+     change a thermostat setpoint:
+    </p>
+<pre class="screen">ThermostatSetpoint:DualSetpoint,
+    DualSetPoint,            !- Name
+    TSetHea,                 !- Heating Setpoint Temperature Schedule Name
+    TSetCoo;                 !- Cooling Setpoint Temperature Schedule Name</pre>
+    <p>
+     We also want to read output variables from EnergyPlus,
+     which we declare as
+    </p>
+<pre class="screen">Output:Variable,
+    TSetHea,        !- Key Value
+    Schedule Value, !- Variable Name
+    TimeStep;       !- Reporting Frequency
+
+Output:Variable,
+    TSetCoo,        !- Key Value
+    Schedule Value, !- Variable Name
+    TimeStep;       !- Reporting Frequency</pre>
+    <p>
+     To specify that data should be exchanged every 15
+     minutes of simulation time, we enter in the
+     <code class="code">idf</code> file the section
+    </p>
+<pre class="screen">Timestep,
+    4;          !- Number of Timesteps per Hour</pre>
+   </div>
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e794"/>5.3.2.2. Create a configuration file</h4></div></div></div>
+    
+    <p>
+     Note that we have not yet specified the order of the
+     elements in the signal vector that is exchanged between
+     EnergyPlus and Ptolemy II. This information is
+     specified in the file <code class="code">variables.cfg</code>. The
+     file <code class="code">variables.cfg</code> needs to be in the same
+     directory as the EnergyPlus <code class="code">idf</code> file. For
+     the objects used in the section above, the file looks
+     like
+    </p>
+<pre class="programlisting">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;!DOCTYPE BCVTB-variables SYSTEM "variables.dtd"&gt;
+&lt;BCVTB-variables&gt;
+  &lt;!-- The next two elements send the set points to E+ --&gt;
+  &lt;variable source="Ptolemy"&gt;
+    &lt;EnergyPlus schedule="TSetHea"/&gt;
+  &lt;/variable&gt;
+  &lt;variable source="Ptolemy"&gt;
+    &lt;EnergyPlus schedule="TSetCoo"/&gt;
+  &lt;/variable&gt;
+  &lt;!-- The next two elements receive the outdoor and 
+       the zone air temperature from E+ --&gt;
+  &lt;variable source="EnergyPlus"&gt;
+   &lt;EnergyPlus name="ENVIRONMENT" type="OUTDOOR DRY BULB"/&gt;     
+  &lt;/variable&gt;
+  &lt;variable source="EnergyPlus"&gt;
+    &lt;EnergyPlus name="ZSF1" type="ZONE/SYS AIR TEMPERATURE"/&gt;
+  &lt;/variable&gt;
+  &lt;!-- The next two elements receive the schedule value as an output from E+ --&gt;
+  &lt;variable source="EnergyPlus"&gt;
+    &lt;EnergyPlus name="TSetHea" type="Schedule Value"/&gt;
+  &lt;/variable&gt;
+  &lt;variable source="EnergyPlus"&gt;
+    &lt;EnergyPlus name="TSetCoo" type="Schedule Value"/&gt;
+  &lt;/variable&gt;
+&lt;/BCVTB-variables&gt;</pre>
+    <p>
+     This file specifies that the actor that calls
+     EnergyPlus has an input vector with two elements that
+     are computed by Ptolemy II and sent to EnergyPlus, and
+     that it has an output vector with four elements that
+     are computed by EnergyPlus and sent to Ptolemy II. The
+     order of the elements in each vector is determined by
+     the order in the above XML file. Hence, the input
+     vector that contains the signals sent to EnergyPlus has
+     elements
+    </p>
+<pre class="screen">  TSetHea
+  TSetCoo</pre>
+    <p>
+     and the output vector that contains values computed by
+     EnergyPlus has elements
+    </p>
+<pre class="screen">  Environment (Outdoor drybulb temperature)
+  ZSF1 (ZONE/SYS AIR TEMPERATURE)
+  TSetHea (Schedule Value)
+  TSetCoo (Schedule Value)</pre>
+   </div>
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="sec-crePtoMod"/>5.3.2.3. Create a Ptolemy II model</h4></div></div></div>
+    
+    <p>
+     To start EnergyPlus from the BCVTB, you will need to
+     create a Ptolemy II model.
+    </p>
+    <p>
+     The model
+     <code class="code">bcvtb/examples/ePlus*-schedule/system-windows.xml</code>,
+     which is part of the BCVTB installation and is shown in
+     <a class="xref" href="tit-EnePluCon.xhtml#confEPlusSche" title="Figure 5.9.  Ptolemy II system model that links an actor that computes the room temperature setpoint with the Simulator actor that communicates with EnergyPlus.">Figure 5.9</a>
+     , may be used as a starting point. (For Mac and Linux,
+     use the file <code class="code">system.xml</code>.) In this example,
+     the time step is 15 minutes and the simulation period
+     is four days.
+    </p>
+    <p>
+     </p><div class="figure"><a id="confEPlusSche"/><p class="title"><strong>Figure 5.9. 
+		Ptolemy II system model that links an actor that computes the room temperature setpoint with the <code class="code">Simulator</code> actor that communicates with EnergyPlus.
+		</strong></p><div class="figure-contents">
+      <div class="mediaobject"><img src="img/configuration-energyplus-schedule.png" alt="Ptolemy II system model that links an actor that computes the room temperature setpoint with the Simulator actor that communicates with EnergyPlus."/></div>
+      
+     </div></div><p><br class="figure-break"/>
+    </p>
+    <p>
+     In this model, the Simulator actor that calls
+     EnergyPlus is configured for Windows as shown in
+     <a class="xref" href="tit-EnePluCon.xhtml#confEPlusScheSimuWin" title="Figure 5.10.  Configuration of the Simulator actor that calls EnergyPlus on Windows.">Figure 5.10</a>
+     .
+    </p>
+    <p>
+     </p><div class="figure"><a id="confEPlusScheSimuWin"/><p class="title"><strong>Figure 5.10. 
+		Configuration of the <code class="code">Simulator</code> actor that calls EnergyPlus on Windows.
+		</strong></p><div class="figure-contents">
+      <div class="mediaobject"><img src="img/configuration-energyplus-schedule-win.png" alt="Configuration of the Simulator actor that calls EnergyPlus on Windows."/></div>
+      
+     </div></div><p><br class="figure-break"/>
+    </p>
+    <p>
+     The actor calls the file <code class="code">RunEPlus.bat</code>,
+     with arguments <code class="code">EMSWindowShadeControl
+     USA_IL_Chicago-OHare.Intl.AP.725300_TMY3</code>. The
+     working directory is the current directory and the
+     console output is written to the file
+     <code class="code">simulation.log</code>. If EnergyPlus does not
+     communicate with Ptolemy II within 10 seconds, Ptolemy
+     II will terminate the connection. For Mac OS X and
+     Linux, the configuration is similar:
+    </p>
+    <p>
+     </p><div class="figure"><a id="confEPlusScheSimuMac"/><p class="title"><strong>Figure 5.11. 
+		Configuration of the <code class="code">Simulator</code> actor that calls EnergyPlus on Mac OS X.
+		</strong></p><div class="figure-contents">
+      <div class="mediaobject"><img src="img/configuration-energyplus-schedule-mac.png" alt="Configuration of the Simulator actor that calls EnergyPlus on Mac OS X."/></div>
+      
+     </div></div><p><br class="figure-break"/>
+    </p>
+    <p>
+     This completes the configuration.
+    </p>
+    <p>
+      </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"/></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+     In EnergyPlus 8.3.0 and higher, a cross platform's command line interface called <code class="code">energyplus</code> was added to EnergyPlus to run it from the command line. <a class="xref" href="tit-crePtoMod.xhtml#confEPlusAllOS" title="Figure 5.5.  Configuration of the Simulator actor that uses the command line interface to call EnergyPlus.">Figure 5.5</a> shows how the Simulator actor uses this interface to call Energyplus. The actor calls the program <code class="code">energyplus</code> with a list of parameters which are required to launch and execute EnergyPlus. Details about the interface can be found at <a class="ulink" href="https://github.com/NREL/EnergyPlus/blob/develop/doc/running-energyplus-from-command-line.md" target="_top">https://github.com/NREL/EnergyPlus/blob/develop/doc/running-energyplus-from-command-line.md</a>.
+      </td></tr></table></div><p>
+    </p>
+    <p>
+     </p><div class="figure"><a id="confEPlusAllOS"/><p class="title"><strong>Figure 5.12. 
+		Configuration of the <code class="code">Simulator</code> actor that uses the command line interface to call EnergyPlus.
+		</strong></p><div class="figure-contents">
+      <div class="mediaobject"><img src="img/configuration-energyplus-all-os.png" alt="Configuration of the Simulator actor that uses the command line interface to call EnergyPlus."/></div>
+      
+     </div></div><p><br class="figure-break"/>
+    </p>
+   </div>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="exa-enePlu-act"/>5.3.3. Example 2: Interface using <code class="code">ExternalInterface:Actuator</code>
+   </h3></div></div></div>
+   
+   <p>
+    In this example, a shading controller with a finite
+    state machine is implemented in Ptolemy II. Inputs to
+    the controller are the outside temperature and the solar
+    radiation that is incident on the window. The output of
+    the controller is the shading actuation signal. This
+    example describes how to set up EnergyPlus to exchange
+    data between Ptolemy II and EnergyPlus, using an Energy
+    Management System (EMS) actuator. The example can be
+    found in the BCVTB distribution in the folder
+    <code class="code">bcvtb/examples/ePlus*-actuator</code>, where
+    <code class="code">*</code> stands for the EnergyPlus version number.
+    The object of type
+    <code class="code">ExternalInterface:Actuator</code> behaves
+    identically to
+    <code class="code">EnergyManagementSystem:Actuator</code>, with the
+    following exceptions:
+   </p>
+   <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+     <p>
+      Its value is assigned by the external interface.
+     </p>
+    </li><li class="listitem">
+     <p>
+      Its value is fixed during the EnergyPlus zone time
+      step because this is the synchronization time step for
+      the external interface.
+     </p>
+    </li></ol></div>
+   <p>
+    To interface EnergyPlus using the EMS feature, the
+    following three items are needed:
+   </p>
+   <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+     <p>
+      An object that instructs EnergyPlus to activate the
+      external interface.
+     </p>
+    </li><li class="listitem">
+     <p>
+      EnergyPlus objects that write data from the external
+      interface to the EMS.
+     </p>
+    </li><li class="listitem">
+     <p>
+      A configuration file to configure the data exchange.
+     </p>
+    </li></ul></div>
+   <p>
+    The following sections explain how to declare these
+    items.
+   </p>
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e883"/>5.3.3.1. Create an EnergyPlus idf file</h4></div></div></div>
+    
+    <p>
+     The code below shows how to set up an EnergyPlus file
+     that uses <code class="code">EnergyManagmentSystem:Actuator</code>.
+     To activate the external interface, we use:
+    </p>
+<pre class="screen">ExternalInterface,           !- Object to activate the external interface
+    PtolemyServer;           !- Name of external interface</pre>
+    <p>
+     To declare an actuator that changes the control status
+     of the window with name
+     <code class="code">Zn001:Wall001:Win001</code>, we use:
+    </p>
+<pre class="screen">ExternalInterface:Actuator,
+    Zn001_Wall001_Win001_Shading_Deploy_Status,  !- Name
+    Zn001:Wall001:Win001,    !- Actuated Component Unique Name
+    Window Shading Control,  !- Actuated Component Type
+    Control Status,          !- Actuated Component Control Type
+     ;                       !- Optional Initial Value</pre>
+    <p>
+     Thus, the entry is identical with
+     <code class="code">EnergyManagementSystem:Actuator</code>, except
+     for the additional optional field that specifies the
+     initial value. If unspecified, then the actuator will
+     only be used during the time stepping, but not during
+     the warm-up and the system sizing. Since actuators
+     always overwrite other objects (such as a schedule),
+     all these objects have values that are defined during
+     the warm-up and the system sizing even if no initial
+     value is specified.
+    </p>
+    <p>
+     We also want to read the outdoor temperature, the zone
+     air temperature, the solar radiation that is incident
+     on the window, and the fraction of time that the
+     shading is on from EnergyPlus. Thus, we declare the
+     output variables
+    </p>
+<pre class="screen">Output:Variable,
+   Environment,       !- Key Value
+   Outdoor Dry Bulb,  !- Variable Name
+   timestep;          !- Reporting Frequency
+
+Output:Variable,
+   *,                          !- Key Value
+   Zone Mean Air Temperature,  !- Variable Name
+   timestep;                   !- Reporting Frequency
+
+Output:Variable,
+   Zn001:Wall001:Win001,       !- Key Value
+   Surface Ext Solar Incident, !- Variable Name
+   timestep;                   !- Reporting Frequency
+
+Output:Variable,
+   *,                                      !- Key Value
+   Fraction of Time Shading Device Is On,  !- Variable Name
+   timestep;                               !- Reporting Frequency</pre>
+    <p>
+     To specify that data should be exchanged every 10
+     minutes of simulation time, we enter in the idf file
+     the section
+    </p>
+<pre class="screen">  Timestep,
+    6;          !- Number of Timesteps per Hour</pre>
+   </div>
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e897"/>5.3.3.2. Create a configuration file</h4></div></div></div>
+    
+    <p>
+     Note that we have not yet specified the order of the
+     elements in the signal vector that is exchanged between
+     EnergyPlus and Ptolemy II. This information is
+     specified in the file <code class="code">variables.cfg</code>. The
+     file <code class="code">variables.cfg</code> needs to be in the same
+     directory as the EnergyPlus idf file. For the objects
+     used in the section above, the file looks like
+    </p>
+<pre class="programlisting">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;!DOCTYPE BCVTB-variables SYSTEM "variables.dtd"&gt;
+&lt;BCVTB-variables&gt;
+  &lt;variable source="EnergyPlus"&gt;
+    &lt;EnergyPlus name="ENVIRONMENT" 
+                type="OUTDOOR DRY BULB"/&gt;    
+  &lt;/variable&gt;
+  &lt;variable source="EnergyPlus"&gt;
+    &lt;EnergyPlus name="WEST ZONE" 
+                type="Zone Mean Air Temperature"/&gt;
+  &lt;/variable&gt;
+  &lt;variable source="EnergyPlus"&gt;
+    &lt;EnergyPlus name="Zn001:Wall001:Win001" 
+                type="Surface Ext Solar Incident"/&gt;
+  &lt;/variable&gt;
+  &lt;variable source="EnergyPlus"&gt;
+    &lt;EnergyPlus name="Zn001:Wall001:Win001" 
+                type="Fraction of Time Shading Device Is On"/&gt;
+  &lt;/variable&gt;
+  &lt;variable source="Ptolemy"&gt;
+    &lt;EnergyPlus actuator="Zn001_Wall001_Win001_Shading_Deploy_Status"/&gt;
+  &lt;/variable&gt;
+&lt;/BCVTB-variables&gt;</pre>
+    <p>
+     This file specifies that the simulator actor that calls
+     EnergyPlus has an input vector with one element that
+     will be written to the actuator, and that it has an
+     output vector with four elements that are computed by
+     EnergyPlus and sent to Ptolemy II. The order of the
+     elements in each vector is determined by the order in
+     the above XML file. Hence, the output vector that
+     contains the signals computed by EnergyPlus has
+     elements
+    </p>
+<pre class="screen">  ENVIRONMENT (OUTDOOR DRY BULB)
+  WEST ZONE (Zone Mean Air Temperature)
+  Zn001:Wall001:Win001 (Surface Ext Solar Incident)
+  Zn001:Wall001:Win001 (Fraction of Time Shading Device Is On)</pre>
+    <p>
+     The configuration of the Ptolemy II model is identical
+     to the configuration in Example 1., which is described
+     in
+     <a class="xref" href="tit-EnePluCon.xhtml#sec-crePtoMod" title="5.3.2.3. Create a Ptolemy II model">Section 5.3.2.3, “Create a Ptolemy II model”</a>
+     .
+    </p>
+   </div>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="exa-enePlu-var"/>5.3.4. Example 3: Interface using <code class="code">ExternalInterface:Variable</code>
+   </h3></div></div></div>
+   
+   <p>
+    This example implements the same controller as the
+    Example 2. However, the interface with EnergyPlus is
+    done using an external interface variable instead of an
+    external interface actuator. In addition, to set up data
+    that will be read by the external interface, the example
+    uses an
+    <code class="code">EnergyManagementSystem:OutputVariable</code>.
+   </p>
+   <p>
+    Similarly to
+    <code class="code">EnergyManagementSystem:GlobalVariable</code>, an
+    <code class="code">ExternalInterface:Variable</code> can be used in
+    any <code class="code">EnergyManagementSystem:Program</code>. The
+    subject of this example is to illustrate how an
+    <code class="code">ExternalInterface:Variable</code> can be set up
+    for use in an
+    <code class="code">EnergyManagementSystem:Program</code>. The example
+    can be found in the BCVTB distribution in the folder
+    <code class="code">bcvtb/examples/ePlus*-variable</code>, where
+    <code class="code">*</code> stands for the EnergyPlus version number.
+   </p>
+   <p>
+    To interface EnergyPlus using an external interface
+    variable, the following items are needed:
+   </p>
+   <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+     <p>
+      An object that instructs EnergyPlus to activate the
+      external interface.
+     </p>
+    </li><li class="listitem">
+     <p>
+      EnergyPlus objects that write data from the external
+      interface to the EMS.
+     </p>
+    </li><li class="listitem">
+     <p>
+      A configuration file to configure the data exchange.
+     </p>
+    </li></ul></div>
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e928"/>5.3.4.1. Create an EnergyPlus idf file</h4></div></div></div>
+    <p>
+     The following sections explain how to declare these
+     items.
+    </p>
+
+    
+    <p>
+     To write data from the external interface to an
+     EnergyPlus EMS variable, the following EnergyPlus
+     objects may be declared in the <code class="code">idf</code> file:
+    </p>
+<pre class="screen">ExternalInterface,         !- Object to activate the external interface
+   PtolemyServer;          !- Name of external interface
+
+  ExternalInterface:Variable,
+    yShade,           !- Name of Erl variable
+    1;                !- Initial Value</pre>
+    <p>
+     The above <code class="code">idf</code> section activates the
+     external interface and declares a variable with name
+     <code class="code">yShade</code> that can be used in an Erl program.
+     During the warm-up period and the system-sizing, the
+     variable <code class="code">yShade</code> will be set to its initial
+     value. Afterwards, the value will be assigned from the
+     external interface at each beginning of a zone time
+     step and kept constant during the zone time step. From
+     the point of view of the EMS language,
+     <code class="code">ExternalInterface:Variable</code> can be used
+     like any global variable. Thus, it can be used within
+     any <code class="code">EnergyManagementSystem:Program</code> in the
+     same way as an
+     <code class="code">EnergyManagementSystem:GlobalVariable</code> or
+     an <code class="code">EnergyManagementSystem:Sensor</code>. The
+     following <code class="code">idf</code> section uses
+     <code class="code">yShade</code> to actuate the shading control of
+     the window <code class="code">Zn001:Wall001:Win001</code>:
+    </p>
+<pre class="screen">! EMS program. The first assignments sets the shading status 
+!              and converts it into the
+!              EnergyPlus signal (i.e., replace 1 by 6).
+!              The second assignment sets yShade to 
+!              an EnergyManagementSystem:OutputVariable
+!              which will be read by the external interface.
+  EnergyManagementSystem:Program,
+    Set_Shade_Control_State,          !- Name
+    Set Shade_Signal = 6*yShade,      !- Program Line 1
+    Set Shade_Signal_01 = yShade+0.1; !- Program Line 2
+
+! Declare an actuator to which the EnergyManagementSystem:Program will write
+  EnergyManagementSystem:Actuator,
+    Shade_Signal,  !- Name
+    Zn001:Wall001:Win001,    !- Actuated Component Unique Name
+    Window Shading Control,  !- Actuated Component Type
+    Control Status;          !- Actuated Component Control Type
+
+! Declare a global variable to which the EnergyManagementSystem:Program will write
+  EnergyManagementSystem:GlobalVariable,
+    Shade_Signal_01;           !- Name of Erl variable</pre>
+    <p>
+     Next, suppose we want to read the outdoor temperature,
+     the zone air temperature and the solar radiation that
+     is incident on the window. In addition, we want to read
+     the variable <code class="code">Erl Shading Control Status</code>.
+     This can be done with the following declaration:
+    </p>
+<pre class="screen">Output:Variable,
+   Environment,       !- Key Value
+   Outdoor Dry Bulb,  !- Variable Name
+   timestep;          !- Reporting Frequency
+
+  Output:Variable,
+  *,                          !- Key Value
+  Zone Mean Air Temperature,  !- Variable Name
+  timestep;                   !- Reporting Frequency
+
+  Output:Variable,
+  Zn001:Wall001:Win001,       !- Key Value
+  Surface Ext Solar Incident, !- Variable Name
+  timestep;                   !- Reporting Frequency
+
+! Declare an output variable. This variable is equal to the shading 
+! signal + 0.1. 
+! It will be read by the external interface to demonstrate how 
+! to receive variables.
+  EnergyManagementSystem:OutputVariable,
+    Erl Shading Control Status,  !- Name
+    Shade_Signal_01,             !- EMS Variable Name
+    Averaged,                    !- Type of Data in Variable
+    ZoneTimeStep;                !- Update Frequency</pre>
+    <p>
+     To specify that data should be exchanged every 10
+     minutes of simulation time, we enter in the
+     <code class="code">idf</code> file the section
+    </p>
+<pre class="screen">  Timestep,
+    6;          !- Number of Timesteps per Hour</pre>
+   </div>
+   <div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="d5e952"/>5.3.4.2. Create a configuration file</h4></div></div></div>
+    
+    <p>
+     Note that we have not yet specified the order of the
+     elements in the signal vector that is exchanged between
+     EnergyPlus and Ptolemy II. This information is
+     specified in the file <code class="code">variables.cfg</code>. The
+     file <code class="code">variables.cfg</code> needs to be in the same
+     directory as the EnergyPlus idf file. For the objects
+     used in the section above, the file looks like
+    </p>
+<pre class="programlisting">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;!DOCTYPE BCVTB-variables SYSTEM "variables.dtd"&gt;
+&lt;BCVTB-variables&gt;
+  &lt;variable source="Ptolemy"&gt;
+    &lt;EnergyPlus variable="yShade"/&gt;
+  &lt;/variable&gt;
+  &lt;variable source="EnergyPlus"&gt;
+    &lt;EnergyPlus name="ENVIRONMENT" type="OUTDOOR DRY BULB"/&gt;    
+  &lt;/variable&gt;
+  &lt;variable source="EnergyPlus"&gt;
+    &lt;EnergyPlus name="WEST ZONE" type="Zone Mean Air Temperature"/&gt;
+  &lt;/variable&gt;
+  &lt;variable source="EnergyPlus"&gt;
+    &lt;EnergyPlus name="Zn001:Wall001:Win001" type="Surface Ext Solar Incident"/&gt;
+  &lt;/variable&gt;
+  &lt;variable source="EnergyPlus"&gt;
+    &lt;EnergyPlus name="EMS" type="Erl Shading Control Status"/&gt;
+  &lt;/variable&gt;
+&lt;/BCVTB-variables&gt;</pre>
+    <p>
+     This file specifies that the simulator actor that calls
+     EnergyPlus has an input vector with one element that
+     will be written to the actuator, and that it has an
+     output vector with four elements that are computed by
+     EnergyPlus and sent to Ptolemy II. The order of the
+     elements in each vector is determined by the order in
+     the above XML file. Note that the fourth element has
+     the name <code class="code">EMS</code> because it is an
+     <code class="code">EnergyManagementSystem:OutputVariable</code>.
+     Hence, the output vector that contains the signals
+     computed by EnergyPlus has elements
+    </p>
+<pre class="screen">  ENVIRONMENT (OUTDOOR DRY BULB)
+  WEST ZONE (Zone Mean Air Temperature)
+  Zn001:Wall001:Win001 (Surface Ext Solar Incident)
+  EMS (Erl Shading Control Status)</pre>
+    <p>
+     The configuration of the Ptolemy II model is identical
+     to the configuration of Example 1, which is described
+     in
+     <a class="xref" href="tit-EnePluCon.xhtml#sec-crePtoMod" title="5.3.2.3. Create a Ptolemy II model">Section 5.3.2.3, “Create a Ptolemy II model”</a>
+     .
+    </p>
+   </div>
+  </div>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tit-crePtoMod.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="configuration.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="tit-DymolaCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">5.2. Ptolemy II </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 5.4. Dymola</td></tr></table></div></body></html>

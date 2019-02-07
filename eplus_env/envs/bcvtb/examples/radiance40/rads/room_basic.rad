@@ -1,0 +1,572 @@
+# all of the EC room contents, 
+# minus the glz elements.
+
+# Room wall surfaces.
+50wall_refl_mat polygon ec_room2_58.0.0
+0
+0
+12	120	0	132
+	120	180	132
+	0	180	132
+	0	0	132
+
+
+50wall_refl_mat polygon ec_room2_5B.0.0
+0
+0
+12	0	180	132
+	0	180	0
+	0	0	0
+	0	0	132
+
+50wall_refl_mat polygon ec_room2_5D.0.0
+0
+0
+12	120	0	132
+	120	0	0
+	120	180	0
+	120	180	132
+
+50wall_refl_mat polygon ec_room2_9BC.0.1
+0
+0
+12	0	180	108
+	0	180	96
+	42	180	96
+	42	180	108
+
+50wall_refl_mat polygon ec_room2_9BE.0.1
+0
+0
+12	120	180	132
+	0	180	132
+	0	180	108
+	120	180	108
+
+50wall_refl_mat polygon ec_room2_9BF.0.1
+0
+0
+12	120	180	0
+	120	180	108
+	42	180	108
+	42	180	0
+
+
+
+# Ceiling.  70% refl
+
+70ceiling_refl_mat polygon ec_room2_8E.0.0
+0
+0
+12	120	0	132
+	120	180	132
+	0	180	132
+	0	0	132
+
+
+
+# Floor.   20% refl_mat (actually 19.71%)
+
+20floor_refl_mat polygon ec_room2_59.0.0
+0
+0
+12	120	180	0
+	120	0	0
+	0	0	0
+	0	180	0
+
+# Wainscotting.  Some arbitrary dark reflectance.
+
+#wainscott_mat polygon ec_room2_960.0.0
+#0
+#0
+#12	120	179	3
+#	120	179	0
+#	120	180	0
+#	120	180	3
+
+#wainscott_mat polygon ec_room2_960.0.1
+#0
+#0
+#12	120	180	3
+#	120	180	0
+#	42	180	0
+#	42	180	3
+
+wainscott_mat polygon ec_room2_960.0.2
+0
+0
+12	42	180	3
+	42	180	0
+	42	179	0
+	42	179	3
+
+wainscott_mat polygon ec_room2_960.0.3
+0
+0
+12	42	179	3
+	42	179	0
+	120	179	0
+	120	179	3
+
+wainscott_mat polygon ec_room2_960.0.4
+0
+0
+12	120	180	0
+	120	179	0
+	42	179	0
+	42	180	0
+
+wainscott_mat polygon ec_room2_960.0.5
+0
+0
+12	120	179	3
+	120	180	3
+	42	180	3
+	42	179	3
+
+#wainscott_mat polygon ec_room2_963.0.0
+#0
+#0
+#12	120	0	3
+#	120	0	0
+#	120	180	0
+#	120	180	3
+
+wainscott_mat polygon ec_room2_963.0.1
+0
+0
+12	120	180	3
+	120	180	0
+	119.75	180	0
+	119.75	180	3
+
+wainscott_mat polygon ec_room2_963.0.2
+0
+0
+12	119.75	180	3
+	119.75	180	0
+	119.75	0	0
+	119.75	0	3
+
+wainscott_mat polygon ec_room2_963.0.3
+0
+0
+12	119.75	0	3
+	119.75	0	0
+	120	0	0
+	120	0	3
+
+wainscott_mat polygon ec_room2_963.0.4
+0
+0
+12	120	180	0
+	120	0	0
+	119.75	0	0
+	119.75	180	0
+
+wainscott_mat polygon ec_room2_963.0.5
+0
+0
+12	120	0	3
+	120	180	3
+	119.75	180	3
+	119.75	0	3
+
+#wainscott_mat polygon ec_room2_964.0.0
+#0
+#0
+#12	0	180	0
+#	0	180	3
+#	0	0	3
+#	0	0	0
+
+wainscott_mat polygon ec_room2_964.0.1
+0
+0
+12	0.25	180	0
+	0.25	180	3
+	0	180	3
+	0	180	0
+
+wainscott_mat polygon ec_room2_964.0.2
+0
+0
+12	0.25	0	0
+	0.25	0	3
+	0.25	180	3
+	0.25	180	0
+
+wainscott_mat polygon ec_room2_964.0.3
+0
+0
+12	0	0	0
+	0	0	3
+	0.25	0	3
+	0.25	0	0
+
+wainscott_mat polygon ec_room2_964.0.4
+0
+0
+12	0.25	0	0
+	0.25	180	0
+	0	180	0
+	0	0	0
+
+wainscott_mat polygon ec_room2_964.0.5
+0
+0
+12	0.25	180	3
+	0.25	0	3
+	0	0	3
+	0	180	3
+
+wainscott_mat polygon ec_room2_95D.0.4
+0
+0
+12	36	180	36
+	36	179.75	36
+	33	179.75	36
+	33	180	36
+
+wainscott_mat polygon ec_room2_95D.0.5
+0
+0
+12	36	179.75	37
+	36	180	37
+	33	180	37
+	33	179.75	37
+
+
+# Doorframe geometry.  
+
+wainscott_mat polygon ec_room2_95D.0.0
+0
+0
+12	36	178.75	37
+	36	178.75	36
+	36	179	36
+	36	179	37
+
+wainscott_mat polygon ec_room2_95D.0.1
+0
+0
+12	36	179	37
+	36	179	36
+	33	179	36
+	33	179	37
+
+wainscott_mat polygon ec_room2_95D.0.2
+0
+0
+12	33	179	37
+	33	179	36
+	33	178.75	36
+	33	178.75	37
+
+wainscott_mat polygon ec_room2_95D.0.3
+0
+0
+12	33	178.75	37
+	33	178.75	36
+	36	178.75	36
+	36	178.75	37
+
+wainscott_mat polygon ec_room2_95D.0.4
+0
+0
+12	36	179	36
+	36	178.75	36
+	33	178.75	36
+	33	179	36
+
+wainscott_mat polygon ec_room2_95D.0.5
+0
+0
+12	36	178.75	37
+	36	179	37
+	33	179	37
+	33	178.75	37
+
+
+doorframe_mat polygon ec_room2_A4.0.0
+0
+0
+12	36	179	36.429998
+	36	179	36
+	36	180	36
+	36	180	36.429998
+
+doorframe_mat polygon ec_room2_A4.0.1
+0
+0
+12	36	180	36.429998
+	36	180	36
+	33	180	36
+	33	180	36.429998
+
+doorframe_mat polygon ec_room2_A4.0.2
+0
+0
+12	33	180	36.429998
+	33	180	36
+	33	179	36
+	33	179	36.429998
+
+doorframe_mat polygon ec_room2_A4.0.3
+0
+0
+12	33	179	36.429998
+	33	179	36
+	36	179	36
+	36	179	36.429998
+
+doorframe_mat polygon ec_room2_A4.0.4
+0
+0
+12	36	180	36
+	36	179	36
+	33	179	36
+	33	180	36
+
+doorframe_mat polygon ec_room2_A4.0.5
+0
+0
+12	36	179	36.429998
+	36	180	36.429998
+	33	180	36.429998
+	33	179	36.429998
+
+doorframe_mat polygon ec_room2_956.0.0
+0
+0
+12	42	179	96
+	42	179	0
+	42	180	0
+	42	180	96
+
+doorframe_mat polygon ec_room2_956.0.1
+0
+0
+12	42	180	96
+	42	180	0
+	39	180	0
+	39	180	96
+
+doorframe_mat polygon ec_room2_956.0.2
+0
+0
+12	39	180	96
+	39	180	0
+	39	179	0
+	39	179	96
+
+doorframe_mat polygon ec_room2_956.0.3
+0
+0
+12	39	179	96
+	39	179	0
+	42	179	0
+	42	179	96
+
+doorframe_mat polygon ec_room2_956.0.4
+0
+0
+12	42	180	0
+	42	179	0
+	39	179	0
+	39	180	0
+
+doorframe_mat polygon ec_room2_956.0.5
+0
+0
+12	42	179	96
+	42	180	96
+	39	180	96
+	39	179	96
+
+doorframe_mat polygon ec_room2_958.0.0
+0
+0
+12	0	180	0
+	0	180	96
+	0	179	96
+	0	179	0
+
+doorframe_mat polygon ec_room2_958.0.1
+0
+0
+12	3	180	0
+	3	180	96
+	0	180	96
+	0	180	0
+
+doorframe_mat polygon ec_room2_958.0.2
+0
+0
+12	3	179	0
+	3	179	96
+	3	180	96
+	3	180	0
+
+doorframe_mat polygon ec_room2_958.0.3
+0
+0
+12	0	179	0
+	0	179	96
+	3	179	96
+	3	179	0
+
+doorframe_mat polygon ec_room2_958.0.4
+0
+0
+12	3	179	0
+	3	180	0
+	0	180	0
+	0	179	0
+
+doorframe_mat polygon ec_room2_958.0.5
+0
+0
+12	3	180	96
+	3	179	96
+	0	179	96
+	0	180	96
+
+doorframe_mat polygon ec_room2_9D.0.0
+0
+0
+12	39	179	96
+	39	179	93
+	39	180	93
+	39	180	96
+
+doorframe_mat polygon ec_room2_9D.0.1
+0
+0
+12	39	180	96
+	39	180	93
+	3	180	93
+	3	180	96
+
+doorframe_mat polygon ec_room2_9D.0.2
+0
+0
+12	3	180	96
+	3	180	93
+	3	179	93
+	3	179	96
+
+doorframe_mat polygon ec_room2_9D.0.3
+0
+0
+12	3	179	96
+	3	179	93
+	39	179	93
+	39	179	96
+
+doorframe_mat polygon ec_room2_9D.0.4
+0
+0
+12	39	180	93
+	39	179	93
+	3	179	93
+	3	180	93
+
+doorframe_mat polygon ec_room2_9D.0.5
+0
+0
+12	39	179	96
+	39	180	96
+	3	180	96
+	3	179	96
+
+
+# door
+55door_refl_mat polygon ec_room2_9C5.0.0
+0
+0
+12	39	179	93
+	39	179	0
+	39	180	0
+	39	180	93
+
+55door_refl_mat polygon ec_room2_9C5.0.1
+0
+0
+12	39	180	93
+	39	180	0
+	3	180	0
+	3	180	93
+
+55door_refl_mat polygon ec_room2_9C5.0.2
+0
+0
+12	3	180	93
+	3	180	0
+	3	179	0
+	3	179	93
+
+55door_refl_mat polygon ec_room2_9C5.0.3
+0
+0
+12	3	179	93
+	3	179	0
+	39	179	0
+	39	179	93
+
+55door_refl_mat polygon ec_room2_9C5.0.4
+0
+0
+12	39	180	0
+	39	179	0
+	3	179	0
+	3	180	0
+
+55door_refl_mat polygon ec_room2_9C5.0.5
+0
+0
+12	39	179	93
+	39	180	93
+	3	180	93
+	3	179	93
+
+####################
+
+
+# 2 pieces of paper
+# xform -rz -60 -t 10 46 0
+
+paper_mat polygon left_paper
+0
+0
+12
+                 10                 46             28.4
+              14.25      38.6387840678             28.4
+      23.7762794416      44.1387840678             28.4
+      19.5262794416               51.5             28.4
+
+   
+
+####################
+# Placement of chair
+void instance chair
+7 octs/chair1.oct -rz 180 -t 40 60 0
+0
+0
+
+####################
+# Placement of vase
+#void instance red_vase
+#1 redvase.oct 
+#0
+#0
+
+####################
+# Placement of keyboard 
+
+#!xform -n keyb -rz -90 -t 17 60 30 keyboard.rad
+
+####################
+#green ground plane
+#!xform -n ground ground.rad

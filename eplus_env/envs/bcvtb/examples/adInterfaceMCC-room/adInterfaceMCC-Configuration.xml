@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ADInterfaceMCC>
+
+  <!-- ADInterfaceMCC device -->
+  <Object 
+	  BoardNumber="0" 
+	  ChannelNumber="0" 
+	  ChannelGain="2" 
+	  ChannelOptions="0" 
+	  ApplicationTag="read"/>
+
+  <!-- ADInterfaceMCC device -->
+  <Object 
+	  BoardNumber="0" 
+	  ChannelNumber="0" 
+	  ChannelGain="3" 
+	  ChannelOptions="0" 
+	  ApplicationTag="write"/>
+	  
+</ADInterfaceMCC>

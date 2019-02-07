@@ -1,0 +1,4 @@
+
+void alias skp2A08_material Keyboard_material
+!xform -n group01 group01.rad
+

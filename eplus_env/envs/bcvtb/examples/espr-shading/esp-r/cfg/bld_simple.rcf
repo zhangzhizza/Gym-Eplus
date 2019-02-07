@@ -1,0 +1,11 @@
+*ESP-r visualisation scene configuration file.
+Tue Jan 12 15:47:30 1999 # latest file modification.
+  1 # No. of scenes
+# Scene number  1
+*snm Def_Ext                              # Scene name
+*rnm Def_Ext.rif                          # Rif name
+*srt Def_Ext                              # Scene prefix
+*rde Scene of Def_ for External analysis. # Description
+*rpu External                             # Intended use
+*sceneEND
+*end

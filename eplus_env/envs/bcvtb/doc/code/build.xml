@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="doxygen" default="all">
+  <import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <ant dir=".."   target="clean"/>
+  </target>
+
+  <!-- Cleandoc -->
+  <target name="cleandoc" description="Deletes generated documentation">
+    <delete verbose="true" dir="code"/>
+    <delete>
+      <fileset dir="." includes="doxWarnings.txt"/>
+    </delete>
+  </target>
+
+  <!-- All -->
+  <target name="all" depends="doc" description="Generates the code documentation">
+  </target>
+
+  <!-- Doc -->
+  <target name="doc" depends="cleandoc"
+          description="Generates the code documentation">
+   <exec executable="doxygen" failonerror="true">
+   </exec>
+  </target>
+  
+</project>

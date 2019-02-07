@@ -1,0 +1,155 @@
+# Black glass used to block EC windows
+
+void glass glass_mat
+0
+0
+3 .675 .675 .675 
+
+void glass top_glass_mat
+0
+0
+3 .96 .96 .96 
+ 
+void plastic SB_mat
+0
+0
+5 .85 .85 .85 0 .08
+
+void plastic blinds_mat
+0
+0
+5 .85 .85 .85 0 .08
+
+# basic blah workstation geometry color
+void plastic workstation_mat
+0
+0
+5  0.408 0.365 0.25 0 0
+
+
+# 50% refl mat for exterior vertical fins
+void plastic 50fin_mat
+0
+0
+5 0.500230 0.508854 0.407514 0 0
+
+
+# 60% refl for external horizontal overhang
+void plastic 60gray_overhang_mat
+0
+0
+5 .6 .6 .6 0 0
+
+
+#####
+
+# wall 50% refl
+void plastic 50wall_refl_mat
+0
+0
+5 0.88493 0.871367 0.821512 0 0
+
+void plastic 70ceiling_refl_mat
+0
+0
+5 0.88493 0.871367 0.821512 0 0
+
+void plastic 20floor_refl_mat
+0
+0
+5  0.122925 0.131225 0.142978 0 0
+
+void plastic wainscott_mat
+0
+0
+5 0.049089 0.081041 0.105095 0 0
+
+void plastic doorframe_mat
+0
+0
+5 .3 .3 .3 0 0
+
+void plastic windowframe_mat
+0
+0
+5 .5 .5 .5 0 0
+
+void plastic 55door_refl_mat
+0
+0
+5 .55 .55 .55 0 0
+
+
+
+# White Laminate
+# 41% refl
+void plastic white_laminate1
+0
+0
+5 0.4201 0.41245 0.37895 .02 .25
+
+#measured, from NYT model 
+#void plastic white_laminate1_original
+#0
+#0
+#5 .8402 .8249 .7579 .02 .25
+
+# Pear Wood finish
+# Taken from NYT model
+#void brightfunc pear_xwood_pat
+#4 xgrain woodpat.cal -s .2
+#0
+#1 .2
+#pear_xwood_pat plastic pear_xwood
+#0
+#0
+#5 .4261 .2017 .1033 .035 .1
+#void brightfunc pear_ywood_pat
+#4 ygrain woodpat.cal -s .2
+#0
+#1 .2
+#pear_ywood_pat alias pear_ywood pear_xwood
+#void brightfunc pear_zwood_pat
+#4 zgrain woodpat.cal -s .2
+#0
+#1 .2
+#pear_zwood_pat alias pear_zwood pear_xwood
+
+################## 
+void plastic VDT_screen_off
+0
+0
+5 .02 .02 .02 .01 .07
+
+# Assign a mixfunc with .03 to VDT_screen_refl,
+# alternating with patterned VDT_screen_glow
+
+void plastic VDT_screen_refl
+0
+0
+5 1 1 1 .33 .07
+
+# Set for 250 cd/m^2 maximum luminance
+void glow VDT_screen_glow
+0
+0
+4 1.4 1.4 1.4 0
+
+void plastic VDT_plastic
+0
+0
+5 .2 .2 .2 .02 .12
+
+void plastic key_mat
+0
+0
+5 .35 .3 .2 .02 .1
+
+inherit alias keyboard_mat VDT_plastic
+
+# paper material
+void plastic paper_mat
+0
+0
+5 .75 .75 .75 0 0 
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="ePlus85-variable" default="unitTest">
+  <import file="../../build-common.xml"/>
+
+  <!-- Clean -->
+  <target name="clean" description="Deletes generated files">
+    <delete verbose="true">
+      <fileset dir="."    includes="simulation.log,socket.cfg,utilSocket.log"/>
+      <fileset dir="."    includes="Energy+.ini,Energy+.idd,eplusout.end"/>
+      <fileset dir="."    includes="*.rdd,*.eio,*.rvaudit,*.shd,*.dxf,*.mtd"/>
+      <fileset dir="."    includes="*.end, *.epmidf, audit.out, out.idf, *.epmdet"/>
+      <fileset dir="."    includes="*.eso,*.err,*.mtr,*.bnd,*.mdd,*.audit"/>
+      <fileset dir="."    includes="*.csv,*.svg, *.edd, *.htm"/>
+    </delete>
+    <delete verbose="true" dir="Output"/>
+    <delete verbose="true" dir="Outputs"/>
+  </target>
+  
+  <!-- Unit test -->
+  <target name="unitTest" description="Runs unit tests" if="have.EnergyPlus">
+    <echo message="Starting unit test in ${basedir}"/>
+    <exec executable="${ptUnitTestExecutable}" 
+	  failonerror="true"
+	  vmlauncher="false"> <!-- vmlauncher="false" is needed for Windows -->
+      <arg line="${ptExecutableFlags} system.xml"/>
+    </exec>
+  </target>
+
+</project>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>5.10. Custom program using a system command</title><link rel="stylesheet" type="text/css" href="bcvtb-manual.css"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="index.xhtml" title="Building Controls Virtual Test Bed"/><link rel="up" href="configuration.xhtml" title="Chapter 5. Configuring programs for use with the BCVTB"/><link rel="prev" href="tit-FMUCon.xhtml" title="5.9. Functional Mock-up Unit for Co-Simulation Import"/><link rel="next" href="tit-RadianceCon.xhtml" title="5.11. Radiance"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5.10. Custom program using a system command</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tit-FMUCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><th width="60%" align="center">Chapter 5. Configuring programs for use with the BCVTB</th><td width="20%" align="right"> <a accesskey="n" href="tit-RadianceCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr></table></div><p ><div class="search"><form name="gs" action="http://google1.lbl.gov/search" method="get">
+	Search
+	<input maxlength="256" size="40" name="q"/><input type="hidden" name="btnG" class="submit"/><input type="hidden" name="site" value="BCVTB"/><input type="hidden" name="output" value="xml_no_dtd"/><input type="hidden" name="as_dt" value="i"/><input type="hidden" name="client" value="default_frontend"/><input type="hidden" name="oe" value="UTF-8"/><input type="hidden" name="proxystylesheet" value="default_frontend"/></form></div></p><div  class="breadcrumbs"><span class="breadcrumb-link"><a href="index.xhtml">Building Controls Virtual Test Bed</a></span> &gt; <span class="breadcrumb-link"><a href="configuration.xhtml">Configuring programs for use with the BCVTB</a></span> &gt; <span class="breadcrumb-node">Custom program using a system command</span></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="tit-CustomExeCon"/>5.10. Custom program using a system command</h2></div></div></div>
+  
+  <p>
+   This page explains how to call a custom program from the
+   BCVTB at each time step by using the
+   <code class="code">SystemCommand</code> actor. This allows for example
+   to call a batch file (on Windows), a shell script (on Mac
+   or Linux), or any other executable program. The input to
+   this programs can be done either through program flags,
+   or by writing an input file from Ptolemy II, using actors
+   from the library <code class="code">Actors-&gt;IO</code>.
+  </p>
+  <p>
+   To explain how to use this actor, we will show how to
+   call a program that implements a proportional controller
+   with output limitation for a room with closed loop
+   control. The program is implemented in the C language.
+   (Note that such a controller could be directly
+   implemented in Ptolemy II. However, for illustration, we
+   implemented this controller in a C program.) The program
+   writes the control signal to a text file, which will then
+   be parsed by Ptolemy II. We assume that the program needs
+   to be called with two arguments, i.e., the numerical
+   values of the control error <code class="code">e</code> and the
+   proportional gain <code class="code">kP</code>, as
+  </p>
+<pre class="screen">  pcontroller e kP</pre>
+  <p>
+   where the numerical values <code class="code">e</code> and
+   <code class="code">kP</code> may change at each call. We assume that
+   the program writes the output file
+   <code class="code">output.txt</code> that needs to be read by Ptolemy
+   II to receive the control signal. We also assume that the
+   program returns the exit value <code class="code">0</code> if no error
+   occurred, or non-zero otherwise.
+  </p>
+  <p>
+   The next sections explain how to build such a system.
+  </p>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1395"/>5.10.1. Create a Ptolemy II model</h3></div></div></div>
+   
+   <p>
+    First, build a Ptolemy II block diagram that includes
+    the <code class="code">SystemCommand</code> actor from the library
+    <code class="code">Actors-&gt;Simulator</code>. Such a system model
+    is implemented in the file
+    <code class="code">bcvtb/examples/systemCommand/system.xml</code>
+    that is shown in
+    <a class="xref" href="tit-CustomExeCon.xhtml#configurationPtolemySystemCommand" title="Figure 5.33.  Ptolemy II system model that links the SystemCommand actor, which calls a C program to compute the new room temperature, with actors that parse output files and compute the room temperature.">Figure 5.33</a>
+    .
+   </p>
+   <p>
+    </p><div class="figure"><a id="configurationPtolemySystemCommand"/><p class="title"><strong>Figure 5.33. 
+	Ptolemy II system model that links the <code class="code">SystemCommand</code> actor, which calls a C program to compute the new room temperature, with actors that parse output files and compute the room temperature.
+	    </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationPtolemySystemCommand.png" alt="Ptolemy II system model that links the SystemCommand actor, which calls a C program to compute the new room temperature, with actors that parse output files and compute the room temperature."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1411"/>5.10.2. Configure the ports of the <code class="code">SystemCommand</code> actor</h3></div></div></div>
+   
+   <p>
+    The <code class="code">SystemCommand</code> actor has three
+    predefined output ports: The port <code class="code">exitValue</code>
+    outputs the exit value of the program. The port
+    <code class="code">output</code> contains the standard output stream
+    of the program, and the port <code class="code">error</code> contains
+    the standard error stream of the program.
+   </p>
+   <p>
+    Next, we will configure the input ports of the
+    <code class="code">SystemCommand</code> actor by right-clicking on
+    the actor, and selecting
+    <code class="code">Customize-&gt;Ports</code>. This will show the
+    following window:
+   </p>
+   <p>
+    </p><div class="figure"><a id="configurationPtolemySystemCommandNoPorts"/><p class="title"><strong>Figure 5.34. 
+	    Input form that is used to add new ports to the actor.
+	    </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationPtolemySystemCommandNoPorts.png" alt="Input form that is used to add new ports to the actor."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    Next, click the
+    <span class="guibutton">Add</span>
+    button and enter the input ports <code class="code">e</code> and
+    <code class="code">kP</code>. The port names can be selected
+    arbitrarily by the user, and there can be as many input
+    ports as needed. After adding the ports, the window
+    should look as follows:
+   </p>
+   <p>
+    </p><div class="figure"><a id="configurationPtolemySystemCommandPorts"/><p class="title"><strong>Figure 5.35. 
+	    Input form after new ports have been added to the actor.
+	    </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationPtolemySystemCommandPorts.png" alt="Input form after new ports have been added to the actor."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+  </div>
+  <div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="d5e1442"/>5.10.3. Configure the parameters of the <code class="code">SystemCommand</code> actor</h3></div></div></div>
+   
+   <p>
+    Finally, configure the parameters of the
+    <code class="code">SystemCommand</code> actor by double-clicking on
+    its icon. This will show an input form where various
+    parameters of the actor can be configured. The
+    parameters of the <code class="code">SystemCommand</code> actor are
+    as desribed in
+    <a class="xref" href="tit-CustomExeCon.xhtml#tabParSysCom" title="Table 5.3. Parameters of the SystemCommand actor.">Table 5.3, “Parameters of the <code class="code">SystemCommand</code> actor.”</a>
+    .
+   </p>
+   <p>
+    </p><div class="table"><a id="tabParSysCom"/><p class="title"><strong>Table 5.3. Parameters of the <code class="code">SystemCommand</code> actor.</strong></p><div class="table-contents">
+     
+     <table summary="Parameters of the SystemCommand actor." border="1"><colgroup><col width="1*" align="left"/><col width="3*" align="left"/></colgroup><thead><tr><th align="left">Parameter</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left">
+programName
+</td><td align="left">
+The name of the executable that starts the simulation.
+</td></tr><tr><td align="left">
+programArguments
+</td><td align="left">
+Arguments needed by the simulation. Text arguments need to be enclosed in apostrophes.
+</td></tr><tr><td align="left">
+workingDirectory
+</td><td align="left">
+Working directory of the program. For the current directory, enter a period.
+</td></tr><tr><td align="left">
+simulationLogFile
+</td><td align="left">
+Name of the file to which the BCVTB will write the console output and error stream that it receives from the simulation program. Use a separate file for each simulation program. This file typically shows what may have caused an error.
+</td></tr><tr><td align="left">
+showConsoleWindow
+</td><td align="left">
+Check box; if activated, a separate window will be opened that displays the console output of the program. 
+</td></tr></tbody></table>
+    </div></div><p><br class="table-break"/>
+   </p>
+   <p>
+    To pass the current value of port variables to the
+    program as its argument, configure the actor as follows:
+   </p>
+   <p>
+    </p><div class="figure"><a id="configurationPtolemySystemCommandParameters"/><p class="title"><strong>Figure 5.36. 
+	    Configuration of the parameters of the <code class="code">SystemCommand</code> actor.
+	    </strong></p><div class="figure-contents">
+     <div class="mediaobject"><img src="img/configurationPtolemySystemCommandParameters.png" alt="Configuration of the parameters of the SystemCommand actor."/></div>
+     
+    </div></div><p><br class="figure-break"/>
+   </p>
+   <p>
+    This configuration will cause Ptolemy II to call the
+    command <code class="code">pcontroller $e $kP</code> at each time
+    step, with the values <code class="code">$e</code> and
+    <code class="code">$kP</code> being replaced by the current value of
+    the input token. There are also two built-in variables
+    called <code class="code">$time</code>, which is the current
+    simulation time, and <code class="code">$iteraton</code> which is the
+    current iteration step of Ptolemy II. No port needs to
+    be defined for these two variables.
+   </p>
+   <p>
+    For example, for the configuration above, if at some
+    time step the input ports are <code class="code">e=1</code> and
+    <code class="code">kP=2</code>, then the BCVTB will fire the command
+   </p>
+<pre class="screen">  pcontroller 1 2</pre>
+   <p>
+    and wait until the program <code class="code">pcontroller</code>
+    terminates. Upon successful termination, the port
+    <code class="code">exitValue</code> will have the token
+    <code class="code">0</code>.
+   </p>
+   <p>
+    For an explanation of all parameters of the
+    <code class="code">SystemCommand</code> actor, right-click on the
+    actor and select <code class="code">Documentation-&gt;Get
+    Documentation</code>.
+   </p>
+  </div>
+ </div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tit-FMUCon.xhtml"><img src="images/prev.gif" alt="Prev"/></a> </td><td width="20%" align="center"><a accesskey="u" href="configuration.xhtml"><img src="images/up.gif" alt="Up"/></a></td><td width="40%" align="right"> <a accesskey="n" href="tit-RadianceCon.xhtml"><img src="images/next.gif" alt="Next"/></a></td></tr><tr><td width="40%" align="left" valign="top">5.9. Functional Mock-up Unit for Co-Simulation Import </td><td width="20%" align="center"><a accesskey="h" href="index.xhtml"><img src="images/home.gif" alt="Home"/></a></td><td width="40%" align="right" valign="top"> 5.11. Radiance</td></tr></table></div></body></html>

@@ -12,8 +12,10 @@ is no need to re-install it since this repository already had it. But BCVTB-1.6.
 with Java-1.8. Make sure you have Java-1.8 on your OS. 
 
 ```sh
-$ cd Gym-Eplus
-$ pip install -e .
+$ virtualenv virt_env --python=python3
+$ source virt_env/bin/activate
+$ pip install gym
+$ pip install -e Gym-Eplus/
 ```
 
 ### Usage
@@ -38,12 +40,12 @@ EnergyPlus logs its own output. The output will be stored under the directory $p
 import gym;
 import eplus_env;
 
-env = gym.make('Eplus-demo-v0');
+env = gym.make('Eplus-demo-v1');
 curSimTime, ob, isTerminal = env.reset(); # Reset the env (creat the EnergyPlus subprocess)
 while not isTerminal:
     action = [20, 20];
     curSimTime, ob, isTerminal = env.step(action);
-curSimTime, ob, isTerminal = env.reset(); # Reset the env (creat a new EnergyPlus subprocess)
+curSimTime, ob, isTerminal = env.reset(); # Start a new episode (creat a new EnergyPlus subprocess)
 while not isTerminal:
     action = [20, 20];
     curSimTime, ob, isTerminal = env.step(action);

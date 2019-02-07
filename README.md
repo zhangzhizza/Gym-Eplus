@@ -1,5 +1,5 @@
 # Gym-Eplus
-
+## This environment has been only tested in Ubuntu 16.04 OS.
 ###
 This environment wraps the EnergyPlus-v-8-6 into the OpenAI gym environment interface.
 ### Installation
@@ -23,7 +23,7 @@ based on the guidelines here (https://simulationresearch.lbl.gov/bcvtb/releases/
 #### Create a new environment
 A new environment should be registered in eplus_env/__init__.py file.
 #### EnergyPlus simulation output
-EnergyPlus logs its own output. The output will be stored under the directory $pwd/Gym-Eplus-runX/Gym-Eplus-sub_runX/output. The "sub_run" directory is the directory for each episode that the environment runs.
+EnergyPlus logs its own output. The output will be stored under the directory $pwd/{environment name}-run{x}/{environment name}-sub_run{x}/output. The "sub_run" directory is the directory for each episode (each EnergyPlus simulation run period) that the environment runs.
 
 #### Public attributes
 * start_year: EnergyPlus simulation start year, int.

@@ -1,5 +1,5 @@
 #Wrap the EnergyPLus simulator into the Openai gym env
-#Author: Zhiang Zhang (zhiangz@andrew.cmu.edu)
+#Author: Zhiang Zhang
 
 import socket              
 import os

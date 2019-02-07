@@ -23,7 +23,7 @@ from ..util.time import (get_hours_to_now, get_time_string, get_delta_seconds,
 
 YEAR = 1991 # Non leap year
 CWD = os.getcwd();
-LOG_LEVEL_MAIN = 'DEBUG';
+LOG_LEVEL_MAIN = 'INFO';
 LOG_LEVEL_EPLS = 'ERROR';
 LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 

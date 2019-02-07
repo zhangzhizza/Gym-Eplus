@@ -1,5 +1,5 @@
 # Gym-Eplus
-## This environment has been only tested in Ubuntu 16.04 OS.
+### This environment has been only tested in Ubuntu 16.04 OS.
 ###
 This environment wraps the EnergyPlus-v-8-6 into the OpenAI gym environment interface.
 ### Installation

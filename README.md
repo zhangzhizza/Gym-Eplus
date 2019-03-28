@@ -51,3 +51,5 @@ while not isTerminal:
     curSimTime, ob, isTerminal = env.step(action);
 env.end_env(); # Safe termination of the environment after use. 
 ```
+### Related Publications
+1. Zhiang Zhang and Khee Poh Lam. 2018. Practical implementation and evaluation of deep reinforcement learning control for a radiant heating system. In Proceedings of the 5th Conference on Systems for Built Environments (BuildSys '18). ACM, New York, NY, USA, 148-157. DOI: https://doi.org/10.1145/3276774.3276775

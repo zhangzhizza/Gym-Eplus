@@ -479,16 +479,18 @@ class EplusEnv(Env):
             if effectiveContent.lower() == 'runperiod':
                 tgtIndex = i;
                 break;
+                
+        # Start Month
+        ret.append(int(contents[tgtIndex + 2].strip().split('!')[0].strip().split(',')[0].strip().split(';')[0]));
+        # Start Date
+        ret.append(int(contents[tgtIndex + 3].strip().split('!')[0].strip().split(',')[0].strip().split(';')[0]));
+        # End Month
+        ret.append(int(contents[tgtIndex + 5].strip().split('!')[0].strip().split(',')[0].strip().split(';')[0]));
+        # End Date
+        ret.append(int(contents[tgtIndex + 6].strip().split('!')[0].strip().split(',')[0].strip().split(';')[0]));
         
-        for i in range(2, 6):
-            ret.append(int(contents[tgtIndex + i].strip()
-                                                 .split('!')[0]
-                                                 .strip()
-                                                 .split(',')[0]
-                                                 .strip()
-                                                 .split(';')[0]));
         # Start weekday
-        ret.append(WEEKDAY_ENCODING[contents[tgtIndex + i + 1].strip()
+        ret.append(WEEKDAY_ENCODING[contents[tgtIndex + 8].strip()
                                                           .split('!')[0]
                                                           .strip()
                                                           .split(',')[0]

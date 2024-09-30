@@ -1,5 +1,6 @@
 # Gym-Eplus
 ### This environment has been only tested in Ubuntu 16.04 OS.
+### It is highly recommended to use official EnergyPlus Python interface. This project was created before the official one. The project is no-longer maintained.
 ###
 This environment wraps the EnergyPlus-v-8-6 into the OpenAI gym environment interface.
 ### Installation
